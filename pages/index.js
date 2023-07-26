@@ -55,7 +55,7 @@ function Home({ title, subline, paragraph, button, button_text, tabs, contact, u
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
-          videoRef.current.src = "./videos/clip_center_comp.m4v";
+          // Load and play the video when it becomes visible
           videoRef.current.load();
           videoRef.current.play().catch(error => console.error('Video play failed:', error));
         } else {
@@ -126,7 +126,10 @@ function Home({ title, subline, paragraph, button, button_text, tabs, contact, u
         </div>
 
         <div className={styles.videobox}>
-          <video ref={videoRef} autoPlay muted loop playsInline></video>
+        <video ref={videoRef} autoPlay muted loop playsInline>
+          <source src="./videos/clip_center_comp.m4v" type="video/mp4" />
+          <source src="./videos/clip_center_comp.webm" type="video/webm" />
+        </video>
           <Image src="./images/icon.svg" alt="icon" width={120} height={68} className={styles.icon} />
         </div> 
 
