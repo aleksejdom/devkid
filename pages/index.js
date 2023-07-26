@@ -97,6 +97,7 @@ function Home({ title, subline, paragraph, button, button_text, tabs, contact, u
         <title>Dev-Kid | Design und Webentwicklung</title>
         <meta name="description" content="Ist Ihnen eine Digitalagentur zu teuer? Als Freelancer bin ich spezialisiert auf Webentwicklung, User Experience (UX) Design und der Erstellung beeindruckender 3D-Welten und Strategien."/>
         <meta name="keywords" content="Digitalagentur Stuttgart, Webdesign, Online Marketing, SEO, Webentwicklung, digitale Strategien, moderne Webseiten, React Anwendungen, VR Entwicklung, VR Video, AR Entwicklung, Virtual Reality Technologie, Programmierung von Webseiten, 3D Modellierung, 3D Visualisierung, Grafikdesign, Webseite Preisvergleich, VR Anwendung, 360 Grad Video, kreative Webseiten, 3D im Web" />
+        <meta name="google-site-verification" content="LML3tjqodXK6Ngu6TbcYkSz3LXB-AmQdruPA5dEN1B0" />
         <meta name="robots" content="index, follow" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
