@@ -13,7 +13,7 @@ export default function Contact_Box( {contact, button} ) {
         <p>{ RichText.asText(contact.contact_number) }</p>
         <a href={`${button}?subject=Dev-Kid - Anfrage`} target='_self'><p>{ RichText.asText(contact.contact_email) }</p></a>
       </div>
-      <Image src='/images/icon.svg' alt="icon" width={120} height={68} className={styles.icon} />
+      <Image src='./images/icon.svg' alt="icon" width={120} height={68} className={styles.icon} />
     </div>
   )
 }

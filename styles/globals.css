@@ -19,8 +19,8 @@ a {
 
 @font-face {
   font-family: 'Avenir';
-  src: url('/fonts/AvenirLTStd-Roman.woff2') format('woff2'),
-      url('/fonts/AvenirLTStd-Roman.woff') format('woff');
+  src: url('./fonts/AvenirLTStd-Roman.woff2') format('woff2'),
+      url('./fonts/AvenirLTStd-Roman.woff') format('woff');
   font-weight: normal;
   font-style: normal;
   font-display: swap;
@@ -28,8 +28,8 @@ a {
 
 @font-face {
   font-family: 'DINPro';
-  src: url('/fonts/DINPro-Bold.woff2') format('woff2'),
-      url('/fonts/DINPro-Bold.woff') format('woff');
+  src: url('./fonts/DINPro-Bold.woff2') format('woff2'),
+      url('./fonts/DINPro-Bold.woff') format('woff');
   font-weight: bold;
   font-style: normal;
   font-display: swap;
@@ -130,7 +130,7 @@ a.cta-button {
 }
 
 a.cta-button::after {
-  content: url('/images/icon.svg');
+  content: url('./images/icon.svg');
   transform: scale(0.3);
   margin-left: 15px;
   height: 25px;

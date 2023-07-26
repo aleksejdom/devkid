@@ -24,7 +24,7 @@
 }
 
 .accordion h3.accordionTitle::before {
-  content: url('/images/icon.svg');
+  content: url('./images/icon.svg');
   width: 120px;
   height: 68px;
   margin-bottom: 0rem;
@@ -81,14 +81,14 @@
 }
 
 .arrowDown {
-  content: url('/images/arrow-down.svg');
+  content: url('./images/arrow-down.svg');
   height: 20px;
   width: 20px;
   /* transition: transform 0.3s ease; */
 }
 
 .arrowUp {
-  content: url('/images/arrow-down.svg'); /* Use the same arrow-down.svg image */
+  content: url('./images/arrow-down.svg'); /* Use the same arrow-down.svg image */
   height: 20px;
   width: 20px;
   transform: rotate(180deg); /* Rotate the arrow icon by 180 degrees */
