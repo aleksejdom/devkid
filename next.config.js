@@ -5,6 +5,7 @@ const nextConfig = {
   images: {
     domains: ['images.prismic.io'],
   },
+  basePath: process.env.NODE_ENV === 'production' ? '/<devkid>' : '',
 }
 
 module.exports = nextConfig
