@@ -11,6 +11,7 @@ import Referenzen_Box from '../components/referenzen_box/Referenzen_Box';
 import Footer from '../components/footer/Footer';
 import Accordion from '../components/accordion/Accordion';
 import Link from 'next/link';
+import Script from 'next/script'
 
 
 // Prismic API Endpunkt
@@ -100,12 +101,13 @@ function Home({ title, subline, paragraph, button, button_text, tabs, contact, u
     
   return (
     <>
+      <Script id="cookieyes" src="https://cdn-cookieyes.com/client_data/f38bad507948038fa664f720/script.js" strategy="beforeInteractive" />
+
       <Head>
         <title>Dev-Kid | Design und Webentwicklung</title>
         <meta name="description" content="Ist Ihnen eine Digitalagentur zu teuer? Als Freelancer bin ich spezialisiert auf Webentwicklung, User Experience (UX) Design und der Erstellung beeindruckender 3D-Welten und Strategien."/>
         <meta name="keywords" content="Digitalagentur Stuttgart, Webdesign, Online Marketing, SEO, Webentwicklung, digitale Strategien, moderne Webseiten, React Anwendungen, VR Entwicklung, VR Video, AR Entwicklung, Virtual Reality Technologie, Programmierung von Webseiten, 3D Modellierung, 3D Visualisierung, Grafikdesign, Webseite Preisvergleich, VR Anwendung, 360 Grad Video, kreative Webseiten, 3D im Web" />
         <meta name="robots" content="index, follow" />
-        <script id="cookieyes" type="text/javascript" src="https://cdn-cookieyes.com/client_data/f38bad507948038fa664f720/script.js"></script>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
