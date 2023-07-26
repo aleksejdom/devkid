@@ -29,9 +29,10 @@
 }
 
 .uspBox .item img {
-  width: 100%;
-  height: 150px;
-  object-fit: contain;
+  width: 100%!important;
+  height: 150px!important;
+  object-fit: contain!important;
+  position: relative!important;
 }
 
 .uspBox .item p {

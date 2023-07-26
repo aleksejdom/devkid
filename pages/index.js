@@ -110,10 +110,10 @@ function Home({ title, subline, paragraph, button, button_text, tabs, contact, u
 
       <nav>
         <ul>
-          <li><Link href="/"><a>Startseite</a></Link></li>
-          <li><Link href="#leistungs-tab"><a>Leistungen</a></Link></li>
-          <li><Link href={`${button}?subject=Dev-Kid - Anfrage`}><a>Kontakt</a></Link></li>
-          <li className='aktion'><Link href="#footer"><a>Aktion</a></Link></li>
+          <li><Link href="/">Startseite</Link></li>
+          <li><Link href="#leistungs-tab" onClick={scrollToLeistungsTab}>Leistungen</Link></li>
+          <li><Link href={`${button}?subject=Dev-Kid - Anfrage`}>Kontakt</Link></li>
+          <li className='aktion'><Link href="#footer" onClick={scrollToFooter}>Aktion</Link></li>
         </ul>
       </nav>
 
@@ -142,10 +142,10 @@ function Home({ title, subline, paragraph, button, button_text, tabs, contact, u
        
       <main className={styles.main}>
         <Leistungs_Tab tabs={tabs} id="leistungs-tab" ref={leistungsTabRef}/>
-         <Contact_Box contact={contact} button={button}/>
-         <Usp_Box usp={usp}/>
-         <Referenzen_Box referenzen={referenzen} referenzenContent={referenzenContent} />
-         <Accordion accordion={accordion} />
+        <Contact_Box contact={contact} button={button}/>
+        <Usp_Box usp={usp}/>
+        <Referenzen_Box referenzen={referenzen} referenzenContent={referenzenContent} />
+        <Accordion accordion={accordion} />
       </main>
 
       <Footer footer={footer} id="footer" ref={footerRef} />

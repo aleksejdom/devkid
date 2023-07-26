@@ -15,10 +15,10 @@ const Footer = forwardRef(({footer}, ref) => {
             </div>
             <ul className={styles.footerNav}>
               <li>
-                <Link href="/impressum"><a>Impressum</a></Link>
+                <Link href="/impressum">Impressum</Link>
               </li>
               <li>
-                <Link href="/datenschutz"><a>Datenschutz</a></Link>
+                <Link href="/datenschutz">Datenschutz</Link>
               </li>
             </ul>
           </div>

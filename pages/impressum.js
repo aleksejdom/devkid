@@ -23,12 +23,12 @@ function Impressum({button, footer}) {
         <ul>
           <li>
             <Link href="/">
-              <a>Digitalagentur</a>
+              Digitalagentur
             </Link>
           </li> 
           <li>
             <Link href={`${button}?subject=Dev-Kid | Digitalagentur Stuttgart - Anfrage`}>
-              <a target="">Kontakt</a>
+              Kontakt
             </Link>
           </li>
           <li className='aktion'>
