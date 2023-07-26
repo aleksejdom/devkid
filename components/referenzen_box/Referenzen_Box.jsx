@@ -6,6 +6,8 @@ import 'swiper/css/navigation';
 import styles from './Referenzen_Box.module.css';
 import { RichText } from 'prismic-reactjs';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
+import Image from 'next/image';
+
 
 
 SwiperCore.use([Navigation]);
@@ -43,22 +45,22 @@ export default function Referenzen_Box({referenzen, referenzenContent}) {
         <h3>Referenzen</h3>
         <div className={styles.referenzenItems}>
           <div className={styles.referenzenNavs}>
-            <img 
-              src="./images/arrow.svg" 
+            <Image 
+              src="/images/arrow.svg" 
               alt="arrow" 
               className={styles.referenzenButton} 
               onClick={prevSlide}
               width={35}
               height={27}
             />
-            <img 
-              src="./images/arrow.svg" 
+            <Image 
+              src="/images/arrow.svg" 
               alt="arrow" 
               className={styles.referenzenButton} 
               onClick={nextSlide}
               width={35}
               height={27}
-            />             
+            />                    
           </div>
           <Swiper
             ref={swiperRef}

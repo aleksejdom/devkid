@@ -110,7 +110,7 @@ function Home({ title, subline, paragraph, button, button_text, tabs, contact, u
 
       <nav>
         <ul>
-          <li><Link href="/"><a href="/" target="_self">Startseite</a></Link></li>
+          <li><Link href="/"><a>Startseite</a></Link></li>
           <li><Link href="#leistungs-tab"><a>Leistungen</a></Link></li>
           <li><Link href={`${button}?subject=Dev-Kid - Anfrage`}><a>Kontakt</a></Link></li>
           <li className='aktion'><Link href="#footer"><a>Aktion</a></Link></li>
