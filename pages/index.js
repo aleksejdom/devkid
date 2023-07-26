@@ -40,26 +40,7 @@ function Home({ title, subline, paragraph, button, button_text, tabs, contact, u
     if (footerRef.current) {
       footerRef.current.scrollIntoView({ behavior: 'smooth' });
     }
-  };
-
-
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        const { isIntersecting } = entry;
-        if (isIntersecting) {
-          videoRef.current.src = "./videos/clip_center_comp.m4v";
-          videoRef.current.load();
-          observer.disconnect();
-        }
-      });
-    });
-
-    observer.observe(videoRef.current);
-
-    return () => observer.disconnect();
-  }, []);
+  }; 
 
   // Change the color every 4 seconds
   useEffect(() => {

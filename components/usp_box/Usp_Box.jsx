@@ -9,7 +9,7 @@ export default function Usp_Box({usp}) {
       <div className={styles.items}> 
         {usp.map((item, index) => (
           <div className={styles.item} key={`usp-item-${index}`}>
-            <Image src={item.usp_image.url} alt={item.usp_image.alt} layout='fill' objectFit='cover' />
+            <Image src={item.usp_image.url} alt='usps' layout='fill' objectFit='cover' />
             <p>{RichText.asText(item.usp_title)}</p>
           </div>
         ))}
