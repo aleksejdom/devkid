@@ -126,7 +126,7 @@ function Home({ title, subline, paragraph, button, button_text, tabs, contact, u
         </div>
 
         <div className={styles.videobox}>
-          <video ref={videoRef} autoPlay muted loop ></video>
+          <video ref={videoRef} autoPlay muted loop playsInline></video>
           <Image src="./images/icon.svg" alt="icon" width={120} height={68} className={styles.icon} />
         </div> 
 
