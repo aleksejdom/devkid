@@ -32,7 +32,7 @@
 }
 
 .referenzenWrapper h3::before {
-  content: url('./images/icon.svg');
+  content: url('/images/icon.svg');
   width: 120px;
   height: 68px;
   margin-bottom: 0rem;

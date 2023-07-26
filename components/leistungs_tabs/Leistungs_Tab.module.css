@@ -36,7 +36,7 @@
 .leistungs-tab .tab-tabs ul li.activeTab::before {
   content: ''; 
   display: inline-block;
-  background-image: url('./images/icon-pyramid.svg');
+  background-image: url('/images/icon-pyramid.svg');
   background-size: contain;
   background-repeat: no-repeat;
   width: 160px;
@@ -55,7 +55,7 @@
 }
 
 .leistungs-tab .icon::before {
-  content: url('./images/icon.svg'); 
+  content: url('/images/icon.svg'); 
   width: 120px;
   height: 68px;
   margin-bottom: 0rem;
