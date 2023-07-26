@@ -67,7 +67,7 @@ p.subline {
   line-height: 1.2;
   font-family: 'Avenir', sans-serif;
   word-break: break-word;
-  hyphens: auto;
+  hyphens: none;
   font-style: italic;
 }
 
