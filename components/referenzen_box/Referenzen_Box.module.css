@@ -1,0 +1,124 @@
+.referenzenBox {
+  width: 100%;
+  height: 100%;
+  padding-top: 2rem;
+  padding-bottom: 4rem;
+  box-sizing: border-box;
+  background: #000000;
+  position: relative;
+  margin-left: calc( -100vw / 2 + 100% / 2 ) !important;
+  margin-right: calc( -100vw / 2 + 100% / 2 ) !important;
+  max-width: 100vw !important;
+  width: 100vw !important;
+  overflow: hidden;
+  transition: background-color 2.5s ease;
+}
+
+.referenzenWrapper {
+
+}
+
+.referenzenWrapper h3 {
+  font-size: 52px;
+  font-family: 'DINPro', sans-serif;
+  letter-spacing: 1px;
+  max-width: 715px;
+  margin-bottom: 25px;
+  line-height: 1; 
+  display: flex;
+  flex-direction: column;
+  padding-left: 6rem;
+  box-sizing: border-box;
+}
+
+.referenzenWrapper h3::before {
+  content: url('/images/icon.svg');
+  width: 120px;
+  height: 68px;
+  margin-bottom: 0rem;
+  transform: scale(0.6) translateX(-2rem);
+}
+
+.referenzenItems {
+  position: relative;
+  margin-top: 6rem;
+}
+
+.referenzenItemsElements {
+  display: grid;
+  margin-top: 2rem;
+  grid-template-columns: repeat(3, 33.333%);
+  gap: 0.5rem;
+  padding-top: 1rem;
+  box-sizing: border-box;
+}
+
+.referenzenItem {
+  display: flex;
+  flex-direction: column;
+  max-width: 100%;
+}
+
+.referenzenItem img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; 
+}
+
+.referenzenItem p {
+  font-family: 'DINPro', sans-serif;
+  font-size: 21px;
+  margin-left: 2rem;
+  margin-top: 1rem;
+}
+
+.referenzenNavs {
+  display: flex;
+  position: absolute;
+  right: 2rem;
+  top: -3.5rem;
+}
+
+img.referenzenButton {
+  transform: rotate(180deg);
+  width: 50px; 
+  cursor: pointer;
+}
+
+img.referenzenButton:last-of-type { 
+  transform: rotate(0deg);
+}
+
+.referenzenContent {
+  margin-top: 4rem; 
+  padding-left: 6rem;
+  box-sizing: border-box;
+  max-width: 860px;
+}
+
+.referenzenContent h3 {
+  font-family: 'DINPro', sans-serif;
+  margin: 0;
+  font-size: 34px;
+  margin-bottom: 25px;
+}
+.referenzenContent p {
+  font-family: 'Avenir', sans-serif;
+  line-height: 1.6;
+  font-size: 18px;
+  hyphens: none;
+}
+
+@media (max-width: 768px) {
+  .referenzenContent {
+    margin-top: 4rem; 
+    padding-left: 2rem;
+    max-width: 350px;
+  }
+  .referenzenWrapper h3 { 
+    padding-left: 2rem;
+  }
+  .referenzenItems { 
+    margin-top: 9rem;
+  }
+}

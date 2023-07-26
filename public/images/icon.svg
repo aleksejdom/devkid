@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="120" height="68" viewBox="0 0 120 68">
+  <g id="icon" transform="translate(-1742 -206)">
+    <path id="Polygon_1" data-name="Polygon 1" d="M40,0,80,68H0Z" transform="translate(1782 206)" fill="#7df2f3"/>
+    <g id="Polygon_2" data-name="Polygon 2" transform="translate(1797 253) rotate(180)" fill="none">
+      <path d="M27.5,0,55,47H0Z" stroke="none"/>
+      <path d="M 27.5 5.940456390380859 L 5.231117248535156 44 L 49.76888275146484 44 L 27.5 5.940456390380859 M 27.5 0 L 55 47 L 0 47 L 27.5 0 Z" stroke="none" fill="#7df2f3"/>
+    </g>
+  </g>
+</svg>

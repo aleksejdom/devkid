@@ -1,0 +1,57 @@
+.uspBox {
+  width: 100%;
+  height: 100%;
+  background: #ffffff;
+  color: #000000; 
+  margin-top: 4rem;
+  margin-left: calc( -100vw / 2 + 100% / 2 ) !important;
+  margin-right: calc( -100vw / 2 + 100% / 2 ) !important;
+  max-width: 100vw !important;
+  width: 100vw !important;
+  overflow: hidden;
+}
+
+.uspBox .items {
+  max-width: 860px;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  padding: 2.5rem;
+  box-sizing: border-box;
+}
+
+.uspBox .item {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 0 2rem;
+  box-sizing: border-box;
+}
+
+.uspBox .item img {
+  width: 100%;
+  height: 150px;
+  object-fit: contain;
+}
+
+.uspBox .item p {
+  margin: 0;
+  font-family: 'DINPro', sans-serif;
+  text-align: center;
+  line-height: 1.1;
+  margin-top: 15px;
+  hyphens: none;
+  font-size: 18px;
+}
+
+@media (max-width: 768px) {
+  .uspBox .items {
+    flex-direction: column;
+  }
+  .uspBox .item {
+    margin-bottom: 2rem;
+  }
+  .uspBox .item:last-of-type {
+    margin-bottom: 0;
+  }
+}
