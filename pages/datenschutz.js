@@ -22,7 +22,7 @@ function Datenschutz({button, footer}) {
         <ul>
           <li>
             <Link href="/">
-              Digitalagentur
+              Startseite
             </Link>
           </li> 
           <li>

@@ -209,6 +209,17 @@
   .mainText h5,
   .mainText h6 {
     max-width: 100%;
+    hyphens: auto;
+  }
+
+  .mainText {
+    padding: 4rem 2rem 2rem;
+  }
+  .mainText h3 {
+    margin-bottom: 5px;
+  }
+  .mainText h2 {
+    margin-top: 2rem;
   }
 }
 

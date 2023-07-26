@@ -23,7 +23,7 @@ function Impressum({button, footer}) {
         <ul>
           <li>
             <Link href="/">
-              Digitalagentur
+              Startseite
             </Link>
           </li> 
           <li>
@@ -52,7 +52,7 @@ function Impressum({button, footer}) {
         <p>Die Europäische Kommission stellt eine Plattform zur Online-Streitbeilegung (OS) bereit: </p>
           <a href="https://ec.europa.eu/consumers/odr/" target="_blank" rel="noreferrer noopener">https://ec.europa.eu/consumers/odr/</a>.
         <p>Unsere E-Mail-Adresse finden Sie oben im Impressum.</p>
-        <h3>Verbraucherstreitbeilegung/Universalschlichtungsstelle</h3>
+        <h3>Verbraucherstreitbeilegung / Universalschlichtungsstelle</h3>
         <p>Wir sind nicht bereit oder verpflichtet, an Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen.</p>
       </main>
 
