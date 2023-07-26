@@ -3,6 +3,8 @@ import Image from 'next/image'
 import styles from '../styles/Home.module.css'
 import Prismic from 'prismic-javascript'
 import Footer from '../components/footer/Footer' 
+import Link from 'next/link';
+
 
 const apiEndpoint = 'https://aleksej.cdn.prismic.io/api/v2'
 
@@ -19,9 +21,19 @@ function Impressum({button, footer}) {
 
       <nav>
         <ul>
-          <li><a href="/">Digitalagentur</a></li> 
-          <li><a href={`${button}?subject=Dev-Kid | Digitalagentur Stuttgart - Anfrage`} target="">Kontakt</a></li>
-          <li className='aktion' >Aktion</li>
+          <li>
+            <Link href="/">
+              <a>Digitalagentur</a>
+            </Link>
+          </li> 
+          <li>
+            <Link href={`${button}?subject=Dev-Kid | Digitalagentur Stuttgart - Anfrage`}>
+              <a target="">Kontakt</a>
+            </Link>
+          </li>
+          <li className='aktion'>
+            Aktion
+          </li>
         </ul>
       </nav>
 

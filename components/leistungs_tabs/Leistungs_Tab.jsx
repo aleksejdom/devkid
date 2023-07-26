@@ -35,4 +35,6 @@ const Leistungs_Tab = forwardRef(({tabs}, ref) => {
   )
 })
 
+Leistungs_Tab.displayName = "Leistungs_Tab"; // Setzt den displayName auf "Leistungs_Tab"
+
 export default Leistungs_Tab;

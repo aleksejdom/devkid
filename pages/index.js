@@ -10,6 +10,8 @@ import Usp_Box from '../components/usp_box/Usp_Box';
 import Referenzen_Box from '../components/referenzen_box/Referenzen_Box';
 import Footer from '../components/footer/Footer';
 import Accordion from '../components/accordion/Accordion';
+import Link from 'next/link';
+
 
 // Prismic API Endpunkt
 const apiEndpoint = 'https://aleksej.cdn.prismic.io/api/v2'
@@ -108,10 +110,10 @@ function Home({ title, subline, paragraph, button, button_text, tabs, contact, u
 
       <nav>
         <ul>
-          <li><a href="/" target="_self" />Startseite</li>
-          <li onClick={scrollToLeistungsTab}>Leistungen</li>
-          <li><a href={`${button}?subject=Dev-Kid - Anfrage`} target="">Kontakt</a></li>
-          <li className='aktion' onClick={scrollToFooter}>Aktion</li>
+          <li><Link href="/"><a href="/" target="_self">Startseite</a></Link></li>
+          <li><Link href="#leistungs-tab"><a>Leistungen</a></Link></li>
+          <li><Link href={`${button}?subject=Dev-Kid - Anfrage`}><a>Kontakt</a></Link></li>
+          <li className='aktion'><Link href="#footer"><a>Aktion</a></Link></li>
         </ul>
       </nav>
 
@@ -139,14 +141,14 @@ function Home({ title, subline, paragraph, button, button_text, tabs, contact, u
 
        
       <main className={styles.main}>
-         <Leistungs_Tab tabs={tabs} ref={leistungsTabRef}/>
+        <Leistungs_Tab tabs={tabs} id="leistungs-tab" ref={leistungsTabRef}/>
          <Contact_Box contact={contact} button={button}/>
          <Usp_Box usp={usp}/>
          <Referenzen_Box referenzen={referenzen} referenzenContent={referenzenContent} />
          <Accordion accordion={accordion} />
       </main>
 
-      <Footer footer={footer} ref={footerRef} />
+      <Footer footer={footer} id="footer" ref={footerRef} />
     </>
   )
 }

@@ -1,5 +1,6 @@
 import React, { forwardRef, useRef } from 'react';
 import styles from './Footer.module.css';
+import Link from 'next/link';
 
 const Footer = forwardRef(({footer}, ref) => { 
     return ( 
@@ -14,10 +15,10 @@ const Footer = forwardRef(({footer}, ref) => {
             </div>
             <ul className={styles.footerNav}>
               <li>
-                <a href="/impressum">Impressum</a>
+                <Link href="/impressum"><a>Impressum</a></Link>
               </li>
               <li>
-                <a href="/datenschutz">Datenschutz</a>
+                <Link href="/datenschutz"><a>Datenschutz</a></Link>
               </li>
             </ul>
           </div>
@@ -29,5 +30,7 @@ const Footer = forwardRef(({footer}, ref) => {
       </footer>
   )
 })
+
+Footer.displayName = "Footer"; // Setzt den displayName auf "Footer"
 
 export default Footer;
