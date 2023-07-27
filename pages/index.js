@@ -127,13 +127,15 @@ function Home({ title, subline, paragraph, button, button_text, tabs, contact, u
           </div>
           <a href={`${button}?subject=Dev-Kid - Anfrage`} className="cta-button"> {RichText.asText(button_text)} </a>
         </div> 
+
         <div className={styles.videobox}>
-        <video ref={videoRef} autoPlay muted loop playsInline>
-          <source src="./videos/clip_center_comp.m4v" type="video/mp4" />
-          <source src="./videos/clip_center_comp.webm" type="video/webm" />
-        </video>
+          <video ref={videoRef} autoPlay muted loop playsInline>
+            <source src="./videos/clip_center_comp.m4v" type="video/mp4" />
+            <source src="./videos/clip_center_comp.webm" type="video/webm" />
+          </video>
           <Image src="./images/icon.svg" alt="icon" width={120} height={68} className={styles.icon} />
         </div> 
+        
         <div className={styles.overlaybox}></div>
       </header>
        
