@@ -99,10 +99,10 @@ function Home({ title, subline, paragraph, button, button_text, tabs, contact, u
         <meta name="keywords" content="Digitalagentur Stuttgart, Webdesign, Webentwicklung, SEO, Webseiten Entwicklung, digitale Strategien, moderne Webseiten, React Anwendungen, 360-Grad VR Video, AR Entwicklung, Programmierung von Webseiten, 3D Modellierung, 3D Visualisierung, Grafikdesign, Webseite Preisvergleich, VR Anwendung, 360 Grad Video, kreative Webseiten, 3D im Web" />
         <meta name="google-site-verification" content="LML3tjqodXK6Ngu6TbcYkSz3LXB-AmQdruPA5dEN1B0" />
         <meta name="robots" content="index, follow" />
-        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
-        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
-        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
-        <link rel="manifest" href="/site.webmanifest"></link>
+        <link rel="apple-touch-icon" sizes="180x180" href="https://dev-kid.de/apple-touch-icon.png" />
+        <link rel="icon" type="image/png" sizes="32x32" href="https://dev-kid.de/favicon-32x32.png" />
+        <link rel="icon" type="image/png" sizes="16x16" href="https://dev-kid.de/favicon-16x16.png" />
+        <link rel="manifest" href="https://dev-kid.de/site.webmanifest"></link>
       </Head>
 
       <nav>
