@@ -75,7 +75,7 @@ p {
   font-size: 21px;
   line-height: 1.5;
   word-break: break-word;
-  hyphens: auto;
+  hyphens: none;
   margin: 0;
   font-family: 'Avenir', sans-serif;
 }
