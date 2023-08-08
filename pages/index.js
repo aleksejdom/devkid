@@ -95,8 +95,8 @@ function Home({ title, subline, paragraph, button, button_text, tabs, contact, u
 
       <Head>
         <title>Website erstellen lassen in Stuttgart - Webdesign und Mehr.</title>
-        <meta name="description" content="Sie möchten eine Webseite entwickeln und online erfolgreich durchzustarten? Als Experte in den Bereichen Konzeption, Webdesign und Webentwicklung bin ich der ideale Partner."/>
-        <meta name="keywords" content="Digitalagentur Stuttgart, Webdesign, Webentwicklung, SEO, Webseiten Entwicklung, digitale Strategien, moderne Webseiten, React Anwendungen, 360-Grad VR Video, AR Entwicklung, Programmierung von Webseiten, 3D Modellierung, 3D Visualisierung, Grafikdesign, Webseite Preisvergleich, VR Anwendung, 360 Grad Video, kreative Webseiten, 3D im Web" />
+        <meta name="description" content="Sie möchten eine Website erstellen lassen und online erfolgreich durchzustarten? Als Experte in den Bereichen Website Konzeption, Webdesign und Website Erstellung bin ich der ideale Partner."/>
+        <meta name="keywords" content="Website erstellen lassen, Digitalagentur Stuttgart, Webdesign, 360 Grad Videoproduktion" />
         <meta name="google-site-verification" content="LML3tjqodXK6Ngu6TbcYkSz3LXB-AmQdruPA5dEN1B0" />
         <meta name="robots" content="index, follow" />
         <link rel="apple-touch-icon" sizes="180x180" href="https://dev-kid.de/apple-touch-icon.png" />
