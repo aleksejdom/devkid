@@ -97,9 +97,9 @@ export default function Referenzen_Box({referenzen, referenzenContent}) {
         </div>
       </div>
       <div className={styles.referenzenContent}>
-        <h3>
+        <h2>
           { referenzenContent[0].text }
-        </h3>
+        </h2>
         <p>
           { referenzenContent[1].text }
         </p>

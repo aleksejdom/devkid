@@ -7,9 +7,9 @@ const Footer = forwardRef(({footer}, ref) => {
       <footer className={styles.footer} ref={ref}>
           <div className={styles.footerWrapper}>
             <div className={styles.footerContact}> 
-              <h4>
+              <h2>
                 {footer[0].content[0].text}
-              </h4>
+              </h2>
               <a href={`tel:${footer[0].content[1].text}`}>{footer[0].content[1].text}</a>
               <a href={`mailto:${footer[0].content[2].text}`}>{footer[0].content[2].text}</a>
             </div>
