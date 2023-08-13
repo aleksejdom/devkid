@@ -55,9 +55,9 @@ function WebsiteErstellenLassen({button, footer, referenzen, preis_content, refe
         </Script>
 
         <Head>
-          <title>Website erstellen lassen</title>
-          <meta name="description" content="Website erstellen lassen"/>
-          <meta name="keywords" content="Website erstellen lassen" />
+          <title>Website erstellen lassen | Website design</title>
+          <meta name="description" content="Möchten Sie eine Website erstellen lassen? Als führende Experten für Webdesign und Webentwicklung in Stuttgart bieten wir maßgeschneiderte Lösungen an."/>
+          <meta name="keywords" content="Website erstellen lassen, Webentwicklung, Website design" />
           <meta name="google-site-verification" content="LML3tjqodXK6Ngu6TbcYkSz3LXB-AmQdruPA5dEN1B0" />
           <meta name="robots" content="index, follow" />
           <link rel="apple-touch-icon" sizes="180x180" href="https://dev-kid.de/apple-touch-icon.png" />
