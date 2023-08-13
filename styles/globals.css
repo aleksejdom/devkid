@@ -51,16 +51,19 @@ h2 {
   font-size: 42px;
   font-family: 'DINPro', sans-serif;
   letter-spacing: 1px;
-  max-width: 715px;
+  max-width: 620px;
   margin-bottom: 25px;
   margin-top: 0;
   line-height: 1;
   word-break: break-word;
-  hyphens: auto;
+  hyphens: none;
 }
+ 
+
 h3 {
   margin: 25px 0 0;
 }
+
 p.subline {
   margin-top: 35px;
   font-size: 26px;
@@ -80,6 +83,8 @@ p {
   font-family: 'Avenir', sans-serif;
 }
 
+
+
 a {
   font-family: 'DINPro', sans-serif;
   font-weight: 200;
@@ -87,46 +92,81 @@ a {
 
 nav {
   position: fixed;
-  top: 2rem;
-  right: 6rem;
   z-index: 10;
+  width: 100%;
+  background: #000000;
+  top: 0;
+  left: 0;
+  padding: 1rem;
+  display: flex;
+  align-items: center;
 }
 
 nav ul {
   display: flex;
   margin: 0;
   padding: 0;
+  margin-left: 2rem;
+  align-items: center;
 }
 
+nav ul li a,
 nav ul li {
   list-style: none;
   color: #ffffff;
   margin-right: 15px;
   font-family: 'DINPro', sans-serif;
+  font-size: 18px;
   cursor: pointer;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  line-height: 1;
+}
+
+nav ul li a:hover,
+nav ul li:hover {
+  color: #61cdcd;
 }
 
 nav ul li.aktion {
-  color: #7DF2F3;
+  background: rgb(125, 11, 50);
+  position: absolute;
+  right: 0;
+  padding: 1rem;
+  top: 0;
+}
+
+nav ul li.aktion > a {
+  color: #ffffff;
+  margin-right: 0;
 }
 
 nav ul li:last-of-type {
   margin-right: 0;
 }
+ 
+nav ul li.aktion:hover {
+  color: #ffffff; 
+  background-color: rgb(5, 71, 60); 
+}
 
 a.cta-button {
-  border: 1px solid #7DF2F3; 
+  border: 1px solid #7DF2F3;  
   overflow: hidden;
   border-radius: none;
   padding: 1rem;
   box-sizing: border-box;
   text-transform: uppercase;
   font-family: 'Avenir', sans-serif;
+  font-size: 21px;
+  line-height: 1.4;
+  font-weight: 400; 
   display: flex;
   align-items: center;
   justify-content: flex-start;
   width: fit-content;
-  margin-top: 2rem;
+  margin-top: 3rem;
 }
 
 a.cta-button::after {
@@ -167,10 +207,21 @@ a.cta-button:hover::after {
   }
 }
 
+@media only screen and (max-width: 1280px) {
+  p.subline {
+    max-width: 680px;
+  }
+}
+
 @media (max-width: 768px) {
   h1 {
     font-size: 36px; 
+    line-height: 1.15;
     word-break: none;
+    hyphens: none;
+  }
+  h2, h3 {
+    font-size: 32px; 
     hyphens: none;
   }
   nav {
@@ -189,5 +240,12 @@ a.cta-button:hover::after {
   p.subline {
     margin-top: 10px;
     font-size: 21px;
+  }
+  a.cta-button {
+    max-width: 100%;
+    font-size: 14px;
+    line-height: 1.3;
+    padding: 0.8rem;
+    margin-top: 2rem;
   }
 }

@@ -37,7 +37,7 @@ function Impressum({button, footer}) {
         </ul>
       </nav>
 
-      <main className={styles.mainText} >
+      <main className={styles['main-pages']} >
         <h1>Impressum</h1>
         <h3>Angaben gemäß § 5 TMG</h3>
         <p>Aleksej Domovec</p> 

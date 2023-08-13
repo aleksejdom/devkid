@@ -99,4 +99,9 @@
   .accordion {
     padding: 2rem 2rem 4rem;
   }
+  .accordionHeader h3 {
+    font-size: 16px;
+    line-height: 21px;
+    max-width: 80%;
+  }
 }

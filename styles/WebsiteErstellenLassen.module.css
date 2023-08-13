@@ -1,0 +1,181 @@
+.header {
+  width: 100%;
+  height: 100%;
+  background-color: #05473C;
+  transition: background-color 3s ease;
+  color: #ffffff;
+  display: flex;
+  padding: 6rem;
+  box-sizing: border-box;
+  position: relative;
+}
+.list-box ul {
+  margin: 0;
+  margin-top: 2.5rem;
+  margin-bottom: 4rem;
+  padding: 0; 
+}
+.list-box ul li {
+  list-style: none;
+  font-family: 'Avenir', sans-serif;
+  font-weight: 200;
+  font-size: 21px;
+  line-height: 25px;
+  display: flex;
+  margin-bottom: 10px;
+}
+.list-box ul li::before {
+  content: url('/images/check.svg');
+  width: 100%;
+  height: 100%;
+  max-width: 15px;
+  max-height: 15px;
+  display: block;
+  margin-right: 12px;
+}
+.header p {
+  margin-bottom: 1rem;
+  max-width: 860px;
+}
+.header p:last-of-type {
+  margin-bottom: 0;
+}
+.header .headlinebox {
+  width: 95%;
+  padding-right: 5rem;
+  box-sizing: border-box;
+  z-index: 1;
+}
+.header .textbox {
+  margin-top: 3rem;
+  width: 100%;
+}
+.header .overlaybox {
+  width: 100%;
+  height: 100%;
+  background: rgb(0,0,0);
+  background: linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 80%);
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 0;
+}
+.main-text { 
+  padding: 0rem 6rem 0rem; 
+  background: #efefef;
+  color: #000000;
+  display: inline-block;
+  width: 100%;
+}
+.text-box {
+  padding: 4rem 0rem 4rem;
+  box-sizing: border-box;
+  background-color: #1d1d1d;
+  color: #ffffff;
+  margin-left: calc( -100vw / 2 + 100% / 2 ) !important;
+  margin-right: calc( -100vw / 2 + 100% / 2 ) !important;
+  max-width: 100vw !important;
+  width: 100vw !important; 
+}
+.text-box h2 {
+  font-size: 42px;
+  line-height: 1.15;
+  text-align: center;
+  margin: 0 auto 2rem;
+}
+.text-box p {
+  max-width: 680px; 
+  margin: 0 auto 1rem;
+}
+.kosten-overview {
+  padding: 6rem 0rem 6rem;
+  box-sizing: border-box;
+  text-align: center;
+  background-color: #e9e9e9; 
+  margin-left: calc( -100vw / 2 + 100% / 2 ) !important;
+  margin-right: calc( -100vw / 2 + 100% / 2 ) !important;
+  max-width: 100vw !important;
+  width: 100vw !important; 
+}
+.kosten-overview h1,
+.kosten-overview h2,
+.kosten-overview h3,
+.kosten-overview h4,
+.kosten-overview h5,
+.kosten-overview h6 {
+  margin: 0 auto 2rem;
+}
+.cta-button {
+  background-color: #05473C;
+  border: 1px solid #05473C;
+  color: #ffffff;
+  overflow: hidden;
+  border-radius: none;
+  padding: 1rem;
+  box-sizing: border-box;
+  text-transform: uppercase;
+  font-family: 'Avenir', sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  width: -moz-fit-content;
+  width: fit-content; 
+  margin: 2rem auto 0;
+}
+.cta-button::after {
+  content: url('/images/icon.svg');
+  transform: scale(0.3);
+  margin-left: 15px;
+  height: 25px;
+  width: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.cta-button:hover::after {
+  transform: scale(0.3) rotate(180deg);
+  justify-content: flex-end;
+}
+.kosten-overview p {
+  max-width: 680px;
+  margin: 0 auto;
+  text-align: left;
+}
+
+@media (max-width: 1440px) {
+  .header .headlinebox {
+    width: 100%; 
+  } 
+}
+
+@media (max-width: 768px) {
+  .kosten-overview {
+    padding: 4rem 2rem;
+  }
+  .header .headlinebox {
+    width: 100%; 
+    padding-right: 0;
+    margin-top: 4.5rem;
+  }
+  .header {
+    flex-direction: column;
+    padding: 2rem;
+  }
+  .header .videobox { 
+    margin-top: 2rem; 
+  }
+  .main-text {
+    padding: 0rem 2rem 0;
+  }
+  .header .list-box ul { 
+    margin-bottom: 3rem; 
+  }
+  .text-box {
+    padding: 3rem 2rem;
+  }
+  .text-box h2 {
+    font-size: 32px;
+    hyphens: none;
+    line-height: 1.15; 
+  }
+}

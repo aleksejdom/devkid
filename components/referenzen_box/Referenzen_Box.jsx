@@ -97,12 +97,15 @@ export default function Referenzen_Box({referenzen, referenzenContent}) {
         </div>
       </div>
       <div className={styles.referenzenContent}>
-        <h2>
-          { referenzenContent[0].text }
-        </h2>
-        <p>
-          { referenzenContent[1].text }
-        </p>
+        {referenzenContent.map((paragraph, index) => {
+          // Für den ersten Absatz rendern wir einen h2-Tag
+          if (index === 0) {
+            return <h2 key={index}>{paragraph.text}</h2>;
+          }
+          // Für die restlichen Absätze verwenden wir den p-Tag
+          return <p key={index}>{paragraph.text}</p>;
+        })}
+        <a href={`/website-erstellen-lassen/`} className={["cta-button"]}>Sie möchten eine Website erstellen lassen<br />Jetzt Mehr erfahren</a>
       </div>
     </div>
   )

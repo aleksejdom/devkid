@@ -24,7 +24,7 @@ const Footer = forwardRef(({footer}, ref) => {
           </div>
          <div className={styles.aktion} >
           <span className={styles.aktionText}>
-            {footer[0].aktion[0].text}  --  JETZT ZUSCHLAGEN!
+            {footer[0].aktion[0].text}
           </span> 
          </div>
       </footer>

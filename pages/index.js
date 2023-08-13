@@ -19,23 +19,24 @@ const apiEndpoint = 'https://aleksej.cdn.prismic.io/api/v2'
 
 function Home({ title, subline, paragraph, button, button_text, tabs, contact, usp, referenzen, referenzenContent, footer, accordion }) {
   const videoRef = useRef(null);
-  const headerRef = useRef(null);
-  // Array of colors
-  const colors = ['#05473C', '#4A3170', '#7D0B32'];
-  // State for the current color
+  const headerRef = useRef(null); 
+  const colors = ['#05473C', '#4A3170', '#7D0B32']; 
   const [colorIndex, setColorIndex] = useState(0);
+
+  const [isMenuOpen, setMenuOpen] = useState(false); 
+  const toggleMenu = () => {
+    setMenuOpen(!isMenuOpen);
+  };
 
   const leistungsTabRef = useRef(null);
   const footerRef = useRef(null);
-
-  // Funktion zum Scrollen zum Leistungs_Tab
+ 
   const scrollToLeistungsTab = () => {
     if (leistungsTabRef.current) {
       leistungsTabRef.current.scrollIntoView({ behavior: 'smooth' });
     }
   };
-
-  // Funktion zum Scrollen zum Footer
+ 
   const scrollToFooter = () => {
     if (footerRef.current) {
       footerRef.current.scrollIntoView({ behavior: 'smooth' });
@@ -54,12 +55,14 @@ function Home({ title, subline, paragraph, button, button_text, tabs, contact, u
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
-        if (entry.isIntersecting) {
-          // Load and play the video when it becomes visible
-          videoRef.current.load();
-          videoRef.current.play().catch(error => console.error('Video play failed:', error));
-        } else {
-          videoRef.current.pause();
+        if (videoRef.current) { // Überprüfen, ob videoRef.current existiert
+          if (entry.isIntersecting) {
+            // Load and play the video when it becomes visible
+            videoRef.current.load();
+            videoRef.current.play().catch(error => console.error('Video play failed:', error));
+          } else {
+            videoRef.current.pause();
+          }
         }
       },
       {
@@ -105,12 +108,15 @@ function Home({ title, subline, paragraph, button, button_text, tabs, contact, u
         <link rel="manifest" href="https://dev-kid.de/site.webmanifest"></link>
       </Head>
 
-      <nav>
-        <ul>
-          <li><Link href="/">Startseite</Link></li>
-          <li><Link href="#leistungs-tab" onClick={scrollToLeistungsTab}>Leistungen</Link></li>
-          <li><Link href={`${button}?subject=Dev-Kid - Anfrage`}>Kontakt</Link></li>
-          <li className='aktion'><Link href="#footer" onClick={scrollToFooter}>Aktion</Link></li>
+      <nav className={styles.navbar}> 
+        <div className={styles.burgerMenu} onClick={toggleMenu}>☰</div>
+        <ul className={isMenuOpen ? styles.menuOpen : ''}>
+          <Link href="/"><Image src="/images/devkid_logo_white.svg" alt="icon" width={120} height={45} className={styles.logo} /></Link>
+          <li><Link href="#leistungen" onClick={scrollToLeistungsTab}>Leistungen</Link></li>
+          <li><Link href="/website-erstellen-lassen">Website erstellen lassen</Link></li>
+          <li><Link href="/website-erstellen-lassen/was-kostet-eine-website">Kosten</Link></li>
+          <li><Link href={`${button}?subject=DevKid - Website erstellen lassen`}>Kontakt</Link></li>
+          <li className='aktion'><Link href="#rabatt" onClick={scrollToFooter}>Rabatt 15%</Link></li>
         </ul>
       </nav>
 

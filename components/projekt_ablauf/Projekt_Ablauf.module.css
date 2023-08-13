@@ -1,0 +1,102 @@
+.projekt-ablauf {
+  width: 100%;
+  height: 100%;
+  display: block;
+  background: #dadada;
+  margin-left: calc( -100vw / 2 + 100% / 2 ) !important;
+  margin-right: calc( -100vw / 2 + 100% / 2 ) !important;
+  max-width: 100vw !important;
+  width: 100vw !important;
+  padding: 6rem 6rem;
+  box-sizing: border-box;
+}
+
+.projekt-ablauf h2,
+.projekt-ablauf h3,
+.projekt-ablauf h4,
+.projekt-ablauf h5,
+.projekt-ablauf h6 {
+  font-size: 32px;
+  line-height: 1.2;
+  text-align: center;
+  margin: 0 auto 6rem;
+  hyphens: none;
+}
+
+.projekt-ablauf .items {
+  display: grid;
+  gap: 3rem;
+  grid-template-columns: repeat(3, 1fr); 
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+.projekt-ablauf .item h3 {
+  text-align: left;
+  margin: 0;
+  font-size: 24px;
+  line-height: 1.1;
+  margin-bottom: 0.7rem;
+  display: flex;
+  align-items: flex-start;
+}
+
+.projekt-ablauf .item h3 > span {
+  font-size: 55px;
+  line-height: 1;
+  font-family: 'DinPro', sans-serif;
+  margin-right: 10px;
+  color: #2f9999;
+}
+
+.projekt-ablauf .item p {
+  font-size: 18px;
+  line-height: 1.4;
+}
+ 
+.projekt-ablauf a.cta-button {
+  border: 1px solid #2f9999; 
+  color: #ffffff;
+  background: #2f9999; 
+  overflow: hidden;
+  border-radius: none;
+  padding: 1rem;
+  box-sizing: border-box;
+  text-transform: uppercase;
+  font-family: 'Avenir', sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  width: fit-content;
+  margin: 4rem auto 0;
+}
+
+.projekt-ablauf a.cta-button::after {
+  content: url('/images/icon.svg');
+  transform: scale(0.3);
+  margin-left: 15px;
+  height: 25px;
+  width: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start; 
+}
+
+.projekt-ablauf a.cta-button:hover::after {
+  transform: scale(0.3) rotate(180deg); /* Add rotation on hover */
+  justify-content: flex-end;
+}
+
+@media only screen and (max-width: 768px) {
+  .projekt-ablauf .items { 
+    gap: 2rem;
+    grid-template-columns: repeat(1, 1fr); 
+    max-width: 100%; 
+  }
+  .projekt-ablauf {
+    padding: 4rem 2rem;
+  }
+  .projekt-ablauf h2 {
+    margin-bottom: 4rem;
+  }
+}
