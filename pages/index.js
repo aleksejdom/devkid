@@ -131,7 +131,7 @@ function Home({ title, subline, paragraph, button, button_text, tabs, contact, u
             {RichText.asText(paragraph)}
             </p>  
           </div>
-          <a href={`${button}?subject=Dev-Kid - Anfrage`} className="cta-button"> {RichText.asText(button_text)} </a>
+          <a href={`${button}?subject=DevKid - Website erstellen lassen`} className="cta-button"> {RichText.asText(button_text)} </a>
         </div> 
 
         <div className={styles.videobox}>
