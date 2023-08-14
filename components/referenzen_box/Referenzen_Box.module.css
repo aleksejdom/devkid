@@ -121,6 +121,7 @@ img.referenzenButton:last-of-type {
   .referenzenContent {
     margin-top: 4rem; 
     padding-left: 2rem;
+    padding-right: 2rem;
     max-width: 650px;
   }
   .referenzenWrapper h3 { 
