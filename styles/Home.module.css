@@ -325,14 +325,14 @@
   }
 
   .navbar .menuOpen li > a {
-    font-size: 25px;
+    font-size: 24px;
     line-height: 1.2;
-    margin-bottom: 1rem;
+    margin-bottom: 0.6rem;
   }
 
   .navbar .menuOpen > a {
     margin-top: 2rem;
-    margin-bottom: 4rem;
+    margin-bottom: 3rem;
   }
   
   .navbar ul { 
