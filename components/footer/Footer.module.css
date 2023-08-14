@@ -3,7 +3,7 @@
   display: flex;
   flex-direction: column;
   flex: 1;
-  padding: 4rem 6rem 3rem;
+  padding: 4rem 6rem 0rem;
   background: #efefef;
   color: #000000;
   justify-content: center;
@@ -37,7 +37,10 @@
 }
 
 footer .aktion {
+  color: #ffffff;
+  background-color: #7d0b32;
   padding-top: 1.2rem;
+  padding-bottom: 1.2rem;
   width: 100%;
   font-family: 'DINPro', sans-serif;
   text-transform: uppercase;
@@ -78,6 +81,7 @@ ul.footerNav li {
 .aktionText {
   display: inline-block;
   animation: marquee 20s linear infinite; 
+  font-size: 24px;
 }
 
 @media (max-width: 768px) {
