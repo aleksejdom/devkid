@@ -120,7 +120,7 @@ function Home({ title, subline, paragraph, button, button_text, tabs, contact, u
       <nav className={styles.navbar}> 
         <div className={styles.burgerMenu} onClick={toggleMenu}>☰</div>
         <ul className={isMenuOpen ? styles.menuOpen : ''}>
-          <Link href="/"><Image src="/images/devkid_logo_white.svg" alt="icon" title="Devkid Logo" width={120} height={45} className={styles.logo} /></Link>
+          <Link href="/" title='DevKid'><Image src="/images/devkid_logo_white.svg" alt="icon" title="Devkid Logo" width={120} height={45} className={styles.logo} /></Link>
           <li><Link href="#leistungen" onClick={scrollToLeistungsTab} title='Leistungen'>Leistungen</Link></li>
           <li><Link href="/website-erstellen-lassen" title='Website erstellen lassen'>Website erstellen lassen</Link></li>
           <li><Link href="/website-erstellen-lassen/was-kostet-eine-website" title='Website Kosten'>Kosten</Link></li>
@@ -140,7 +140,7 @@ function Home({ title, subline, paragraph, button, button_text, tabs, contact, u
             {RichText.asText(paragraph)}
             </p>  
           </div>
-          <a href={`${button}?subject=DevKid - Website erstellen lassen`} className="cta-button"> {RichText.asText(button_text)} </a>
+          <a href={`${button}?subject=DevKid - Website erstellen lassen`} className="cta-button" title='Website'> {RichText.asText(button_text)} </a>
         </div> 
 
         <div className={styles.videobox}>

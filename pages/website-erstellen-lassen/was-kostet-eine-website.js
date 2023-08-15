@@ -70,7 +70,7 @@ function WasKostetEineWebsite({footer, button, headerText, headerImage, calculat
       <nav className={home.navbar}> 
           <div className={home.burgerMenu} onClick={toggleMenu}>☰</div>
           <ul className={isMenuOpen ? home.menuOpen : ''}>
-            <Link href="/"><Image src="/images/devkid_logo_white.svg" alt="icon" width={120} height={45} className={home.logo} title='Devkid logo'/></Link>
+            <Link href="/" title='Devkid'><Image src="/images/devkid_logo_white.svg" alt="icon" width={120} height={45} className={home.logo} title='Devkid logo'/></Link>
             <li><Link href='/website-erstellen-lassen' title='Website erstellen lassen'>Website erstellen lassen</Link></li>
             <li className='aktion'><Link href="#rabatt" onClick={scrollToFooter} title="Rabatt Aktion">Sale 15% Rabatt</Link></li>
         </ul>

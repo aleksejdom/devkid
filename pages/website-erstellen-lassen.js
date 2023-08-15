@@ -75,7 +75,7 @@ function WebsiteErstellenLassen({button, footer, referenzen, preis_content, refe
         <nav className={home.navbar}> 
           <div className={home.burgerMenu} onClick={toggleMenu}>☰</div>
           <ul className={isMenuOpen ? home.menuOpen : ''}>
-            <Link href="/"><Image src="/images/devkid_logo_white.svg" alt="icon" width={120} height={45} className={home.logo} title='Devkid logo' /></Link>
+            <Link href="/" title='Devkid'><Image src="/images/devkid_logo_white.svg" alt="icon" width={120} height={45} className={home.logo} title='Devkid logo' /></Link>
             <li><Link href="/website-erstellen-lassen/was-kostet-eine-website" title='Website Kosten'>Kosten</Link></li>
             <li><Link href={`${button}?subject=Dev-Kid - Anfrage`} title="Anfrage">Website erstellen lassen? - Anfrage senden</Link></li>
             <li className='aktion'><Link href="#rabatt" onClick={scrollToFooter} title="Rabatt Aktion">Sale 15% Rabatt</Link></li>
