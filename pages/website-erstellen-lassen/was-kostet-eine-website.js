@@ -70,15 +70,9 @@ function WasKostetEineWebsite({footer, button, headerText, headerImage, calculat
       <nav className={home.navbar}> 
           <div className={home.burgerMenu} onClick={toggleMenu}>☰</div>
           <ul className={isMenuOpen ? home.menuOpen : ''}>
-            <Link href="/"><Image src="/images/devkid_logo_white.svg" alt="icon" width={120} height={45} className={home.logo} /></Link>
-          <li>
-            <Link href='/website-erstellen-lassen'>
-              Website erstellen lassen
-            </Link>
-          </li>
-          <li className='aktion' onClick={scrollToFooter}>
-            Sale 15% Rabatt
-          </li>
+            <Link href="/"><Image src="/images/devkid_logo_white.svg" alt="icon" width={120} height={45} className={home.logo} title='Devkid logo'/></Link>
+            <li><Link href='/website-erstellen-lassen' title='Website erstellen lassen'>Website erstellen lassen</Link></li>
+            <li className='aktion'><Link href="#rabatt" onClick={scrollToFooter} title="Rabatt Aktion">Sale 15% Rabatt</Link></li>
         </ul>
       </nav>
 
@@ -117,11 +111,11 @@ function WasKostetEineWebsite({footer, button, headerText, headerImage, calculat
               return null;
             })
           }
-          <a href={`mailto:mail@dev-kid.de?subject=DevKid - Erstgespräch Anfrage`} className="cta-button">Jetzt Erstgespräch anfragen.</a>
+          <a href={`mailto:mail@dev-kid.de?subject=DevKid - Erstgespräch Anfrage`} className="cta-button" title='Erstgespräch'>Jetzt Erstgespräch anfragen.</a>
         </div>
         {headerImage ? 
           <div className={home.imagebox}>
-            <Image src={headerImage.url} alt='website erstellen lassen' width={778} height={673} /> 
+            <Image src={headerImage.url} alt='website erstellen lassen' width={778} height={673} title='Website erstellen lassen'/> 
           </div> : null 
         }
         <div className={home.overlaybox}></div>   

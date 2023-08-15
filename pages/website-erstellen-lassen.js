@@ -75,16 +75,10 @@ function WebsiteErstellenLassen({button, footer, referenzen, preis_content, refe
         <nav className={home.navbar}> 
           <div className={home.burgerMenu} onClick={toggleMenu}>☰</div>
           <ul className={isMenuOpen ? home.menuOpen : ''}>
-            <Link href="/"><Image src="/images/devkid_logo_white.svg" alt="icon" width={120} height={45} className={home.logo} /></Link>
-            <li><Link href="/website-erstellen-lassen/was-kostet-eine-website">Kosten</Link></li>
-            <li>
-              <Link href={`${button}?subject=Dev-Kid - Anfrage`}>
-                Website erstellen lassen? - Anfrage senden
-              </Link>
-            </li>
-            <li className='aktion' onClick={scrollToFooter}>
-              Sale 15% Rabatt
-            </li>
+            <Link href="/"><Image src="/images/devkid_logo_white.svg" alt="icon" width={120} height={45} className={home.logo} title='Devkid logo' /></Link>
+            <li><Link href="/website-erstellen-lassen/was-kostet-eine-website" title='Website Kosten'>Kosten</Link></li>
+            <li><Link href={`${button}?subject=Dev-Kid - Anfrage`} title="Anfrage">Website erstellen lassen? - Anfrage senden</Link></li>
+            <li className='aktion'><Link href="#rabatt" onClick={scrollToFooter} title="Rabatt Aktion">Sale 15% Rabatt</Link></li>
           </ul>
         </nav>
 
@@ -124,7 +118,7 @@ function WebsiteErstellenLassen({button, footer, referenzen, preis_content, refe
                 ))}
               </ul>
             </div>
-            {button ? <a href={`${button}?subject=DevKid - Website erstellen lassen`} className="cta-button">Jetzt Ihre eigene Website erstellen lassen</a> : null}  
+            {button ? <a href={`${button}?subject=DevKid - Website erstellen lassen`} className="cta-button" title='Website erstellen lassen'>Jetzt Ihre eigene Website erstellen lassen</a> : null}  
           </div>
           {headerImage ? 
               <div className={home.imagebox}>
@@ -170,7 +164,7 @@ function WebsiteErstellenLassen({button, footer, referenzen, preis_content, refe
               }
               return null;
             })}
-            <a href={`/website-erstellen-lassen/was-kostet-eine-website`} className={styles_website_erstellen_lassen["cta-button"]}>Was kostet eine Website?</a>
+            <a href={`/website-erstellen-lassen/was-kostet-eine-website`} className={styles_website_erstellen_lassen["cta-button"]} title='Kosten'>Was kostet eine Website?</a>
           </div>
           <div className={styles_website_erstellen_lassen["text-box"]}>
             {introText && introText.map((item, index) => {
