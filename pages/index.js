@@ -121,11 +121,11 @@ function Home({ title, subline, paragraph, button, button_text, tabs, contact, u
         <div className={styles.burgerMenu} onClick={toggleMenu}>☰</div>
         <ul className={isMenuOpen ? styles.menuOpen : ''}>
           <Link href="/"><Image src="/images/devkid_logo_white.svg" alt="icon" width={120} height={45} className={styles.logo} /></Link>
-          <li><Link href="#leistungen" onClick={scrollToLeistungsTab}>Leistungen</Link></li>
-          <li><Link href="/website-erstellen-lassen">Website erstellen lassen</Link></li>
-          <li><Link href="/website-erstellen-lassen/was-kostet-eine-website">Kosten</Link></li>
-          <li><Link href={`${button}?subject=DevKid - Website erstellen lassen`}>Kontakt</Link></li>
-          <li className='aktion'><Link href="#rabatt" onClick={scrollToFooter}>Rabatt 15%</Link></li>
+          <li><Link href="#leistungen" onClick={scrollToLeistungsTab} title='Leistungen'>Leistungen</Link></li>
+          <li><Link href="/website-erstellen-lassen" title='Website erstellen lassen'>Website erstellen lassen</Link></li>
+          <li><Link href="/website-erstellen-lassen/was-kostet-eine-website" title='Website Kosten'>Kosten</Link></li>
+          <li><Link href={`${button}?subject=DevKid - Website erstellen lassen`} title='Kontakt'>Kontakt</Link></li>
+          <li className='aktion'><Link href="#rabatt" onClick={scrollToFooter} title="Rabatt Aktion">Rabatt 15%</Link></li>
         </ul>
       </nav>
 

@@ -10,15 +10,15 @@ const Footer = forwardRef(({footer}, ref) => {
               <h2>
                 {footer[0].content[0].text}
               </h2>
-              <a href={`tel:${footer[0].content[1].text}`}>{footer[0].content[1].text}</a>
-              <a href={`mailto:${footer[0].content[2].text}`}>{footer[0].content[2].text}</a>
+              <a href={`tel:${footer[0].content[1].text}`} title='Telefon'>{footer[0].content[1].text}</a>
+              <a href={`mailto:${footer[0].content[2].text}`} title='E-Mail'>{footer[0].content[2].text}</a>
             </div>
             <ul className={styles.footerNav}>
               <li>
-                <Link href="/impressum">Impressum</Link>
+                <Link href="/impressum" title='Impressum'>Impressum</Link>
               </li>
               <li>
-                <Link href="/datenschutz">Datenschutz</Link>
+                <Link href="/datenschutz" title='Datenschutz'>Datenschutz</Link>
               </li>
             </ul>
           </div>
