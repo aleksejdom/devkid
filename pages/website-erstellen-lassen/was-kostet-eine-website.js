@@ -50,8 +50,8 @@ function WasKostetEineWebsite({footer, button, headerText, headerImage, calculat
       </Script>
 
       <Head>
-        <title>Was kostet eine Website? | Homepage Kosten</title>
-        <meta name="description" content="Was kostet eine Website erstellen zu lassen? Erhalten Sie professionelles Website Design in Stuttgart mit einmaligen Preisen."/>
+        <title>Was kostet eine Website? » Homepage Kosten berechnen</title>
+        <meta name="description" content="Wie viel Kostet es eine Website erstellen zu lassen? Jetzt Ihr Website Preis kostenlos berechnen lassen und Ihre professionelle Website anfragen."/>
         <meta name="keywords" content="Was kostet eine Website" />
         <meta name="google-site-verification" content="LML3tjqodXK6Ngu6TbcYkSz3LXB-AmQdruPA5dEN1B0" />
         <meta name="robots" content="index, follow" />
