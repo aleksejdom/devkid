@@ -102,13 +102,19 @@ function Home({ title, subline, paragraph, button, button_text, tabs, contact, u
         <meta name="keywords" content="Website erstellen lassen, Digitalagentur Stuttgart, Webdesign, 360 Grad Videoproduktion" />
         <meta name="google-site-verification" content="LML3tjqodXK6Ngu6TbcYkSz3LXB-AmQdruPA5dEN1B0" />
         <meta name="robots" content="index, follow" />
+        <meta name="author" content="Aleksej Domovec" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+        <link rel="shortcut icon" href="https://dev-kid.de/favicon-32x32.png" />
         <link rel="apple-touch-icon" sizes="180x180" href="https://dev-kid.de/apple-touch-icon.png" />
         <link rel="icon" type="image/png" sizes="32x32" href="https://dev-kid.de/favicon-32x32.png" />
         <link rel="icon" type="image/png" sizes="16x16" href="https://dev-kid.de/favicon-16x16.png" />
         <link rel="manifest" href="https://dev-kid.de/site.webmanifest" />
         <link rel="mask-icon" href="https://dev-kid.de/safari-pinned-tab.svg" color="#5bbad5" />
+        
         <meta name="msapplication-TileColor" content="#da532c" />
         <meta name="theme-color" content="#ffffff" />
+        <meta name="google" content="nositelinkssearchbox" key="sitelinks" />
       </Head>
 
       <nav className={styles.navbar}> 
