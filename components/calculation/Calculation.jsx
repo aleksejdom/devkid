@@ -84,13 +84,13 @@ export default function Calculation({ calculation_content, button }) {
           <h2><span>Frage 1/6:</span> Welche Technologie soll bei der Programmierung verwendet werden?</h2>
           <div className={styles['answers']}>
             <div className={styles['answer-box']} onClick={() => handleAnswerClick(2)} key="answer-1">
-              <Image src='/images/questions/nextjs.png' alt='Nextjs' width={250} height={250}/> 
+              <Image src='/images/questions/nextjs.png' alt='Nextjs' title="Nextjs Technologie" width={250} height={250}/> 
               <p>
                 Nextjs (React)<br />Website
               </p>
             </div>
             <div className={styles['answer-box']} onClick={() => handleAnswerClick(0)} key="answer-2">
-              <Image src='/images/questions/wordpress.png' alt='WordPress' width={250} height={250}/> 
+              <Image src='/images/questions/wordpress.png' alt='WordPress' title="Wordpress Website" width={250} height={250}/> 
               <p>
                 WordPress Website<br /> (Eigenes Theme)
               </p>
@@ -102,19 +102,19 @@ export default function Calculation({ calculation_content, button }) {
             <h2><span>Frage 2/6:</span> Um welches Anliegen handelt es sich?</h2>
             <div className={ styles['answers'] }>
               <div className={ styles['answer-box'] } onClick={() => handleAnswerClick(5)} key='answer-1'>
-                <Image src='/images/questions/new_site.svg' alt='Nextjs' width={250} height={250}/> 
+                <Image src='/images/questions/new_site.svg' alt='New Site' title="Website erstellen lassen" width={250} height={250}/> 
                 <p>
                   Neue Website + Webdesign
                 </p>
               </div>
               <div className={ styles['answer-box'] } onClick={() => handleAnswerClick(5)} key='answer-2'>
-                <Image src='/images/questions/relaunch_site.svg' alt='Nextjs' width={250} height={250}/> 
+                <Image src='/images/questions/relaunch_site.svg' alt='Relaunch Website' title="Relaunch Website erstellen" width={250} height={250}/> 
                 <p>
                   Relaunch + Webdesign
                 </p>
               </div>
               <div className={ styles['answer-box'] } onClick={() => handleAnswerClick(0, true)} key='answer-3'>
-                <Image src='/images/questions/site_plus.svg' alt='Nextjs' width={250} height={250}/>  
+                <Image src='/images/questions/site_plus.svg' alt='Weitere Seite' title='Website Erweiterung' width={250} height={250}/>  
                 <p>
                   Weitere Unterseiten (Design Adaption)
                 </p>
@@ -129,19 +129,19 @@ export default function Calculation({ calculation_content, button }) {
             <h2><span>Frage 3/6:</span> Wieviel ist der Seitenumfang?</h2>
             <div className={ styles['answers'] }>
               <div className={ styles['answer-box'] } onClick={() => handleAnswerClick(8)} key='answer-1'>
-                <Image src='/images/questions/five.svg' alt='Nextjs' width={250} height={250}/> 
+                <Image src='/images/questions/five.svg' alt='Question 5' title="5" width={250} height={250}/> 
                 <p>
                   Bis 5 Seiten
                 </p>
               </div>
               <div className={ styles['answer-box'] } onClick={() => handleAnswerClick(10)} key='answer-2'>
-                <Image src='/images/questions/ten.svg' alt='Nextjs' width={250} height={250}/> 
+                <Image src='/images/questions/ten.svg' alt='Question 10' title='10' width={250} height={250}/> 
                 <p>
                   Bis 10 Seiten
                 </p>
               </div>
               <div className={ styles['answer-box'] } onClick={() => handleAnswerClick(13)} key='answer-3'>
-                <Image src='/images/questions/fifteen.svg' alt='Nextjs' width={250} height={250}/> 
+                <Image src='/images/questions/fifteen.svg' alt='Question 15' title='Question 15' width={250} height={250}/> 
                 <p>
                   Bis 15 Seiten
                 </p>
@@ -156,13 +156,13 @@ export default function Calculation({ calculation_content, button }) {
             <h2><span>Frage 4/6:</span> Wer erstellt die Texte für die Website?</h2>
             <div className={ styles['answers'] }>
               <div className={ styles['answer-box'] } onClick={() => handleAnswerClick(1)} key='answer-1'>
-                <Image src='/images/questions/devkid.svg' alt='Nextjs' width={250} height={250}/> 
+                <Image src='/images/questions/devkid.svg' alt='Devkid' title='DevKid Stuttgart' width={250} height={250}/> 
                 <p>
                   Unser Team
                 </p>
               </div>
               <div className={ styles['answer-box'] } onClick={() => handleAnswerClick(0)} key='answer-2'>
-                <Image src='/images/questions/user.svg' alt='Nextjs' width={250} height={250}/> 
+                <Image src='/images/questions/user.svg' alt='User' title='User' width={250} height={250}/> 
                 <p>
                   Ich übernehme das selbst
                 </p>
@@ -177,13 +177,13 @@ export default function Calculation({ calculation_content, button }) {
             <h2><span>Frage 5/6:</span> Wer erstellt die Bilder für die Website?</h2>
             <div className={ styles['answers'] }>
               <div className={ styles['answer-box'] } onClick={() => handleAnswerClick(1)} key='answer-1'>
-                <Image src='/images/questions/devkid.svg' alt='Nextjs' width={250} height={250}/> 
+                <Image src='/images/questions/devkid.svg' alt='Devkid' title='DevKid' width={250} height={250}/> 
                 <p>
                   Unser Team
                 </p>
               </div>
               <div className={ styles['answer-box'] } onClick={() => handleAnswerClick(0)} key='answer-2'>
-                <Image src='/images/questions/user.svg' alt='Nextjs' width={250} height={250}/> 
+                <Image src='/images/questions/user.svg' alt='User' title="User" width={250} height={250}/> 
                 <p>
                   Ich übernehme das selbst
                 </p>
@@ -198,13 +198,13 @@ export default function Calculation({ calculation_content, button }) {
             <h2><span>Frage 6/6:</span> Ist die Suchmaschinenoptimierung (SEO) erwünscht?</h2>
             <div className={ styles['answers'] }>
               <div className={ styles['answer-box'] } onClick={() => handleAnswerClick(1)} key='answer-1'>
-                <Image src='/images/questions/seo_yes.svg' alt='Nextjs' width={250} height={250}/> 
+                <Image src='/images/questions/seo_yes.svg' alt='SEO' title='SEO' width={250} height={250}/> 
                 <p>
                   Ja, ich möchte mich in Google bestens Positionieren
                 </p>
               </div>
               <div className={ styles['answer-box'] } onClick={() => handleAnswerClick(0)} key='answer-2'>
-                <Image src='/images/questions/seo_no.svg' alt='Nextjs' width={250} height={250}/> 
+                <Image src='/images/questions/seo_no.svg' alt='No Seo'title='SEO'  width={250} height={250}/> 
                 <p>
                   Nein, SEO ist nicht notwendig
                 </p>
@@ -226,7 +226,7 @@ export default function Calculation({ calculation_content, button }) {
 
       </div>
       <div className={styles['more-info']}>
-        <Image src='/images/questions/headset.svg' alt='contact' width={150} height={150}/> 
+        <Image src='/images/questions/headset.svg' alt='contact' title="Website Preise" width={150} height={150}/> 
         <h3>Erfahren Sie mehr über die Website Kosten in einem persönlichen Erstgespräch.</h3>
         {button ? <a href={`${button}?subject=DevKid - Website erstellen lassen`} className={'cta-button'}>Kostenloses Erstgespräch anfragen</a> : null} 
       </div>

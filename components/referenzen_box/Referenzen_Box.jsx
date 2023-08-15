@@ -47,7 +47,8 @@ export default function Referenzen_Box({referenzen, referenzenContent}) {
           <div className={styles.referenzenNavs}>
             <Image 
               src="/images/arrow.svg" 
-              alt="arrow" 
+              alt="arrow"
+              title="Slider Arrow" 
               className={styles.referenzenButton} 
               onClick={prevSlide}
               width={35}
@@ -55,7 +56,8 @@ export default function Referenzen_Box({referenzen, referenzenContent}) {
             />
             <Image 
               src="/images/arrow.svg" 
-              alt="arrow" 
+              alt="arrow"
+              title="Slider Arrow"  
               className={styles.referenzenButton} 
               onClick={nextSlide}
               width={35}
@@ -87,7 +89,8 @@ export default function Referenzen_Box({referenzen, referenzenContent}) {
                 <div className={styles.referenzenItem}>
                   <LazyLoadImage 
                     src={item.referenz_image.url} 
-                    alt={item.referenz_image.alt} 
+                    alt={item.referenz_image.alt}
+                    title={item.referenz_image.alt} 
                   />
                   <p>{RichText.asText(item.referenz_title)}</p>
                 </div> 

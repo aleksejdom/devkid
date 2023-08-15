@@ -13,7 +13,8 @@ export default function Leistungsoverview({ leistungsoverview_items, leistungsov
             <div className={ styles['item-header'] }>
               <LazyLoadImage 
                 src={item.icon.url} 
-                alt={item.icon.alt} 
+                alt={item.icon.alt}
+                title={item.icon.alt}  
               />
               <h3>{item.content[0].text}</h3>
             </div>

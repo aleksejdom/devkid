@@ -148,7 +148,7 @@ function Home({ title, subline, paragraph, button, button_text, tabs, contact, u
             <source src="./videos/clip_center_comp.m4v" type="video/mp4" />
             <source src="./videos/clip_center_comp.webm" type="video/webm" />
           </video>
-          <Image src="./images/icon.svg" alt="icon" width={120} height={68} className={styles.icon} />
+          <Image src="./images/icon.svg" alt="icon" title="devkid icon" width={120} height={68} className={styles.icon} />
         </div> 
 
         <div className={styles.overlaybox}></div>
