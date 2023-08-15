@@ -52,7 +52,7 @@ function WasKostetEineWebsite({footer, button, headerText, headerImage, calculat
       <Head>
         <title>Was kostet eine Website? » Homepage Kosten berechnen</title>
         <meta name="description" content="Wie viel Kostet es eine Website erstellen zu lassen? Jetzt Ihr Website Preis kostenlos berechnen lassen und Ihre professionelle Website anfragen."/>
-        <meta name="keywords" content="Was kostet eine Website" />
+        <meta name="keywords" content="Was kostet eine Website, Preise für Website, Wieviel kostet eine Website, Wo Website erstellen lassen, Wie viel kostet eine Homepage, Was kostet eine Homepage, Website Preise, Was kostet ein Webentwickler" />
         <meta name="google-site-verification" content="LML3tjqodXK6Ngu6TbcYkSz3LXB-AmQdruPA5dEN1B0" />
         <meta name="robots" content="index, follow" />
 

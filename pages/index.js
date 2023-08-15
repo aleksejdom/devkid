@@ -99,7 +99,7 @@ function Home({ title, subline, paragraph, button, button_text, tabs, contact, u
       <Head>
         <title>Website erstellen lassen - schnell, modern, aus Leidenschaft</title>
         <meta name="description" content="Nur einen Klick entfernt zur Ihrer Traum Website! Schönes und ansprechendes Webdesign, schnelle Ladezeiten, professionelle Umsetzung für Ihren Erfolg"/>
-        <meta name="keywords" content="Website erstellen lassen, Digitalagentur Stuttgart, Webdesign, 360 Grad Videoproduktion" />
+        <meta name="keywords" content="Website erstellen lassen, Digitalagentur Stuttgart, Webdesign, Homepage erstellen lassen, Internetseite erstellen lassen, Webagentur Stuttgart, modernes Website Design erstellen lassen, Wordpress Website erstellen lassen, Nextjs Website erstellen lassen" />
         <meta name="google-site-verification" content="LML3tjqodXK6Ngu6TbcYkSz3LXB-AmQdruPA5dEN1B0" />
         <meta name="robots" content="index, follow" />
         <meta name="author" content="Aleksej Domovec" />
