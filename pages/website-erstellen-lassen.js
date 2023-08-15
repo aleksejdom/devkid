@@ -118,7 +118,7 @@ function WebsiteErstellenLassen({button, footer, referenzen, preis_content, refe
                 ))}
               </ul>
             </div>
-            {button ? <a href={`${button}?subject=DevKid - Website erstellen lassen`} className="cta-button" title='Website erstellen lassen'>Jetzt Ihre eigene Website erstellen lassen</a> : null}  
+            {button ? <a href={`${button}?subject=DevKid - Website erstellen lassen`} className="cta-button" title='Website erstellen lassen'>Jetzt Ihre eigene professionelle Website erstellen lassen</a> : null}  
           </div>
           {headerImage ? 
               <div className={home.imagebox}>
