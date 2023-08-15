@@ -56,7 +56,7 @@ function WasKostetEineWebsite({footer, button, headerText, headerImage, calculat
         <meta name="google-site-verification" content="LML3tjqodXK6Ngu6TbcYkSz3LXB-AmQdruPA5dEN1B0" />
         <meta name="robots" content="index, follow" />
 
-        <link rel="shortcut icon" href="https://dev-kid.de/favicon-32x32.png" />
+        <link rel="shortcut icon" type="image/png" href="https://dev-kid.de/favicon.ico" />
         <link rel="apple-touch-icon" sizes="180x180" href="https://dev-kid.de/apple-touch-icon.png" />
         <link rel="icon" type="image/png" sizes="32x32" href="https://dev-kid.de/favicon-32x32.png" />
         <link rel="icon" type="image/png" sizes="16x16" href="https://dev-kid.de/favicon-16x16.png" />

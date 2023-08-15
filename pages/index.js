@@ -105,7 +105,7 @@ function Home({ title, subline, paragraph, button, button_text, tabs, contact, u
         <meta name="author" content="Aleksej Domovec" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-        <link rel="shortcut icon" href="https://dev-kid.de/favicon-32x32.png" />
+        <link rel="shortcut icon" type="image/png" href="https://dev-kid.de/favicon.ico" />
         <link rel="apple-touch-icon" sizes="180x180" href="https://dev-kid.de/apple-touch-icon.png" />
         <link rel="icon" type="image/png" sizes="32x32" href="https://dev-kid.de/favicon-32x32.png" />
         <link rel="icon" type="image/png" sizes="16x16" href="https://dev-kid.de/favicon-16x16.png" />
