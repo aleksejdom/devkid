@@ -200,7 +200,7 @@ function WebsiteErstellenLassen({button, footer, referenzen, preis_content, refe
               }
               return null;
             })}
-            <a href={`mailto:mail@dev-kid.de?subject=DevKid - Website erstellen lassen`} className="cta-button" title='Kontakt'>Jetzt Kontakt aufnehmen.</a>
+            <a href={`mailto:mail@dev-kid.de?subject=DevKid - Website erstellen lassen`} className={styles_website_erstellen_lassen['cta-button-transparent']} title='Kontakt'>Jetzt Kontakt aufnehmen.</a>
 
           </div>
           <Referenzen_Box referenzen={referenzen} referenzenContent={referenzenContent} />
