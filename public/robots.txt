@@ -1,4 +1,3 @@
+# Allow all crawlers
 User-agent: *
-Disallow: 
-
-Sitemap: https://dev-kid.de/sitemap.xml
+Allow: /
