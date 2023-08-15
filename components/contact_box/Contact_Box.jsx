@@ -11,7 +11,7 @@ export default function Contact_Box( {contact, button} ) {
       <div className={ styles.details }>
         <p className={styles.name}>Aleksej Domovec</p>
         <p>{ RichText.asText(contact.contact_number) }</p>
-        <a href={`${button}?subject=Dev-Kid - Anfrage`} target='_self'><p>{ RichText.asText(contact.contact_email) }</p></a>
+        <a href={`${button}?subject=Dev-Kid - Anfrage`} target='_self' title="E-Mail Kontakt"><p>{ RichText.asText(contact.contact_email) }</p></a>
       </div>
       <Image src='./images/icon.svg' alt="icon" title="devkid icon" width={120} height={68} className={styles.icon} />
     </div>

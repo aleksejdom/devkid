@@ -220,7 +220,7 @@ export default function Calculation({ calculation_content, button }) {
           <p>Bitte bedenken Sie, dass die Kosten nach einer detaillierten Kostenschätzung von der Online-Kalkulation abweichen können.</p>
           <div className={styles.buttons}>
             <button onClick={resetCalculation}>Nochmal berechnen</button>
-            {button ? <a href={`${button}?subject=DevKid - Website erstellen lassen`} className={styles['cta-button']}>Website erstellen lassen</a> : null} 
+            {button ? <a href={`${button}?subject=DevKid - Website erstellen lassen`} className={styles['cta-button']} title='Website erstellen lassen'>Website erstellen lassen</a> : null} 
           </div>
          </div>
 
@@ -228,7 +228,7 @@ export default function Calculation({ calculation_content, button }) {
       <div className={styles['more-info']}>
         <Image src='/images/questions/headset.svg' alt='contact' title="Website Preise" width={150} height={150}/> 
         <h3>Erfahren Sie mehr über die Website Kosten in einem persönlichen Erstgespräch.</h3>
-        {button ? <a href={`${button}?subject=DevKid - Website erstellen lassen`} className={'cta-button'}>Kostenloses Erstgespräch anfragen</a> : null} 
+        {button ? <a href={`${button}?subject=DevKid - Website erstellen lassen`} className={'cta-button'} title='Erstgespräch'>Kostenloses Erstgespräch anfragen</a> : null} 
       </div>
     </div>
   );

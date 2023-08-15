@@ -19,7 +19,7 @@ export default function Projekt_Ablauf({ projekt_ablauf_items, button }) {
           </div>
         ))}
       </div>
-      {button ? <a href={`${button}?subject=DevKid - Website erstellen lassen`} className={ styles['cta-button'] }>Jetzt Ihre eigene Website erstellen lassen</a> : null} 
+      {button ? <a href={`${button}?subject=DevKid - Website erstellen lassen`} className={ styles['cta-button'] } title="Anfrage">Jetzt Ihre eigene Website erstellen lassen</a> : null} 
     </div>
   );
 }
