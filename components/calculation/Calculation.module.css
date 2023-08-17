@@ -3,6 +3,8 @@
   height: 100%;
   padding: 4rem 6rem;
   box-sizing: border-box;
+  background: #ffffff;
+  color: #000000;
 }
 
 .answers {
@@ -29,6 +31,7 @@
 .calculator {
   margin: 4rem 0;
   background: #e8e8e8;
+  color: #000000;
   padding: 4rem 4rem;
   box-sizing: border-box;
 }
@@ -49,6 +52,7 @@
 .answer-box:hover {
   border: 1px solid #1aa9c2;
   background: #f1f1f1;
+  color: #000000;
 }
 
 .answer-box img {

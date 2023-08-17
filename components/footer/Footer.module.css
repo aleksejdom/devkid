@@ -86,7 +86,7 @@ ul.footerNav li {
 
 @media (max-width: 768px) {
   .footer {
-    padding: 2rem;
+    padding: 2rem 2rem 0;
   }
   @keyframes marquee {
     0% {
