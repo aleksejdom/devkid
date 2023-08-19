@@ -15,18 +15,20 @@ const apiEndpoint = 'https://aleksej.cdn.prismic.io/api/v2'
 
 function WebsiteErstellenLassen({button, footer, referenzen, preis_content, referenzenContent, headline, headerParagraph, headerImage, introText, listItems, projekt_ablauf_items, leistungsoverview_items, leistungsoverview_title}) { 
     const headerRef = useRef(null);
-    const footerRef = useRef(null);
-    // Array of colors
-    const colors = ['#05473C', '#4A3170', '#7D0B32'];
-    // State for the current color
+    const footerRef = useRef(null); 
+    const colors = ['#05473C', '#4A3170', '#7D0B32']; 
     const [colorIndex, setColorIndex] = useState(0);
+
+    const leistungsoverviewRef = useRef(null);
+    const referenzenRef = useRef(null);
+    const kostenRef = useRef(null);
+    const ablaufRef = useRef(null);
 
     const [isMenuOpen, setMenuOpen] = useState(false); 
     const toggleMenu = () => {
       setMenuOpen(!isMenuOpen);
     };
-
-    // Change the color every 4 seconds
+ 
     useEffect(() => {
       const timer = setInterval(() => {
         setColorIndex((prevColorIndex) => (prevColorIndex + 1) % colors.length);
@@ -34,12 +36,40 @@ function WebsiteErstellenLassen({button, footer, referenzen, preis_content, refe
       return () => clearInterval(timer);  
     }, []); 
 
-    // Funktion zum Scrollen zum Footer
+    const scrollToLeistungsTab = () => {
+      if (leistungsoverviewRef.current) {
+        leistungsoverviewRef.current.scrollIntoView({ behavior: 'smooth' });
+      }
+      toggleMenu();
+    };
+
+    const scrollToReferenzen = () => {
+      if (referenzenRef.current) {
+        referenzenRef.current.scrollIntoView({ behavior: 'smooth' });
+      }
+      toggleMenu();
+    };
+    
+    const scrollToKosten = () => {
+      if (kostenRef.current) {
+        kostenRef.current.scrollIntoView({ behavior: 'smooth' });
+      }
+      toggleMenu();
+    };
+
+    const scrollToAblauf = () => {
+      if (ablaufRef.current) {
+        ablaufRef.current.scrollIntoView({ behavior: 'smooth' });
+      }
+      toggleMenu();
+    };
+
     const scrollToFooter = () => {
       if (footerRef.current) {
         footerRef.current.scrollIntoView({ behavior: 'smooth' });
       }
     }; 
+  
 
     return ( 
       <>
@@ -55,7 +85,7 @@ function WebsiteErstellenLassen({button, footer, referenzen, preis_content, refe
         </Script>
 
         <Head>
-          <title>Website erstellen lassen » Website Design und Mehr</title>
+          <title>Website erstellen lassen » Kreative Websites für Ihr Unternehmen</title>
           <meta name="description" content="Möchten Sie eine Website erstellen lassen? Als führende Experten für Webdesign und Webentwicklung in Stuttgart bieten wir maßgeschneiderte Lösungen an."/>
           <meta name="keywords" content="Website erstellen lassen, Webentwicklung, Website design, Webdesign erstellen lassen, Homepage erstellen lassen, Internetseite erstellen lassen, Webdesign für Ärtzte, kreative Website erstellen lassen, Wordpress Website erstellen lassen, Firmenwebsite erstellen lassen, Unternehmenswebsite erstellen lassen" />
           <meta name="google-site-verification" content="LML3tjqodXK6Ngu6TbcYkSz3LXB-AmQdruPA5dEN1B0" />
@@ -76,8 +106,10 @@ function WebsiteErstellenLassen({button, footer, referenzen, preis_content, refe
           <div className={home.burgerMenu} onClick={toggleMenu}>☰</div>
           <ul className={isMenuOpen ? home.menuOpen : ''}>
             <Link href="/" title='Devkid'><Image src="/images/devkid_logo_white.svg" alt="icon" width={120} height={45} className={home.logo} title='Devkid logo' /></Link>
-            <li><Link href="/website-erstellen-lassen/was-kostet-eine-website" title='Website Kosten'>Kosten</Link></li>
-            <li><Link href={`${button}?subject=Dev-Kid - Anfrage`} title="Anfrage">Website erstellen lassen? - Anfrage senden</Link></li>
+            <li><Link href="#Ablauf" title='Ablauf' onClick={scrollToAblauf}>In 6 Schritten zur Website</Link></li> 
+            <li><Link href="#Leistungen" title='Leistungen' onClick={scrollToLeistungsTab}>Leistungen</Link></li> 
+            <li><Link href="#Kosten" title='Kosten' onClick={scrollToKosten}>Kosten</Link></li> 
+            <li><Link href="#Referenzen" title='Referenzen' onClick={scrollToReferenzen}>Referenzen</Link></li> 
             <li className='aktion'><Link href="#rabatt" onClick={scrollToFooter} title="Rabatt Aktion">Sale 15% Rabatt</Link></li>
           </ul>
         </nav>
@@ -129,9 +161,9 @@ function WebsiteErstellenLassen({button, footer, referenzen, preis_content, refe
         </header>
 
         <main className={styles_website_erstellen_lassen["main-text"]}>
-          <Projekt_Ablauf projekt_ablauf_items={projekt_ablauf_items} button={button} />
-          <Leistungsoverview leistungsoverview_items={leistungsoverview_items} leistungsoverview_title={leistungsoverview_title} />
-          <div className={styles_website_erstellen_lassen["kosten-overview"]}>
+          <Projekt_Ablauf projekt_ablauf_items={projekt_ablauf_items} button={button} ref={ablaufRef}/>
+          <Leistungsoverview leistungsoverview_items={leistungsoverview_items} leistungsoverview_title={leistungsoverview_title} ref={leistungsoverviewRef}/>
+          <div className={styles_website_erstellen_lassen["kosten-overview"]} ref={kostenRef}>
             {preis_content.map((item, index) => {
               if (item.type === "paragraph") {
                 const textSegments = [];
@@ -164,7 +196,7 @@ function WebsiteErstellenLassen({button, footer, referenzen, preis_content, refe
               }
               return null;
             })}
-            <a href={`/website-erstellen-lassen/was-kostet-eine-website`} className={styles_website_erstellen_lassen["cta-button"]} title='Kosten'>Was kostet eine Website?</a>
+            <a href={`/website-erstellen-lassen/was-kostet-eine-website`} className={styles_website_erstellen_lassen["cta-button"]} title='Kosten'>Zur Preisberechnung</a>
           </div>
           <div className={styles_website_erstellen_lassen["text-box"]}>
             {introText && introText.map((item, index) => {
@@ -200,10 +232,10 @@ function WebsiteErstellenLassen({button, footer, referenzen, preis_content, refe
               }
               return null;
             })}
-            <a href={`mailto:mail@dev-kid.de?subject=DevKid - Website erstellen lassen`} className={styles_website_erstellen_lassen['cta-button-transparent']} title='Kontakt'>Jetzt Kontakt aufnehmen.</a>
+            <a href={`mailto:mail@dev-kid.de?subject=DevKid - Website erstellen lassen`} className={styles_website_erstellen_lassen['cta-button-transparent']} title='Kontakt'>Jetzt Kontakt aufnehmen</a>
 
           </div>
-          <Referenzen_Box referenzen={referenzen} referenzenContent={referenzenContent} />
+          <Referenzen_Box referenzen={referenzen} referenzenContent={referenzenContent} ref={referenzenRef}/>
         </main>
 
         <Footer footer={footer} ref={footerRef} />

@@ -1,4 +1,4 @@
-import React, { useRef, useState, useEffect } from 'react';
+import React, { useRef, useState, useEffect, forwardRef } from 'react';
 import SwiperCore, { Navigation } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
@@ -12,11 +12,9 @@ import Image from 'next/image';
 
 SwiperCore.use([Navigation]);
 
-export default function Referenzen_Box({referenzen, referenzenContent}) {
-  const swiperRef = useRef(null);
-  // Array of colors
-  const colors = ['#05473C', '#4A3170', '#7D0B32'];
-  // State for the current color
+const Referenzen_Box = forwardRef(({ referenzen, referenzenContent }, ref) => {
+  const swiperRef = useRef(null); 
+  const colors = ['#05473C', '#4A3170', '#7D0B32']; 
   const [colorIndex, setColorIndex] = useState(0);
 
   const nextSlide = () => {
@@ -30,8 +28,7 @@ export default function Referenzen_Box({referenzen, referenzenContent}) {
       swiperRef.current.swiper.slidePrev();
     }
   };
-
-  // Change the color every 4 seconds
+ 
   useEffect(() => {
     const timer = setInterval(() => {
       setColorIndex((prevColorIndex) => (prevColorIndex + 1) % colors.length);
@@ -40,7 +37,7 @@ export default function Referenzen_Box({referenzen, referenzenContent}) {
   }, []);
 
   return (
-    <div className={styles.referenzenBox} style={{ backgroundColor: colors[colorIndex] }}>
+    <div className={styles.referenzenBox} style={{ backgroundColor: colors[colorIndex] }} ref={ref}>
       <div className={styles.referenzenWrapper}>
         <h3>Referenzen</h3>
         <div className={styles.referenzenItems}>
@@ -72,12 +69,10 @@ export default function Referenzen_Box({referenzen, referenzenContent}) {
               disableOnInteraction: false,
             }} 
             spaceBetween={0}
-            breakpoints={{
-              // when window width is >= 640px
+            breakpoints={{ 
               640: {
                 slidesPerView: 2,
-              },
-              // when window width is >= 768px
+              }, 
               768: {
                 slidesPerView: 3,
               },
@@ -100,16 +95,16 @@ export default function Referenzen_Box({referenzen, referenzenContent}) {
         </div>
       </div>
       <div className={styles.referenzenContent}>
-        {referenzenContent.map((paragraph, index) => {
-          // Für den ersten Absatz rendern wir einen h2-Tag
+        {referenzenContent.map((paragraph, index) => { 
           if (index === 0) {
             return <h2 key={index}>{paragraph.text}</h2>;
-          }
-          // Für die restlichen Absätze verwenden wir den p-Tag
+          } 
           return <p key={index}>{paragraph.text}</p>;
         })}
-        <a href={`/website-erstellen-lassen/`} className={["cta-button"]}>Sie möchten eine Website erstellen lassen<br />Jetzt Mehr erfahren</a>
+        <a href={`/website-erstellen-lassen/`} className={["cta-button"]}>Mehr über die Website-Erstellung</a>
       </div>
     </div>
   )
-}
+});
+
+export default Referenzen_Box;

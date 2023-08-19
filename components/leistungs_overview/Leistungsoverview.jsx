@@ -1,9 +1,11 @@
+import React, { forwardRef } from 'react';
+
 import styles from './Leistungsoverview.module.css';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 
-export default function Leistungsoverview({ leistungsoverview_items, leistungsoverview_title }) {
+const Leistungsoverview = forwardRef(({ leistungsoverview_items, leistungsoverview_title }, ref) => {
   return ( 
-    <div className={ styles['leistungs-overview'] }>
+    <div className={ styles['leistungs-overview'] } ref={ref}>
       <h2>
         {leistungsoverview_title[0].text}  
       </h2>
@@ -24,4 +26,7 @@ export default function Leistungsoverview({ leistungsoverview_items, leistungsov
       </div> 
     </div>
   );
-}
+});
+
+// Vergiss nicht, die umschlossene Komponente zu exportieren
+export default Leistungsoverview;

@@ -1,16 +1,27 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import styles from './Accordion.module.css';
 
 export default function Accordion({ accordion }) {
   const [expandedItemIndex, setExpandedItemIndex] = useState(-1);
 
+  const colors = ['#05473C', '#4A3170', '#7D0B32']; 
+  const [colorIndex, setColorIndex] = useState(0);
+
+  
   const handleItemClick = (index) => {
     setExpandedItemIndex(index === expandedItemIndex ? -1 : index);
   };
+  // Change the color every 4 seconds
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setColorIndex((prevColorIndex) => (prevColorIndex + 1) % colors.length);
+    }, 4500);
+    return () => clearInterval(timer);  
+  }, []);
 
   return (
-    <div className={styles.accordion}>
-      <h3 className={styles.accordionTitle}>FAQs</h3>
+    <div className={styles.accordion} style={{ backgroundColor: colors[colorIndex] }}>
+      <h2 className={styles.accordionTitle}>FAQs</h2>
       <div className={styles.accordionItems}>
       {accordion.map((item, index) => (
         <div

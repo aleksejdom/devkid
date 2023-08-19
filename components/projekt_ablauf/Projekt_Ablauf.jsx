@@ -1,8 +1,11 @@
+import React, { forwardRef } from 'react';
+
 import styles from './Projekt_Ablauf.module.css';
 
-export default function Projekt_Ablauf({ projekt_ablauf_items, button }) {
+const Projekt_Ablauf = forwardRef(({ projekt_ablauf_items, button }, ref) => {
+
   return ( 
-    <div className={ styles['projekt-ablauf'] }>
+    <div className={ styles['projekt-ablauf'] } ref={ref}>
       <h2>
         In nur 6 Schritten können Sie Ihre eigene Website erstellen lassen und schnell online präsent sein.  
       </h2>
@@ -22,4 +25,7 @@ export default function Projekt_Ablauf({ projekt_ablauf_items, button }) {
       {button ? <a href={`${button}?subject=DevKid - Website erstellen lassen`} className={ styles['cta-button'] } title="Anfrage">Jetzt Ihre eigene Website erstellen lassen</a> : null} 
     </div>
   );
-}
+});
+
+// Vergiss nicht, die umschlossene Komponente zu exportieren
+export default Projekt_Ablauf;

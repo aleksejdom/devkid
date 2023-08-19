@@ -133,7 +133,7 @@ nav ul li.aktion {
   background: rgb(125, 11, 50);
   position: absolute;
   right: 0;
-  padding: 1rem;
+  padding: 1.2rem;
   top: 0;
 }
 
@@ -211,6 +211,9 @@ a.cta-button:hover::after {
   p.subline {
     max-width: 680px;
   }
+  li.aktion a {
+    margin-bottom: 0!important;
+  }
 }
 
 @media (max-width: 768px) {
@@ -234,9 +237,11 @@ a.cta-button:hover::after {
     box-sizing: border-box;
     width: 100%; 
   }
+  
   nav ul {
     justify-content: space-around;
-  }
+  } 
+
   p.subline {
     margin-top: 10px;
     font-size: 21px;

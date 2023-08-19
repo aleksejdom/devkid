@@ -111,7 +111,7 @@ function WasKostetEineWebsite({footer, button, headerText, headerImage, calculat
               return null;
             })
           }
-          <a href={`mailto:mail@dev-kid.de?subject=DevKid - Erstgespräch Anfrage`} className="cta-button" title='Erstgespräch'>Jetzt Erstgespräch anfragen.</a>
+          <a href={`mailto:mail@dev-kid.de?subject=DevKid - Erstgespräch Anfrage`} className="cta-button" title='Erstgespräch'>Jetzt Erstgespräch anfragen</a>
         </div>
         {headerImage ? 
           <div className={home.imagebox}>

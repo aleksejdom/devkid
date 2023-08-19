@@ -1,11 +1,30 @@
 .navbar {
   display: flex; 
   align-items: center;
+  justify-content: flex-start;
+  height: 66px;
 } 
 
 .burgerMenu {
   color: white;
   display: none;
+}
+
+.burgerMenu::before {
+  content: url('/images/menu.svg');
+  transform: scale(1);
+  height: 40px;
+  width: 40px;
+  display: inline-block;
+  transform: translateY(-5px);
+}
+.navbar > .open::before {
+  content: url('/images/x.svg');
+  transform: scale(1);
+  height: 30px;
+  width: 30px;
+  display: inline-block;
+  transform: translateY(-5px);
 }
 
 .header {
@@ -311,6 +330,11 @@
     cursor: pointer;
     font-size: 45px;
   }
+
+  .navbar { 
+    justify-content: flex-end; 
+  } 
+
   .navbar .menuOpen { 
     display: flex;
     flex-direction: column;
@@ -413,6 +437,10 @@
 
   .mainText h2 {
     margin-top: 2rem;
+  }
+
+  .navbar {
+    justify-content: flex-end;
   }
 
 }

@@ -13,14 +13,24 @@ const Footer = forwardRef(({footer}, ref) => {
               <a href={`tel:${footer[0].content[1].text}`} title='Telefon'>{footer[0].content[1].text}</a>
               <a href={`mailto:${footer[0].content[2].text}`} title='E-Mail'>{footer[0].content[2].text}</a>
             </div>
-            <ul className={styles.footerNav}>
-              <li>
-                <Link href="/impressum" title='Impressum'>Impressum</Link>
-              </li>
-              <li>
-                <Link href="/datenschutz" title='Datenschutz'>Datenschutz</Link>
-              </li>
-            </ul>
+            <div className={styles.footerMenu}> 
+              <ul className={styles.footerNav}>
+                <li>
+                  <Link href="/website-erstellen-lassen/was-kostet-eine-website" title='Kosten'>Wieviel kostet eine Website?</Link>
+                </li>
+                <li>
+                  <Link href="/website-erstellen-lassen" title='Website erstellen lassen'>Website erstellen lassen</Link>
+                </li>
+              </ul>
+              <ul className={styles.footerNav}>
+                <li>
+                  <Link href="/impressum" title='Impressum'>Impressum</Link>
+                </li>
+                <li>
+                  <Link href="/datenschutz" title='Datenschutz'>Datenschutz</Link>
+                </li>
+              </ul>
+            </div>
           </div>
          <div className={styles.aktion} >
           <span className={styles.aktionText}>

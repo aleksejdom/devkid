@@ -12,12 +12,13 @@ import Footer from '../components/footer/Footer';
 import Accordion from '../components/accordion/Accordion';
 import Link from 'next/link';
 import Script from 'next/script'
+import Artikel_Probleme from '../components/artikel_probleme/Artikel_Probleme';
 
 
 // Prismic API Endpunkt
 const apiEndpoint = 'https://aleksej.cdn.prismic.io/api/v2'
 
-function Home({ title, subline, paragraph, button, button_text, tabs, contact, usp, referenzen, referenzenContent, footer, accordion }) {
+function Home({ title, subline, paragraph, button, button_text, tabs, contact, usp, referenzen, referenzenContent, footer, accordion, artikel_probleme, artikel_probleme_headline }) {
   const videoRef = useRef(null);
   const headerRef = useRef(null); 
   const colors = ['#05473C', '#4A3170', '#7D0B32']; 
@@ -26,21 +27,40 @@ function Home({ title, subline, paragraph, button, button_text, tabs, contact, u
   const [isMenuOpen, setMenuOpen] = useState(false); 
   const toggleMenu = () => {
     setMenuOpen(!isMenuOpen);
-  };
+  }; 
 
+  const menuClasses = `${styles.burgerMenu} ${isMenuOpen ? styles.open : ''}`;
   const leistungsTabRef = useRef(null);
+  const loesungsRef = useRef(null);
   const footerRef = useRef(null);
+  const referenzenRef = useRef(null);
  
   const scrollToLeistungsTab = () => {
     if (leistungsTabRef.current) {
       leistungsTabRef.current.scrollIntoView({ behavior: 'smooth' });
     }
+    toggleMenu();
   };
+
+  const scrollToLoesungen = () => {
+    if (loesungsRef.current) {
+      loesungsRef.current.scrollIntoView({ behavior: 'smooth' });
+    }
+    toggleMenu();
+  }
  
+  const scrollToReferenzen = () => {
+    if (referenzenRef.current) {
+      referenzenRef.current.scrollIntoView({ behavior: 'smooth' });
+    }
+    toggleMenu();
+  }
+
   const scrollToFooter = () => {
     if (footerRef.current) {
       footerRef.current.scrollIntoView({ behavior: 'smooth' });
     }
+    toggleMenu();
   }; 
 
   // Change the color every 4 seconds
@@ -98,7 +118,7 @@ function Home({ title, subline, paragraph, button, button_text, tabs, contact, u
 
       <Head>
         <title>Website erstellen lassen - schnell, modern, aus Leidenschaft</title>
-        <meta name="description" content="Nur einen Klick entfernt zur Ihrer Traum Website! Schönes und ansprechendes Webdesign, schnelle Ladezeiten, professionelle Umsetzung für Ihren Erfolg"/>
+        <meta name="description" content="Nur einen Klick entfernt zur Ihrer Traum-Website! Lassen Sie sich von uns Ihre professionelle Website erstellen – mit schönem und ansprechendem Webdesign"/>
         <meta name="keywords" content="Website erstellen lassen, Digitalagentur Stuttgart, Webdesign, Homepage erstellen lassen, Internetseite erstellen lassen, Webagentur Stuttgart, modernes Website Design erstellen lassen, Wordpress Website erstellen lassen, Nextjs Website erstellen lassen" />
         <meta name="google-site-verification" content="LML3tjqodXK6Ngu6TbcYkSz3LXB-AmQdruPA5dEN1B0" />
         <meta name="robots" content="index, follow" />
@@ -118,13 +138,13 @@ function Home({ title, subline, paragraph, button, button_text, tabs, contact, u
       </Head>
 
       <nav className={styles.navbar}> 
-        <div className={styles.burgerMenu} onClick={toggleMenu}>☰</div>
+        <div className={menuClasses} onClick={toggleMenu}></div>
         <ul className={isMenuOpen ? styles.menuOpen : ''}>
           <Link href="/" title='DevKid'><Image src="/images/devkid_logo_white.svg" alt="icon" title="Devkid Logo" width={120} height={45} className={styles.logo} /></Link>
-          <li><Link href="#leistungen" onClick={scrollToLeistungsTab} title='Leistungen'>Leistungen</Link></li>
-          <li><Link href="/website-erstellen-lassen" title='Website erstellen lassen'>Website erstellen lassen</Link></li>
-          <li><Link href="/website-erstellen-lassen/was-kostet-eine-website" title='Website Kosten'>Kosten</Link></li>
-          <li><Link href={`${button}?subject=DevKid - Website erstellen lassen`} title='Kontakt'>Kontakt</Link></li>
+          <li><Link href="#leistungen" onClick={scrollToLeistungsTab} title='Leistungen'>Leistungen</Link></li> 
+          <li><Link href="#Referenzen" onClick={scrollToReferenzen} title='Referenzen'>Referenzen</Link></li> 
+          <li><Link href="#Probleme&Loesungen" onClick={scrollToLoesungen} title='Lösungen'>Lösungen</Link></li> 
+          <li><Link href={`${button}?subject=DevKid - Website erstellen lassen`} title='Kontakt'>@Kontakt</Link></li>
           <li className='aktion'><Link href="#rabatt" onClick={scrollToFooter} title="Rabatt Aktion">Rabatt 15%</Link></li>
         </ul>
       </nav>
@@ -158,7 +178,8 @@ function Home({ title, subline, paragraph, button, button_text, tabs, contact, u
         <Leistungs_Tab tabs={tabs} id="leistungs-tab" ref={leistungsTabRef}/>
         <Contact_Box contact={contact} button={button}/>
         <Usp_Box usp={usp}/>
-        <Referenzen_Box referenzen={referenzen} referenzenContent={referenzenContent} />
+        <Referenzen_Box referenzen={referenzen} referenzenContent={referenzenContent} ref={referenzenRef} />
+        <Artikel_Probleme artikel_probleme={artikel_probleme} artikel_probleme_headline={artikel_probleme_headline} ref={loesungsRef} />
         <Accordion accordion={accordion} />
       </main>
 
@@ -189,7 +210,9 @@ Home.getInitialProps = async () => {
     referenzen : document.data.referenzen,
     referenzenContent : document.data.referenz_content,
     footer : document.data.footer,
-    accordion : document.data.accordion
+    accordion : document.data.accordion,
+    artikel_probleme : document.data.artikel_probleme,
+    artikel_probleme_headline : document.data.artikel_probleme_headline,
   }
 }
 
