@@ -19,15 +19,18 @@ function WebsiteErstellenLassen({button, footer, referenzen, preis_content, refe
     const colors = ['#05473C', '#4A3170', '#7D0B32']; 
     const [colorIndex, setColorIndex] = useState(0);
 
+    const [isMenuOpen, setMenuOpen] = useState(false); 
+    const toggleMenu = () => {
+      setMenuOpen(!isMenuOpen);
+    };
+
+    const menuClasses = `${home.burgerMenu} ${isMenuOpen ? home.open : ''}`;
     const leistungsoverviewRef = useRef(null);
     const referenzenRef = useRef(null);
     const kostenRef = useRef(null);
     const ablaufRef = useRef(null);
 
-    const [isMenuOpen, setMenuOpen] = useState(false); 
-    const toggleMenu = () => {
-      setMenuOpen(!isMenuOpen);
-    };
+    
  
     useEffect(() => {
       const timer = setInterval(() => {
@@ -103,9 +106,9 @@ function WebsiteErstellenLassen({button, footer, referenzen, preis_content, refe
         </Head>
 
         <nav className={home.navbar}> 
-          <div className={home.burgerMenu} onClick={toggleMenu}>☰</div>
+          <div className={menuClasses} onClick={toggleMenu}></div>
           <ul className={isMenuOpen ? home.menuOpen : ''}>
-            <Link href="/" title='Devkid'><Image src="/images/devkid_logo_white.svg" alt="icon" width={120} height={45} className={home.logo} title='Devkid logo' /></Link>
+            <Link href="/" title='DevKid'><Image src="/images/devkid_logo_white.svg" alt="icon" title="Devkid Logo" width={120} height={45} className={home.logo} /></Link>
             <li><Link href="#Ablauf" title='Ablauf' onClick={scrollToAblauf}>In 6 Schritten zur Website</Link></li> 
             <li><Link href="#Leistungen" title='Leistungen' onClick={scrollToLeistungsTab}>Leistungen</Link></li> 
             <li><Link href="#Kosten" title='Kosten' onClick={scrollToKosten}>Kosten</Link></li> 

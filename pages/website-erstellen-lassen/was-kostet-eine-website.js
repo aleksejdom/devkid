@@ -16,11 +16,13 @@ function WasKostetEineWebsite({footer, button, headerText, headerImage, calculat
     // Array of colors
     const colors = ['#05473C', '#4A3170', '#7D0B32']; 
     const [colorIndex, setColorIndex] = useState(0);
+
     const [isMenuOpen, setMenuOpen] = useState(false); 
     const toggleMenu = () => {
       setMenuOpen(!isMenuOpen);
     };
 
+    const menuClasses = `${home.burgerMenu} ${isMenuOpen ? home.open : ''}`;
     // Change the color every 4 seconds
     useEffect(() => {
       const timer = setInterval(() => {
@@ -68,7 +70,7 @@ function WasKostetEineWebsite({footer, button, headerText, headerImage, calculat
       </Head>
 
       <nav className={home.navbar}> 
-          <div className={home.burgerMenu} onClick={toggleMenu}>☰</div>
+          <div className={menuClasses} onClick={toggleMenu}></div>
           <ul className={isMenuOpen ? home.menuOpen : ''}>
             <Link href="/" title='Devkid'><Image src="/images/devkid_logo_white.svg" alt="icon" width={120} height={45} className={home.logo} title='Devkid logo'/></Link>
             <li><Link href='/website-erstellen-lassen' title='Website erstellen lassen'>Website erstellen lassen</Link></li>
