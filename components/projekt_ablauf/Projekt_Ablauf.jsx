@@ -27,5 +27,5 @@ const Projekt_Ablauf = forwardRef(({ projekt_ablauf_items, button }, ref) => {
   );
 });
 
-// Vergiss nicht, die umschlossene Komponente zu exportieren
+Projekt_Ablauf.displayName = 'Projekt Ablauf';
 export default Projekt_Ablauf;

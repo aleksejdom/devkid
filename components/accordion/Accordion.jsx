@@ -45,3 +45,5 @@ export default function Accordion({ accordion }) {
     </div>
   );
 }
+
+Accordion.displayName = 'Accordion';

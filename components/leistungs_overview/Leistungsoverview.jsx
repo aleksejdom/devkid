@@ -28,5 +28,5 @@ const Leistungsoverview = forwardRef(({ leistungsoverview_items, leistungsovervi
   );
 });
 
-// Vergiss nicht, die umschlossene Komponente zu exportieren
+Leistungsoverview.displayName = 'Leistungs Overview';
 export default Leistungsoverview;

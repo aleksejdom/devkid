@@ -107,4 +107,6 @@ const Referenzen_Box = forwardRef(({ referenzen, referenzenContent }, ref) => {
   )
 });
 
+Referenzen_Box.displayName = 'Referenzen Box';
+
 export default Referenzen_Box;

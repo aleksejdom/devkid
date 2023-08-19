@@ -155,4 +155,6 @@ const Artikel_Probleme = forwardRef(({ artikel_probleme, artikel_probleme_headli
   );
 });
 
+Artikel_Probleme.displayName = 'Artikel_Probleme';
+
 export default Artikel_Probleme;
