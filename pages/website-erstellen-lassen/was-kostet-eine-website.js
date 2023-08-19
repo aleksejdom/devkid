@@ -30,8 +30,7 @@ function WasKostetEineWebsite({footer, button, headerText, headerImage, calculat
       }, 4500);
       return () => clearInterval(timer);  
     }, []); 
-
-    // Funktion zum Scrollen zum Footer
+ 
     const scrollToFooter = () => {
       if (footerRef.current) {
         footerRef.current.scrollIntoView({ behavior: 'smooth' });
