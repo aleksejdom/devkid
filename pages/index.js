@@ -135,6 +135,62 @@ function Home({ title, subline, paragraph, button, button_text, tabs, contact, u
         <meta name="msapplication-TileColor" content="#da532c" />
         <meta name="theme-color" content="#ffffff" />
         <meta name="google" content="nositelinkssearchbox" key="sitelinks" />
+
+        <meta property="og:title" content="Website erstellen lassen - schnell, modern, aus Leidenschaft" />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://dev-kid.de" />
+        <meta property="og:image" content="https://dev-kid.de/og_header.jpg" />
+        <meta property="og:description" content="Nur einen Klick entfernt zur Ihrer Traum-Website! Lassen Sie sich von uns Ihre professionelle Website erstellen – mit schönem und ansprechendem Webdesign" />
+        <meta property="og:site_name" content="Dev-Kid" />
+        <meta property="og:locale" content="de_DE" />
+ 
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "http://schema.org",
+            "@type": "Service",
+            "name": "Devkid Website Erstellung",
+            "serviceType": "Website Erstellung und Design",
+            "provider": {
+              "@type": "Organization",
+              "name": "DevKid",
+              "address": {
+                "@type": "PostalAddress", 
+                "addressLocality": "Stuttgart", 
+                "addressCountry": "DE"
+              },
+              "telephone": "+4915906372543"
+            },
+            "areaServed": "Weltweit",
+            "description": "Nur einen Klick entfernt zur Ihrer Traum-Website! Lassen Sie sich von uns Ihre professionelle Website erstellen",
+            "priceRange": "€500 - €5000",
+            "availableChannel": {
+              "@type": "ServiceChannel",
+              "serviceUrl": "https://www.dev-kid.de"
+            }
+          })}
+        </script>
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "http://schema.org",
+            "@type": "Person",
+            "name": "Aleksej Domovec",
+            "jobTitle": "Website Entwickler und Digital Designer",
+            "url": "https://www.dev-kid.de",
+            "sameAs": [
+              "https://www.linkedin.com/in/aleksej-domovec-355462177/",
+              "https://dev-kid.de"
+              // ... weitere Links
+            ],
+            "address": {
+              "@type": "PostalAddress",
+              "addressLocality": "Stuttgart",
+              "addressRegion": "Baden Württemberg",
+              "postalCode": "70378",
+              "addressCountry": "Deutschland"
+            }
+            // Fügen Sie weitere Details wie E-Mail oder Telefonnummer hinzu, falls gewünscht
+          })}
+        </script>
       </Head>
 
       <nav className={styles.navbar}> 
