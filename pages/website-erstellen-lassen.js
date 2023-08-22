@@ -46,7 +46,7 @@ function WebsiteErstellenLassen({button, footer, referenzen, preis_content, refe
           }
       };
     }, []);
-    
+
     useEffect(() => {
       const timer = setInterval(() => {
         setColorIndex((prevColorIndex) => (prevColorIndex + 1) % colors.length);
@@ -95,18 +95,6 @@ function WebsiteErstellenLassen({button, footer, referenzen, preis_content, refe
           <title>Website erstellen lassen » Kreative Websites für Ihr Unternehmen</title>
           <meta name="description" content="Möchten Sie eine Website erstellen lassen? Als führende Experten für Webdesign und Webentwicklung in Stuttgart bieten wir maßgeschneiderte Lösungen an."/>
           <meta name="keywords" content="Website erstellen lassen, Webentwicklung, Website design, Webdesign erstellen lassen, Homepage erstellen lassen, Internetseite erstellen lassen, Webdesign für Ärtzte, kreative Website erstellen lassen, Wordpress Website erstellen lassen, Firmenwebsite erstellen lassen, Unternehmenswebsite erstellen lassen" />
-          <meta name="google-site-verification" content="LML3tjqodXK6Ngu6TbcYkSz3LXB-AmQdruPA5dEN1B0" />
-          <meta name="robots" content="index, follow" />
-
-          <link rel="shortcut icon" type="image/png" href="https://dev-kid.de/favicon.ico" />
-          <link rel="apple-touch-icon" sizes="180x180" href="https://dev-kid.de/apple-touch-icon.png" />
-          <link rel="icon" type="image/png" sizes="32x32" href="https://dev-kid.de/favicon-32x32.png" />
-          <link rel="icon" type="image/png" sizes="16x16" href="https://dev-kid.de/favicon-16x16.png" />
-          
-          <link rel="manifest" href="https://dev-kid.de/site.webmanifest" />
-          <link rel="mask-icon" href="https://dev-kid.de/safari-pinned-tab.svg" color="#5bbad5" />
-          <meta name="msapplication-TileColor" content="#da532c" />
-          <meta name="theme-color" content="#ffffff" />
         </Head>
 
         <nav className={home.navbar}> 

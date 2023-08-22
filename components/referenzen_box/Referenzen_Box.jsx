@@ -95,13 +95,46 @@ const Referenzen_Box = forwardRef(({ referenzen, referenzenContent }, ref) => {
         </div>
       </div>
       <div className={styles.referenzenContent}>
-        {referenzenContent.map((paragraph, index) => { 
-          if (index === 0) {
-            return <h2 key={index}>{paragraph.text}</h2>;
-          } 
-          return <p key={index}>{paragraph.text}</p>;
-        })}
-        <a href={`/website-erstellen-lassen/`} className={["cta-button"]}>Mehr über die Website-Erstellung</a>
+        {
+          referenzenContent.map((content, index) => {
+            const { type, text, spans } = content;
+          
+            // Eine Funktion, um den Text mit möglichen Hyperlinks zu rendern
+            const renderTextWithSpans = () => {
+              let lastIndex = 0;
+              const elements = [];
+          
+              spans.forEach((span, spanIndex) => {
+                const beforeLink = text.slice(lastIndex, span.start);
+                lastIndex = span.end;
+          
+                if (span.type === 'hyperlink') {
+                  elements.push(beforeLink);
+                  elements.push(
+                    <a key={`span-${spanIndex}`} href={span.data.url}>
+                      {text.slice(span.start, span.end)}
+                    </a>
+                  );
+                }
+              });
+          
+              // Den Rest des Textes hinzufügen
+              elements.push(text.slice(lastIndex));
+          
+              return elements;
+            };
+          
+            switch (type) {
+              case 'heading3':
+                return <h3 key={index}>{text}</h3>;
+              case 'paragraph':
+                return <p key={index}>{renderTextWithSpans()}</p>;
+              default:
+                return null;
+            }
+          })
+        }
+        <a href={`/website-erstellen-lassen/`} className={["cta-button"]} title="Website Erstellung">Mehr über die Website-Erstellung</a>
       </div>
     </div>
   )

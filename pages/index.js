@@ -123,22 +123,7 @@ function Home({ title, subline, paragraph, button, button_text, tabs, contact, u
         <title>Website erstellen lassen - schnell, modern, aus Leidenschaft</title>
         <meta name="description" content="Nur einen Klick entfernt zur Ihrer Traum-Website! Lassen Sie sich von uns Ihre professionelle Website erstellen – mit schönem und ansprechendem Webdesign"/>
         <meta name="keywords" content="Website erstellen lassen, Digitalagentur Stuttgart, Webdesign, Homepage erstellen lassen, Internetseite erstellen lassen, Webagentur Stuttgart, modernes Website Design erstellen lassen, Wordpress Website erstellen lassen, Nextjs Website erstellen lassen" />
-        <meta name="google-site-verification" content="LML3tjqodXK6Ngu6TbcYkSz3LXB-AmQdruPA5dEN1B0" />
-        <meta name="robots" content="index, follow" />
-        <meta name="author" content="Aleksej Domovec" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-        <link rel="shortcut icon" type="image/png" href="https://dev-kid.de/favicon.ico" />
-        <link rel="apple-touch-icon" sizes="180x180" href="https://dev-kid.de/apple-touch-icon.png" />
-        <link rel="icon" type="image/png" sizes="32x32" href="https://dev-kid.de/favicon-32x32.png" />
-        <link rel="icon" type="image/png" sizes="16x16" href="https://dev-kid.de/favicon-16x16.png" />
-        <link rel="manifest" href="https://dev-kid.de/site.webmanifest" />
-        <link rel="mask-icon" href="https://dev-kid.de/safari-pinned-tab.svg" color="#5bbad5" />
-        
-        <meta name="msapplication-TileColor" content="#da532c" />
-        <meta name="theme-color" content="#ffffff" />
-        <meta name="google" content="nositelinkssearchbox" key="sitelinks" />
-
+         
         <meta property="og:title" content="Website erstellen lassen - schnell, modern, aus Leidenschaft" />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://dev-kid.de" />

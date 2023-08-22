@@ -42,18 +42,6 @@ function WasKostetEineWebsite({footer, button, headerText, headerImage, calculat
         <title>Was kostet eine Website? » Homepage Kosten berechnen</title>
         <meta name="description" content="Wie viel Kostet es eine Website erstellen zu lassen? Jetzt Ihr Website Preis kostenlos berechnen lassen und Ihre professionelle Website anfragen."/>
         <meta name="keywords" content="Was kostet eine Website, Preise für Website, Wieviel kostet eine Website, Wo Website erstellen lassen, Wie viel kostet eine Homepage, Was kostet eine Homepage, Website Preise, Was kostet ein Webentwickler" />
-        <meta name="google-site-verification" content="LML3tjqodXK6Ngu6TbcYkSz3LXB-AmQdruPA5dEN1B0" />
-        <meta name="robots" content="index, follow" />
-
-        <link rel="shortcut icon" type="image/png" href="https://dev-kid.de/favicon.ico" />
-        <link rel="apple-touch-icon" sizes="180x180" href="https://dev-kid.de/apple-touch-icon.png" />
-        <link rel="icon" type="image/png" sizes="32x32" href="https://dev-kid.de/favicon-32x32.png" />
-        <link rel="icon" type="image/png" sizes="16x16" href="https://dev-kid.de/favicon-16x16.png" />
-
-        <link rel="manifest" href="https://dev-kid.de/site.webmanifest" />
-        <link rel="mask-icon" href="https://dev-kid.de/safari-pinned-tab.svg" color="#5bbad5" />
-        <meta name="msapplication-TileColor" content="#da532c" />
-        <meta name="theme-color" content="#ffffff" />
       </Head>
 
       <nav className={home.navbar}> 

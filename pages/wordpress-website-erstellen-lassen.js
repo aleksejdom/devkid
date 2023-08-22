@@ -136,18 +136,6 @@ function WordpressWebsiteErstellenLassen({footer, header_content, header_gradien
           <title>WordPress Website erstellen lassen » Kosten mit exkl. Design</title>
           <meta name="description" content="Für Unternehmer oder Privatpersonen – prof. WordPress Websites zu top Preisen! WordPress Website erstellen lassen, die begeistert - Jetzt erstellen lassen!"/>
           <meta name="keywords" content="Wordpress Website erstellen lassen, WordPress Websites, Wordpress, Wordpress Homepage bauen lassen, WordPress Homepage, Wordpress Blocks, Websites" />
-          <meta name="google-site-verification" content="LML3tjqodXK6Ngu6TbcYkSz3LXB-AmQdruPA5dEN1B0" />
-          <meta name="robots" content="index, follow" />
-
-          <link rel="shortcut icon" type="image/png" href="https://dev-kid.de/favicon.ico" />
-          <link rel="apple-touch-icon" sizes="180x180" href="https://dev-kid.de/apple-touch-icon.png" />
-          <link rel="icon" type="image/png" sizes="32x32" href="https://dev-kid.de/favicon-32x32.png" />
-          <link rel="icon" type="image/png" sizes="16x16" href="https://dev-kid.de/favicon-16x16.png" />
-          
-          <link rel="manifest" href="https://dev-kid.de/site.webmanifest" />
-          <link rel="mask-icon" href="https://dev-kid.de/safari-pinned-tab.svg" color="#5bbad5" />
-          <meta name="msapplication-TileColor" content="#da532c" />
-          <meta name="theme-color" content="#ffffff" />
         </Head>
 
         <nav className={home.navbar}> 

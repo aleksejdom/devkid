@@ -1,6 +1,6 @@
 import React, { forwardRef } from 'react';
 import styles from './Leistungs_Tab.module.css';
-import { RichText } from 'prismic-reactjs'
+import { RichText } from 'prismic-reactjs';
 import { useState } from 'react';
 
 const Leistungs_Tab = forwardRef(({tabs}, ref) => {
@@ -26,8 +26,8 @@ const Leistungs_Tab = forwardRef(({tabs}, ref) => {
       <div className={styles.tabsWarpper}>
         {filteredTabs.map((item, index) => (
           <div className={styles.tabsContent} key={`tab-0${index+1}`}>
-            <h3>{item.content[0].text}</h3>
-            <p>{item.content[1].text}</p>
+            {/* RichText verwenden, um den Inhalt korrekt zu rendern, einschließlich Hyperlinks */}
+            <RichText render={item.content} />
           </div>
         ))}
       </div>
