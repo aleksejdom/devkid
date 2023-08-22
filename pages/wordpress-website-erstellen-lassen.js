@@ -6,6 +6,7 @@ import styles_wordpress_website_erstellen_lassen from '../styles/WordpressWebsit
 import Prismic from 'prismic-javascript'
 import Footer from '../components/footer/Footer' 
 import Link from 'next/link'; 
+import Script from 'next/script'
 import Text_Box from '../components/text_box/Text_Box';
 import Gradient_Box from '../components/gradient_box/Gradient_Box';
 import Accordion from '../components/accordion/Accordion';
@@ -39,7 +40,7 @@ function WordpressWebsiteErstellenLassen({footer, header_content, header_gradien
         setColorIndex((prevColorIndex) => (prevColorIndex + 1) % colors.length);
       }, 4500);
       return () => clearInterval(timer);  
-    }, []);  
+    }, [colors.length]);  
 
     const scrollToBlockBaukasten = () => {
       if (blockBaukastenRef.current) {
