@@ -3,6 +3,7 @@
   align-items: center;
   justify-content: flex-start;
   height: 66px;
+  z-index: 99999;
 } 
 
 .burgerMenu {
@@ -41,21 +42,21 @@
   overflow: hidden;
 }
  
-.header .videobox video {
+.videobox video {
   width: 100%;
   height: auto;
   object-fit: cover;
   overflow: hidden;
 }
 
-.header .videobox img.icon {
+.videobox img.icon {
   width: 120px;
   height: 68px;
   z-index: 1;  
   transform: translateY(44px) translateX(20px);
 }
 
-.header .videobox {
+.videobox {
   width: 100%;
   max-width: 953px;
   margin-top: 4rem; 
@@ -295,7 +296,7 @@
     width: 100%; 
     padding-right: 2rem;
   } 
-  .header .videobox video { 
+  .videobox video { 
     height: auto; 
   }
   .header .headlinebox h1 {
@@ -401,7 +402,7 @@
     padding: 2rem;
   }
 
-  .header .videobox { 
+  .videobox { 
     margin-top: 2rem; 
   }
    

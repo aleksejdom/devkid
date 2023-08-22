@@ -64,7 +64,9 @@ ul.footerNav {
   padding-left: 0;
   padding: 0 1rem;
   width: 100%;
+  margin: 0;
   margin-top: 0;
+  margin-bottom: 1rem;
 }
 
 ul.footerNav:last-of-type {
@@ -87,6 +89,12 @@ ul.footerNav li {
   font-size: 14px;
   font-family: 'Avenir', sans-serif;
   line-height: 1.7;
+  margin-bottom: 0;
+}
+
+ul.footerNav li::before {
+  content: '';
+  display: none;
 }
 
 @keyframes marquee {

@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="25.977" height="28.068" viewBox="0 0 25.977 28.068">
+  <defs>
+    <clipPath id="clip-path">
+      <rect id="Rechteck_8" data-name="Rechteck 8" width="25.977" height="28.068" transform="translate(0 0)" fill="none"/>
+    </clipPath>
+  </defs>
+  <g id="block-icon" clip-path="url(#clip-path)">
+    <path id="Pfad_19" data-name="Pfad 19" d="M25.977,1.27V27.231H0V1.27H3.7V6.081A1.536,1.536,0,0,0,5.242,7.607H20.553A1.706,1.706,0,0,0,22.262,5.9V1.27Z" transform="translate(0 0.837)"/>
+    <path id="Pfad_20" data-name="Pfad 20" d="M12.748,19.336l-.7-2.112H7.805l-.72,2.112H4.655L9,7.4h1.825l4.358,11.932ZM9.967,10.924l-1.508,4.34h2.966Z" transform="translate(3.067 4.878)" fill="#fff"/>
+    <path id="Pfad_21" data-name="Pfad 21" d="M15.57,2.156V1.244L13.646.216A1.752,1.752,0,0,0,12.783,0H9.449A1.967,1.967,0,0,0,8.57.216L6.679,1.244v.912H2.83V6.834a.761.761,0,0,0,.763.763h14.9a.91.91,0,0,0,.912-.912V2.156Zm-3.334.912a.446.446,0,0,1-.448.448H10.444a.443.443,0,0,1-.431-.448v-.6a.439.439,0,0,1,.431-.431h1.344a.443.443,0,0,1,.448.431Z" transform="translate(1.865 0)"/>
+  </g>
+</svg>

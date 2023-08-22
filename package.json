@@ -3,12 +3,12 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev", 
+    "dev": "next dev",
     "build": "next build",
     "start": "next start",
     "lint": "next lint"
   },
-  "dependencies": { 
+  "dependencies": {
     "next": "13.4.12",
     "prismic-javascript": "^3.0.2",
     "prismic-reactjs": "^1.3.4",
@@ -17,6 +17,7 @@
     "react-i18next": "^13.0.2",
     "react-lazy-load-image-component": "^1.6.0",
     "react-spring": "^9.7.2",
+    "sass": "^1.66.1",
     "swiper": "^10.0.4"
   },
   "devDependencies": {

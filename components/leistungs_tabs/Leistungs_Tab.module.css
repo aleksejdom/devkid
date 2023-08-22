@@ -26,6 +26,13 @@
   font-size: 32px;
 }
 
+.leistungs-tab .tab-tabs ul li::before {
+  display: none; 
+  max-width: none;
+  max-height: none;
+  margin-right: auto;
+}
+
 .leistungs-tab .tab-tabs ul li.activeTab {
   display: flex;
   flex-direction: column;

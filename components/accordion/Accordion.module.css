@@ -97,6 +97,10 @@
   /* transition: transform 0.3s ease; */
 }
 
+.accordionContent ol {
+  padding: 0;
+}
+
 @media (max-width: 768px) {
   .accordion {
     padding: 2rem 2rem 4rem;
