@@ -69,7 +69,7 @@ function Home({ title, subline, paragraph, button, button_text, tabs, contact, u
         setColorIndex((prevColorIndex) => (prevColorIndex + 1) % colors.length);
       }, 4500);
       return () => clearInterval(timer);  
-  }, []);
+  }, [colors.length]);
 
   //Video
   useEffect(() => {

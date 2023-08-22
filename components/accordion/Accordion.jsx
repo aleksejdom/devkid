@@ -17,7 +17,7 @@ export default function Accordion({ accordion }) {
       setColorIndex((prevColorIndex) => (prevColorIndex + 1) % colors.length);
     }, 4500);
     return () => clearInterval(timer);  
-  }, []);
+  }, [colors.length]);
 
 
   const renderContentWithSpans = (content) => {

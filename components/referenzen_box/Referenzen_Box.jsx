@@ -34,7 +34,7 @@ const Referenzen_Box = forwardRef(({ referenzen, referenzenContent }, ref) => {
       setColorIndex((prevColorIndex) => (prevColorIndex + 1) % colors.length);
     }, 6500);
     return () => clearInterval(timer);  
-  }, []);
+  }, [colors.length]);
 
   return (
     <div className={styles.referenzenBox} style={{ backgroundColor: colors[colorIndex] }} ref={ref}>

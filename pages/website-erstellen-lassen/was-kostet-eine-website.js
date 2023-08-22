@@ -29,7 +29,7 @@ function WasKostetEineWebsite({footer, button, headerText, headerImage, calculat
         setColorIndex((prevColorIndex) => (prevColorIndex + 1) % colors.length);
       }, 4500);
       return () => clearInterval(timer);  
-    }, []); 
+    }, [colors.length]); 
  
     const scrollToFooter = () => {
       if (footerRef.current) {
