@@ -5,8 +5,7 @@ import home from '../../styles/Home.module.css'; // Pfad aktualisiert
 import styles_kosten from '../../styles/WasKostetEineWebsite.module.css'; // Pfad aktualisiert
 import Prismic from 'prismic-javascript';
 import Footer from '../../components/footer/Footer'; // Pfad aktualisiert
-import Link from 'next/link';
-import Script from 'next/script';
+import Link from 'next/link'; 
 import Calculation from '../../components/calculation/Calculation';
 
 const apiEndpoint = 'https://aleksej.cdn.prismic.io/api/v2'
@@ -39,17 +38,6 @@ function WasKostetEineWebsite({footer, button, headerText, headerImage, calculat
 
     return ( 
       <>
-      <Script id="cookieyes" src="https://cdn-cookieyes.com/client_data/f38bad507948038fa664f720/script.js" strategy="beforeInteractive" />
-      <Script id="tagmanager" strategy="afterInteractive" src="https://www.googletagmanager.com/gtag/js?id=G-960RQQPD73" />
-      <Script id="gtag-init" strategy="afterInteractive">
-        {`
-          window.dataLayer = window.dataLayer || [];
-          function gtag(){dataLayer.push(arguments);}
-          gtag('js', new Date());
-          gtag('config', 'G-960RQQPD73');
-        `}
-      </Script>
-
       <Head>
         <title>Was kostet eine Website? » Homepage Kosten berechnen</title>
         <meta name="description" content="Wie viel Kostet es eine Website erstellen zu lassen? Jetzt Ihr Website Preis kostenlos berechnen lassen und Ihre professionelle Website anfragen."/>

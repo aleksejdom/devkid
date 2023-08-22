@@ -10,8 +10,7 @@ import Usp_Box from '../components/usp_box/Usp_Box';
 import Referenzen_Box from '../components/referenzen_box/Referenzen_Box';
 import Footer from '../components/footer/Footer';
 import Accordion from '../components/accordion/Accordion';
-import Link from 'next/link';
-import Script from 'next/script'
+import Link from 'next/link'; 
 import Artikel_Probleme from '../components/artikel_probleme/Artikel_Probleme';
 
 
@@ -63,6 +62,23 @@ function Home({ title, subline, paragraph, button, button_text, tabs, contact, u
     toggleMenu();
   }; 
 
+  useEffect(() => {
+    const currentHeader = headerRef.current;
+
+    const handleScroll = () => {
+        // Some logic involving currentHeader
+    };
+
+    window.addEventListener('scroll', handleScroll);
+
+    return () => {
+        if (currentHeader) {
+            // Cleanup logic involving currentHeader
+            window.removeEventListener('scroll', handleScroll);
+        }
+    };
+  }, []);
+
   // Change the color every 4 seconds
   useEffect(() => {
       const timer = setInterval(() => {
@@ -104,18 +120,7 @@ function Home({ title, subline, paragraph, button, button_text, tabs, contact, u
   }, []);
     
   return (
-    <>
-      <Script id="cookieyes" src="https://cdn-cookieyes.com/client_data/f38bad507948038fa664f720/script.js" strategy="beforeInteractive" />
-      <Script id="tagmanager" strategy="afterInteractive" src="https://www.googletagmanager.com/gtag/js?id=G-960RQQPD73" />
-      <Script id="gtag-init" strategy="afterInteractive">
-        {`
-          window.dataLayer = window.dataLayer || [];
-          function gtag(){dataLayer.push(arguments);}
-          gtag('js', new Date());
-          gtag('config', 'G-960RQQPD73');
-        `}
-      </Script>
-
+    <> 
       <Head>
         <title>Website erstellen lassen - schnell, modern, aus Leidenschaft</title>
         <meta name="description" content="Nur einen Klick entfernt zur Ihrer Traum-Website! Lassen Sie sich von uns Ihre professionelle Website erstellen – mit schönem und ansprechendem Webdesign"/>

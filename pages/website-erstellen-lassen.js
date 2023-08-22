@@ -6,7 +6,6 @@ import styles_website_erstellen_lassen from '../styles/WebsiteErstellenLassen.mo
 import Prismic from 'prismic-javascript'
 import Footer from '../components/footer/Footer' 
 import Link from 'next/link';
-import Script from 'next/script'
 import Referenzen_Box from '../components/referenzen_box/Referenzen_Box';
 import Projekt_Ablauf from '../components/projekt_ablauf/Projekt_Ablauf';
 import Leistungsoverview from '../components/leistungs_overview/Leistungsoverview';
@@ -31,7 +30,23 @@ function WebsiteErstellenLassen({button, footer, referenzen, preis_content, refe
     const ablaufRef = useRef(null);
 
     
- 
+    useEffect(() => {
+      const currentHeader = headerRef.current;
+  
+      const handleScroll = () => {
+          // Some logic involving currentHeader
+      };
+  
+      window.addEventListener('scroll', handleScroll);
+  
+      return () => {
+          if (currentHeader) {
+              // Cleanup logic involving currentHeader
+              window.removeEventListener('scroll', handleScroll);
+          }
+      };
+    }, []);
+    
     useEffect(() => {
       const timer = setInterval(() => {
         setColorIndex((prevColorIndex) => (prevColorIndex + 1) % colors.length);
@@ -75,18 +90,7 @@ function WebsiteErstellenLassen({button, footer, referenzen, preis_content, refe
   
 
     return ( 
-      <>
-        <Script id="cookieyes" src="https://cdn-cookieyes.com/client_data/f38bad507948038fa664f720/script.js" strategy="beforeInteractive" />
-        <Script id="tagmanager" strategy="afterInteractive" src="https://www.googletagmanager.com/gtag/js?id=G-960RQQPD73" />
-        <Script id="gtag-init" strategy="afterInteractive">
-          {`
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', 'G-960RQQPD73');
-          `}
-        </Script>
-
+      <>  
         <Head>
           <title>Website erstellen lassen » Kreative Websites für Ihr Unternehmen</title>
           <meta name="description" content="Möchten Sie eine Website erstellen lassen? Als führende Experten für Webdesign und Webentwicklung in Stuttgart bieten wir maßgeschneiderte Lösungen an."/>

@@ -5,8 +5,7 @@ import home from '../styles/Home.module.css';
 import styles_wordpress_website_erstellen_lassen from '../styles/WordpressWebsiteErstellenLassen.module.scss'
 import Prismic from 'prismic-javascript'
 import Footer from '../components/footer/Footer' 
-import Link from 'next/link';
-import Script from 'next/script' 
+import Link from 'next/link'; 
 import Text_Box from '../components/text_box/Text_Box';
 import Gradient_Box from '../components/gradient_box/Gradient_Box';
 import Accordion from '../components/accordion/Accordion';
@@ -131,18 +130,7 @@ function WordpressWebsiteErstellenLassen({footer, header_content, header_gradien
   
 
     return ( 
-      <>
-        <Script id="cookieyes" src="https://cdn-cookieyes.com/client_data/f38bad507948038fa664f720/script.js" strategy="beforeInteractive" />
-        <Script id="tagmanager" strategy="afterInteractive" src="https://www.googletagmanager.com/gtag/js?id=G-960RQQPD73" />
-        <Script id="gtag-init" strategy="afterInteractive">
-          {`
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', 'G-960RQQPD73');
-          `}
-        </Script>
-
+      <>  
         <Head>
           <title>WordPress Website erstellen lassen » Kosten mit exkl. Design</title>
           <meta name="description" content="Für Unternehmer oder Privatpersonen – prof. WordPress Websites zu top Preisen! WordPress Website erstellen lassen, die begeistert - Jetzt erstellen lassen!"/>
