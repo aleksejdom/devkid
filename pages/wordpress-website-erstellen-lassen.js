@@ -340,9 +340,12 @@ function WordpressWebsiteErstellenLassen({footer, header_content, header_gradien
                 <div className={styles_wordpress_website_erstellen_lassen['block-componente']}>
                   <h3>Was kostet das Erstellen einer WordPress Website?</h3>
                   <p>Die Websitekosten variieren je nach Anspruch und Design. Hier können Sie Ihre Kosten genau berechnen:</p>  
-                  <a href="/website-erstellen-lassen/was-kostet-eine-website" className={styles_wordpress_website_erstellen_lassen['cta-button']} title='Website'>
+                  <Link 
+                    href="/website-erstellen-lassen/was-kostet-eine-website" 
+                    className={styles_wordpress_website_erstellen_lassen['cta-button']} 
+                    title='Website'>
                     Mehr erfahren
-                  </a> 
+                  </Link>
                   <Image src="./images/icon.svg" alt="icon" title="devkid icon" width={120} height={68} className={styles_wordpress_website_erstellen_lassen.icon} />
                 </div> 
               </div>
