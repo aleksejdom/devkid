@@ -39,22 +39,19 @@ function Home({ title, subline, paragraph, button, button_text, tabs, contact, u
       leistungsTabRef.current.scrollIntoView({ behavior: 'smooth' });
     }
     toggleMenu();
-  };
-
+  }; 
   const scrollToLoesungen = () => {
     if (loesungsRef.current) {
       loesungsRef.current.scrollIntoView({ behavior: 'smooth' });
     }
     toggleMenu();
-  }
- 
+  } 
   const scrollToReferenzen = () => {
     if (referenzenRef.current) {
       referenzenRef.current.scrollIntoView({ behavior: 'smooth' });
     }
     toggleMenu();
-  }
-
+  } 
   const scrollToFooter = () => {
     if (footerRef.current) {
       footerRef.current.scrollIntoView({ behavior: 'smooth' });
@@ -89,6 +86,7 @@ function Home({ title, subline, paragraph, button, button_text, tabs, contact, u
 
   //Video
   useEffect(() => {
+    const currentHeader = headerRef.current;
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (videoRef.current) { // Überprüfen, ob videoRef.current existiert
@@ -108,13 +106,13 @@ function Home({ title, subline, paragraph, button, button_text, tabs, contact, u
       }
     );
   
-    if (headerRef.current) {
-      observer.observe(headerRef.current);
+    if (currentHeader) {
+      observer.observe(currentHeader);
     }
   
     return () => {
-      if (headerRef.current) {
-        observer.unobserve(headerRef.current);
+      if (currentHeader) {
+        observer.unobserve(currentHeader);
       }
     };
   }, []);

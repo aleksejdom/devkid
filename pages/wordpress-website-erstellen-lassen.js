@@ -88,22 +88,22 @@ function WordpressWebsiteErstellenLassen({footer, header_content, header_gradien
     //Video
     useEffect(() => {
       const observer = new IntersectionObserver(
-        ([entry]) => {
-          if (videoRef.current) {
-            if (entry.isIntersecting) {
-              videoRef.current.load();
-              videoRef.current.play().catch(error => {
-                if (error.name !== "AbortError") {  // Ignore errors that result from pausing the video while it's trying to play
-                  console.error('Video play failed:', error);
+        (entries) => {
+          entries.forEach(entry => {
+            if (videoRef.current) {
+              if (entry.isIntersecting) {
+                videoRef.current.play().catch(error => {
+                  if (error.name !== "AbortError") {  // Fehler, die durch das Pausieren des Videos während des Abspielversuchs entstehen, ignorieren
+                    console.error('Video play failed:', error);
+                  }
+                });
+              } else {
+                if (!videoRef.current.paused) {
+                  videoRef.current.pause();
                 }
-              });
-            } else {
-              // Überprüfen Sie, ob das Video tatsächlich spielt, bevor Sie es pausieren.
-              if (!videoRef.current.paused) {
-                videoRef.current.pause();
               }
             }
-          }
+          });
         },
         {
           root: null,
@@ -122,7 +122,7 @@ function WordpressWebsiteErstellenLassen({footer, header_content, header_gradien
         }
       };
     }, []);
-
+    
     const scrollToFooter = () => {
       if (footerRef.current) {
         footerRef.current.scrollIntoView({ behavior: 'smooth' });
@@ -339,8 +339,10 @@ function WordpressWebsiteErstellenLassen({footer, header_content, header_gradien
                 <Text_Box content={nextjs_content} headline={'normal'} read_more={'yes'}/> 
                 <div className={styles_wordpress_website_erstellen_lassen['block-componente']}>
                   <h3>Was kostet das Erstellen einer WordPress Website?</h3>
-                  <p>Die Websitekosten variieren je nach Anspruch und Design. Hier können Sie Ihre Kosten genau berechnen:</p>
-                  <a href='/website-erstellen-lassen/was-kostet-eine-website' className={styles_wordpress_website_erstellen_lassen['cta-button']} title='Website'>Mehr erfahren</a> 
+                  <p>Die Websitekosten variieren je nach Anspruch und Design. Hier können Sie Ihre Kosten genau berechnen:</p>  
+                  <a href="/website-erstellen-lassen/was-kostet-eine-website" className={styles_wordpress_website_erstellen_lassen['cta-button']} title='Website'>
+                    Mehr erfahren
+                  </a> 
                   <Image src="./images/icon.svg" alt="icon" title="devkid icon" width={120} height={68} className={styles_wordpress_website_erstellen_lassen.icon} />
                 </div> 
               </div>
