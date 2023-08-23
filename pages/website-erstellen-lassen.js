@@ -153,7 +153,7 @@ function WebsiteErstellenLassen({button, footer, referenzen, preis_content, refe
           </ul>
         </nav>
 
-        <header className={home.header} style={{ backgroundColor: colors[colorIndex] }} > 
+        <header className={home.header} style={{ backgroundColor: '#4A3170' }} > 
           <div className={home.headlinebox}>
             {headline && headline[0] && headline[0].text ? <h1>{headline[0].text}</h1> : null}
             <div className={home.textbox}> 
@@ -189,11 +189,11 @@ function WebsiteErstellenLassen({button, footer, referenzen, preis_content, refe
                 ))}
               </ul>
             </div>
-            {button ? <a href={`${button}?subject=DevKid - Website erstellen lassen`} className="cta-button" title='Website erstellen lassen'>Jetzt Ihre eigene, professionelle Website erstellen lassen</a> : null}  
+            {button ? <a href={`${button}?subject=DevKid - Website erstellen lassen`} className="cta-button" title='Website erstellen lassen'>Kostenloses Erstgespräch Anfragen</a> : null}  
           </div>
           {headerImage ? 
               <div className={home.imagebox}>
-                <Image src='/images/vector_head.png' alt='website erstellen lassen' title="aleksej domovec" width={778} height={673}/> 
+                <Image src='/images/visual_head.png' alt='website erstellen lassen' title="aleksej domovec" width={778} height={673}/> 
               </div> : null 
           }   
           <div className={home.overlaybox}></div>
