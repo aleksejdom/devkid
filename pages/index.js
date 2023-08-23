@@ -124,14 +124,6 @@ function Home({ title, subline, paragraph, button, button_text, tabs, contact, u
         <meta name="description" content="Nur einen Klick entfernt zur Ihrer Traum-Website! Lassen Sie sich von uns Ihre professionelle Website erstellen – mit schönem und ansprechendem Webdesign"/>
         <meta name="keywords" content="Website erstellen lassen, Digitalagentur Stuttgart, Webdesign, Homepage erstellen lassen, Internetseite erstellen lassen, Webagentur Stuttgart, modernes Website Design erstellen lassen, Wordpress Website erstellen lassen, Nextjs Website erstellen lassen" />
          
-        <meta property="og:title" content="Website erstellen lassen - schnell, modern, aus Leidenschaft" />
-        <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://dev-kid.de" />
-        <meta property="og:image" content="https://dev-kid.de/og_header.jpg" />
-        <meta property="og:description" content="Nur einen Klick entfernt zur Ihrer Traum-Website! Lassen Sie sich von uns Ihre professionelle Website erstellen – mit schönem und ansprechendem Webdesign" />
-        <meta property="og:site_name" content="Dev-Kid" />
-        <meta property="og:locale" content="de_DE" />
- 
         <script type="application/ld+json">
           {JSON.stringify({
             "@context": "http://schema.org",

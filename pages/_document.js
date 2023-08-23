@@ -20,6 +20,14 @@ class MyDocument extends Document {
 
           <meta name="author" content="Aleksej Domovec" />
           <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+          <meta property="og:title" content="Website erstellen lassen - schnell, modern, aus Leidenschaft" />
+          <meta property="og:type" content="website" />
+          <meta property="og:url" content="https://dev-kid.de" />
+          <meta property="og:image" content="https://dev-kid.de/images/og_header.jpg" />
+          <meta property="og:description" content="Nur einen Klick entfernt zur Ihrer Traum-Website! Lassen Sie sich von uns Ihre professionelle Website erstellen – mit schönem und ansprechendem Webdesign" />
+          <meta property="og:site_name" content="DevKid - Website Erstellung und Design aus Stuttgart" />
+          <meta property="og:locale" content="de_DE" />
         </Head>
         <body>
           <Script id="cookieyes" src="https://cdn-cookieyes.com/client_data/f38bad507948038fa664f720/script.js" strategy="beforeInteractive" />
