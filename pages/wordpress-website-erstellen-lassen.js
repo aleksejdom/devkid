@@ -149,7 +149,7 @@ function WordpressWebsiteErstellenLassen({footer, header_content, header_gradien
             <li><Link href="#Nextjs" title='Nextjs' onClick={scrollToNextJs}>Nextjs</Link></li>
             <li><Link href="#Facts" title='Facts' onClick={scrollToFacts}>Facts</Link></li>
             <li><Link href="#FAQ" title='FAQ' onClick={scrollToFaq}>FAQ</Link></li>
-            <li className='whatsapp'><Link href="https://wa.me/15906372543" title="WhatsApp">Chat on WhatsApp</Link></li>
+            <li className='whatsapp'><Link href="https://wa.me/message/U7POMDGUX4DIN1" title="WhatsApp">Chat on WhatsApp</Link></li>
             <li className='aktion'><Link href="#rabatt" onClick={scrollToFooter} title="Rabatt Aktion">Sale 15% Rabatt</Link></li>
              
           </ul>

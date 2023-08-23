@@ -181,7 +181,7 @@ function Home({ title, subline, paragraph, button, button_text, tabs, contact, u
           <li><Link href="#Referenzen" onClick={scrollToReferenzen} title='Referenzen'>Referenzen</Link></li> 
           <li><Link href="#Probleme&Loesungen" onClick={scrollToLoesungen} title='Lösungen'>Lösungen</Link></li>
           <li><Link href="/wordpress-website-erstellen-lassen" title='WordPress Website'>WordPress</Link></li>    
-          <li className='whatsapp'><Link href="https://wa.me/15906372543" title="WhatsApp">Chat on WhatsApp</Link></li>
+          <li className='whatsapp'><Link href="https://wa.me/message/U7POMDGUX4DIN1" title="WhatsApp">Chat on WhatsApp</Link></li>
           <li className='aktion'><Link href="#rabatt" onClick={scrollToFooter} title="Rabatt Aktion">Sale 15% Rabatt</Link></li>
         </ul>
       </nav>
