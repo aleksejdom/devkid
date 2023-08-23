@@ -7,6 +7,49 @@
   padding-right: 4rem;
   box-sizing: border-box; 
   z-index: 10;
+
+  p > a {
+    background-color: transparent;
+    border: 1px solid #ffffff;
+    color: #ffffff;
+    overflow: hidden;
+    border-radius: none;
+    padding: 1rem;
+    box-sizing: border-box;
+    text-transform: uppercase;
+    font-family: "Avenir", sans-serif;
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    width: -moz-fit-content;
+    width: fit-content;
+    margin: 3rem 0 3rem;
+    font-size: 21px;
+    z-index: 9999;
+    cursor: pointer;
+    position: relative;
+    bottom: 7%;
+    left: 0%;
+    width: fit-content;
+
+    &:hover {
+      &::after {
+        transform: scale(0.3) rotate(180deg);
+        justify-content: flex-end;
+      }
+    }
+    &::after {
+      content: url("/images/icon.svg");
+      transform: scale(0.3);
+      margin-left: 15px;
+      height: 25px;
+      width: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+    }
+  }
+
   h2 {
     font-size: 28px;
     line-height: 1.4;

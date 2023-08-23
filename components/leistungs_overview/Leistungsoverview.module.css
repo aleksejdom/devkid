@@ -23,7 +23,7 @@
   display: grid;
   gap: 3rem;
   grid-template-columns: repeat(2, 1fr); 
-  max-width: 780px;
+  max-width: 960px;
   margin: 0 auto;
 }
 

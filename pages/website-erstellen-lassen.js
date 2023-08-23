@@ -3,18 +3,22 @@ import Head from 'next/head'
 import Image from 'next/image' 
 import home from '../styles/Home.module.css'; // Pfad aktualisiert
 import styles_website_erstellen_lassen from '../styles/WebsiteErstellenLassen.module.css'
+import styles_wordpress_website_erstellen_lassen from '../styles/WordpressWebsiteErstellenLassen.module.scss'
 import Prismic from 'prismic-javascript'
 import Footer from '../components/footer/Footer' 
 import Link from 'next/link';
 import Referenzen_Box from '../components/referenzen_box/Referenzen_Box';
 import Projekt_Ablauf from '../components/projekt_ablauf/Projekt_Ablauf';
 import Leistungsoverview from '../components/leistungs_overview/Leistungsoverview';
+import Text_Box from '../components/text_box/Text_Box';
+import Gradient_Box from '../components/gradient_box/Gradient_Box';
 
 const apiEndpoint = 'https://aleksej.cdn.prismic.io/api/v2'
 
-function WebsiteErstellenLassen({button, footer, referenzen, preis_content, referenzenContent, headline, headerParagraph, headerImage, introText, listItems, projekt_ablauf_items, leistungsoverview_items, leistungsoverview_title}) { 
+function WebsiteErstellenLassen({button, footer, referenzen, preis_content, referenzenContent, headline, headerParagraph, headerImage, introText, listItems, projekt_ablauf_items, leistungsoverview_items, leistungsoverview_title, wordpress_content }) { 
     const headerRef = useRef(null);
     const footerRef = useRef(null); 
+    const videoRef = useRef(null);
     const colors = ['#05473C', '#4A3170', '#7D0B32']; 
     const [colorIndex, setColorIndex] = useState(0);
 
@@ -44,6 +48,44 @@ function WebsiteErstellenLassen({button, footer, referenzen, preis_content, refe
               // Cleanup logic involving currentHeader
               window.removeEventListener('scroll', handleScroll);
           }
+      };
+    }, []);
+
+    //Video
+    useEffect(() => {
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach(entry => {
+            if (videoRef.current) {
+              if (entry.isIntersecting) {
+                videoRef.current.play().catch(error => {
+                  if (error.name !== "AbortError") {  // Fehler, die durch das Pausieren des Videos während des Abspielversuchs entstehen, ignorieren
+                    console.error('Video play failed:', error);
+                  }
+                });
+              } else {
+                if (!videoRef.current.paused) {
+                  videoRef.current.pause();
+                }
+              }
+            }
+          });
+        },
+        {
+          root: null,
+          rootMargin: '0px',
+          threshold: 0.1
+        }
+      );
+    
+      if (headerRef.current) {
+        observer.observe(headerRef.current);
+      }
+    
+      return () => {
+        if (headerRef.current) {
+          observer.unobserve(headerRef.current);
+        }
       };
     }, []);
 
@@ -193,6 +235,19 @@ function WebsiteErstellenLassen({button, footer, referenzen, preis_content, refe
             })}
             <a href={`/website-erstellen-lassen/was-kostet-eine-website`} className={styles_website_erstellen_lassen["cta-button"]} title='Kosten'>Zur Preisberechnung</a>
           </div>
+          <div className={styles_website_erstellen_lassen['textbox']} style={{ backgroundColor: colors[colorIndex] }} > 
+            <div className={styles_website_erstellen_lassen.headlinebox}>
+              <Text_Box content={wordpress_content} />  
+              <div className={`${home.videobox} ${styles_website_erstellen_lassen['videobox']}`} >
+                <video ref={videoRef} autoPlay muted loop playsInline>
+                  <source src="./videos/block_video.m4v" type="video/mp4" />
+                  <source src="./videos/block_video.webm" type="video/webm" />
+                </video>
+                <Image src="./images/icon.svg" alt="icon" title="devkid icon" width={120} height={68} className={home.icon} />
+              </div> 
+            </div> 
+            <div className={home.overlaybox}></div>
+          </div>
           <div className={styles_website_erstellen_lassen["text-box"]}>
             {introText && introText.map((item, index) => {
               if (item.type === "paragraph") {
@@ -229,8 +284,8 @@ function WebsiteErstellenLassen({button, footer, referenzen, preis_content, refe
             })}
             <a href={`mailto:mail@dev-kid.de?subject=DevKid - Website erstellen lassen`} className={styles_website_erstellen_lassen['cta-button-transparent']} title='Kontakt'>Jetzt Kontakt aufnehmen</a>
 
-          </div>
-          <Referenzen_Box referenzen={referenzen} referenzenContent={referenzenContent} ref={referenzenRef}/>
+          </div> 
+          <Referenzen_Box referenzen={referenzen} referenzenContent={referenzenContent} ref={referenzenRef}/> 
         </main>
 
         <Footer footer={footer} ref={footerRef} />
@@ -270,6 +325,7 @@ WebsiteErstellenLassen.getInitialProps = async () => {
     projekt_ablauf_items : documentProjektAblauf.data.projekt_ablauf,
     leistungsoverview_items : documentLeistungsOverview.data.leistung,
     leistungsoverview_title : documentLeistungsOverview.data.title,
+    wordpress_content : documentWebsiteErstellenLassen?.data.wordpress_content, 
   }
 }
 

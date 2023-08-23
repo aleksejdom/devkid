@@ -27,6 +27,8 @@ export default function Gradient_Box({content}) {
     }, []);
 
     return ( 
+      <>
+      {content ?  
       <div className={styles['header-second-box']}>
         <div className={styles['round-box']} ref={roundBoxRef}>
           <div className={styles['card-content']}>
@@ -35,6 +37,8 @@ export default function Gradient_Box({content}) {
           </div>
         </div>
       </div>
+      : '' }
+      </>
     )
 }
 

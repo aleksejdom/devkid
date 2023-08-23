@@ -84,9 +84,11 @@
   margin: 0 auto 2rem;
 }
 .text-box p {
-  max-width: 680px; 
+  max-width: 960px;
   margin: 0 auto 1rem;
+  text-align: justify;
 }
+
 .kosten-overview {
   padding: 6rem 0rem 6rem;
   box-sizing: border-box;
@@ -175,12 +177,62 @@
   text-align: left;
 }
 
+.textbox {
+  width: 100%;
+  height: 100%;
+  background-color: #05473C;
+  transition: background-color 3s ease;
+  color: #ffffff;
+  display: flex;
+  align-items: flex-start;
+  padding: 6rem;
+  box-sizing: border-box;
+  position: relative;
+  overflow: hidden; 
+  margin-left: calc( -100vw / 2 + 100% / 2 ) !important;
+  margin-right: calc( -100vw / 2 + 100% / 2 ) !important;
+  max-width: 100vw !important;
+  width: 100vw !important;
+  overflow: hidden; 
+}
+
+.headlinebox {
+  width: 100%;
+  max-width: 1200px;
+  margin: 2rem auto 2rem;
+  box-sizing: border-box;
+  z-index: 1;
+  display: flex;
+  justify-content: space-between;
+}
+
+.videobox {
+  width: 60%;
+}
+
 @media (max-width: 1440px) {
   .header .headlinebox {
     width: 100%; 
   } 
 }
 
+@media only screen and (max-width: 1280px) {
+  .headlinebox {
+    flex-direction: column;
+    margin-bottom: 0;
+    margin-top: 0;
+  }
+  .videobox {
+    width: 100%;
+    margin-top: 0;
+  }
+}
+
+@media only screen and (max-width: 1000px) {
+  .text-box p { 
+    padding: 0 6rem;
+  }
+}
 @media (max-width: 768px) {
   .kosten-overview {
     padding: 4rem 2rem;
@@ -210,5 +262,14 @@
     font-size: 32px;
     hyphens: none;
     line-height: 1.15; 
+  }
+  .text-box p { 
+    padding: 0 0rem;
+  }
+  .textbox {
+    padding: 2rem;
+  }
+  .headlinebox {
+    margin-top: 0;
   }
 }
