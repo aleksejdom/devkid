@@ -127,6 +127,8 @@ const Referenzen_Box = forwardRef(({ referenzen, referenzenContent }, ref) => {
             switch (type) {
               case 'heading3':
                 return <h3 key={index}>{text}</h3>;
+              case 'heading2':
+                  return <h2 key={index}>{text}</h2>;  
               case 'paragraph':
                 return <p key={index}>{renderTextWithSpans()}</p>;
               default:
