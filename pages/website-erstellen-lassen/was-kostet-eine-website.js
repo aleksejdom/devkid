@@ -50,6 +50,7 @@ function WasKostetEineWebsite({footer, button, headerText, headerImage, calculat
             <Link href="/" title='Devkid'><Image src="/images/devkid_logo_white.svg" alt="icon" width={120} height={45} className={home.logo} title='Devkid logo'/></Link>
             <li><Link href='/website-erstellen-lassen' title='Website erstellen lassen'>Website erstellen lassen</Link></li>
             <li><Link href='/wordpress-website-erstellen-lassen' title='Wordpress Website erstellen lassen'>WordPress</Link></li>
+            <li className='whatsapp'><Link href="https://wa.me/15906372543" title="WhatsApp">Chat on WhatsApp</Link></li>
             <li className='aktion'><Link href="#rabatt" onClick={scrollToFooter} title="Rabatt Aktion">Sale 15% Rabatt</Link></li>
         </ul>
       </nav>
