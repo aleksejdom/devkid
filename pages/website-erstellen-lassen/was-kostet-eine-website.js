@@ -49,45 +49,57 @@ function WasKostetEineWebsite({footer, button, headerText, headerImage, calculat
           <ul className={isMenuOpen ? home.menuOpen : ''}>
             <Link href="/" title='Devkid'><Image src="/images/devkid_logo_white.svg" alt="icon" width={120} height={45} className={home.logo} title='Devkid logo'/></Link>
             <li><Link href='/website-erstellen-lassen' title='Website erstellen lassen'>Website erstellen lassen</Link></li>
+            <li><Link href='/wordpress-website-erstellen-lassen' title='Wordpress Website erstellen lassen'>WordPress</Link></li>
             <li className='aktion'><Link href="#rabatt" onClick={scrollToFooter} title="Rabatt Aktion">Sale 15% Rabatt</Link></li>
         </ul>
       </nav>
 
       <header className={home.header} style={{ backgroundColor: colors[colorIndex] }} >
         <div className={home.headlinebox}> 
-          {headerText.map((item, index) => {
-            if (item.type === "paragraph") {
-              const textSegments = [];
-              let lastEnd = 0;
-              // Schleife durch die "spans" und teilt den Text entsprechend auf
-              item.spans.forEach((span, spanIndex) => {
-                // Füge den Text vor dem "strong" Teil hinzu
+        {headerText.map((item, index) => {
+          if (item.type === "paragraph") {
+            const textSegments = [];
+            let lastEnd = 0;
+            // Schleife durch die "spans" und teilt den Text entsprechend auf
+            item.spans.forEach((span, spanIndex) => {
+              // Füge den Text vor dem speziellen Teil hinzu
+              textSegments.push(
+                <span key={spanIndex * 2}>
+                  {item.text.substring(lastEnd, span.start)}
+                </span>
+              );
+
+              // Überprüfe den Typ des Span-Elements
+              if (span.type === "hyperlink") {
+                // Füge den Hyperlink hinzu
                 textSegments.push(
-                  <span key={spanIndex * 2}>
-                    {item.text.substring(lastEnd, span.start)}
-                  </span>
+                  <a href={span.data.url} key={spanIndex * 2 + 1}>
+                    {item.text.substring(span.start, span.end)}
+                  </a>
                 );
+              } else {
                 // Füge den "strong" Teil hinzu
                 textSegments.push(
                   <strong key={spanIndex * 2 + 1}>
                     {item.text.substring(span.start, span.end)}
                   </strong>
                 );
-                lastEnd = span.end;
-              });
-              // Füge den Rest des Textes nach dem letzten "strong" Teil hinzu
-              textSegments.push(<span key={textSegments.length}>{item.text.substring(lastEnd)}</span>); 
-              return <p key={index}>{textSegments}</p>;
-              } else if (item.type === "heading3") {
-                return <h3 key={index}>{item.text}</h3>;
-              } else if (item.type === "heading2") {
-                return <h2 key={index}>{item.text}</h2>;
-              } else if (item.type === "heading1") {
-                return <h1 key={index}>{item.text}</h1>;
               }
-              return null;
-            })
+
+              lastEnd = span.end;
+            });
+            // Füge den Rest des Textes nach dem letzten speziellen Teil hinzu
+            textSegments.push(<span key={textSegments.length}>{item.text.substring(lastEnd)}</span>);
+            return <p key={index}>{textSegments}</p>;
+          } else if (item.type === "heading3") {
+            return <h3 key={index}>{item.text}</h3>;
+          } else if (item.type === "heading2") {
+            return <h2 key={index}>{item.text}</h2>;
+          } else if (item.type === "heading1") {
+            return <h1 key={index}>{item.text}</h1>;
           }
+          return null;
+          })}
           <a href={`mailto:mail@dev-kid.de?subject=DevKid - Erstgespräch Anfrage`} className="cta-button" title='Erstgespräch'>Jetzt Erstgespräch anfragen</a>
         </div>
         {headerImage ? 

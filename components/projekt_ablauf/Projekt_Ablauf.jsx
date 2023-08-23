@@ -7,7 +7,7 @@ const Projekt_Ablauf = forwardRef(({ projekt_ablauf_items, button }, ref) => {
   return ( 
     <div className={ styles['projekt-ablauf'] } ref={ref}>
       <h2>
-        In nur 6 Schritten können Sie Ihre eigene Website erstellen lassen und schnell online präsent sein.  
+        In nur 6 Schritten können Sie Ihre eigene Website erstellen lassen.  
       </h2>
       <div className={ styles['items'] }> 
         {projekt_ablauf_items.map((item, index) => (
