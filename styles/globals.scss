@@ -199,6 +199,38 @@ nav {
           color: #61cdcd;
         }
       }
+      &.whatsapp {
+        background: transparent;
+        position: absolute;
+        padding: 1.2rem;
+        top: 0;
+        right: 117px;
+        padding: 0;
+        @media only screen and (max-width: 768px) { 
+          top: auto;
+          bottom: 0;
+          right: auto;
+          left: 1.2rem; 
+          margin-right: 0;
+        }
+        a {
+          display: flex;
+          align-items: center;
+          margin-right: 0;
+          overflow: hidden;
+          color: #ffffff;
+          &::after {
+            content: url("/images/whatsapp.svg");
+            height: 100%;
+            width: 65px;
+            margin-left: 20px;
+            background: rgb(5, 71, 60);
+            padding: 0.8rem;
+            box-sizing: border-box;
+          } 
+        }
+       
+      }
     }
     
   }

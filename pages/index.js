@@ -179,8 +179,9 @@ function Home({ title, subline, paragraph, button, button_text, tabs, contact, u
           <Link href="/" title='DevKid'><Image src="/images/devkid_logo_white.svg" alt="icon" title="Devkid Logo" width={120} height={45} className={styles.logo} /></Link>
           <li><Link href="#leistungen" onClick={scrollToLeistungsTab} title='Leistungen'>Leistungen</Link></li> 
           <li><Link href="#Referenzen" onClick={scrollToReferenzen} title='Referenzen'>Referenzen</Link></li> 
-          <li><Link href="#Probleme&Loesungen" onClick={scrollToLoesungen} title='Lösungen'>Lösungen</Link></li> 
-          <li><Link href={`${button}?subject=DevKid - Website erstellen lassen`} title='Kontakt'>@Kontakt</Link></li>
+          <li><Link href="#Probleme&Loesungen" onClick={scrollToLoesungen} title='Lösungen'>Lösungen</Link></li>
+          <li><Link href="/wordpress-website-erstellen-lassen" title='WordPress Website'>WordPress</Link></li>    
+          <li className='whatsapp'><Link href="https://wa.me/15906372543" title="WhatsApp">Chat on WhatsApp</Link></li>
           <li className='aktion'><Link href="#rabatt" onClick={scrollToFooter} title="Rabatt Aktion">Rabatt 15%</Link></li>
         </ul>
       </nav>
