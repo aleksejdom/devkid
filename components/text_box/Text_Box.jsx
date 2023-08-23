@@ -1,16 +1,6 @@
 import React, { useState } from 'react';
 import styles from './Text_Box.module.scss';
 
-// Methode zum Entfernen leerer <span></span>-Tags aus einem Array von React-Elementen
-const cleanEmptySpans = (elements) => {
-  return elements.filter(element => {
-    if (element.type === 'span' && !element.props.children) {
-      return false; // Entferne das Element, wenn es ein leerer <span>-Tag ist
-    }
-    return true; // Behalte das Element bei, wenn es nicht ein leerer <span>-Tag ist
-  });
-};
-
 export default function Text_Box({ content, align, headline, cta, cta_text, read_more }) {
   const [isExpanded, setIsExpanded] = useState(false);
 
@@ -55,23 +45,18 @@ export default function Text_Box({ content, align, headline, cta, cta_text, read
             lastEnd = span.end;
           });
           textSegments.push(<span key={textSegments.length}>{item.text.substring(lastEnd)}</span>);
-
-          // Aufruf der cleanEmptySpans-Methode
-          const cleanedTextSegments = cleanEmptySpans(textSegments);
-
-          elements.push(<p key={index}>{cleanedTextSegments}</p>);
+          elements.push(<p key={index}>{textSegments}</p>);
         } else if (["heading1", "heading2", "heading3"].includes(item.type)) {
           const TagName = item.type.replace("heading", "h");
           elements.push(<TagName key={index}>{item.text}</TagName>);
         } else if (item.type === "list-item") {
           listItems.push(<li key={index}>{item.text}</li>);
         }
-
-        if (listItems.length > 0) {
-          elements.push(<ul key={`ul-${index}`}>{listItems}</ul>);
-          listItems = []; // Reset the list items
-        }
       });
+      
+      if (listItems.length > 0) {
+        elements.push(<ul key={`ul-${content.length}`}>{listItems}</ul>);
+      }
     }
 
     if (read_more) {
