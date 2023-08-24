@@ -202,54 +202,6 @@ function WebsiteErstellenLassen({button, footer, referenzen, preis_content, refe
         <main className={styles_website_erstellen_lassen["main-text"]}>
           <Projekt_Ablauf projekt_ablauf_items={projekt_ablauf_items} button={button} ref={ablaufRef}/>
           <Leistungsoverview leistungsoverview_items={leistungsoverview_items} leistungsoverview_title={leistungsoverview_title} ref={leistungsoverviewRef}/>
-          <div className={styles_website_erstellen_lassen["kosten-overview"]} ref={kostenRef}>
-            {preis_content.map((item, index) => {
-              if (item.type === "paragraph") {
-                const textSegments = [];
-                let lastEnd = 0;
-                // Schleife durch die "spans" und teilt den Text entsprechend auf
-                item.spans.forEach((span, spanIndex) => {
-                  // Füge den Text vor dem "strong" Teil hinzu
-                  textSegments.push(
-                    <span key={spanIndex * 2}>
-                      {item.text.substring(lastEnd, span.start)}
-                    </span>
-                  );
-                  // Füge den "strong" Teil hinzu
-                  textSegments.push(
-                    <strong key={spanIndex * 2 + 1}>
-                      {item.text.substring(span.start, span.end)}
-                    </strong>
-                  );
-                  lastEnd = span.end;
-                });
-                // Füge den Rest des Textes nach dem letzten "strong" Teil hinzu
-                textSegments.push(<span key={textSegments.length}>{item.text.substring(lastEnd)}</span>); 
-                return <p key={index}>{textSegments}</p>;
-              } else if (item.type === "heading3") {
-                return <h3 key={index}>{item.text}</h3>;
-              } else if (item.type === "heading2") {
-                return <h2 key={index}>{item.text}</h2>;
-              } else if (item.type === "heading1") {
-                return <h1 key={index}>{item.text}</h1>;
-              }
-              return null;
-            })}
-            <a href={`/website-erstellen-lassen/was-kostet-eine-website`} className={styles_website_erstellen_lassen["cta-button"]} title='Kosten'>Zur Preisberechnung</a>
-          </div>
-          <div className={styles_website_erstellen_lassen['textbox']} style={{ backgroundColor: colors[colorIndex] }} > 
-            <div className={styles_website_erstellen_lassen.headlinebox}>
-              <Text_Box content={wordpress_content} />  
-              <div className={`${home.videobox} ${styles_website_erstellen_lassen['videobox']}`} >
-                <video ref={videoRef} autoPlay muted loop playsInline>
-                  <source src="./videos/block_video.m4v" type="video/mp4" />
-                  <source src="./videos/block_video.webm" type="video/webm" />
-                </video>
-                <Image src="./images/icon.svg" alt="icon" title="devkid icon" width={120} height={68} className={home.icon} />
-              </div> 
-            </div> 
-            <div className={home.overlaybox}></div>
-          </div>
           <div className={styles_website_erstellen_lassen["text-box"]}>
             {introText && introText.map((item, index) => {
               if (item.type === "paragraph") {
@@ -286,6 +238,54 @@ function WebsiteErstellenLassen({button, footer, referenzen, preis_content, refe
             })}
             <a href={`mailto:mail@dev-kid.de?subject=DevKid - Website erstellen lassen`} className={styles_website_erstellen_lassen['cta-button-transparent']} title='Kontakt'>Jetzt Kontakt aufnehmen</a>
 
+          </div> 
+          <div className={styles_website_erstellen_lassen['textbox']} style={{ backgroundColor: colors[colorIndex] }} > 
+            <div className={styles_website_erstellen_lassen.headlinebox}>
+              <Text_Box content={wordpress_content} />  
+              <div className={`${home.videobox} ${styles_website_erstellen_lassen['videobox']}`} >
+                <video ref={videoRef} autoPlay muted loop playsInline>
+                  <source src="./videos/block_video.m4v" type="video/mp4" />
+                  <source src="./videos/block_video.webm" type="video/webm" />
+                </video>
+                <Image src="./images/icon.svg" alt="icon" title="devkid icon" width={120} height={68} className={home.icon} />
+              </div> 
+            </div> 
+            <div className={home.overlaybox}></div>
+          </div>
+          <div className={styles_website_erstellen_lassen["kosten-overview"]} ref={kostenRef}>
+            {preis_content.map((item, index) => {
+              if (item.type === "paragraph") {
+                const textSegments = [];
+                let lastEnd = 0;
+                // Schleife durch die "spans" und teilt den Text entsprechend auf
+                item.spans.forEach((span, spanIndex) => {
+                  // Füge den Text vor dem "strong" Teil hinzu
+                  textSegments.push(
+                    <span key={spanIndex * 2}>
+                      {item.text.substring(lastEnd, span.start)}
+                    </span>
+                  );
+                  // Füge den "strong" Teil hinzu
+                  textSegments.push(
+                    <strong key={spanIndex * 2 + 1}>
+                      {item.text.substring(span.start, span.end)}
+                    </strong>
+                  );
+                  lastEnd = span.end;
+                });
+                // Füge den Rest des Textes nach dem letzten "strong" Teil hinzu
+                textSegments.push(<span key={textSegments.length}>{item.text.substring(lastEnd)}</span>); 
+                return <p key={index}>{textSegments}</p>;
+              } else if (item.type === "heading3") {
+                return <h3 key={index}>{item.text}</h3>;
+              } else if (item.type === "heading2") {
+                return <h2 key={index}>{item.text}</h2>;
+              } else if (item.type === "heading1") {
+                return <h1 key={index}>{item.text}</h1>;
+              }
+              return null;
+            })}
+            <a href={`/website-erstellen-lassen/was-kostet-eine-website`} className={styles_website_erstellen_lassen["cta-button"]} title='Kosten'>Zur Preisberechnung</a>
           </div> 
           <Referenzen_Box referenzen={referenzen} referenzenContent={referenzenContent} ref={referenzenRef}/> 
         </main>
