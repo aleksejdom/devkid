@@ -96,11 +96,12 @@
   }
   .leistungs-tab .tab-tabs ul li { 
     font-size: 21px;
+    margin-bottom: 0;
   }
   .leistungs-tab .tab-tabs ul li.activeTab::before { 
     width: 75px;
-    height: 75px;
-    top: -11px;
+    height: 60px;
+    top: -13px;
     left: 0px;
   }
   .tabsWarpper { 
@@ -116,13 +117,16 @@
     margin-bottom: 0;
   }
   .leistungs-tab .icon::before { 
-    margin-bottom: 0rem; 
+    margin-bottom: 0rem;
+    transform: scale(0.3) translateX(-9rem);
+    height: 41px;
   }
   .leistungs-tab .tab-tabs {
     margin-top: 1rem;
   }
   .leistungs-tab .header h2 {
     margin-bottom: 0.5rem;
+    line-height: 1.2;
   }
   .tabsContent h3 { 
     font-size: 24px;

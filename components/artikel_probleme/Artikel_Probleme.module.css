@@ -259,7 +259,7 @@
 @media only screen and (max-width: 1440px) {
   .artikel-probleme-box .more-articles .more-articles-item > .more-articles-item-image img {
     height: 100%;
-    width: 95%;
+    width: 100%;
   }
   .artikel-probleme-box .more-articles .more-articles-item > .more-articles-item-image {
     width: 100%;
@@ -333,8 +333,10 @@
     width: 100%; 
   }
   .artikel-probleme-box .artikel-content > button { 
-    padding: 1.5rem 2rem; 
+    padding: 0.5rem 1rem; 
     font-size: 21px;
+    line-height: 1.2;
+    text-align: left;
     width: 100%;
     justify-content: space-between; 
   }
@@ -342,12 +344,12 @@
     width: 25px;
   }
   .artikel-probleme-box .more-articles .more-articles-item button { 
-    padding: 1.5rem 2rem; 
+    padding: 0.6rem 1rem; 
     font-size: 24px; 
     width: fit-content;
     justify-content: space-between;
-    margin-top: 2rem;
-    margin-bottom: 1rem;
+    margin-top: 0.5rem;
+    margin-bottom: 0.3rem;
   }
   
   .artikel-probleme-box .more-articles .more-articles-item button::after { 
@@ -358,10 +360,23 @@
   
   .artikel-probleme-box h2 { 
     padding-left: 2rem; 
+    font-size: 28px;
   } 
+  .artikel-probleme-box .more-articles {
+    padding: 0.9rem 1rem;
+  }
+  .artikel-probleme-box .more-articles > p {
+    margin-bottom: 0rem; 
+  }
+
+  .artikel-probleme-box .artikel-content > h3 { 
+    font-size: 24px; 
+    margin-bottom: 1rem;
+  }
 
   .artikel-probleme-box > .artikel-probleme-wrapper { 
-    padding: 0 2rem 4rem;  
+    padding: 0 2rem 4rem;
+    margin-top: 0;  
   }
   .artikel-probleme-box .artikel-content {
     padding-right: 0rem;
@@ -369,5 +384,16 @@
 
   .artikel-probleme-box .more-articles .more-articles-item { 
     grid-template-columns: 100%; 
+  }
+
+  .artikel-probleme-box h2::before {
+    margin-bottom: 0rem;
+    transform: scale(0.3) translateX(-9rem);
+    height: 41px;
+  }
+
+  .artikel-probleme-box .more-articles .more-articles-item > .more-articles-probleme ul li { 
+    font-size: 16px;
+    line-height: 1.2;
   }
 }

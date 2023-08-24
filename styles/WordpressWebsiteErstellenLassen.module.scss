@@ -10,11 +10,19 @@
   h1 {
     max-width: 500px;
     line-height: 1.1; 
+    @media only screen and (max-width: 768px) {
+      margin-bottom: 0.7rem;
+    }
   }
 
   h2 {
     font-size: 28px;
     line-height: 1.4;
+    @media only screen and (max-width: 768px) {
+      font-size: 18px;
+      margin-top: 0;
+      margin-bottom: 2rem;
+    }
   }
   
   @media only screen and (max-width: 1024px) {
@@ -22,13 +30,16 @@
   }
 
   @media only screen and (max-width: 768px) {
-    margin-top: 5rem;
+    margin-top: 3.5rem;
   }
 
 } 
 
 .textBox {
   padding-bottom: 6rem;
+  @media only screen and (max-width: 768px) {
+    padding-bottom: 3rem;
+  }
 }
 .center {
   margin: 0 auto;
@@ -59,6 +70,10 @@
     text-align: center;
     font-size: 24px;
     font-family: 'DINPro', sans-serif;
+    @media only screen and (max-width: 768px) {
+      font-size: 21px;
+      line-height: 1.2;
+    }
   }
 
   p {
@@ -137,6 +152,7 @@
 
   @media only screen and (max-width: 768px) {
     margin-top: 5rem;
+    padding: 1rem;
   }
 }
 
@@ -199,6 +215,15 @@
         height: 68px;
         margin-bottom: 0rem;
         transform: scale(0.6) translateX(-2rem);
+        @media only screen and (max-width: 768px) {
+          margin-bottom: 0rem;
+          transform: scale(0.3) translateX(-9rem);
+          height: 41px;
+        }
+      }
+      @media only screen and (max-width: 768px) {
+        font-size: 28px;
+        max-width: 200px;
       }
     }
     @media only screen and (max-width: 768px) {
@@ -295,6 +320,7 @@
 
     @media only screen and (max-width: 768px) {
       font-size: 30px;
+      margin-bottom: 0rem;
     }
   }
 
@@ -303,6 +329,9 @@
       margin-bottom: 0;
       margin-top: 1rem;
       display: inline-block;
+      @media only screen and (max-width: 768px) {
+        margin-top: 0;
+      }
     }
     &:first-of-type {
       grid-column-start: 1;
@@ -408,7 +437,9 @@
     }
   }
   @media only screen and (max-width: 768px) {
-    width: 90%;
+    width: 100%;
+    font-size: 18px;
+    padding: 0.6rem 1rem;
   }
 
   &::after {
@@ -486,6 +517,14 @@
       height: 68px;
       margin-bottom: 0rem;
       transform: scale(0.6) translateX(-2rem);
+      @media only screen and (max-width: 768px) {
+        margin-bottom: 0rem;
+        transform: scale(0.3) translateX(-9rem);
+        height: 41px;
+      }
+    }
+    @media only screen and (max-width: 768px) {
+      font-size: 32px;
     }
   }
   p {
@@ -518,6 +557,10 @@
     color: #ffffff;
     margin: 4rem 0 0;
     width: fit-content;
+    @media only screen and (max-width: 768px) {
+      margin-top: 1rem;
+      margin-bottom: 2rem;
+    }
   }
   
 }

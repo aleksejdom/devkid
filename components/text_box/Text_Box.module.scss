@@ -48,6 +48,12 @@
       align-items: center;
       justify-content: flex-start;
     }
+
+    @media only screen and (max-width: 768px) {
+      font-size: 18px;
+      line-height: 1.2;
+      padding: 0.5rem;
+    }
   }
 
   h2 {
@@ -58,6 +64,10 @@
     max-width: 540px;
     margin-bottom: 25px;
     margin-top: 0;
+    @media only screen and (max-width: 768px) {
+      font-size: 26px;
+      hyphens: auto;
+    }
   }
 
   h3 {
@@ -124,7 +134,10 @@
     font-size: 32px;
   }
   @media only screen and (max-width: 768px) {
-    font-size: 28px;
+    font-size: 21px;
+    text-align: left;
+    hyphens: auto;
+    margin-bottom: 1rem;
   }
 }
 
@@ -141,7 +154,10 @@
     max-width: 100%;
   }
   @media only screen and (max-width: 768px) {
-    font-size: 32px;
+    font-size: 28px;
+    line-height: 1.2;
+    hyphens: none;
+    margin-bottom: 1rem;
   }
 }
 .normal {
@@ -152,15 +168,31 @@
     
     &:last-of-type {
       margin-bottom: 3rem;
+      @media only screen and (max-width: 768px) {
+        margin-bottom: 2rem;
+      }
     }
     @media only screen and (max-width: 768px) {
-      font-size: 21px;
+      font-size: 18px;
+      margin-top: 0rem;
+      margin-bottom: 0;
     }
   }
   p {
     margin-bottom: 1rem;
     &:last-of-type {
       margin-bottom: 0;
+    }
+  }
+  paragraph {
+    font-size: 21px;
+    line-height: 1.4;
+    word-break: break-word;
+    hyphens: none;
+    margin: 0;
+    font-family: 'Avenir', sans-serif;  
+    @media only screen and (max-width: 768px) {
+      font-size: 18px; 
     }
   }
 }

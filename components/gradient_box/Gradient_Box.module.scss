@@ -100,6 +100,14 @@ $ciSecond: #13161c;
             max-width: 20px;
             transform: translateY(5px);
           }
+          @media only screen and (max-width: 768px) {
+            font-size: 18px;
+            line-height: 1.2;
+            margin-right: 0;
+            max-width: 100%;
+            word-break: break-word;
+            hyphens: auto;
+          }
         } 
       }
       
@@ -141,6 +149,11 @@ $ciSecond: #13161c;
         &::after::after {
           transform: scale(0.3) rotate(180deg);
           justify-content: flex-end;
+        }
+
+        @media only screen and (max-width: 768px) {
+          font-size: 16px;
+          padding: 0.5rem;
         }
       }
 

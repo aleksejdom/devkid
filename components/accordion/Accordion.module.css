@@ -103,11 +103,20 @@
 
 @media (max-width: 768px) {
   .accordion {
-    padding: 2rem 2rem 4rem;
+    padding: 2rem 2rem 2.5rem;
   }
   .accordionHeader h3 {
     font-size: 16px;
     line-height: 21px;
     max-width: 80%;
+  }
+  .accordion h2.accordionTitle::before {
+    margin-bottom: 0rem;
+    transform: scale(0.3) translateX(-9rem);
+    height: 41px;
+  }
+  .accordion h2.accordionTitle {
+    font-size: 32px; 
+    line-height: 1;  
   }
 }

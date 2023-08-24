@@ -235,7 +235,7 @@
 }
 @media (max-width: 768px) {
   .kosten-overview {
-    padding: 4rem 2rem;
+    padding: 3rem 2rem;
   }
   .header .headlinebox {
     width: 100%; 
@@ -262,14 +262,25 @@
     font-size: 32px;
     hyphens: none;
     line-height: 1.15; 
+    text-align: left;
   }
   .text-box p { 
     padding: 0 0rem;
+    text-align: left;
+    hyphens: auto;
   }
   .textbox {
     padding: 2rem;
   }
   .headlinebox {
     margin-top: 0;
+  }
+  .list-box ul li { 
+    font-size: 18px;
+    line-height: 1.2; 
+  }
+  .kosten-overview h2 {
+    text-align: left;
+    margin-bottom: 1rem;
   }
 }

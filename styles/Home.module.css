@@ -339,7 +339,7 @@
   .navbar .menuOpen { 
     display: flex;
     flex-direction: column;
-    background-color: #333; /* Hintergrundfarbe des Menüs */
+    background-color: #000000; /* Hintergrundfarbe des Menüs */
     position: fixed;
     top: 0;
     left: 0;
@@ -388,13 +388,26 @@
 }
 
 @media (max-width: 768px) {
+  .videobox img.icon {
+    width: 70px;
+    height: 50px;
+    z-index: 1;  
+    transform: translateY(27px) translateX(20px);
+  }
+  .navbar .menuOpen > a {
+    margin-top: 1rem; 
+    margin-bottom: 2rem;
+  }
+  .textbox p {
+    hyphens: auto;
+  }
   .header .headlinebox h1 {
     font-size: 35px;
   }
   .header .headlinebox {
     width: 100%; 
     padding-right: 0;
-    margin-top: 5rem;
+    margin-top: 3.4rem;
   }
 
   .header {
@@ -443,7 +456,9 @@
   .navbar {
     justify-content: flex-end;
   }
-
+  .header .textbox {
+    margin-top: 2rem; 
+  }
 }
 
 @media (max-width: 600px) {

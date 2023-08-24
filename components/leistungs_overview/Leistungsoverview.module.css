@@ -76,4 +76,9 @@
   .leistungs-overview .items .item img { 
     align-self: center; 
   }
+  .leistungs-overview h2 {
+    margin: 0 auto 5rem; 
+    font-size: 26px;
+    text-align: left; 
+  }
 }

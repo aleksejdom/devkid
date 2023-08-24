@@ -94,9 +94,21 @@
     max-width: 100%; 
   }
   .projekt-ablauf {
-    padding: 4rem 2rem;
+    padding: 2rem 2rem;
   }
   .projekt-ablauf h2 {
-    margin-bottom: 4rem;
+    margin-bottom: 3rem;
+    font-size: 26px;
+    line-height: 1.1;
+    text-align: left;
+  }
+  .projekt-ablauf .item h3 {
+    font-size: 21px;
+  }
+  .projekt-ablauf .item h3 > span {
+    font-size: 28px; 
+  }
+  .projekt-ablauf a.cta-button { 
+    margin: 2rem auto 1rem;
   }
 }
