@@ -7,7 +7,7 @@ export default function Contact_Box( {contact, button} ) {
   return ( 
     <div className={ styles['contact-box'] }>
       <p className={ styles.title }>{ RichText.asText(contact.contact_title) }</p>
-      <Image src={ contact.contact_image.url } alt='Aleksej Domovec' title="Webentwickler Stuttgart" width={297} height={360} className={styles.photo} />
+      <Image src={ contact.contact_image.url } alt='Aleksej Domovec' title="Webentwickler Stuttgart" width={860} height={804} className={styles.photo} />
       <div className={ styles.details }>
         <p className={styles.name}>Aleksej Domovec</p>
         <p>{ RichText.asText(contact.contact_number) }</p>
