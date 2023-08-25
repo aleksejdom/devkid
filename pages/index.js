@@ -123,54 +123,6 @@ function Home({ title, subline, paragraph, button, button_text, tabs, contact, u
         <title>Website erstellen lassen - schnell, modern, aus Leidenschaft</title>
         <meta name="description" content="Nur einen Klick entfernt zur Ihrer Traum-Website! Lassen Sie sich von uns Ihre professionelle Website erstellen – mit schönem und ansprechendem Webdesign"/>
         <meta name="keywords" content="Website erstellen lassen, Digitalagentur Stuttgart, Webdesign, Homepage erstellen lassen, Internetseite erstellen lassen, Webagentur Stuttgart, modernes Website Design erstellen lassen, Wordpress Website erstellen lassen, Nextjs Website erstellen lassen" />
-         
-        <script type="application/ld+json">
-          {JSON.stringify({
-            "@context": "http://schema.org",
-            "@type": "Service",
-            "name": "Devkid Website Erstellung",
-            "serviceType": "Website Erstellung und Design",
-            "provider": {
-              "@type": "Organization",
-              "name": "DevKid",
-              "address": {
-                "@type": "PostalAddress", 
-                "addressLocality": "Stuttgart", 
-                "addressCountry": "DE"
-              },
-              "telephone": "+4915906372543"
-            },
-            "areaServed": "Weltweit",
-            "description": "Nur einen Klick entfernt zur Ihrer Traum-Website! Lassen Sie sich von uns Ihre professionelle Website erstellen",
-            "priceRange": "€500 - €5000",
-            "availableChannel": {
-              "@type": "ServiceChannel",
-              "serviceUrl": "https://www.dev-kid.de"
-            }
-          })}
-        </script>
-        <script type="application/ld+json">
-          {JSON.stringify({
-            "@context": "http://schema.org",
-            "@type": "Person",
-            "name": "Aleksej Domovec",
-            "jobTitle": "Website Entwickler und Digital Designer",
-            "url": "https://www.dev-kid.de",
-            "sameAs": [
-              "https://www.linkedin.com/in/aleksej-domovec-355462177/",
-              "https://dev-kid.de"
-              // ... weitere Links
-            ],
-            "address": {
-              "@type": "PostalAddress",
-              "addressLocality": "Stuttgart",
-              "addressRegion": "Baden Württemberg",
-              "postalCode": "70378",
-              "addressCountry": "Deutschland"
-            }
-            // Fügen Sie weitere Details wie E-Mail oder Telefonnummer hinzu, falls gewünscht
-          })}
-        </script>
       </Head>
 
       <nav className={styles.navbar}> 
