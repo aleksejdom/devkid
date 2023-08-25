@@ -42,8 +42,8 @@ img.icon {
 }
 
 img.photo {
-  width: 180px;
-  height: 200px;
+  width: 140px;
+  height: 170px;
   object-fit: cover;
   align-self: center;
 }
