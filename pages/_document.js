@@ -3,6 +3,51 @@ import Script from 'next/script'
 
 class MyDocument extends Document {
   render() {
+    
+    const serviceSchema = {
+      "@context": "http://schema.org",
+      "@type": "Service",
+      "name": "Devkid Website Erstellung",
+      "serviceType": "Website Erstellung und Design",
+      "provider": {
+        "@type": "Organization",
+        "name": "DevKid",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Stuttgart",
+          "addressCountry": "DE"
+        },
+        "telephone": "+4915906372543"
+      },
+      "areaServed": "Weltweit",
+      "description": "Nur einen Klick entfernt zur Ihrer Traum-Website! Lassen Sie sich von uns Ihre professionelle Website erstellen",
+      "priceRange": "€500 - €5000",
+      "availableChannel": {
+        "@type": "ServiceChannel",
+        "serviceUrl": "https://www.dev-kid.de"
+      }
+    };
+
+    const personSchema = {
+      "@context": "http://schema.org",
+      "@type": "Person",
+      "name": "Aleksej Domovec",
+      "jobTitle": "Website Entwickler und Digital Designer",
+      "url": "https://www.dev-kid.de",
+      "sameAs": [
+        "https://www.linkedin.com/in/aleksej-domovec-355462177/",
+        "https://dev-kid.de"
+      ],
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Stuttgart",
+        "addressRegion": "Baden Württemberg",
+        "postalCode": "70378",
+        "addressCountry": "Deutschland"
+      }
+    };
+
+
     return (
       <Html lang="de">
         <Head>
@@ -29,53 +74,15 @@ class MyDocument extends Document {
           <meta property="og:site_name" content="DevKid - Website Erstellung und Design aus Stuttgart" />
           <meta property="og:locale" content="de_DE" />
 
-          <script type="application/ld+json">
-            {
-              "@context": "http://schema.org",
-              "@type": "Service",
-              "name": "Devkid Website Erstellung",
-              "serviceType": "Website Erstellung und Design",
-              "provider": {
-                "@type": "Organization",
-                "name": "DevKid",
-                "address": {
-                  "@type": "PostalAddress",
-                  "addressLocality": "Stuttgart",
-                  "addressCountry": "DE"
-                },
-                "telephone": "+4915906372543"
-              },
-              "areaServed": "Weltweit",
-              "description": "Nur einen Klick entfernt zur Ihrer Traum-Website! Lassen Sie sich von uns Ihre professionelle Website erstellen",
-              "priceRange": "€500 - €5000",
-              "availableChannel": {
-                "@type": "ServiceChannel",
-                "serviceUrl": "https://www.dev-kid.de"
-              }
-            }
-          </script>
+          <script
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }}
+          ></script>
+          <script
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{ __html: JSON.stringify(personSchema) }}
+          ></script>
 
-          <script type="application/ld+json">
-            {
-              "@context": "http://schema.org",
-              "@type": "Person",
-              "name": "Aleksej Domovec",
-              "jobTitle": "Website Entwickler und Digital Designer",
-              "url": "https://www.dev-kid.de",
-              "sameAs": [
-                "https://www.linkedin.com/in/aleksej-domovec-355462177/",
-                "https://dev-kid.de"
-              ],
-              "address": {
-                "@type": "PostalAddress",
-                "addressLocality": "Stuttgart",
-                "addressRegion": "Baden Württemberg",
-                "postalCode": "70378",
-                "addressCountry": "Deutschland"
-              }
-            }
-          </script>
-          
         </Head>
         <body>
           <Script id="cookieyes" src="https://cdn-cookieyes.com/client_data/f38bad507948038fa664f720/script.js" strategy="beforeInteractive" />
