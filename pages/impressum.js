@@ -12,11 +12,10 @@ function Impressum({button, footer}) {
     return ( 
       <>
       <Head>
-        <title>Impressum | Digitalagentur aus Stuttgart</title>
-        <meta name="description" content="Impressumseite von Digitalagentur Stgt"/>
+        <title>Impressum | DevKid aus Stuttgart</title>
+        <meta name="description" content="Impressumseite von DevKid"/>
         <meta name="keywords" content="Digitalagentur Stuttgart, Impressum" />
-        <meta name="robots" content="noindex, nofollow" />
-        <link rel="icon" href="/favicon.ico" />
+        <meta name="robots" content="noindex, nofollow" /> 
       </Head>
 
       <nav>

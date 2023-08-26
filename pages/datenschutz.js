@@ -11,11 +11,10 @@ function Datenschutz({button, footer}) {
     return ( 
       <>
       <Head>
-        <title>Datenschutz | Digitalagentur aus Stuttgart</title>
-        <meta name="description" content="Datenschutz von Digitalagentur Stgt"/>
+        <title>Datenschutz | DevKid aus Stuttgart</title>
+        <meta name="description" content="Datenschutz DevKid"/>
         <meta name="keywords" content="Digitalagentur Stuttgart, Datenschutz" />
-        <meta name="robots" content="noindex, nofollow" />
-        <link rel="icon" href="/favicon.ico" />
+        <meta name="robots" content="noindex, nofollow" /> 
       </Head>
 
       <nav>

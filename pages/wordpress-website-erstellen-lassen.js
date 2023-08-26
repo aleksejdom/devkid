@@ -133,7 +133,7 @@ function WordpressWebsiteErstellenLassen({footer, header_content, header_gradien
     return ( 
       <>  
         <Head>
-          <title>WordPress Website erstellen lassen » Kosten mit exkl. Design</title>
+          <title>WordPress Website erstellen lassen » Kosten inkl. Design</title>
           <meta name="description" content="Für Unternehmer oder Privatpersonen – prof. WordPress Websites zu top Preisen! WordPress Website erstellen lassen, die begeistert - Jetzt erstellen lassen!"/>
           <meta name="keywords" content="Wordpress Website erstellen lassen, WordPress Websites, Wordpress, Wordpress Homepage bauen lassen, WordPress Homepage, Wordpress Blocks, Websites" />
         </Head>
