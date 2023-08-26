@@ -7,8 +7,8 @@ class MyDocument extends Document {
     const serviceSchema = {
       "@context": "http://schema.org",
       "@type": "Service",
-      "name": "Devkid Website Erstellung",
-      "serviceType": "Website Erstellung und Design",
+      "name": "Devkid - Website für Unternehmen erstellen lassen",
+      "serviceType": "Website Erstellung und Webdesign",
       "provider": {
         "@type": "Organization",
         "name": "DevKid",
@@ -32,7 +32,7 @@ class MyDocument extends Document {
       "@context": "http://schema.org",
       "@type": "Person",
       "name": "Aleksej Domovec",
-      "jobTitle": "Website Entwickler und Digital Designer",
+      "jobTitle": "Webentwickler und Grafikdesigner",
       "url": "https://www.dev-kid.de",
       "sameAs": [
         "https://www.linkedin.com/in/aleksej-domovec-355462177/",
