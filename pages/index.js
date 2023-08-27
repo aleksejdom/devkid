@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import Head from 'next/head'
 import Image from 'next/image'
 import styles from '../styles/Home.module.css'
+import styles_wordpress_website_erstellen_lassen from '../styles/WordpressWebsiteErstellenLassen.module.scss'
 import Prismic from 'prismic-javascript'
 import { RichText } from 'prismic-reactjs'
 import Leistungs_Tab from '../components/leistungs_tabs/Leistungs_Tab';
@@ -12,12 +13,13 @@ import Footer from '../components/footer/Footer';
 import Accordion from '../components/accordion/Accordion';
 import Link from 'next/link'; 
 import Artikel_Probleme from '../components/artikel_probleme/Artikel_Probleme';
+import Text_Box from '../components/text_box/Text_Box';
 
 
 // Prismic API Endpunkt
 const apiEndpoint = 'https://aleksej.cdn.prismic.io/api/v2'
 
-function Home({ title, subline, paragraph, button, button_text, tabs, contact, usp, referenzen, referenzenContent, footer, accordion, artikel_probleme, artikel_probleme_headline }) {
+function Home({ title, subline, paragraph, button, button_text, tabs, contact, usp, referenzen, referenzenContent, footer, accordion, artikel_probleme, artikel_probleme_headline, one_click_content, one_click_content_image }) {
   const videoRef = useRef(null);
   const headerRef = useRef(null); 
   const colors = ['#05473C', '#4A3170', '#7D0B32']; 
@@ -169,6 +171,15 @@ function Home({ title, subline, paragraph, button, button_text, tabs, contact, u
         <Usp_Box usp={usp}/>
         <Referenzen_Box referenzen={referenzen} referenzenContent={referenzenContent} ref={referenzenRef} />
         <Artikel_Probleme artikel_probleme={artikel_probleme} artikel_probleme_headline={artikel_probleme_headline} ref={loesungsRef} />
+        { one_click_content &&  
+          <div className={styles_wordpress_website_erstellen_lassen['hero-box']}>
+            <div className={styles_wordpress_website_erstellen_lassen['hero-box-content']} >
+              <Text_Box content={one_click_content} headline={'normal'} />  
+            </div>
+            <div className={styles_wordpress_website_erstellen_lassen.overlaybox}></div>
+            <Image src={one_click_content_image.url} title={one_click_content_image.alt} alt={one_click_content_image.alt} width={1920} height={1080} />
+          </div>
+        }
         <Accordion accordion={accordion} />
       </main>
 
@@ -202,6 +213,8 @@ Home.getInitialProps = async () => {
     accordion : document.data.accordion,
     artikel_probleme : document.data.artikel_probleme,
     artikel_probleme_headline : document.data.artikel_probleme_headline,
+    one_click_content_image : document?.data.one_click_content_image,
+    one_click_content : document?.data.one_click_content,
   }
 }
 
