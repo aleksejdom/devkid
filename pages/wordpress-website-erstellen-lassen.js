@@ -340,11 +340,11 @@ function WordpressWebsiteErstellenLassen({footer, header_content, header_gradien
               </div>
               <div className="overlaybox"></div>
            </div>
-           <div className={styles_wordpress_website_erstellen_lassen['hero-box']}>
-              <div className={styles_wordpress_website_erstellen_lassen['hero-box-content']} >
+           <div className='text-image-box'>
+              <div className='text-image-box-content'>
                 <Text_Box content={more_time_content} headline={'normal'} />  
               </div>
-              <div className={styles_wordpress_website_erstellen_lassen.overlaybox}></div>
+              <div className='overlaybox'></div>
               <Image src={more_time_content_image.url} title={more_time_content_image.alt} alt={more_time_content_image.alt} width={1920} height={1080} />
            </div>
            <div className='container' style={{ backgroundColor: colors[colorIndex] }} ref={factsRef}>

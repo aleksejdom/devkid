@@ -1,5 +1,5 @@
 import React, { forwardRef } from 'react';
-import styles from './Leistungs_Tab.module.css';
+import styles from './Leistungs_Tab.module.scss';
 import { RichText } from 'prismic-reactjs';
 import { useState } from 'react';
 
@@ -12,7 +12,7 @@ const Leistungs_Tab = forwardRef(({tabs}, ref) => {
 
   const filteredTabs = tabs.filter(item => item.selection === selectedTab);
 
-  return ( 
+  return (
     <div className={styles['leistungs-tab']} ref={ref}>
       <div className={styles.header}>
         <h2 className={styles.icon}>Leistungen im Überblick</h2>
@@ -24,17 +24,20 @@ const Leistungs_Tab = forwardRef(({tabs}, ref) => {
         </div>
       </div>
       <div className={styles.tabsWarpper}>
-        {filteredTabs.map((item, index) => (
-          <div className={styles.tabsContent} key={`tab-0${index+1}`}>
-            {/* RichText verwenden, um den Inhalt korrekt zu rendern, einschließlich Hyperlinks */}
-            <RichText render={item.content} />
-          </div>
-        ))}
+        {filteredTabs.map((item, index) => {
+          const imageContent = item.content.find(content => content.type === 'image');
+          return (
+            <div className={styles.tabsContent} key={`tab-0${index + 1}`}>
+              {imageContent && <img src={imageContent.url} alt={imageContent.alt} />}
+              <RichText render={item.content.filter(content => content.type !== 'image')} />
+            </div>
+          );
+        })}
       </div>
     </div>
   )
 })
 
-Leistungs_Tab.displayName = "Leistungs_Tab"; // Setzt den displayName auf "Leistungs_Tab"
+Leistungs_Tab.displayName = "Leistungs_Tab";
 
-export default Leistungs_Tab;
+export default Leistungs_Tab; 

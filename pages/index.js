@@ -1,8 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import Head from 'next/head'
 import Image from 'next/image'
-import styles from '../styles/Home.module.css'
-import styles_wordpress_website_erstellen_lassen from '../styles/WordpressWebsiteErstellenLassen.module.scss'
+import styles from '../styles/Home.module.css' 
 import Prismic from 'prismic-javascript'
 import { RichText } from 'prismic-reactjs'
 import Leistungs_Tab from '../components/leistungs_tabs/Leistungs_Tab';
@@ -19,7 +18,7 @@ import Text_Box from '../components/text_box/Text_Box';
 // Prismic API Endpunkt
 const apiEndpoint = 'https://aleksej.cdn.prismic.io/api/v2'
 
-function Home({ title, subline, paragraph, button, button_text, tabs, contact, usp, referenzen, referenzenContent, footer, accordion, artikel_probleme, artikel_probleme_headline, one_click_content, one_click_content_image }) {
+function Home({ title, subline, paragraph, button, button_text, tabs, contact, usp, referenzen, referenzenContent, footer, accordion, one_click_content, one_click_content_image }) {
   const videoRef = useRef(null);
   const headerRef = useRef(null); 
   const colors = ['#05473C', '#4A3170', '#7D0B32']; 
@@ -31,8 +30,7 @@ function Home({ title, subline, paragraph, button, button_text, tabs, contact, u
   }; 
 
   const menuClasses = `${styles.burgerMenu} ${isMenuOpen ? styles.open : ''}`;
-  const leistungsTabRef = useRef(null);
-  const loesungsRef = useRef(null);
+  const leistungsTabRef = useRef(null); 
   const footerRef = useRef(null);
   const referenzenRef = useRef(null);
  
@@ -41,13 +39,7 @@ function Home({ title, subline, paragraph, button, button_text, tabs, contact, u
       leistungsTabRef.current.scrollIntoView({ behavior: 'smooth' });
     }
     toggleMenu();
-  }; 
-  const scrollToLoesungen = () => {
-    if (loesungsRef.current) {
-      loesungsRef.current.scrollIntoView({ behavior: 'smooth' });
-    }
-    toggleMenu();
-  } 
+  };  
   const scrollToReferenzen = () => {
     if (referenzenRef.current) {
       referenzenRef.current.scrollIntoView({ behavior: 'smooth' });
@@ -132,8 +124,7 @@ function Home({ title, subline, paragraph, button, button_text, tabs, contact, u
         <ul className={isMenuOpen ? styles.menuOpen : ''}>
           <Link href="/" title='DevKid'><Image src="/images/devkid_logo_white.svg" alt="icon" title="Devkid Logo" width={120} height={45} className={styles.logo} /></Link>
           <li><Link href="#leistungen" onClick={scrollToLeistungsTab} title='Leistungen'>Leistungen</Link></li> 
-          <li><Link href="#Referenzen" onClick={scrollToReferenzen} title='Referenzen'>Referenzen</Link></li> 
-          <li><Link href="#Probleme&Loesungen" onClick={scrollToLoesungen} title='Lösungen'>Lösungen</Link></li>
+          <li><Link href="#Referenzen" onClick={scrollToReferenzen} title='Referenzen'>Referenzen</Link></li>  
           <li><Link href="/wordpress-website-erstellen-lassen" title='WordPress Website'>WordPress</Link></li>    
           <li className='whatsapp'><Link href="https://wa.me/message/U7POMDGUX4DIN1" title="WhatsApp">Chat on WhatsApp</Link></li>
           <li className='aktion'><Link href="#rabatt" onClick={scrollToFooter} title="Rabatt Aktion">Sale 15% Rabatt</Link></li>
@@ -169,14 +160,13 @@ function Home({ title, subline, paragraph, button, button_text, tabs, contact, u
         <Leistungs_Tab tabs={tabs} id="leistungs-tab" ref={leistungsTabRef}/>
         <Contact_Box contact={contact} button={button}/>
         <Usp_Box usp={usp}/>
-        <Referenzen_Box referenzen={referenzen} referenzenContent={referenzenContent} ref={referenzenRef} />
-        <Artikel_Probleme artikel_probleme={artikel_probleme} artikel_probleme_headline={artikel_probleme_headline} ref={loesungsRef} />
+        <Referenzen_Box referenzen={referenzen} referenzenContent={referenzenContent} ref={referenzenRef} /> 
         { one_click_content &&  
-          <div className={styles_wordpress_website_erstellen_lassen['hero-box']}>
-            <div className={styles_wordpress_website_erstellen_lassen['hero-box-content']} >
+          <div className='text-image-box'>
+            <div className='text-image-box-content'>
               <Text_Box content={one_click_content} headline={'normal'} />  
             </div>
-            <div className={styles_wordpress_website_erstellen_lassen.overlaybox}></div>
+            <div className='overlaybox'></div>
             <Image src={one_click_content_image.url} title={one_click_content_image.alt} alt={one_click_content_image.alt} width={1920} height={1080} />
           </div>
         }
@@ -210,9 +200,7 @@ Home.getInitialProps = async () => {
     referenzen : document.data.referenzen,
     referenzenContent : document.data.referenz_content,
     footer : document.data.footer,
-    accordion : document.data.accordion,
-    artikel_probleme : document.data.artikel_probleme,
-    artikel_probleme_headline : document.data.artikel_probleme_headline,
+    accordion : document.data.accordion, 
     one_click_content_image : document?.data.one_click_content_image,
     one_click_content : document?.data.one_click_content,
   }
