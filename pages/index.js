@@ -12,7 +12,7 @@ import Footer from '../components/footer/Footer';
 import Accordion from '../components/accordion/Accordion';
 import Link from 'next/link'; 
 import Artikel_Probleme from '../components/artikel_probleme/Artikel_Probleme';
-import Text_Box from '../components/text_box/Text_Box';
+import Text_Box from '../components/text_box/Text_Box'; 
 
 
 // Prismic API Endpunkt
@@ -164,10 +164,11 @@ function Home({ title, subline, paragraph, button, button_text, tabs, contact, u
         { one_click_content &&  
           <div className='text-image-box'>
             <div className='text-image-box-content'>
-              <Text_Box content={one_click_content} headline={'normal'} />  
-            </div>
-            <div className='overlaybox'></div>
-            <Image src={one_click_content_image.url} title={one_click_content_image.alt} alt={one_click_content_image.alt} width={1920} height={1080} />
+              <Text_Box content={one_click_content} headline={'normal'} cta={'yes'} cta_text={'Jetzt Website erstellen lassen'}/>  
+              <div className="image-box">  
+                <Image src={one_click_content_image.url} title={one_click_content_image.alt} alt={one_click_content_image.alt} width={1920} height={1080} /> 
+              </div>
+            </div> 
           </div>
         }
         <Artikel_Probleme artikel_probleme={artikel_probleme} artikel_probleme_headline={artikel_probleme_headline} />
