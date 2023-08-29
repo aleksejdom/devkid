@@ -18,7 +18,7 @@ import Text_Box from '../components/text_box/Text_Box';
 // Prismic API Endpunkt
 const apiEndpoint = 'https://aleksej.cdn.prismic.io/api/v2'
 
-function Home({ title, subline, paragraph, button, button_text, tabs, contact, usp, referenzen, referenzenContent, footer, accordion, one_click_content, one_click_content_image }) {
+function Home({ title, subline, paragraph, button, button_text, tabs, contact, usp, referenzen, referenzenContent, footer, accordion, one_click_content, one_click_content_image, artikel_probleme, artikel_probleme_headline }) {
   const videoRef = useRef(null);
   const headerRef = useRef(null); 
   const colors = ['#05473C', '#4A3170', '#7D0B32']; 
@@ -170,6 +170,7 @@ function Home({ title, subline, paragraph, button, button_text, tabs, contact, u
             <Image src={one_click_content_image.url} title={one_click_content_image.alt} alt={one_click_content_image.alt} width={1920} height={1080} />
           </div>
         }
+        <Artikel_Probleme artikel_probleme={artikel_probleme} artikel_probleme_headline={artikel_probleme_headline} />
         <Accordion accordion={accordion} />
       </main>
 
@@ -203,6 +204,8 @@ Home.getInitialProps = async () => {
     accordion : document.data.accordion, 
     one_click_content_image : document?.data.one_click_content_image,
     one_click_content : document?.data.one_click_content,
+    artikel_probleme_headline : document?.data.artikel_probleme_headline,
+    artikel_probleme : document?.data.artikel_probleme
   }
 }
 
