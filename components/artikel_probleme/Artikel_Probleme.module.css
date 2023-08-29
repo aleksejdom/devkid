@@ -86,6 +86,7 @@
   font-family: 'Avenir', sans-serif;
   font-weight: 800;
   font-size: 21px;
+  line-height: 1.2;
   display: flex;
   margin-bottom: 10px;
   color: #7D0B32;
@@ -237,6 +238,7 @@
   font-family: 'Avenir', sans-serif;
   font-weight: 800;
   font-size: 16px;
+  line-height: 1.2;
   display: flex;
   margin-bottom: 10px;
   color: #7D0B32;
