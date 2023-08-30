@@ -368,7 +368,7 @@ function WordpressWebsiteErstellenLassen({footer, header_content, header_gradien
                       <p>In über 100 Sprachen verfügbar</p>
                     </div>
                   </div>
-                  <a href='mailto:mail@dev-kid.de' className={styles_wordpress_website_erstellen_lassen['cta-button']} title='Website'>Jetzt Kontaktieren</a> 
+                  <a href='mailto:devkid.stgt@gmail.com' className={styles_wordpress_website_erstellen_lassen['cta-button']} title='Website'>Jetzt Kontaktieren</a> 
                 </div>
                 <div className={`${styles_wordpress_website_erstellen_lassen['block-componente']} ${styles_wordpress_website_erstellen_lassen['block-numbers']}`}>
                   <h3>Die größten Unternehmen setzen auf WordPress</h3>

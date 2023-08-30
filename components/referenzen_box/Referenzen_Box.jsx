@@ -136,7 +136,7 @@ const Referenzen_Box = forwardRef(({ referenzen, referenzenContent }, ref) => {
             }
           })
         }
-        <a href={`mailto:mail@dev-kid.de?subject=DevKid - Erstgespräch Anfrage`} className={["cta-button"]} title="Website Erstellung">Kostenloses Erstgespräch anfragen</a>
+        <a href={`mailto:devkid.stgt@gmail.com?subject=DevKid - Erstgespräch Anfrage`} className={["cta-button"]} title="Website Erstellung">Kostenloses Erstgespräch anfragen</a>
       </div>
     </div>
   )

@@ -33,7 +33,7 @@ export default function Gradient_Box({content}) {
         <div className={styles['round-box']} ref={roundBoxRef}>
           <div className={styles['card-content']}>
             <Text_Box content={content} />
-            <a href="mailto:mail@dev-kid.de" title='Kontakt'>Angebot Anfragen</a>
+            <a href="mailto:devkid.stgt@gmail.com" title='Kontakt'>Angebot Anfragen</a>
           </div>
         </div>
       </div>

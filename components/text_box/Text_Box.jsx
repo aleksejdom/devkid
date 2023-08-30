@@ -77,7 +77,7 @@ export default function Text_Box({ content, align, headline, cta, cta_text, read
     <div className={`${styles.textBox} ${align ? styles[align] : ''} ${headline ? styles[headline] : ''}`} >
       {renderContent()}
       { cta && !isExpanded ? 
-        <a href='mailto:mail@dev-kid.de?subject=DevKid' className="cta-button" title='Website'>{cta_text}</a> : '' 
+        <a href='mailto:devkid.stgt@gmail.com?subject=DevKid' className="cta-button" title='Website'>{cta_text}</a> : '' 
       }
     </div>
   );

@@ -44,7 +44,7 @@ function Impressum({button, footer}) {
         <p>70378 Stuttgart</p>
         <h3>Kontakt</h3>
         <p>Telefon: (+49) 159 063 725 43 </p>
-        <p>E-Mail: mail@dev-kid.de</p>
+        <p>E-Mail: devkid.stgt@gmail.com</p>
         <h3>Umsatzsteuer-ID</h3>
         <p>Umsatzsteuer-Identifikationsnummer Gemäß §19 Abs. 1 UStG: 93048 / 73367</p> 
         <h3>EU-Streitschlichtung</h3>

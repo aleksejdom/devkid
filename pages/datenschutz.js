@@ -67,7 +67,7 @@ function Datenschutz({button, footer}) {
         <h3 >Hinweis zur verantwortlichen Stelle</h3>
         <p>Die verantwortliche Stelle für die Datenverarbeitung auf dieser Website ist:</p>
         <p>Aleksej Domovec Entwlg.u.Progr.v.Internetp.gew Arnoldstr. 16 - 70378 Stuttgart</p>
-        <p>Telefon: (+49)159 063 7254 3 E-Mail: mail@3d-website.de</p>
+        <p>Telefon: (+49)159 063 7254 3 E-Mail: devkid.stgt@gmail.com</p>
         <p>Verantwortliche Stelle ist die natürliche oder juristische Person, die allein oder gemeinsam mit anderen über die Zwecke und Mittel der Verarbeitung von personenbezogenen Daten (z.&nbsp;B. Namen, E-Mail-Adressen o. Ä.) entscheidet.</p>
         <h3 >Speicherdauer</h3>
         <p>Soweit innerhalb dieser Datenschutzerklärung keine speziellere Speicherdauer genannt wurde, verbleiben Ihre personenbezogenen Daten bei uns, bis der Zweck für die Datenverarbeitung entfällt. Wenn Sie ein berechtigtes Löschersuchen geltend machen oder eine Einwilligung zur Datenverarbeitung widerrufen, werden Ihre Daten gelöscht, sofern wir keine anderen rechtlich zulässigen Gründe für die Speicherung Ihrer personenbezogenen Daten haben (z.&nbsp;B. steuer- oder handelsrechtliche Aufbewahrungsfristen); im letztgenannten Fall erfolgt die Löschung nach Fortfall dieser Gründe.</p>
