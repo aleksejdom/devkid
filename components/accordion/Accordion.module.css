@@ -13,7 +13,7 @@
 }
 
 .accordion h2.accordionTitle {
-  font-size: calc(52px + (21 - 14) * ((100vw - 300px) / (1920 - 300)));
+  font-size: 52px;
   font-family: 'DINPro', sans-serif;
   letter-spacing: 1px;
   max-width: 715px;
@@ -36,13 +36,7 @@
   display: flex;
   flex-direction: column;
   max-width: 1024px;
-}
-
-@media only screen and (min-width: 2550px) {
-  .accordionItems {
-    max-width: 1280px;
-  }
-}
+} 
 
 .accordionItem {
   padding: 0.5rem;
@@ -60,10 +54,9 @@
   justify-content: space-between;
   align-items: center;
   font-family: 'DINPro', sans-serif;
-  font-size: calc(30px + (21 - 14) * ((100vw - 300px) / (1920 - 300)));
+  font-size: 24px;
 }
- 
-
+  
 .accordionContent {
   padding: 1rem 1rem 0.6rem;
   box-sizing: border-box;
@@ -71,14 +64,8 @@
   max-width: 1024px;
 }
 
-@media only screen and (min-width: 2550px) {
-  .accordionContent {
-    max-width: 1200px;
-  }
-}
-
 .accordionContent p {
-  font-size: calc(21px + (21 - 14) * ((100vw - 300px) / (1920 - 300)));
+  font-size: 21px;
   margin-bottom: 10px;
   hyphens: none;
 }
@@ -112,6 +99,24 @@
 
 .accordionContent ol {
   padding: 0;
+}
+
+@media only screen and (min-width: 2550px) {
+  .accordionItems {
+    max-width: 1280px;
+  }
+  .accordion h2.accordionTitle {
+    font-size: calc(52px + (21 - 14) * ((100vw - 300px) / (1920 - 300))); 
+  } 
+  .accordionContent {
+    max-width: 1200px;
+  }
+  .accordionHeader h3 { 
+    font-size: calc(30px + ( 30 - 16) * ((100vw - 300px) / (3840 - 300)));
+  }
+  .accordionContent p {
+    font-size: calc(21px + ( 21 - 16) * ((100vw - 300px) / (3840 - 300)));
+  }
 }
 
 @media (max-width: 768px) {

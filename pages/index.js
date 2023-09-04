@@ -19,7 +19,7 @@ import Responsive_image from '../components/responsive_image/Responsive_image';
 // Prismic API Endpunkt
 const apiEndpoint = 'https://aleksej.cdn.prismic.io/api/v2'
 
-function Home({ wp_next_content, wp_next_content_second, wp_next_list, header_content, header_image, header_mobile_image, website_konventiert_mobile, website_konvertiert, website_konventiert_screen, agenturen, agenturen_image, website_gestalten, website_gestalten_screen, website_gestalten_mobile, tabs, contact, usp, referenzen, referenzenContent, footer, accordion, one_click_content, one_click_content_image, artikel_probleme, artikel_probleme_headline }) {
+function Home({ website_pflege, website_pflege_image, wp_next_content, wp_next_content_second, wp_next_list, header_content, header_image, header_mobile_image, website_konventiert_mobile, website_konvertiert, website_konventiert_screen, agenturen, agenturen_image, website_gestalten, website_gestalten_screen, website_gestalten_mobile, tabs, contact, usp, referenzen, referenzenContent, footer, accordion, one_click_content, one_click_content_image, artikel_probleme, artikel_probleme_headline }) {
   const videoRef = useRef(null);
   const headerRef = useRef(null); 
   const colors = ['#05473C', '#4A3170', '#7D0B32']; 
@@ -201,7 +201,17 @@ function Home({ wp_next_content, wp_next_content_second, wp_next_list, header_co
           <Text_Box content={wp_next_content_second} />
         </div>
 
-
+        { website_pflege && 
+          <div className='text-image-box' style={{ backgroundColor: colors[colorIndex] }}>
+            <div className='text-image-box-content'>
+              <Text_Box content={website_pflege} headline={'normal'} />  
+              <div className="image-box">  
+                <Image src={website_pflege_image.url} title={website_pflege_image.alt} alt={website_pflege_image.alt} width={1920} height={1080} /> 
+                <Image src='./images/icon.svg' alt="icon" title="devkid icon" width={120} height={68} className='icon' />
+              </div>
+            </div> 
+          </div>
+        }
 
         <Usp_Box usp={usp}/>
 
@@ -262,7 +272,8 @@ Home.getInitialProps = async () => {
     wp_next_content : document?.data.wp_next_content,
     wp_next_content_second : document?.data.wp_next_content_second,
     wp_next_list : document?.data.wp_next_list,
-
+    website_pflege : document?.data.website_pflege,
+    website_pflege_image : document?.data.website_pflege_image,
   }
 }
 
