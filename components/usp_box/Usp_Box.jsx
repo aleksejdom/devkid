@@ -6,6 +6,7 @@ import Image from 'next/image';
 export default function Usp_Box({usp}) {
   return ( 
     <div className={styles.uspBox}>
+      <h3>Das können unsere Kunden von uns erwarten.</h3>
       <div className={styles.items}> 
         {usp.map((item, index) => (
           <div className={styles.item} key={`usp-item-${index}`}>

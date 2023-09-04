@@ -18,14 +18,19 @@
   align-items: flex-start;
   flex-grow: 1;
   color: #000000;
+  line-height: 1;
+  margin-bottom: 1rem;
+  font-size: 16px;
 }
+
+
 
 .footerWrapper {
   display: grid;
   width: 100%; 
   border-bottom: 1px solid #c9c9c9;
   padding-bottom: 40px;
-  grid-template-columns: 80% 1fr;
+  grid-template-columns: 75% 1fr;
   grid-template-rows: 1fr;
 }
 
@@ -51,7 +56,10 @@
 .footerContact a {
   font-size: 24px;
   line-height: 1.2;
+  margin-bottom: 0;
 }
+
+
 
 footer .aktion {
   color: #ffffff;
@@ -81,10 +89,12 @@ ul.footerNav:last-of-type {
   flex-direction: row;
 }
 
-ul.footerNav:last-of-type > li {
+ul.footerNav:last-of-type > li > a {
   font-size: 12px;
   margin-right: 0.8rem;
 }
+
+
 
 ul.footerNav:last-of-type > li:last-of-type {
   margin-right: 0;
@@ -97,6 +107,8 @@ ul.footerNav li {
   line-height: 1.7;
   margin-bottom: 0;
 }
+
+
 
 ul.footerNav li::before {
   content: '';
@@ -125,6 +137,28 @@ ul.footerNav li::before {
   display: inline-block;
   animation: marquee 20s linear infinite; 
   font-size: 24px;
+}
+
+@media only screen and (min-width: 2550px) {
+  .footer a { 
+    font-size: calc(21px + ( 21 - 16) * ((100vw - 300px) / (3840 - 300)));
+  }
+  .footerContact h2 {
+    font-size: calc(21px + ( 21 - 16) * ((100vw - 300px) / (3840 - 300)));
+    max-width: 1024px;
+  }
+  .footerContact a {
+    font-size: calc(24px + ( 24 - 16) * ((100vw - 300px) / (3840 - 300)));
+  }
+  ul.footerNav:last-of-type > li > a {
+    font-size: calc(18px + ( 18 - 16) * ((100vw - 300px) / (3840 - 300)));
+  }
+  ul.footerNav li { 
+    font-size: calc(18px + ( 18 - 14) * ((100vw - 300px) / (3840 - 300)))
+  }
+  .aktionText { 
+    font-size: calc(24px + ( 24 - 16) * ((100vw - 300px) / (3840 - 300)))
+  }
 }
 
 @media only screen and (max-width: 1280px) {

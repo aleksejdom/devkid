@@ -1,13 +1,32 @@
 .textBox {
-  margin-top: 0rem;
   width: 100%;
-  max-width: 700px;
+  max-width: 900px;
   hyphens: none;
   padding: 0;
+  margin-top: 0rem;
   padding-right: 4rem;
   box-sizing: border-box; 
   z-index: 10;
 
+  p {
+    margin-bottom: 1rem;
+    font-size: 26px;
+    @media only screen and (min-width: 2550px) {
+      font-size: calc(21px + ( 21 - 16) * ((100vw - 300px) / (3840 - 300)));
+    }
+    span {
+      font-size: 24px;
+      line-height: 1.4;
+      word-break: break-word;
+      -webkit-hyphens: none;
+      hyphens: none;
+      margin: 0;
+      font-family: "Avenir", sans-serif;
+      @media only screen and (min-width: 2550px) {
+        font-size: calc(24px + ( 24 - 16) * ((100vw - 300px) / (3840 - 300)));
+      }
+    }
+  }
   p > a {
     background-color: transparent;
     border: 1px solid #ffffff;
@@ -19,18 +38,19 @@
     text-transform: uppercase;
     font-family: "Avenir", sans-serif;
     display: flex;
-    align-items: flex-start;
+    align-items: center;
     justify-content: flex-start;
     width: -moz-fit-content;
     width: fit-content;
     margin: 3rem 0 3rem;
-    font-size: 21px;
+    font-size: calc(21px + (21 - 14) * ((100vw - 300px) / (1920 - 300)));
     z-index: 9999;
     cursor: pointer;
     position: relative;
     bottom: 7%;
     left: 0%;
     width: fit-content;
+    margin-bottom: 0;
 
     &:hover {
       &::after {
@@ -57,29 +77,52 @@
   }
 
   h2 {
-    font-size: 35px;
+    font-size: 42px;
     line-height: 1.2;
     font-family: "DINPro", sans-serif;
     letter-spacing: 1px;
-    max-width: 540px;
-    margin-bottom: 25px;
+    max-width: 900px;
+    margin-bottom: 15px;
     margin-top: 0;
+
+    @media only screen and (min-width: 2550px) {
+      max-width: 1680px;
+      font-size: calc(42px + ( 42 - 16) * ((100vw - 300px) / (3840 - 300)));
+    }
     @media only screen and (max-width: 768px) {
       font-size: 26px;
       hyphens: auto;
+      margin-bottom: 1rem;
     }
   }
 
   h3 {
-    font-size: 21px;
+    font-size: 28px;
     line-height: 1.4;
     font-family: "DINPro", sans-serif;
     margin-bottom: 3rem;
+    margin-top: 0;
+    @media only screen and (min-width: 2550px) {
+      font-size: calc(28px + (21 - 14) * ((100vw - 300px) / (1920 - 300)));
+    }
+    @media only screen and (max-width: 768px) {
+      margin-bottom: 2rem;
+      margin-top: 1rem;
+    }
   }
 
+  @media only screen and (min-width: 2550px) {
+    max-width: 1280px;
+  }
+  @media only screen and (min-width: 1920px) {
+    max-width: 960px;
+  }
   @media only screen and (max-width: 1280px) {
     width: 100%;
     max-width: 800px;
+  }
+  @media only screen and (max-width: 768px) {
+    margin-top: 0rem;
     padding-right: 0;
   }
    
@@ -106,6 +149,9 @@
         transform: rotate(180deg);
       }
     }
+    @media only screen and (min-width: 2550px) {
+      font-size: calc(21px + ( 21 - 16) * ((100vw - 300px) / (3840 - 300)));
+    }
   }
 }
 
@@ -115,6 +161,9 @@
   padding: 0 2rem;
   max-width: 900px;
 
+  @media only screen and (min-width: 2550px) {
+    max-width: 1280px;
+  }
   @media only screen and (max-width: 1280px) {
     max-width: 800px;
   }
@@ -130,7 +179,10 @@
     line-height: 1.3;
     font-family: 'DINPro', sans-serif;
     margin-top: 0;
-  
+    
+    @media only screen and (min-width: 2550px) {
+      font-size: calc(32px + ( 32 - 16) * ((100vw - 300px) / (3840 - 300)));
+    }
     @media only screen and (max-width: 1280px) {
       font-size: 32px;
     }
@@ -145,7 +197,7 @@
 
 .normal {
   h2 {
-    font-size: 35px;
+    font-size: 42px;
     line-height: 1.2;
     font-family: 'DINPro', sans-serif;
     letter-spacing: 1px;
@@ -153,6 +205,13 @@
     margin-bottom: 25px;
     margin-top: 0;
 
+    @media only screen and (min-width: 2550px) {
+      max-width: 1280px;
+      font-size: calc(42px + ( 42 - 16) * ((100vw - 300px) / (3840 - 300)));
+    }
+    @media only screen and (min-width: 1920px) {
+      max-width: 1440px;
+    }
     @media only screen and (max-width: 1280px) {
       max-width: 100%;
     }
@@ -164,7 +223,7 @@
     }
   }
   h3 {
-    font-size: 21px;
+    font-size: 28px;
     line-height: 1.4;
     font-family: 'DINPro', sans-serif;
     
@@ -173,6 +232,9 @@
       @media only screen and (max-width: 768px) {
         margin-bottom: 2rem;
       }
+    }
+    @media only screen and (min-width: 2550px) {
+      font-size: calc(28px + ( 28 - 16) * ((100vw - 300px) / (3840 - 300)));
     }
     @media only screen and (max-width: 768px) {
       font-size: 18px;
@@ -192,7 +254,10 @@
     word-break: break-word;
     hyphens: none;
     margin: 0;
-    font-family: 'Avenir', sans-serif;  
+    font-family: 'Avenir', sans-serif; 
+    @media only screen and (min-width: 2550px) {
+      font-size: calc(21px + ( 21 - 16) * ((100vw - 300px) / (3840 - 300)));
+    } 
     @media only screen and (max-width: 768px) {
       font-size: 18px; 
     }

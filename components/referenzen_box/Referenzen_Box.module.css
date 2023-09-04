@@ -16,7 +16,7 @@
 } 
 
 .referenzenWrapper h3 {
-  font-size: 52px;
+  font-size: calc(52px + (21 - 14) * ((100vw - 300px) / (1920 - 300)));
   font-family: 'DINPro', sans-serif;
   letter-spacing: 1px;
   max-width: 715px;
@@ -70,6 +70,12 @@
   margin-top: 1rem;
 }
 
+@media only screen and (min-width: 2550px) {
+  .referenzenItem p { 
+    font-size: calc(21px + ( 21 - 16) * ((100vw - 300px) / (3840 - 300)));
+  }
+}
+
 .referenzenNavs {
   display: flex;
   position: absolute;
@@ -97,7 +103,7 @@ img.referenzenButton:last-of-type {
 .referenzenContent h2 {
   hyphens: none;
   max-width: 600px;
-}
+} 
 
 .referenzenContent h3 {
   font-family: 'DINPro', sans-serif;
@@ -110,7 +116,7 @@ img.referenzenButton:last-of-type {
 .referenzenContent p {
   font-family: 'Avenir', sans-serif;
   line-height: 1.6;
-  font-size: 18px;
+  font-size: 21px;
   hyphens: none;
   margin-bottom: 1rem;
 }
@@ -118,6 +124,18 @@ img.referenzenButton:last-of-type {
   margin-bottom: 0;
 }
 
+@media only screen and (min-width: 2550px) {
+  .referenzenContent h2,
+  .referenzenContent { 
+    max-width: 1280px;
+  }
+  .referenzenContent h3 { 
+    font-size: calc(34px + (21 - 14) * ((100vw - 300px) / (1920 - 300))); 
+  }
+  .referenzenContent p { 
+    font-size: calc(21px + (21 - 14) * ((100vw - 300px) / (1920 - 300))); 
+  }
+}
 @media (max-width: 768px) {
   .referenzenContent {
     margin-top: 4rem; 

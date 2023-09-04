@@ -9,13 +9,12 @@ const Leistungs_Tab = forwardRef(({tabs}, ref) => {
   const handleTabClick = (tabName) => {
     setSelectedTab(tabName);
   }
-
   const filteredTabs = tabs.filter(item => item.selection === selectedTab);
-
+  
   return (
-    <div className={styles['leistungs-tab']} ref={ref}>
+    <div className={styles['leistungs-tab']} ref={ref} >
       <div className={styles.header}>
-        <h2 className={styles.icon}>Leistungen im Überblick</h2>
+        <h2 className={styles.icon}>Leistungen</h2>
         <div className={styles['tab-tabs']}>
           <ul>
             <li key={`Kreation`} onClick={() => handleTabClick('Kreation')} className={selectedTab === 'Kreation' ? styles.activeTab : ''}>Kreation</li>

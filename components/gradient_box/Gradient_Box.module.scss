@@ -77,6 +77,12 @@ $ciSecond: #13161c;
         font-family: 'DINPro', sans-serif;
         font-size: 28px;
         line-height: 1;
+        @media only screen and (min-width: 2550px) {
+          font-size: calc(28px + ( 28 - 16) * ((100vw - 300px) / (3840 - 300)));
+         }
+        @media only screen and (min-width: 2550px) {
+          font-size: calc(28px + ( 28 - 16) * ((100vw - 300px) / (3840 - 300)));
+         }
       }
   
       ul {
@@ -99,7 +105,13 @@ $ciSecond: #13161c;
             display: block;
             max-width: 20px;
             transform: translateY(5px);
+            @media only screen and (min-width: 2550px) {
+              transform: translateY(1px);
+            }
           }
+          @media only screen and (min-width: 2550px) {
+            font-size: calc(21px + ( 21 - 16) * ((100vw - 300px) / (3840 - 300)));
+           }
           @media only screen and (max-width: 768px) {
             font-size: 18px;
             line-height: 1.2;
@@ -150,7 +162,9 @@ $ciSecond: #13161c;
           transform: scale(0.3) rotate(180deg);
           justify-content: flex-end;
         }
-
+        @media only screen and (min-width: 2550px) {
+          font-size: calc(21px + ( 21 - 16) * ((100vw - 300px) / (3840 - 300)));
+         }
         @media only screen and (max-width: 768px) {
           font-size: 16px;
           padding: 0.5rem;

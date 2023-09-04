@@ -23,6 +23,16 @@
   hyphens: none;
 }
 
+@media only screen and (min-width: 2550px) {
+  .projekt-ablauf h2,
+  .projekt-ablauf h3,
+  .projekt-ablauf h4,
+  .projekt-ablauf h5,
+  .projekt-ablauf h6 {
+    font-size: calc(32px + ( 32 - 16) * ((100vw - 300px) / (3840 - 300)));
+  }
+}
+
 .projekt-ablauf .items {
   display: grid;
   gap: 3rem;
@@ -30,6 +40,8 @@
   max-width: 960px;
   margin: 0 auto;
 }
+
+
 
 .projekt-ablauf .item h3 {
   text-align: left;
@@ -53,6 +65,24 @@
   font-size: 18px;
   line-height: 1.4;
 }
+
+@media only screen and (min-width: 2550px) {
+  .projekt-ablauf .items { 
+    max-width: 1280px; 
+  }
+  .projekt-ablauf .item h3 { 
+    font-size: calc(24px + ( 24 - 16) * ((100vw - 300px) / (3840 - 300))); 
+  }
+  
+  .projekt-ablauf .item h3 > span {
+    font-size: calc(55px + ( 55 - 16) * ((100vw - 300px) / (3840 - 300)));
+  }
+  
+  .projekt-ablauf .item p {
+    font-size: calc(21px + ( 21 - 16) * ((100vw - 300px) / (3840 - 300)));
+  }
+}
+
  
 .projekt-ablauf a.cta-button {
   border: 1px solid #2f9999; 
@@ -69,6 +99,12 @@
   justify-content: flex-start;
   width: fit-content;
   margin: 4rem auto 0;
+}
+
+@media only screen and (min-width: 2550px) {
+  .projekt-ablauf a.cta-button {
+    font-size: calc(21px + ( 21 - 16) * ((100vw - 300px) / (3840 - 300)));
+  }
 }
 
 .projekt-ablauf a.cta-button::after {

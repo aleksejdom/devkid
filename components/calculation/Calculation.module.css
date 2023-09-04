@@ -26,7 +26,7 @@
   font-size: 18px;
   margin-bottom: 0.7rem;
   color: #438d8d;
-}
+} 
 
 .calculator {
   margin: 4rem 0;
@@ -64,6 +64,8 @@
   font-family: 'DinPro', sans-serif;
   font-size: 21px;
 }
+
+
 
 .answer-box:last-of-type {
   margin-right: 0;
@@ -202,6 +204,19 @@ a.cta-button:hover::after {
 
 .calculator-content p {
   max-width: 840px;
+}
+
+@media only screen and (min-width: 2550px) {
+  .question h2 > span {
+    font-size: calc(18px + ( 18 - 16) * ((100vw - 300px) / (3840 - 300)));
+  }
+  .answer-box p { 
+    font-size: calc(24px + ( 24 - 16) * ((100vw - 300px) / (3840 - 300)));
+    line-height: 1;
+  }
+  .more-info h3 {
+    font-size: calc(32px + ( 32 - 16) * ((100vw - 300px) / (3840 - 300)))
+  }
 }
 
 @media only screen and (max-width: 768px) {

@@ -24,6 +24,11 @@
   display: flex;
   margin-bottom: 10px;
 }
+@media only screen and (min-width: 2550px) {
+  .list-box ul li {
+    font-size: calc(21px + ( 21 - 16) * ((100vw - 300px) / (3840 - 300)));
+  }
+}
 .list-box ul li::before {
   content: url('/images/check.svg');
   width: 100%;
@@ -124,6 +129,8 @@
   width: fit-content; 
   margin: 3rem auto 0;
 }
+
+
 .cta-button::after {
   content: url('/images/icon.svg');
   transform: scale(0.3);
@@ -197,8 +204,7 @@
 }
 
 .headlinebox {
-  width: 100%;
-  max-width: 1200px;
+  width: 100%; 
   margin: 2rem auto 2rem;
   box-sizing: border-box;
   z-index: 1;
@@ -214,6 +220,26 @@
   .header .headlinebox {
     width: 100%; 
   } 
+}
+
+@media only screen and (min-width: 2550px) {
+  .text-box h2 {
+    font-size: calc(42px + ( 42 - 16) * ((100vw - 300px) / (3840 - 300)));
+    max-width: 1280px;
+  }
+  .text-box p {
+    max-width: 1280px; 
+  }
+  .kosten-overview p {
+    max-width: 1024px;  
+  }
+  .kosten-overview p > span { 
+    font-size: calc(30px + ( 21 - 16) * ((100vw - 300px) / (3840 - 300)));
+  }
+  a.cta-button,
+  a.cta-button-transparent { 
+    font-size: calc(21px + ( 21 - 16) * ((100vw - 300px) / (3840 - 300)));
+  }
 }
 
 @media only screen and (max-width: 1280px) {

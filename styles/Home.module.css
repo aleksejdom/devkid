@@ -31,17 +31,26 @@
 .header {
   width: 100%;
   height: 100%;
-  background-color: #05473C;
-  transition: background-color 3s ease;
+  min-height: 900px;
+  background-color: #05473C; 
   color: #ffffff;
   display: flex;
   align-items: flex-start;
-  padding: 6rem;
+  padding: 10rem 6rem 6rem;
   box-sizing: border-box;
   position: relative;
   overflow: hidden;
 }
  
+.header img {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  object-fit: cover;
+}
+
 .videobox video {
   width: 100%;
   height: auto;
@@ -69,15 +78,15 @@
 
 .imagebox {
   width: 100%;
-  height: 100%; 
+  height: 100%;
+  position: relative;
+  z-index: 99999; 
 }
 
 .imagebox img {
-  width: fit-content;
-  height: 70%;
-  position: absolute;
-  right: 3rem;
-  bottom: 2rem;
+  width: 100%;
+  height: 100%;
+  position: relative;
   object-fit: contain;
   max-width: 100%;
 }
@@ -413,6 +422,8 @@
   .header {
     flex-direction: column;
     padding: 2rem;
+    min-height: auto;
+    padding-top: 5rem;
   }
 
   .videobox { 
@@ -426,7 +437,7 @@
 
   .mainText,
   .main {
-    padding: 4rem 2rem 0;
+    padding: 2rem 2rem 0;
   }
 
   .mainText ul,

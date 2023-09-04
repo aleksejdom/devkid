@@ -1,6 +1,5 @@
 .headlinebox {
-  width: 100%;
-  max-width: 1200px;
+  width: 100%; 
   margin: 2rem auto 2rem; 
   box-sizing: border-box;
   z-index: 1;
@@ -10,6 +9,9 @@
   h1 {
     max-width: 500px;
     line-height: 1.1; 
+    @media only screen and (min-width: 2550px) {
+      max-width: 1280px;
+    }
     @media only screen and (max-width: 768px) {
       margin-bottom: 0.7rem;
     }
@@ -18,6 +20,9 @@
   h2 {
     font-size: 28px;
     line-height: 1.4;
+    @media only screen and (min-width: 2550px) {
+     font-size: calc(28px + ( 28 - 16) * ((100vw - 300px) / (3840 - 300)));
+    }
     @media only screen and (max-width: 768px) {
       font-size: 18px;
       margin-top: 0;
@@ -70,6 +75,9 @@
     text-align: center;
     font-size: 24px;
     font-family: 'DINPro', sans-serif;
+    @media only screen and (min-width: 2550px) {
+      font-size: calc(26px + ( 26 - 16) * ((100vw - 300px) / (3840 - 300)));
+     }
     @media only screen and (max-width: 768px) {
       font-size: 21px;
       line-height: 1.2;
@@ -83,6 +91,10 @@
     margin: 1rem auto 0;
     text-align: center;
     font-family: 'Avenir', sans-serif;
+    @media only screen and (min-width: 2550px) {
+      font-size: calc(24px + ( 24 - 16) * ((100vw - 300px) / (3840 - 300)));
+      max-width: 90%;
+     }
   }
 
   ul {
@@ -97,6 +109,9 @@
         font-size: 16px;
         line-height: 1;
         align-items: center;
+        @media only screen and (min-width: 2550px) {
+          font-size: calc(21px + ( 21 - 16) * ((100vw - 300px) / (3840 - 300)));
+         }
         &::before {
           content: url('/images/block-icon.svg');
           width: 25px;
@@ -143,6 +158,10 @@
     }
   }
 
+  @media only screen and (min-width: 2550px) {
+    width: 100%;
+    max-width: 900px;
+  }
   @media only screen and (max-width: 1280px) {
     margin: 8rem 0 0;
     width: 100%;
@@ -191,6 +210,9 @@
       li {
         font-size: 26px;
         line-height: 1.2;
+        @media only screen and (min-width: 2550px) {
+          font-size: calc(26px + ( 26 - 16) * ((100vw - 300px) / (3840 - 300)));
+         }
         @media only screen and (max-width: 768px) {
           font-size: 20px;
         }
@@ -221,10 +243,16 @@
           height: 41px;
         }
       }
+      @media only screen and (min-width: 2550px) {
+        font-size: calc(42px + ( 42 - 16) * ((100vw - 300px) / (3840 - 300)));
+       }
       @media only screen and (max-width: 768px) {
         font-size: 28px;
         max-width: 200px;
       }
+    }
+    @media only screen and (min-width: 2550px) {
+      max-width: 1280px;
     }
     @media only screen and (max-width: 768px) {
       margin-top: 0rem;
@@ -239,9 +267,12 @@
   width: 60%;
   max-width: 600px;
   height: 100%; 
-  
   cursor: pointer;
 
+  @media only screen and (min-width: 2550px) {
+    width: 100%;
+    max-width: 1024px;
+  }
   @media only screen and (max-width: 1280px) {
     margin-top: 6rem;
     width: 100%; 
@@ -250,7 +281,7 @@
 
   .image-box-wrapper {
     overflow: hidden;
-    height: 280px;
+    height: 100%;
     border-radius: 15px;
     img {
       width: 100%;
@@ -260,7 +291,7 @@
       &:hover {
         transform: scale(1.2);  // Hier wird das Bild beim Darüberfahren mit der Maus um 20% vergrößert.
       }      
-    }
+    } 
     @media only screen and (max-width: 1280px) {
       height: auto;
     }
@@ -317,6 +348,10 @@
     grid-column-end: 3;
     font-size: 35px;
     line-height: 1.2;
+
+    @media only screen and (min-width: 2550px) {
+      font-size: calc(35px + ( 35 - 16) * ((100vw - 300px) / (3840 - 300)));
+     }
 
     @media only screen and (max-width: 768px) {
       font-size: 30px;
@@ -436,6 +471,10 @@
       justify-content: flex-end;
     }
   }
+
+  @media only screen and (min-width: 2550px) {
+    font-size: calc(21px + ( 21 - 16) * ((100vw - 300px) / (3840 - 300)));
+   }
   @media only screen and (max-width: 768px) {
     width: 100%;
     font-size: 18px;
@@ -482,6 +521,9 @@
         height: 41px;
       }
     }
+    @media only screen and (min-width: 2550px) {
+      font-size: calc(42px + ( 42 - 16) * ((100vw - 300px) / (3840 - 300)));
+     }
     @media only screen and (max-width: 768px) {
       font-size: 32px;
     }
@@ -491,6 +533,9 @@
     font-size: 21px;
     line-height: 1.2;
     max-width: 500px;
+    @media only screen and (min-width: 2550px) {
+      font-size: calc(21px + ( 21 - 16) * ((100vw - 300px) / (3840 - 300)));
+     }
   }
   .numbers {
     display: grid;
@@ -499,6 +544,9 @@
     gap: 1rem;
     margin-top: 4rem;
     font-family: 'DINPro', sans-serif;
+    @media only screen and (min-width: 2550px) {
+      max-width: 1024px; 
+    }
     @media only screen and (max-width: 768px) {
       grid-template-columns: 1fr;
       margin-top: 2rem;
@@ -506,10 +554,15 @@
     }
     span {
       font-size: 42px;
+      @media only screen and (min-width: 2550px) {
+        font-size: calc(42px + ( 42 - 16) * ((100vw - 300px) / (3840 - 300)));
+       }
     }
     p {
       font-size: 21px;
-
+      @media only screen and (min-width: 2550px) {
+        font-size: calc(21px + ( 21 - 16) * ((100vw - 300px) / (3840 - 300)));
+       }
     }
   }
   .cta-button {
