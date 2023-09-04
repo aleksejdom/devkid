@@ -19,7 +19,7 @@ import Responsive_image from '../components/responsive_image/Responsive_image';
 // Prismic API Endpunkt
 const apiEndpoint = 'https://aleksej.cdn.prismic.io/api/v2'
 
-function Home({ website_pflege, website_pflege_image, wp_next_content, wp_next_content_second, wp_next_list, header_content, header_image, header_mobile_image, website_konventiert_mobile, website_konvertiert, website_konventiert_screen, agenturen, agenturen_image, website_gestalten, website_gestalten_screen, website_gestalten_mobile, tabs, contact, usp, referenzen, referenzenContent, footer, accordion, one_click_content, one_click_content_image, artikel_probleme, artikel_probleme_headline }) {
+function Home({ geschaeftsfelder, geschaeftsfelder_image_screen, geschaeftsfelder_image_mobile, website_pflege, website_pflege_image, wp_next_content, wp_next_content_second, wp_next_list, header_content, header_image, header_mobile_image, website_konventiert_mobile, website_konvertiert, website_konventiert_screen, agenturen, agenturen_image, website_gestalten, website_gestalten_screen, website_gestalten_mobile, tabs, contact, usp, referenzen, referenzenContent, footer, accordion, one_click_content, one_click_content_image, artikel_probleme, artikel_probleme_headline }) {
   const videoRef = useRef(null);
   const headerRef = useRef(null); 
   const colors = ['#05473C', '#4A3170', '#7D0B32']; 
@@ -34,6 +34,32 @@ function Home({ website_pflege, website_pflege_image, wp_next_content, wp_next_c
   const leistungsTabRef = useRef(null); 
   const footerRef = useRef(null);
   const referenzenRef = useRef(null);
+
+  let tempLi = []; 
+  const renderWithSpans = (text, spans) => {
+    if (!spans || spans.length === 0) {
+      return text;
+    }
+
+    let lastIndex = 0;
+    const elements = [];
+
+    spans.forEach((span, index) => {
+      if (span.type === 'hyperlink') {
+        elements.push(text.substring(lastIndex, span.start));
+        elements.push(
+          <a href={span.data.url} key={index}>
+            {text.substring(span.start, span.end)}
+          </a>
+        );
+        lastIndex = span.end;
+      }
+    });
+
+    elements.push(text.substring(lastIndex));
+    return elements;
+  };
+
  
   const scrollToLeistungsTab = () => {
     if (leistungsTabRef.current) {
@@ -213,6 +239,39 @@ function Home({ website_pflege, website_pflege_image, wp_next_content, wp_next_c
           </div>
         }
 
+        { geschaeftsfelder && 
+          <div className="fullwide-image-box">
+            <div className="textBox">
+              {geschaeftsfelder.map((item, index) => {
+                const key = `${item.type}-${index}`; 
+                if (item.type === 'heading2') {
+                  return <h2 key={key}>{item.text}</h2>;
+                } 
+                if (item.type === 'paragraph') {
+                  return <p key={key}>{renderWithSpans(item.text, item.spans)}</p>;
+                } 
+                if (item.type === 'list-item') {
+                  tempLi.push(<li key={key}>{item.text}</li>);
+                  const nextType = geschaeftsfelder[index + 1]?.type;
+
+                  if (nextType !== 'list-item' || index === geschaeftsfelder.length - 1) {
+                    const ul = (
+                      <ul key={`${key}-ul`}>
+                        {tempLi}
+                      </ul>
+                    );
+                    tempLi = [];
+                    return ul;
+                  } 
+                  return null;
+                } 
+                return null;
+              })}
+            </div>
+            <Responsive_image image_screen={geschaeftsfelder_image_screen.url} image_mobile={geschaeftsfelder_image_mobile.url} /> 
+          </div>
+        }
+
         <Usp_Box usp={usp}/>
 
         <Referenzen_Box referenzen={referenzen} referenzenContent={referenzenContent} ref={referenzenRef} /> 
@@ -274,6 +333,9 @@ Home.getInitialProps = async () => {
     wp_next_list : document?.data.wp_next_list,
     website_pflege : document?.data.website_pflege,
     website_pflege_image : document?.data.website_pflege_image,
+    geschaeftsfelder : document?.data.geschaeftsfelder,
+    geschaeftsfelder_image_screen : document?.data.geschaeftsfelder_image_screen,
+    geschaeftsfelder_image_mobile : document?.data.geschaeftsfelder_image_mobile,
   }
 }
 
