@@ -1,18 +1,16 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, forwardRef } from 'react';
 import { useForm, ValidationError } from '@formspree/react';
 import styles from './Form_box.module.scss'; // Annahme, dass der Stylesheet-Name Form_box.css ist
 import Link from 'next/link';
 
-export default function Form_box() {
+const Form_box = forwardRef((props, ref) => {
   const [state, handleSubmit] = useForm("xyyqjnkd");
   const [num1, setNum1] = useState(null);
   const [num2, setNum2] = useState(null);
   const [captchaValue, setCaptchaValue] = useState("");
   const [captchaError, setCaptchaError] = useState(null);
   const [agreeForMarketing, setAgreeForMarketing] = useState(false);
-
-
-
+ 
   useEffect(() => {
     setNum1(Math.floor(Math.random() * 10));
     setNum2(Math.floor(Math.random() * 10));
@@ -30,7 +28,7 @@ export default function Form_box() {
       setCaptchaError(null);
       handleSubmit(e);
     }
-  };
+  }; 
 
   if (state.succeeded) {
     return (
@@ -42,8 +40,8 @@ export default function Form_box() {
   }
 
   return (
-    <div className={styles["form-box"]}>
-      <h2>Kontaktformular</h2>
+    <div className={styles["form-box"]} ref={ref}>
+      <h2>Kontakt</h2>
       <div className={styles["wrapper"]}>
         <form onSubmit={onFormSubmit}>
           <label htmlFor="email">
@@ -121,9 +119,28 @@ export default function Form_box() {
             Nachricht senden
           </button>
         </form>
+        <div className={styles["contact"]}>
+          <h3>Homepage mit Webdesign erstellen</h3>
+          <p>Haben Sie Fragen bezüglich der Erstellung Ihrer Website oder des Projektablaufs? Ich berate Sie gerne.</p>
+          
+          <div className={styles["contact-person"]}>
+            <h4>Ansprechspartner:</h4>
+            <p>Aleksej Domovec</p>
+            <p>(+49) 1590 637 2543</p> 
+          </div>
+          <div className={styles["contact-kosten"]}>
+            <h4>Website Kosten</h4>
+            <p>Möchten Sie die Kosten für Ihr Projekt exakt berechnen? Kontaktieren Sie uns für ein unverbindliches Angebot oder lassen Sie sich Ihre Homepage-Kosten durch unser Tool berechnen.</p>
+            <Link href="/website-erstellen-lassen/was-kostet-eine-website" className={styles["cta-button"]}>
+              Homepage Kosten berechnen
+            </Link>
+          </div>
+
+        </div>
       </div>
     </div>
   );
-}
+});
 
 Form_box.displayName = 'Form Box';
+export default Form_box;

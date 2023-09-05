@@ -36,6 +36,7 @@ function Home({ long_text, long_text_cta, geschaeftsfelder, geschaeftsfelder_ima
   const leistungsTabRef = useRef(null); 
   const footerRef = useRef(null);
   const referenzenRef = useRef(null);
+  const contactRef = useRef(null);
 
   let tempLi = []; 
   const renderWithSpans = (text, spans) => {
@@ -72,6 +73,12 @@ function Home({ long_text, long_text_cta, geschaeftsfelder, geschaeftsfelder_ima
   const scrollToReferenzen = () => {
     if (referenzenRef.current) {
       referenzenRef.current.scrollIntoView({ behavior: 'smooth' });
+    }
+    toggleMenu();
+  } 
+  const scrollToContact = () => {
+    if (contactRef.current) {
+      contactRef.current.scrollIntoView({ behavior: 'smooth' });
     }
     toggleMenu();
   } 
@@ -156,7 +163,8 @@ function Home({ long_text, long_text_cta, geschaeftsfelder, geschaeftsfelder_ima
           <Link href="/" title='DevKid'><Image src="/images/devkid_logo_white.svg" alt="icon" title="Devkid Logo" width={120} height={45} className={styles.logo} /></Link>
           <li><Link href="#leistungen" onClick={scrollToLeistungsTab} title='Leistungen'>Leistungen</Link></li> 
           <li><Link href="#Referenzen" onClick={scrollToReferenzen} title='Referenzen'>Referenzen</Link></li>  
-          <li><Link href="/wordpress-website-erstellen-lassen" title='WordPress Website'>WordPress</Link></li>    
+          <li><Link href="/wordpress-website-erstellen-lassen" title='WordPress Website'>WordPress</Link></li>
+          <li><Link href="#kontakt" onClick={scrollToContact} title='Kontakt'>Kontakt</Link></li>       
           <li className='whatsapp'><Link href="https://wa.me/message/U7POMDGUX4DIN1" title="WhatsApp">Chat on WhatsApp</Link></li>
           <li className='aktion'><Link href="#rabatt" onClick={scrollToFooter} title="Rabatt Aktion">Sale 15% Rabatt</Link></li>
         </ul>
@@ -321,7 +329,7 @@ function Home({ long_text, long_text_cta, geschaeftsfelder, geschaeftsfelder_ima
           </div>
         }
 
-        <Form_box />
+        <Form_box ref={contactRef} />
         <Usp_Box usp={usp}/> 
         <Referenzen_Box referenzen={referenzen} referenzenContent={referenzenContent} ref={referenzenRef} /> 
         { one_click_content &&  
