@@ -165,7 +165,7 @@ function Home({ long_text, long_text_cta, geschaeftsfelder, geschaeftsfelder_ima
         <Text_Box content={header_content}/>   
         <Responsive_image image_screen={header_image.url} image_mobile={header_mobile_image.url} image_alt={header_image.alt}/> 
         <p className={styles.zitat}>
-          "Zauberhafte Ideen<br />treffen auf Erfahrung."
+          &quot;Zauberhafte Ideen<br />treffen auf Erfahrung.&quot;
         </p>
       </header>
        
