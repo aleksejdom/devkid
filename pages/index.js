@@ -15,6 +15,7 @@ import Link from 'next/link';
 import Artikel_Probleme from '../components/artikel_probleme/Artikel_Probleme';
 import Text_Box from '../components/text_box/Text_Box'; 
 import Responsive_image from '../components/responsive_image/Responsive_image';
+import Form_box from '../components/form_box/Form_box';
 
 
 // Prismic API Endpunkt
@@ -318,10 +319,10 @@ function Home({ long_text, long_text_cta, geschaeftsfelder, geschaeftsfelder_ima
               })}
             </div>
           </div>
-         }
+        }
 
-        <Usp_Box usp={usp}/>
-
+        <Form_box />
+        <Usp_Box usp={usp}/> 
         <Referenzen_Box referenzen={referenzen} referenzenContent={referenzenContent} ref={referenzenRef} /> 
         { one_click_content &&  
           <div className='text-image-box'>

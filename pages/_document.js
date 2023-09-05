@@ -81,8 +81,7 @@ class MyDocument extends Document {
           <script
             type="application/ld+json"
             dangerouslySetInnerHTML={{ __html: JSON.stringify(personSchema) }}
-          ></script>
-
+          ></script> 
         </Head>
         <body>
           <Script id="cookieyes" src="https://cdn-cookieyes.com/client_data/f38bad507948038fa664f720/script.js" strategy="beforeInteractive" />
