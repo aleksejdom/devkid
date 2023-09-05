@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import Head from 'next/head'
 import Image from 'next/image' 
-import home from '../styles/Home.module.scss';  
+import home from '../styles/Home.module.css';  
 import styles_wordpress_website_erstellen_lassen from '../styles/WordpressWebsiteErstellenLassen.module.scss'
 import Prismic from 'prismic-javascript'
 import Footer from '../components/footer/Footer' 
@@ -59,31 +59,7 @@ function WordpressWebsiteErstellenLassen({footer, header_content, header_gradien
         blogRef.current.scrollIntoView({ behavior: 'smooth' });
       }
       toggleMenu();
-    };
-    const scrollTo90 = () => {
-      if (upToDateRef.current) {
-        upToDateRef.current.scrollIntoView({ behavior: 'smooth' });
-      }
-      toggleMenu();
-    };
-    const scrollToNextJs = () => {
-      if (nextJsRef.current) {
-        nextJsRef.current.scrollIntoView({ behavior: 'smooth' });
-      }
-      toggleMenu();
-    };
-    const scrollToFacts = () => {
-      if (factsRef.current) {
-        factsRef.current.scrollIntoView({ behavior: 'smooth' });
-      }
-      toggleMenu();
-    };
-    const scrollToFaq = () => {
-      if (footerRef.current) {
-        footerRef.current.scrollIntoView({ behavior: 'smooth' });
-      }
-      toggleMenu();
-    };
+    }; 
     
     //Video
     useEffect(() => {
@@ -128,8 +104,7 @@ function WordpressWebsiteErstellenLassen({footer, header_content, header_gradien
         footerRef.current.scrollIntoView({ behavior: 'smooth' });
       }
     }; 
-  
-
+   
     return ( 
       <>  
         <Head>
@@ -143,12 +118,8 @@ function WordpressWebsiteErstellenLassen({footer, header_content, header_gradien
           <ul className={isMenuOpen ? home.menuOpen : ''}>
             <Link href="/" title='DevKid'><Image src="/images/devkid_logo_white.svg" alt="icon" title="Devkid Logo" width={120} height={45} className={home.logo} /></Link>
             <li><Link href="#BlockBaukasten" title='Block Baukasten' onClick={scrollToBlockBaukasten}>Block-Baukasten</Link></li> 
-            <li><Link href="#Komponente" title='Block Komponente' onClick={scrollToKomponente}>Komponente</Link></li> 
-            <li><Link href="#UpToDate" title='Blog' onClick={scrollTo90}>Up-to-Date</Link></li>
-            <li><Link href="#Blog" title='Blog' onClick={scrollToBlog}>Blog</Link></li>
-            <li><Link href="#Nextjs" title='Nextjs' onClick={scrollToNextJs}>Nextjs</Link></li>
-            <li><Link href="#Facts" title='Facts' onClick={scrollToFacts}>Facts</Link></li>
-            <li><Link href="#FAQ" title='FAQ' onClick={scrollToFaq}>FAQ</Link></li>
+            <li><Link href="#Komponente" title='Block Komponente' onClick={scrollToKomponente}>Komponente</Link></li>  
+            <li><Link href="#Blog" title='Blog' onClick={scrollToBlog}>Blog</Link></li>  
             <li className='whatsapp'><Link href="https://wa.me/message/U7POMDGUX4DIN1" title="WhatsApp">Chat on WhatsApp</Link></li>
             <li className='aktion'><Link href="#rabatt" onClick={scrollToFooter} title="Rabatt Aktion">Sale 15% Rabatt</Link></li>
              
@@ -258,7 +229,7 @@ function WordpressWebsiteErstellenLassen({footer, header_content, header_gradien
                 })() : null}
               </div>
            </div>
-           <div className='container' style={{ backgroundColor: colors[colorIndex] }} ref={upToDateRef}>
+           <div className='container' style={{ backgroundColor: colors[colorIndex] }} >
               <div className={['content-box']}>
                 <Text_Box content={raus_90er_content} headline={'normal'} read_more={'yes'}/> 
                 <div className={styles_wordpress_website_erstellen_lassen['image-box']} >
@@ -323,7 +294,7 @@ function WordpressWebsiteErstellenLassen({footer, header_content, header_gradien
               }
             </ul>   
            </div>
-           <div className='container' style={{ backgroundColor: colors[colorIndex] }} ref={nextJsRef}>
+           <div className='container' style={{ backgroundColor: colors[colorIndex] }} >
               <div className={['content-box']}>
                 <Text_Box content={nextjs_content} headline={'normal'} read_more={'yes'}/> 
                 <div className={styles_wordpress_website_erstellen_lassen['block-componente']}>
@@ -349,7 +320,7 @@ function WordpressWebsiteErstellenLassen({footer, header_content, header_gradien
               </div>
               <div className='overlaybox'></div>
            </div>
-           <div className='container' style={{ backgroundColor: colors[colorIndex] }} ref={factsRef}>
+           <div className='container' style={{ backgroundColor: colors[colorIndex] }} >
               <div className={['content-box']}>
                 <div className={styles_wordpress_website_erstellen_lassen['text-box']} >
                   <h2>Noch nicht überzeugt?</h2>

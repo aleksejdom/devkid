@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import Head from 'next/head'
 import Image from 'next/image'
-import styles from '../styles/Home.module.scss' 
+import styles from '../styles/Home.module.css' 
 import Prismic from 'prismic-javascript'
 import { RichText } from 'prismic-reactjs'
 import Script from 'next/script';
