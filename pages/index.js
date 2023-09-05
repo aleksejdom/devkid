@@ -266,54 +266,56 @@ function Home({ long_text, long_text_cta, geschaeftsfelder, geschaeftsfelder_ima
           </div>
         }
 
-        <div className="column-text" style={{ backgroundColor: colors[colorIndex] }} ref={headerRef}>
-          <div className="first-section">
-            <div className="first-column">
-              {long_text.slice(0, Math.ceil(long_text.length / 2)).map((item, index) => {
-                if (item.type === 'heading2') {
-                  return <h2 key={index}>{item.text}</h2>;
+        { long_text &&
+          <div className="column-text" style={{ backgroundColor: colors[colorIndex] }} ref={headerRef}>
+            <div className="first-section">
+              <div className="first-column">
+                {long_text.slice(0, Math.ceil(long_text.length / 2)).map((item, index) => {
+                  if (item.type === 'heading2') {
+                    return <h2 key={index}>{item.text}</h2>;
+                  }
+                  if (item.type === 'paragraph') {
+                    return <p key={index}>{item.text}</p>;
+                  }
+                  return null;
+                })}
+              </div> 
+              <div className="second-column">
+                {long_text.slice(Math.ceil(long_text.length / 2)).map((item, index) => {
+                  if (item.type === 'heading2') {
+                    return <h2 key={index}>{item.text}</h2>;
+                  }
+                  if (item.type === 'paragraph') {
+                    return <p key={index}>{item.text}</p>;
+                  }
+                  return null;
+                })}
+              </div>
+            </div>  
+            <div className="second-section">
+              <div className={styles.videobox}>
+                <video ref={videoRef} autoPlay muted loop playsInline>
+                  <source src="./videos/clip.m4v" type="video/mp4" />
+                  <source src="./videos/clip.webm" type="video/webm" />
+                </video>
+                <Image src="./images/icon.svg" alt="icon" title="devkid icon" width={120} height={68} className={styles.icon} />
+              </div> 
+              {long_text_cta.map((cta, index) => {
+                if (cta.spans.length > 0 && cta.spans[0].type === 'hyperlink') {
+                  const text = cta.text.substring(cta.spans[0].start, cta.spans[0].end);
+                  return (
+                    <p key={index}>
+                      {cta.text.substring(0, cta.spans[0].start)}
+                      <a href={cta.spans[0].url}>{text}</a>
+                      {cta.text.substring(cta.spans[0].end)}
+                    </p>
+                  );
                 }
-                if (item.type === 'paragraph') {
-                  return <p key={index}>{item.text}</p>;
-                }
-                return null;
-              })}
-            </div> 
-            <div className="second-column">
-              {long_text.slice(Math.ceil(long_text.length / 2)).map((item, index) => {
-                if (item.type === 'heading2') {
-                  return <h2 key={index}>{item.text}</h2>;
-                }
-                if (item.type === 'paragraph') {
-                  return <p key={index}>{item.text}</p>;
-                }
-                return null;
+                return <p key={index}>{cta.text}</p>;
               })}
             </div>
-          </div>  
-          <div className="second-section">
-            <div className={styles.videobox}>
-              <video ref={videoRef} autoPlay muted loop playsInline>
-                <source src="./videos/clip.m4v" type="video/mp4" />
-                <source src="./videos/clip.webm" type="video/webm" />
-              </video>
-              <Image src="./images/icon.svg" alt="icon" title="devkid icon" width={120} height={68} className={styles.icon} />
-            </div> 
-            {long_text_cta.map((cta, index) => {
-              if (cta.spans.length > 0 && cta.spans[0].type === 'hyperlink') {
-                const text = cta.text.substring(cta.spans[0].start, cta.spans[0].end);
-                return (
-                  <p key={index}>
-                    {cta.text.substring(0, cta.spans[0].start)}
-                    <a href={cta.spans[0].url}>{text}</a>
-                    {cta.text.substring(cta.spans[0].end)}
-                  </p>
-                );
-              }
-              return <p key={index}>{cta.text}</p>;
-            })}
           </div>
-        </div>
+         }
 
         <Usp_Box usp={usp}/>
 

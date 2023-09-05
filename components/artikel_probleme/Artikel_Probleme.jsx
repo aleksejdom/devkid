@@ -1,5 +1,5 @@
 import React, { forwardRef, useState, useRef } from 'react';
-import styles from './Artikel_Probleme.module.css'; 
+import styles from './Artikel_Probleme.module.scss'; 
 import Image from 'next/image';
 
 const Artikel_Probleme = forwardRef(({ artikel_probleme, artikel_probleme_headline }, ref) => {
