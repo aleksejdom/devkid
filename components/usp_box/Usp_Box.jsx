@@ -1,4 +1,4 @@
-import styles from './Usp_Box.module.css';
+import styles from './Usp_Box.module.scss';
 import { RichText } from 'prismic-reactjs'
 import Image from 'next/image';
 

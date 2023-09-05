@@ -4,6 +4,7 @@ import Image from 'next/image'
 import styles from '../styles/Home.module.css' 
 import Prismic from 'prismic-javascript'
 import { RichText } from 'prismic-reactjs'
+import Script from 'next/script';
 import Leistungs_Tab from '../components/leistungs_tabs/Leistungs_Tab';
 import Contact_Box from '../components/contact_box/Contact_Box';
 import Usp_Box from '../components/usp_box/Usp_Box';
@@ -19,7 +20,7 @@ import Responsive_image from '../components/responsive_image/Responsive_image';
 // Prismic API Endpunkt
 const apiEndpoint = 'https://aleksej.cdn.prismic.io/api/v2'
 
-function Home({ geschaeftsfelder, geschaeftsfelder_image_screen, geschaeftsfelder_image_mobile, website_pflege, website_pflege_image, wp_next_content, wp_next_content_second, wp_next_list, header_content, header_image, header_mobile_image, website_konventiert_mobile, website_konvertiert, website_konventiert_screen, agenturen, agenturen_image, website_gestalten, website_gestalten_screen, website_gestalten_mobile, tabs, contact, usp, referenzen, referenzenContent, footer, accordion, one_click_content, one_click_content_image, artikel_probleme, artikel_probleme_headline }) {
+function Home({ long_text, long_text_cta, long_text_image, geschaeftsfelder, geschaeftsfelder_image_screen, geschaeftsfelder_image_mobile, website_pflege, website_pflege_image, wp_next_content, wp_next_content_second, wp_next_list, header_content, header_image, header_mobile_image, website_konventiert_mobile, website_konvertiert, website_konventiert_screen, agenturen, agenturen_image, website_gestalten, website_gestalten_screen, website_gestalten_mobile, tabs, contact, usp, referenzen, referenzenContent, footer, accordion, one_click_content, one_click_content_image, artikel_probleme, artikel_probleme_headline }) {
   const videoRef = useRef(null);
   const headerRef = useRef(null); 
   const colors = ['#05473C', '#4A3170', '#7D0B32']; 
@@ -272,6 +273,49 @@ function Home({ geschaeftsfelder, geschaeftsfelder_image_screen, geschaeftsfelde
           </div>
         }
 
+        <div className="column-text" style={{ backgroundColor: colors[colorIndex] }}>
+          <div className="first-section">
+            <div className="first-column">
+              {long_text.slice(0, Math.ceil(long_text.length / 2)).map((item, index) => {
+                if (item.type === 'heading2') {
+                  return <h2 key={index}>{item.text}</h2>;
+                }
+                if (item.type === 'paragraph') {
+                  return <p key={index}>{item.text}</p>;
+                }
+                return null;
+              })}
+            </div> 
+            <div className="second-column">
+              {long_text.slice(Math.ceil(long_text.length / 2)).map((item, index) => {
+                if (item.type === 'heading2') {
+                  return <h2 key={index}>{item.text}</h2>;
+                }
+                if (item.type === 'paragraph') {
+                  return <p key={index}>{item.text}</p>;
+                }
+                return null;
+              })}
+            </div>
+          </div>  
+          <div className="second-section">
+            <img src={long_text_image.url} alt={long_text_image.alt} width={long_text_image.dimensions.width} height={long_text_image.dimensions.height} />
+            {long_text_cta.map((cta, index) => {
+              if (cta.spans.length > 0 && cta.spans[0].type === 'hyperlink') {
+                const text = cta.text.substring(cta.spans[0].start, cta.spans[0].end);
+                return (
+                  <p key={index}>
+                    {cta.text.substring(0, cta.spans[0].start)}
+                    <a href={cta.spans[0].url}>{text}</a>
+                    {cta.text.substring(cta.spans[0].end)}
+                  </p>
+                );
+              }
+              return <p key={index}>{cta.text}</p>;
+            })}
+          </div>
+        </div>
+
         <Usp_Box usp={usp}/>
 
         <Referenzen_Box referenzen={referenzen} referenzenContent={referenzenContent} ref={referenzenRef} /> 
@@ -336,6 +380,9 @@ Home.getInitialProps = async () => {
     geschaeftsfelder : document?.data.geschaeftsfelder,
     geschaeftsfelder_image_screen : document?.data.geschaeftsfelder_image_screen,
     geschaeftsfelder_image_mobile : document?.data.geschaeftsfelder_image_mobile,
+    long_text : document?.data.long_text,
+    long_text_image : document?.data.long_text_image,
+    long_text_cta : document?.data.long_text_cta,
   }
 }
 
