@@ -1,100 +1,105 @@
 .form-box {
   width: 100%;
   height: 100%;
-  padding: 4rem 0rem 4rem;
+  padding: 4rem 0rem 5rem;
   box-sizing: border-box;
+
   h2 {
     z-index: 90;
     position: relative;
   }
-  form {
-    display: grid;
-    max-width: 500px;
-    font-family: 'DINPro', sans-serif;
-    margin-top: 4rem;
-    background: #ffffff;
-    padding: 2rem;
-    border-radius: 25px;
-    color: #000000;
-    label {
-      font-size: 14px;
-    }
-    input {
-      font-family: 'DINPro', sans-serif;
-      padding: 5px; 
-      border-color: transparent;
-      margin-top: 0.4rem;
-      margin-bottom: 1rem;
-      background: #efefef;
-      font-size: 16px;
-      &#email {
-        background: #efefef;
-      }
-      &:focus-visible {
-        outline: none;
-      }
-    }
-    textarea {
-      font-family: 'DINPro', sans-serif;
-      height: 100px;
-      padding: 10px 15px;
-      margin-top: 0.4rem;
-      background: #efefef; 
-      border: none;
-      font-size: 16px;
-      line-height: 1.2;
-      &:focus-visible {
-        outline: none;
-      }
-    }
 
-    button {
-      background-color: transparent;
-      border: 1px solid #000000;
+  .wrapper {
+    display: flex;
+    width: 100%;
+
+    form {
+      display: grid;
+      max-width: 500px;
+      width: 40%;
+      font-family: 'DINPro', sans-serif;
+      margin-top: 4rem;
+      background: #ffffff;
+      padding: 2rem;
+      border-radius: 25px;
       color: #000000;
-      overflow: hidden;
-      border-radius: none;
-      padding: 1rem;
-      box-sizing: border-box;
-      text-transform: uppercase;
-      font-family: "Avenir", sans-serif;
-      display: flex;
-      align-items: center;
-      justify-content: flex-start;
-      width: -moz-fit-content;
-      width: fit-content;
-      margin: 0.4rem 0 0rem;
-      font-size: 16px;
-      z-index: 9999;
-      cursor: pointer;
-      position: relative;
-      bottom: 7%;
-      left: 0%;
-      width: fit-content;
-      margin-bottom: 0;
-      &::after {
-        content: url("/images/icon.svg");
-        transform: scale(0.3);
-        margin-left: 15px;
-        height: 25px;
-        width: 60px;
+      label {
+        font-size: 14px;
+      }
+      input {
+        font-family: 'DINPro', sans-serif;
+        padding: 5px; 
+        border-color: transparent;
+        margin-top: 0.4rem;
+        margin-bottom: 1rem;
+        background: #efefef;
+        font-size: 16px;
+        &#email {
+          background: #efefef;
+        }
+        &:focus-visible {
+          outline: none;
+        }
+      }
+      textarea {
+        font-family: 'DINPro', sans-serif;
+        height: 100px;
+        padding: 10px 15px;
+        margin-top: 0.4rem;
+        background: #efefef; 
+        border: none;
+        font-size: 16px;
+        line-height: 1.2;
+        &:focus-visible {
+          outline: none;
+        }
+      }
+  
+      button {
+        background-color: transparent;
+        border: 1px solid #000000;
+        color: #000000;
+        overflow: hidden;
+        border-radius: none;
+        padding: 1rem;
+        box-sizing: border-box;
+        text-transform: uppercase;
+        font-family: "Avenir", sans-serif;
         display: flex;
         align-items: center;
         justify-content: flex-start;
-      }
-      &:hover {
+        width: -moz-fit-content;
+        width: fit-content;
+        margin: 0.4rem 0 0rem;
+        font-size: 16px;
+        z-index: 9999;
+        cursor: pointer;
+        position: relative;
+        bottom: 7%;
+        left: 0%;
+        width: fit-content;
+        margin-bottom: 0;
         &::after {
-          transform: scale(0.3) rotate(180deg);
-          justify-content: flex-end;
+          content: url("/images/icon.svg");
+          transform: scale(0.3);
+          margin-left: 15px;
+          height: 25px;
+          width: 60px;
+          display: flex;
+          align-items: center;
+          justify-content: flex-start;
+        }
+        &:hover {
+          &::after {
+            transform: scale(0.3) rotate(180deg);
+            justify-content: flex-end;
+          }
         }
       }
-    }
-
-    .g-recaptcha {
-      margin: 2rem 0 10px;
-    }
-  } 
+  
+      .g-recaptcha {
+        margin: 2rem 0 10px;
+      }
+    } 
+  }
 }
-
- 
- 
