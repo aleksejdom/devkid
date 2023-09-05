@@ -9,6 +9,13 @@
     position: relative;
   }
 
+  p {
+    font-family: 'Avenir', sans-serif;
+    font-weight: 200;
+    font-size: 28px;
+    color: rgb(0, 199, 0);
+  }
+
   .wrapper {
     display: flex;
     width: 100%;

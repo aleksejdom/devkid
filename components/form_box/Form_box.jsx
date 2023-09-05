@@ -9,7 +9,12 @@ export default function Form_box() {
   const [state, handleSubmit] = useForm("xyyqjnkd");
   
   if (state.succeeded) {
-    return <p>Nachricht wurde verschickt!</p>;
+    return (
+      <div className={styles['form-box']}>
+        <h2>Kontaktformular</h2>
+        <p>Vielen Dank,<br />Ihre Nachricht wurde verschickt!</p> 
+      </div>
+    )
   }
 
   return (
