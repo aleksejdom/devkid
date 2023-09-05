@@ -20,7 +20,7 @@ import Responsive_image from '../components/responsive_image/Responsive_image';
 // Prismic API Endpunkt
 const apiEndpoint = 'https://aleksej.cdn.prismic.io/api/v2'
 
-function Home({ long_text, long_text_cta, long_text_image, geschaeftsfelder, geschaeftsfelder_image_screen, geschaeftsfelder_image_mobile, website_pflege, website_pflege_image, wp_next_content, wp_next_content_second, wp_next_list, header_content, header_image, header_mobile_image, website_konventiert_mobile, website_konvertiert, website_konventiert_screen, agenturen, agenturen_image, website_gestalten, website_gestalten_screen, website_gestalten_mobile, tabs, contact, usp, referenzen, referenzenContent, footer, accordion, one_click_content, one_click_content_image, artikel_probleme, artikel_probleme_headline }) {
+function Home({ long_text, long_text_cta, geschaeftsfelder, geschaeftsfelder_image_screen, geschaeftsfelder_image_mobile, website_pflege, website_pflege_image, wp_next_content, wp_next_content_second, wp_next_list, header_content, header_image, header_mobile_image, website_konventiert_mobile, website_konvertiert, website_konventiert_screen, agenturen, agenturen_image, website_gestalten, website_gestalten_screen, website_gestalten_mobile, tabs, contact, usp, referenzen, referenzenContent, footer, accordion, one_click_content, one_click_content_image, artikel_probleme, artikel_probleme_headline }) {
   const videoRef = useRef(null);
   const headerRef = useRef(null); 
   const colors = ['#05473C', '#4A3170', '#7D0B32']; 
@@ -161,16 +161,9 @@ function Home({ long_text, long_text_cta, long_text_image, geschaeftsfelder, ges
         </ul>
       </nav>
 
-      <header className={styles.header} ref={headerRef}>  
-        <Text_Box content={header_content}/>  
-        {/* <div className={styles.videobox}>
-          <video ref={videoRef} autoPlay muted loop playsInline>
-            <source src="./videos/clip.m4v" type="video/mp4" />
-            <source src="./videos/clip.webm" type="video/webm" />
-          </video>
-          <Image src="./images/icon.svg" alt="icon" title="devkid icon" width={120} height={68} className={styles.icon} />
-        </div>  */}
-        <Responsive_image image_screen={header_image.url} image_mobile={header_mobile_image.url} /> 
+      <header className={styles.header}>  
+        <Text_Box content={header_content}/>   
+        <Responsive_image image_screen={header_image.url} image_mobile={header_mobile_image.url} image_alt={header_image.alt}/> 
       </header>
        
       <main className={styles.main}>
@@ -180,7 +173,7 @@ function Home({ long_text, long_text_cta, long_text_image, geschaeftsfelder, ges
         { website_konvertiert && 
           <div className="fullwide-image-box">
             <Text_Box content={website_konvertiert}/>  
-            <Responsive_image image_screen={website_konventiert_screen.url} image_mobile={website_konventiert_mobile.url} /> 
+            <Responsive_image image_screen={website_konventiert_screen.url} image_mobile={website_konventiert_mobile.url} image_alt={website_konventiert_screen.alt}/> 
           </div>
         }
 
@@ -199,7 +192,7 @@ function Home({ long_text, long_text_cta, long_text_image, geschaeftsfelder, ges
         { website_gestalten && 
           <div className="fullwide-image-box">
             <Text_Box content={website_gestalten}/>  
-            <Responsive_image image_screen={website_gestalten_screen.url} image_mobile={website_gestalten_mobile.url} /> 
+            <Responsive_image image_screen={website_gestalten_screen.url} image_mobile={website_gestalten_mobile.url} image_alt={website_gestalten_screen.alt}/> 
           </div>
         }
 
@@ -269,11 +262,11 @@ function Home({ long_text, long_text_cta, long_text_image, geschaeftsfelder, ges
                 return null;
               })}
             </div>
-            <Responsive_image image_screen={geschaeftsfelder_image_screen.url} image_mobile={geschaeftsfelder_image_mobile.url} /> 
+            <Responsive_image image_screen={geschaeftsfelder_image_screen.url} image_mobile={geschaeftsfelder_image_mobile.url} image_alt={geschaeftsfelder_image_screen.alt}/> 
           </div>
         }
 
-        <div className="column-text" style={{ backgroundColor: colors[colorIndex] }}>
+        <div className="column-text" style={{ backgroundColor: colors[colorIndex] }} ref={headerRef}>
           <div className="first-section">
             <div className="first-column">
               {long_text.slice(0, Math.ceil(long_text.length / 2)).map((item, index) => {
@@ -299,7 +292,13 @@ function Home({ long_text, long_text_cta, long_text_image, geschaeftsfelder, ges
             </div>
           </div>  
           <div className="second-section">
-            <img src={long_text_image.url} alt={long_text_image.alt} width={long_text_image.dimensions.width} height={long_text_image.dimensions.height} />
+            <div className={styles.videobox}>
+              <video ref={videoRef} autoPlay muted loop playsInline>
+                <source src="./videos/clip.m4v" type="video/mp4" />
+                <source src="./videos/clip.webm" type="video/webm" />
+              </video>
+              <Image src="./images/icon.svg" alt="icon" title="devkid icon" width={120} height={68} className={styles.icon} />
+            </div> 
             {long_text_cta.map((cta, index) => {
               if (cta.spans.length > 0 && cta.spans[0].type === 'hyperlink') {
                 const text = cta.text.substring(cta.spans[0].start, cta.spans[0].end);
@@ -380,8 +379,7 @@ Home.getInitialProps = async () => {
     geschaeftsfelder : document?.data.geschaeftsfelder,
     geschaeftsfelder_image_screen : document?.data.geschaeftsfelder_image_screen,
     geschaeftsfelder_image_mobile : document?.data.geschaeftsfelder_image_mobile,
-    long_text : document?.data.long_text,
-    long_text_image : document?.data.long_text_image,
+    long_text : document?.data.long_text, 
     long_text_cta : document?.data.long_text_cta,
   }
 }

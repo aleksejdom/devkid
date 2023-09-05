@@ -68,7 +68,7 @@
 .videobox {
   width: 100%;
   max-width: 953px;
-  margin-top: 4rem; 
+  margin-top: 2rem; 
   display: flex;
   flex-direction: column-reverse;
   justify-content: flex-end;
@@ -427,7 +427,7 @@
   }
 
   .videobox { 
-    margin-top: 2rem; 
+    margin-top: 0rem; 
   }
    
   .imagebox img {

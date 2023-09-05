@@ -1,22 +1,19 @@
 import { useEffect, useState } from 'react';
-import Image from 'next/image';
-import styles from '../../styles/Home.module.css' 
+import Image from 'next/image'; 
 
-const Responsive_image = ({image_screen, image_mobile}) => {
+const Responsive_image = ({image_screen, image_mobile, image_alt}) => {
   const [windowWidth, setWindowWidth] = useState(null);
-  const [imageSrc, setImageSrc] = useState('');
+  const [imageSrc, setImageSrc] = useState(null);  // Initialwert auf null setzen
 
   useEffect(() => {
     setWindowWidth(window.innerWidth);
 
-    // Aktualisieren Sie die Breite, wenn das Fenster skaliert wird
     const handleResize = () => {
       setWindowWidth(window.innerWidth);
     };
 
     window.addEventListener('resize', handleResize);
 
-    // Cleanup
     return () => {
       window.removeEventListener('resize', handleResize);
     };
@@ -24,15 +21,20 @@ const Responsive_image = ({image_screen, image_mobile}) => {
 
   useEffect(() => {
     if (windowWidth < 768) {
-      setImageSrc(`${image_mobile}`);
+      setImageSrc(image_mobile);
     } else {
-      setImageSrc(`${image_screen}`);
+      setImageSrc(image_screen);
     }
   }, [windowWidth]);
 
   return (
     <div className="image-box">
-      <Image src={imageSrc} alt="header" title="header image" width={1920} height={1080} />
+      {/* Bedingung für das Rendern des Image Elements */}
+      {imageSrc ? (
+        <Image src={imageSrc} alt={image_alt} title="header image" width={1920} height={1080} />
+      ) : (
+        <div>Loading...</div>
+      )}
       <div className='overlaybox'></div>
     </div>
   );
@@ -40,4 +42,4 @@ const Responsive_image = ({image_screen, image_mobile}) => {
 
 Responsive_image.displayName = 'Responsive Image';
 
-export default Responsive_image;
+export default Responsive_image; 

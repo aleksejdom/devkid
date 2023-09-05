@@ -743,17 +743,19 @@ ul {
       grid-template-rows: repeat(6, auto);
       gap: 0; 
     }
+    @media only screen and (max-width: 768px) {
+      grid-template-columns: repeat(1, 1fr);
+    }
   }
   .second-section {
-    margin-top: 4rem;
+    margin-top: 0rem;
     max-width: 600px;
    
-    img {
+     video {
       width: 100%;
-      height: auto; 
-      border-radius: 25px;
+      height: 100%;
       margin-bottom: 2rem;
-    }
+     }
 
     p {
       a {
