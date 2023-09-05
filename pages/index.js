@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import Head from 'next/head'
 import Image from 'next/image'
-import styles from '../styles/Home.module.css' 
+import styles from '../styles/Home.module.scss' 
 import Prismic from 'prismic-javascript'
 import { RichText } from 'prismic-reactjs'
 import Script from 'next/script';
@@ -164,6 +164,9 @@ function Home({ long_text, long_text_cta, geschaeftsfelder, geschaeftsfelder_ima
       <header className={styles.header}>  
         <Text_Box content={header_content}/>   
         <Responsive_image image_screen={header_image.url} image_mobile={header_mobile_image.url} image_alt={header_image.alt}/> 
+        <p className={styles.zitat}>
+          "Zauberhafte Ideen<br />treffen auf Erfahrung."
+        </p>
       </header>
        
       <main className={styles.main}>
