@@ -19,7 +19,8 @@
   .wrapper {
     display: flex;
     width: 100%;
-
+    margin-top: 1rem;
+    
     form {
       display: grid;
       max-width: 500px;
@@ -27,7 +28,7 @@
       font-family: 'DINPro', sans-serif;
       background: #ffffff;
       padding: 2rem;
-      margin-top: 2.5rem;
+      margin-top: 0;
       border-radius: 25px;
       color: #000000;
       label {
