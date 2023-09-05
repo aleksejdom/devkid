@@ -12,10 +12,11 @@ import Projekt_Ablauf from '../components/projekt_ablauf/Projekt_Ablauf';
 import Leistungsoverview from '../components/leistungs_overview/Leistungsoverview';
 import Text_Box from '../components/text_box/Text_Box';
 import Gradient_Box from '../components/gradient_box/Gradient_Box';
+import Responsive_image from '../components/responsive_image/Responsive_image';
 
 const apiEndpoint = 'https://aleksej.cdn.prismic.io/api/v2'
 
-function WebsiteErstellenLassen({button, footer, referenzen, preis_content, referenzenContent, headline, headerParagraph, headerImage, introText, listItems, projekt_ablauf_items, leistungsoverview_items, leistungsoverview_title, wordpress_content }) { 
+function WebsiteErstellenLassen({button, footer, referenzen, preis_content, referenzenContent, header_content, header_image, header_image_mobile, introText, listItems, projekt_ablauf_items, leistungsoverview_items, leistungsoverview_title, wordpress_content }) { 
     const headerRef = useRef(null);
     const footerRef = useRef(null); 
     const videoRef = useRef(null);
@@ -153,52 +154,13 @@ function WebsiteErstellenLassen({button, footer, referenzen, preis_content, refe
           </ul>
         </nav>
 
-        <header className={home.header} style={{ backgroundColor: '#4A3170' }} > 
-          <div className={home.headlinebox}>
-            {headline && headline[0] && headline[0].text ? <h1>{headline[0].text}</h1> : null}
-            <div className={home.textbox}> 
-              {headerParagraph ? headerParagraph.map((paragraph, index) => {
-                const textSegments = [];
-                let lastEnd = 0;
-                // Schleife durch die "spans" und teilt den Text entsprechend auf
-                paragraph.spans.forEach((span, spanIndex) => {
-                  // Füge den Text vor dem "strong" Teil hinzu
-                  textSegments.push(
-                    <span key={spanIndex * 2}>
-                      {paragraph.text.substring(lastEnd, span.start)}
-                    </span>
-                  );
-                  // Füge den "strong" Teil hinzu
-                  textSegments.push(
-                    <strong key={spanIndex * 2 + 1}>
-                      {paragraph.text.substring(span.start, span.end)}
-                    </strong>
-                  );
-                  lastEnd = span.end;
-                });
-                // Füge den Rest des Textes nach dem letzten "strong" Teil hinzu
-                textSegments.push(<span key={textSegments.length}>{paragraph.text.substring(lastEnd)}</span>);
-
-                return <p key={index}>{textSegments}</p>;
-              }) : null}
-            </div>
-            <div className={styles_website_erstellen_lassen["list-box"]}>
-              <ul>
-                {listItems.map((box, index) => (
-                  <li key={index}>{box.item[0].text}</li>
-                ))}
-              </ul>
-            </div>
-            {button ? <a href={`${button}?subject=DevKid - Website erstellen lassen`} className="cta-button" title='Website erstellen lassen'>Kostenloses Erstgespräch Anfragen</a> : null}  
-          </div>
-          {headerImage ? 
-              <div className={home.imagebox}>
-                <Image src='/images/visual_head.png' alt='website erstellen lassen' title="aleksej domovec" width={778} height={673}/> 
-              </div> : null 
-          }   
-          <div className={home.overlaybox}></div>
-        </header>
-
+        { header_content &&
+          <header className={home.header}>   
+            <Text_Box content={header_content}/>   
+            <Responsive_image image_screen={header_image.url} image_mobile={header_image_mobile.url} image_alt={header_image.alt}/> 
+          </header> 
+        }
+        
         <main className={styles_website_erstellen_lassen["main-text"]}>
           <Projekt_Ablauf projekt_ablauf_items={projekt_ablauf_items} button={button} ref={ablaufRef}/>
           <Leistungsoverview leistungsoverview_items={leistungsoverview_items} leistungsoverview_title={leistungsoverview_title} ref={leistungsoverviewRef}/>
@@ -319,9 +281,9 @@ WebsiteErstellenLassen.getInitialProps = async () => {
     preis_content : documentWebsiteErstellenLassen.data.preis_content, 
     referenzen : documentWebsiteErstellenLassen.data.referenzen,
     referenzenContent : documentWebsiteErstellenLassen.data.referenz_content,
-    headline : documentWebsiteErstellenLassen.data.headline,
-    headerParagraph : documentWebsiteErstellenLassen.data.headerparagraph,
-    headerImage : documentWebsiteErstellenLassen.data.headerimage,
+    header_content : documentWebsiteErstellenLassen?.data.header_content, 
+    header_image : documentWebsiteErstellenLassen?.data.header_image,
+    header_image_mobile : documentWebsiteErstellenLassen?.data.header_image_mobile,
     introText : documentWebsiteErstellenLassen.data.intro,
     listItems : documentWebsiteErstellenLassen.data.list_box,
     projekt_ablauf_items : documentProjektAblauf.data.projekt_ablauf,
