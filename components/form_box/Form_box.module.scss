@@ -19,7 +19,7 @@
   .wrapper {
     display: flex;
     width: 100%;
-    margin-top: 2rem;
+    margin-top: 3rem;
 
     form {
       display: grid;
@@ -33,6 +33,25 @@
       color: #000000;
       label {
         font-size: 14px;
+        line-height: 1.2;
+        &.marketingCheckbox {
+          display: grid;
+          grid-template-columns: 30px 1fr;
+          margin-bottom: 1rem;
+          input {
+            width: 20px;
+            height: 20px;
+            margin: 0;
+            padding: 0;
+            transform: translateY(4px); 
+          }
+          a {
+            display: inline-block;
+            z-index: 100;
+            cursor: pointer;
+            grid-column-start: 2;
+          }
+        }
       }
       input {
         font-family: 'DINPro', sans-serif;
@@ -48,12 +67,14 @@
         &:focus-visible {
           outline: none;
         }
+        
       }
       textarea {
         font-family: 'DINPro', sans-serif;
         height: 100px;
         padding: 10px 15px;
         margin-top: 0.4rem;
+        margin-bottom: 1rem;
         background: #efefef; 
         border: none;
         font-size: 16px;
@@ -61,8 +82,7 @@
         &:focus-visible {
           outline: none;
         }
-      }
-  
+      } 
       button {
         background-color: transparent;
         border: 1px solid #000000;
@@ -103,11 +123,18 @@
             justify-content: flex-end;
           }
         }
+      } 
+      .error-messages {
+        color: red;
       }
-  
-      .g-recaptcha {
-        margin: 2rem 0 10px;
-      }
+      @media only screen and (max-width: 768px) {
+        max-width: 100%;
+        width: 100%;
+      }  
     } 
+
+    @media only screen and (max-width: 768px) {
+      flex-direction: column;
+    }
   }
 }
