@@ -2,6 +2,8 @@ import React, { forwardRef } from 'react';
 import styles from './Leistungs_Tab.module.scss';
 import { RichText } from 'prismic-reactjs';
 import { useState } from 'react';
+import Image from 'next/image';
+
 
 const Leistungs_Tab = forwardRef(({tabs}, ref) => {
   const [selectedTab, setSelectedTab] = useState('Entwicklung');
@@ -27,7 +29,15 @@ const Leistungs_Tab = forwardRef(({tabs}, ref) => {
           const imageContent = item.content.find(content => content.type === 'image');
           return (
             <div className={styles.tabsContent} key={`tab-0${index + 1}`}>
-              {imageContent && <img src={imageContent.url} alt={imageContent.alt} />}
+              {imageContent && 
+                <Image 
+                src={imageContent.url} 
+                alt={imageContent.alt} 
+                width={60}  // specify a width
+                height={60} // specify a height
+                layout="responsive"  // Makes image responsive
+                />
+              }
               <RichText render={item.content.filter(content => content.type !== 'image')} />
             </div>
           );
