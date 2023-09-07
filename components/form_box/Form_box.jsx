@@ -8,39 +8,22 @@ const Form_box = forwardRef((props, ref) => {
   const [state, handleSubmit] = useForm("xyyqjnkd");
   const [num1, setNum1] = useState(null);
   const [num2, setNum2] = useState(null);
+  const lineFormRefs = useRef([]);
   const [captchaValue, setCaptchaValue] = useState("");
   const [captchaError, setCaptchaError] = useState(null);
   const [agreeForMarketing, setAgreeForMarketing] = useState(false);
+
+  const addLineRef = (el) => {
+    if (el && !lineFormRefs.current.includes(el)) {
+      lineFormRefs.current.push(el);
+    }
+  };  
  
   useEffect(() => {
     setNum1(Math.floor(Math.random() * 10));
     setNum2(Math.floor(Math.random() * 10));
   }, []);
 
-  const validateCaptcha = () => {
-    return parseInt(captchaValue, 10) === (num1 + num2);
-  };
-
-  const onFormSubmit = (e) => {
-    if (!validateCaptcha()) {
-      e.preventDefault();
-      setCaptchaError("Das Ergebniss ist leider falsch.");
-    } else {
-      setCaptchaError(null);
-      handleSubmit(e);
-    }
-  }; 
-
-  if (state.succeeded) {
-    return (
-      <div className={styles["form-box"]}>
-        <h2>Kontaktformular</h2>
-        <p>Vielen Dank,<br />Ihre Nachricht wurde verschickt!</p>
-      </div>
-    );
-  }
-
-  const lineFormRefs = useRef([]);
   useEffect(() => {
     let observer;
     const currentFormRefs = lineFormRefs.current;
@@ -76,11 +59,30 @@ const Form_box = forwardRef((props, ref) => {
       }
     };
   }, []); 
-  const addLineRef = (el) => {
-    if (el && !lineFormRefs.current.includes(el)) {
-      lineFormRefs.current.push(el);
+
+  const validateCaptcha = () => {
+    return parseInt(captchaValue, 10) === (num1 + num2);
+  };
+
+  const onFormSubmit = (e) => {
+    if (!validateCaptcha()) {
+      e.preventDefault();
+      setCaptchaError("Das Ergebniss ist leider falsch.");
+    } else {
+      setCaptchaError(null);
+      handleSubmit(e);
     }
-  };  
+  }; 
+
+  if (state.succeeded) {
+    return (
+      <div className={styles["form-box"]}>
+        <h2>Kontaktformular</h2>
+        <p>Vielen Dank,<br />Ihre Nachricht wurde verschickt!</p>
+      </div>
+    );
+  }
+ 
 
   return (
     <div className={styles["form-box"]} ref={ref}>
