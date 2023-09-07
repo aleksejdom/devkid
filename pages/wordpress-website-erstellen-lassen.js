@@ -100,11 +100,10 @@ function WordpressWebsiteErstellenLassen({footer, header_content, header_gradien
       }
     }; 
    
-    const lineRefs = useRef([]); 
-
+    const lineRefs = useRef([]);
     useEffect(() => {
       let observer;
-    
+      const currentRefs = lineRefs.current;
       const handleIntersection = (entries) => {
         entries.forEach((entry, index) => {
           if (entry.isIntersecting) {
@@ -126,23 +125,22 @@ function WordpressWebsiteErstellenLassen({footer, header_content, header_gradien
         });
       };
     
-      if (lineRefs.current.length > 0) {
+      if (currentRefs.length > 0) {
         observer = new IntersectionObserver(handleIntersection, { threshold: 0.1 });
-        lineRefs.current.forEach(ref => observer.observe(ref));
+        currentRefs.forEach(ref => observer.observe(ref));
       }
     
       return () => {
         if (observer) {
-          lineRefs.current.forEach(ref => observer.unobserve(ref));
+          currentRefs.forEach(ref => observer.unobserve(ref));
         }
       };
-    }, []);
-
+    }, []); 
     const addLineRef = (el) => {
       if (el && !lineRefs.current.includes(el)) {
         lineRefs.current.push(el);
       }
-    };  
+    }; 
 
     return ( 
       <>  

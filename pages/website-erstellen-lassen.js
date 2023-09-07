@@ -52,19 +52,20 @@ function WebsiteErstellenLassen({button, footer, referenzen, preis_content, refe
 
     //Video
     useEffect(() => {
+      const currentHeaderRef = headerRef.current;
       const observer = new IntersectionObserver(
         (entries) => {
           entries.forEach(entry => {
-            if (videoRef.current) {
+            if (currentHeaderRef) {
               if (entry.isIntersecting) {
-                videoRef.current.play().catch(error => {
+                currentHeaderRef.play().catch(error => {
                   if (error.name !== "AbortError") {  // Fehler, die durch das Pausieren des Videos während des Abspielversuchs entstehen, ignorieren
                     console.error('Video play failed:', error);
                   }
                 });
               } else {
-                if (!videoRef.current.paused) {
-                  videoRef.current.pause();
+                if (!currentHeaderRef.paused) {
+                  currentHeaderRef.pause();
                 }
               }
             }
@@ -77,13 +78,13 @@ function WebsiteErstellenLassen({button, footer, referenzen, preis_content, refe
         }
       );
     
-      if (headerRef.current) {
-        observer.observe(headerRef.current);
+      if (currentHeaderRef) {
+        observer.observe(currentHeaderRef);
       }
     
       return () => {
-        if (headerRef.current) {
-          observer.unobserve(headerRef.current);
+        if (currentHeaderRef) {
+          observer.unobserve(currentHeaderRef);
         }
       };
     }, []);
