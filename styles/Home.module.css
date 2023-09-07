@@ -478,6 +478,9 @@
   .header .textbox {
     margin-top: 2rem; 
   }
+  .header p.zitat { 
+    display: none;
+  }
 }
 
 @media (max-width: 600px) {
