@@ -15,6 +15,9 @@
     font-weight: 200;
     font-size: 28px;
     color: rgb(0, 199, 0);
+    @media only screen and (max-width: 768px) {
+      font-size: 21px;
+    }
   }
 
   .wrapper {
@@ -139,7 +142,11 @@
       margin-left: 6rem;
       h3 {
         font-size: 42px;
+        line-height: 1.4;
         max-width: 450px;
+        @media only screen and (max-width: 768px) {
+          font-size: 32px;
+        }
       }
       h4 {
         margin-top: 3rem;
