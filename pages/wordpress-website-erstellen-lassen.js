@@ -1,12 +1,12 @@
 import React, { useEffect, useRef, useState } from 'react';
+import { gsap } from "gsap";
 import Head from 'next/head'
 import Image from 'next/image' 
 import home from '../styles/Home.module.css';  
 import styles_wordpress_website_erstellen_lassen from '../styles/WordpressWebsiteErstellenLassen.module.scss'
 import Prismic from 'prismic-javascript'
 import Footer from '../components/footer/Footer' 
-import Link from 'next/link'; 
-import Script from 'next/script'
+import Link from 'next/link';  
 import Text_Box from '../components/text_box/Text_Box';
 import Gradient_Box from '../components/gradient_box/Gradient_Box';
 import Accordion from '../components/accordion/Accordion';
@@ -18,11 +18,7 @@ function WordpressWebsiteErstellenLassen({footer, header_content, header_gradien
     const videoRef = useRef(null);
     const headerRef = useRef(null);
     const komponenteRef = useRef(null) 
-    const blogRef = useRef(null) 
-    const upToDateRef = useRef(null) 
-    const nextJsRef = useRef(null)
-    const factsRef = useRef(null)
-    const faqRef = useRef(null)
+    const blogRef = useRef(null)  
     const colors = ['#05473C', '#4A3170', '#7D0B32']; 
     const [colorIndex, setColorIndex] = useState(0); 
 
@@ -31,8 +27,7 @@ function WordpressWebsiteErstellenLassen({footer, header_content, header_gradien
       setMenuOpen(!isMenuOpen);
     };
 
-    const menuClasses = `${home.burgerMenu} ${isMenuOpen ? home.open : ''}`;
-
+    const menuClasses = `${home.burgerMenu} ${isMenuOpen ? home.open : ''}`; 
     const blockBaukastenRef = useRef(null);
  
     useEffect(() => {
@@ -105,6 +100,50 @@ function WordpressWebsiteErstellenLassen({footer, header_content, header_gradien
       }
     }; 
    
+    const lineRefs = useRef([]); 
+
+    useEffect(() => {
+      let observer;
+    
+      const handleIntersection = (entries) => {
+        entries.forEach((entry, index) => {
+          if (entry.isIntersecting) {
+            gsap.fromTo(
+              entry.target,
+              { y: 45 },
+              {
+                delay: index * 0.1,
+                duration: 1.0,
+                y: 0,
+                ease: "power3.out",
+                onComplete: () => {
+                  // Setzt die Animation zurück, wenn sie abgeschlossen ist
+                  //gsap.set(entry.target, { clearProps: "all" });
+                }
+              }
+            );
+          }
+        });
+      };
+    
+      if (lineRefs.current.length > 0) {
+        observer = new IntersectionObserver(handleIntersection, { threshold: 0.1 });
+        lineRefs.current.forEach(ref => observer.observe(ref));
+      }
+    
+      return () => {
+        if (observer) {
+          lineRefs.current.forEach(ref => observer.unobserve(ref));
+        }
+      };
+    }, []);
+
+    const addLineRef = (el) => {
+      if (el && !lineRefs.current.includes(el)) {
+        lineRefs.current.push(el);
+      }
+    };  
+
     return ( 
       <>  
         <Head>
@@ -213,7 +252,7 @@ function WordpressWebsiteErstellenLassen({footer, header_content, header_gradien
                     } else if (item.type === "heading3") {
                       elements.push(<h3 key={index}>{item.text}</h3>);
                     } else if (item.type === "heading2") {
-                      elements.push(<h2 key={index}>{item.text}</h2>);
+                      elements.push(<h2 key={index} ref={addLineRef}>{item.text}</h2>);
                     } else if (item.type === "heading1") {
                       elements.push(<h1 key={index}>{item.text}</h1>);
                     } else if (item.type === "list-item") {
@@ -269,7 +308,7 @@ function WordpressWebsiteErstellenLassen({footer, header_content, header_gradien
                   } else if (item.type === "heading3") {
                     elements.push(<h3 key={index}>{item.text}</h3>);
                   } else if (item.type === "heading2") {
-                    elements.push(<h2 key={index}>{item.text}</h2>);
+                    elements.push(<h2 key={index} ref={addLineRef}>{item.text}</h2>);
                   } else if (item.type === "heading1") {
                     elements.push(<h1 key={index}>{item.text}</h1>);
                   } else if (item.type === "list-item") {
@@ -323,7 +362,7 @@ function WordpressWebsiteErstellenLassen({footer, header_content, header_gradien
            <div className='container' style={{ backgroundColor: colors[colorIndex] }} >
               <div className={['content-box']}>
                 <div className={styles_wordpress_website_erstellen_lassen['text-box']} >
-                  <h2>Noch nicht überzeugt?</h2>
+                  <h2 ref={addLineRef}>Noch nicht überzeugt?</h2>
                   <p>Entdecken Sie die Vorteile, die Millionen von Nutzer begeistern!</p>
                   <div className={styles_wordpress_website_erstellen_lassen['numbers']} >
                     <div className="number">

@@ -1,9 +1,7 @@
-import styles from './Contact_Box.module.css';
+import styles from './Contact_Box.module.css'; 
 import Image from 'next/image';
-import Prismic from 'prismic-javascript';
-
+import Prismic from 'prismic-javascript'; 
  
-
 const renderRichText = (richTextArray) => {
   return richTextArray.map((item, index) => {
     switch (item.type) {
@@ -19,10 +17,12 @@ const renderRichText = (richTextArray) => {
   });
 };
 
+  
+
 export default function Contact_Box({ contact }) {
   return (
     <div className={styles['contact-box']}>
-      <div className={styles.title}>
+      <div className={styles.title} >
         {renderRichText(contact.contact_title)}
       </div>
       <Image src={contact.contact_image.url} alt='Aleksej Domovec' title="Webentwickler Stuttgart" width={860} height={804} className={styles.photo} />

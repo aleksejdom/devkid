@@ -1,6 +1,7 @@
-import React, { forwardRef, useState, useRef } from 'react';
+import React, { forwardRef, useState, useRef, useEffect } from 'react';
 import styles from './Artikel_Probleme.module.scss'; 
 import Image from 'next/image';
+import { gsap } from "gsap";
 
 const Artikel_Probleme = forwardRef(({ artikel_probleme, artikel_probleme_headline }, ref) => {
   
@@ -51,11 +52,53 @@ const Artikel_Probleme = forwardRef(({ artikel_probleme, artikel_probleme_headli
   
     return content;
   }
+
+  const lineRefs = useRef([]); 
+  useEffect(() => {
+    let observer;
+  
+    const handleIntersection = (entries) => {
+      entries.forEach((entry, index) => {
+        if (entry.isIntersecting) {
+          gsap.fromTo(
+            entry.target,
+            { y: 45 },
+            {
+              delay: index * 0.1,
+              duration: 1.0,
+              y: 0,
+              ease: "power3.out",
+              onComplete: () => {
+                // Setzt die Animation zurück, wenn sie abgeschlossen ist
+                //gsap.set(entry.target, { clearProps: "all" });
+              }
+            }
+          );
+        }
+      });
+    };
+  
+    if (lineRefs.current.length > 0) {
+      observer = new IntersectionObserver(handleIntersection, { threshold: 0.1 });
+      lineRefs.current.forEach(ref => observer.observe(ref));
+    }
+  
+    return () => {
+      if (observer) {
+        lineRefs.current.forEach(ref => observer.unobserve(ref));
+      }
+    };
+  }, []); 
+  const addLineRef = (el) => {
+    if (el && !lineRefs.current.includes(el)) {
+      lineRefs.current.push(el);
+    }
+  };  
  
   return (
     <div className={styles['artikel-probleme-box']} ref={problemHeaderRef}>
-      <h2 ref={ref}>{artikel_probleme_headline[0]?.text || 'Default Headline'}</h2>
-      <div className={styles['artikel-probleme-wrapper']} > 
+      <h2 ref={addLineRef}>{artikel_probleme_headline[0]?.text || 'Default Headline'}</h2>
+      <div className={styles['artikel-probleme-wrapper']} ref={ref} > 
         <div className={styles['artikel-content']}>
           {
             artikel_probleme.map((item, index) => {

@@ -1,7 +1,8 @@
-import React, { useState, useEffect, forwardRef } from 'react';
+import React, { useState, useEffect, useRef, forwardRef } from 'react';
 import { useForm, ValidationError } from '@formspree/react';
 import styles from './Form_box.module.scss'; // Annahme, dass der Stylesheet-Name Form_box.css ist
 import Link from 'next/link';
+import { gsap } from "gsap";
 
 const Form_box = forwardRef((props, ref) => {
   const [state, handleSubmit] = useForm("xyyqjnkd");
@@ -38,6 +39,48 @@ const Form_box = forwardRef((props, ref) => {
       </div>
     );
   }
+
+  const lineRefs = useRef([]); 
+  useEffect(() => {
+    let observer;
+  
+    const handleIntersection = (entries) => {
+      entries.forEach((entry, index) => {
+        if (entry.isIntersecting) {
+          gsap.fromTo(
+            entry.target,
+            { y: 45 },
+            {
+              delay: index * 0.1,
+              duration: 1.0,
+              y: 0,
+              ease: "power3.out",
+              onComplete: () => {
+                // Setzt die Animation zurück, wenn sie abgeschlossen ist
+                //gsap.set(entry.target, { clearProps: "all" });
+              }
+            }
+          );
+        }
+      });
+    };
+  
+    if (lineRefs.current.length > 0) {
+      observer = new IntersectionObserver(handleIntersection, { threshold: 0.1 });
+      lineRefs.current.forEach(ref => observer.observe(ref));
+    }
+  
+    return () => {
+      if (observer) {
+        lineRefs.current.forEach(ref => observer.unobserve(ref));
+      }
+    };
+  }, []); 
+  const addLineRef = (el) => {
+    if (el && !lineRefs.current.includes(el)) {
+      lineRefs.current.push(el);
+    }
+  };  
 
   return (
     <div className={styles["form-box"]} ref={ref}>
@@ -120,7 +163,7 @@ const Form_box = forwardRef((props, ref) => {
           </button>
         </form>
         <div className={styles["contact"]}>
-          <h3>Homepage mit Webdesign erstellen</h3>
+          <h3 ref={addLineRef}>Homepage mit Webdesign erstellen</h3>
           <p>Haben Sie Fragen bezüglich der Erstellung Ihrer Website oder des Projektablaufs? Ich berate Sie gerne.</p>
           
           <div className={styles["contact-person"]}>

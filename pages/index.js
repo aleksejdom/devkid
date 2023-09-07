@@ -2,9 +2,8 @@ import React, { useEffect, useRef, useState } from 'react';
 import Head from 'next/head'
 import Image from 'next/image'
 import styles from '../styles/Home.module.css' 
-import Prismic from 'prismic-javascript'
-import { RichText } from 'prismic-reactjs'
-import Script from 'next/script';
+import Prismic from 'prismic-javascript' 
+import { gsap } from "gsap";
 import Leistungs_Tab from '../components/leistungs_tabs/Leistungs_Tab';
 import Contact_Box from '../components/contact_box/Contact_Box';
 import Usp_Box from '../components/usp_box/Usp_Box';
@@ -147,7 +146,50 @@ function Home({ long_text, long_text_cta, geschaeftsfelder, geschaeftsfelder_ima
     };
   }, []);
 
+  const lineRefs = useRef([]);
 
+
+  useEffect(() => {
+    let observer;
+  
+    const handleIntersection = (entries) => {
+      entries.forEach((entry, index) => {
+        if (entry.isIntersecting) {
+          gsap.fromTo(
+            entry.target,
+            { y: 45 },
+            {
+              delay: index * 0.1,
+              duration: 1.0,
+              y: 0,
+              ease: "power3.out",
+              onComplete: () => {
+                // Setzt die Animation zurück, wenn sie abgeschlossen ist
+                //gsap.set(entry.target, { clearProps: "all" });
+              }
+            }
+          );
+        }
+      });
+    };
+  
+    if (lineRefs.current.length > 0) {
+      observer = new IntersectionObserver(handleIntersection, { threshold: 0.1 });
+      lineRefs.current.forEach(ref => observer.observe(ref));
+    }
+  
+    return () => {
+      if (observer) {
+        lineRefs.current.forEach(ref => observer.unobserve(ref));
+      }
+    };
+  }, []);
+
+  const addLineRef = (el) => {
+    if (el && !lineRefs.current.includes(el)) {
+      lineRefs.current.push(el);
+    }
+  };  
     
   return (
     <> 
@@ -251,7 +293,11 @@ function Home({ long_text, long_text_cta, geschaeftsfelder, geschaeftsfelder_ima
               {geschaeftsfelder.map((item, index) => {
                 const key = `${item.type}-${index}`; 
                 if (item.type === 'heading2') {
-                  return <h2 key={key}>{item.text}</h2>;
+                  return (
+                    <span key={`${key}-span`}>
+                      <h2 key={key} ref={addLineRef}>{item.text}</h2>
+                    </span>
+                  )
                 } 
                 if (item.type === 'paragraph') {
                   return <p key={key}>{renderWithSpans(item.text, item.spans)}</p>;
@@ -284,7 +330,11 @@ function Home({ long_text, long_text_cta, geschaeftsfelder, geschaeftsfelder_ima
               <div className="first-column">
                 {long_text.slice(0, Math.ceil(long_text.length / 2)).map((item, index) => {
                   if (item.type === 'heading2') {
-                    return <h2 key={index}>{item.text}</h2>;
+                    return (
+                      <span key={`${index}-span`}>
+                        <h2 key={index} ref={addLineRef}>{item.text}</h2>
+                      </span>
+                    )
                   }
                   if (item.type === 'paragraph') {
                     return <p key={index}>{item.text}</p>;

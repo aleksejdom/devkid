@@ -134,9 +134,11 @@
   }
   .projekt-ablauf h2 {
     margin-bottom: 3rem;
+    margin-left: 0;
     font-size: 26px;
     line-height: 1.1;
     text-align: left;
+    max-width: 100%;
   }
   .projekt-ablauf .item h3 {
     font-size: 21px;
@@ -145,6 +147,6 @@
     font-size: 28px; 
   }
   .projekt-ablauf a.cta-button { 
-    margin: 2rem auto 1rem;
+    margin: 2rem 0 1rem;
   }
 }

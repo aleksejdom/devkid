@@ -1,13 +1,13 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import styles from './Accordion.module.css';
+import { gsap } from "gsap";
 
 export default function Accordion({ accordion }) {
   const [expandedItemIndex, setExpandedItemIndex] = useState(-1);
 
   const colors = ['#05473C', '#4A3170', '#7D0B32']; 
-  const [colorIndex, setColorIndex] = useState(0);
+  const [colorIndex, setColorIndex] = useState(0); 
 
-  
   const handleItemClick = (index) => {
     setExpandedItemIndex(index === expandedItemIndex ? -1 : index);
   };
@@ -18,7 +18,6 @@ export default function Accordion({ accordion }) {
     }, 4500);
     return () => clearInterval(timer);  
   }, [colors.length]);
-
 
   const renderContentWithSpans = (content) => {
     if (!content.spans || content.spans.length === 0) {
@@ -49,9 +48,51 @@ export default function Accordion({ accordion }) {
     return renderedContent;
   }
 
+  const lineRefs = useRef([]); 
+  useEffect(() => {
+    let observer;
+  
+    const handleIntersection = (entries) => {
+      entries.forEach((entry, index) => {
+        if (entry.isIntersecting) {
+          gsap.fromTo(
+            entry.target,
+            { y: 45 },
+            {
+              delay: index * 0.1,
+              duration: 1.0,
+              y: 0,
+              ease: "power3.out",
+              onComplete: () => {
+                // Setzt die Animation zurück, wenn sie abgeschlossen ist
+                //gsap.set(entry.target, { clearProps: "all" });
+              }
+            }
+          );
+        }
+      });
+    };
+  
+    if (lineRefs.current.length > 0) {
+      observer = new IntersectionObserver(handleIntersection, { threshold: 0.1 });
+      lineRefs.current.forEach(ref => observer.observe(ref));
+    }
+  
+    return () => {
+      if (observer) {
+        lineRefs.current.forEach(ref => observer.unobserve(ref));
+      }
+    };
+  }, []); 
+  const addLineRef = (el) => {
+    if (el && !lineRefs.current.includes(el)) {
+      lineRefs.current.push(el);
+    }
+  }; 
+
   return (
     <div className={styles.accordion} style={{ backgroundColor: colors[colorIndex] }}>
-      <h2 className={styles.accordionTitle}>FAQs</h2>
+      <h2 className={styles.accordionTitle} ref={addLineRef}>FAQs</h2>
       <div className={styles.accordionItems}>
         {accordion.map((item, index) => (
           <div

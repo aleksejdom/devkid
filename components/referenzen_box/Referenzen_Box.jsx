@@ -1,5 +1,6 @@
 import React, { useRef, useState, useEffect, forwardRef } from 'react';
 import SwiperCore, { Navigation } from 'swiper';
+import { gsap } from "gsap";
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/navigation';
@@ -35,6 +36,48 @@ const Referenzen_Box = forwardRef(({ referenzen, referenzenContent }, ref) => {
     }, 6500);
     return () => clearInterval(timer);  
   }, [colors.length]);
+
+  const lineRefs = useRef([]); 
+  useEffect(() => {
+    let observer;
+  
+    const handleIntersection = (entries) => {
+      entries.forEach((entry, index) => {
+        if (entry.isIntersecting) {
+          gsap.fromTo(
+            entry.target,
+            { y: 45 },
+            {
+              delay: index * 0.1,
+              duration: 1.0,
+              y: 0,
+              ease: "power3.out",
+              onComplete: () => {
+                // Setzt die Animation zurück, wenn sie abgeschlossen ist
+                //gsap.set(entry.target, { clearProps: "all" });
+              }
+            }
+          );
+        }
+      });
+    };
+  
+    if (lineRefs.current.length > 0) {
+      observer = new IntersectionObserver(handleIntersection, { threshold: 0.1 });
+      lineRefs.current.forEach(ref => observer.observe(ref));
+    }
+  
+    return () => {
+      if (observer) {
+        lineRefs.current.forEach(ref => observer.unobserve(ref));
+      }
+    };
+  }, []); 
+  const addLineRef = (el) => {
+    if (el && !lineRefs.current.includes(el)) {
+      lineRefs.current.push(el);
+    }
+  }; 
 
   return (
     <div className={styles.referenzenBox} style={{ backgroundColor: colors[colorIndex] }} ref={ref}>
@@ -126,9 +169,13 @@ const Referenzen_Box = forwardRef(({ referenzen, referenzenContent }, ref) => {
           
             switch (type) {
               case 'heading3':
-                return <h3 key={index}>{text}</h3>;
+                return (
+                <h3 key={index} ref={addLineRef}>{text}</h3>
+                );
               case 'heading2':
-                  return <h2 key={index}>{text}</h2>;  
+                  return (
+                    <h2 key={index} ref={addLineRef}>{text}</h2>
+                  );  
               case 'paragraph':
                 return <p key={index}>{renderTextWithSpans()}</p>;
               default:

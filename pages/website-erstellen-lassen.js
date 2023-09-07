@@ -1,17 +1,15 @@
 import React, { useEffect, useRef, useState } from 'react';
 import Head from 'next/head'
 import Image from 'next/image' 
-import home from '../styles/Home.module.css'; // Pfad aktualisiert
+import home from '../styles/Home.module.css'; // Pfad aktualisiert 
 import styles_website_erstellen_lassen from '../styles/WebsiteErstellenLassen.module.css'
-import styles_wordpress_website_erstellen_lassen from '../styles/WordpressWebsiteErstellenLassen.module.scss'
 import Prismic from 'prismic-javascript'
 import Footer from '../components/footer/Footer' 
 import Link from 'next/link';
 import Referenzen_Box from '../components/referenzen_box/Referenzen_Box';
 import Projekt_Ablauf from '../components/projekt_ablauf/Projekt_Ablauf';
 import Leistungsoverview from '../components/leistungs_overview/Leistungsoverview';
-import Text_Box from '../components/text_box/Text_Box';
-import Gradient_Box from '../components/gradient_box/Gradient_Box';
+import Text_Box from '../components/text_box/Text_Box'; 
 import Responsive_image from '../components/responsive_image/Responsive_image';
 
 const apiEndpoint = 'https://aleksej.cdn.prismic.io/api/v2'
@@ -130,8 +128,7 @@ function WebsiteErstellenLassen({button, footer, referenzen, preis_content, refe
         footerRef.current.scrollIntoView({ behavior: 'smooth' });
       }
     }; 
-  
-
+   
     return ( 
       <>  
         <Head>
@@ -165,41 +162,7 @@ function WebsiteErstellenLassen({button, footer, referenzen, preis_content, refe
           <Projekt_Ablauf projekt_ablauf_items={projekt_ablauf_items} button={button} ref={ablaufRef}/>
           <Leistungsoverview leistungsoverview_items={leistungsoverview_items} leistungsoverview_title={leistungsoverview_title} ref={leistungsoverviewRef}/>
           <div className={styles_website_erstellen_lassen["text-box"]}>
-            {introText && introText.map((item, index) => {
-              if (item.type === "paragraph") {
-                const textSegments = [];
-                let lastEnd = 0;
-                // Schleife durch die "spans" und teilt den Text entsprechend auf
-                item.spans.forEach((span, spanIndex) => {
-                  // Füge den Text vor dem "strong" Teil hinzu
-                  textSegments.push(
-                    <span key={spanIndex * 2}>
-                      {item.text.substring(lastEnd, span.start)}
-                    </span>
-                  );
-                  // Füge den "strong" Teil hinzu
-                  textSegments.push(
-                    <strong key={spanIndex * 2 + 1}>
-                      {item.text.substring(span.start, span.end)}
-                    </strong>
-                  );
-                  lastEnd = span.end;
-                });
-                // Füge den Rest des Textes nach dem letzten "strong" Teil hinzu
-                textSegments.push(<span key={textSegments.length}>{item.text.substring(lastEnd)}</span>);
-
-                return <p key={index}>{textSegments}</p>;
-              } else if (item.type === "heading3") {
-                return <h3 key={index}>{item.text}</h3>;
-              } else if (item.type === "heading2") {
-                return <h2 key={index}>{item.text}</h2>;
-              } else if (item.type === "heading1") {
-                return <h1 key={index}>{item.text}</h1>;
-              }
-              return null;
-            })}
-            <a href={`mailto:devkid.stgt@gmail.com?subject=DevKid - Website erstellen lassen`} className={styles_website_erstellen_lassen['cta-button-transparent']} title='Kontakt'>Jetzt Kontakt aufnehmen</a>
-
+            <Text_Box content={introText} align={'center'} cta={'mailto:devkid.stgt@gmail.com?subject=DevKid - Website erstellen lassen'} cta_text={'Kontakt aufnehmen'}/>
           </div> 
           <div className={styles_website_erstellen_lassen['textbox']} style={{ backgroundColor: colors[colorIndex] }} > 
             <div className={styles_website_erstellen_lassen.headlinebox}>
@@ -215,39 +178,7 @@ function WebsiteErstellenLassen({button, footer, referenzen, preis_content, refe
             <div className={home.overlaybox}></div>
           </div>
           <div className={styles_website_erstellen_lassen["kosten-overview"]} ref={kostenRef}>
-            {preis_content.map((item, index) => {
-              if (item.type === "paragraph") {
-                const textSegments = [];
-                let lastEnd = 0;
-                // Schleife durch die "spans" und teilt den Text entsprechend auf
-                item.spans.forEach((span, spanIndex) => {
-                  // Füge den Text vor dem "strong" Teil hinzu
-                  textSegments.push(
-                    <span key={spanIndex * 2}>
-                      {item.text.substring(lastEnd, span.start)}
-                    </span>
-                  );
-                  // Füge den "strong" Teil hinzu
-                  textSegments.push(
-                    <strong key={spanIndex * 2 + 1}>
-                      {item.text.substring(span.start, span.end)}
-                    </strong>
-                  );
-                  lastEnd = span.end;
-                });
-                // Füge den Rest des Textes nach dem letzten "strong" Teil hinzu
-                textSegments.push(<span key={textSegments.length}>{item.text.substring(lastEnd)}</span>); 
-                return <p key={index}>{textSegments}</p>;
-              } else if (item.type === "heading3") {
-                return <h3 key={index}>{item.text}</h3>;
-              } else if (item.type === "heading2") {
-                return <h2 key={index}>{item.text}</h2>;
-              } else if (item.type === "heading1") {
-                return <h1 key={index}>{item.text}</h1>;
-              }
-              return null;
-            })}
-            <a href={`/website-erstellen-lassen/was-kostet-eine-website`} className={styles_website_erstellen_lassen["cta-button"]} title='Kosten'>Zur Preisberechnung</a>
+            <Text_Box content={preis_content} align={'center'} cta={'/website-erstellen-lassen/was-kostet-eine-website'} cta_text={'Preis berechnen'} black={'black'}/>
           </div> 
           <Referenzen_Box referenzen={referenzen} referenzenContent={referenzenContent} ref={referenzenRef}/> 
         </main>
