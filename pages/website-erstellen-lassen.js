@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import Head from 'next/head'
 import Image from 'next/image' 
-import home from '../styles/Home.module.css'; // Pfad aktualisiert 
+import home from '../styles/Home.module.scss'; // Pfad aktualisiert 
 import styles_website_erstellen_lassen from '../styles/WebsiteErstellenLassen.module.css'
 import Prismic from 'prismic-javascript'
 import Footer from '../components/footer/Footer' 

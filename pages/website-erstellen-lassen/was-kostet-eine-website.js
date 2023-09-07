@@ -1,8 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import Head from 'next/head';
 import Image from 'next/image';
-import home from '../../styles/Home.module.css'; // Pfad aktualisiert
-import styles_kosten from '../../styles/WasKostetEineWebsite.module.css'; // Pfad aktualisiert
+import home from '../../styles/Home.module.scss'; // Pfad aktualisiert 
 import Prismic from 'prismic-javascript';
 import Footer from '../../components/footer/Footer'; // Pfad aktualisiert
 import Link from 'next/link'; 
@@ -11,8 +10,7 @@ import Calculation from '../../components/calculation/Calculation';
 const apiEndpoint = 'https://aleksej.cdn.prismic.io/api/v2'
 
 function WasKostetEineWebsite({footer, button, headerText, headerImage, calculation_content}) { 
-    const footerRef = useRef(null);
-    // Array of colors
+    const footerRef = useRef(null); 
     const colors = ['#05473C', '#4A3170', '#7D0B32']; 
     const [colorIndex, setColorIndex] = useState(0);
 
@@ -21,8 +19,7 @@ function WasKostetEineWebsite({footer, button, headerText, headerImage, calculat
       setMenuOpen(!isMenuOpen);
     };
 
-    const menuClasses = `${home.burgerMenu} ${isMenuOpen ? home.open : ''}`;
-    // Change the color every 4 seconds
+    const menuClasses = `${home.burgerMenu} ${isMenuOpen ? home.open : ''}`; 
     useEffect(() => {
       const timer = setInterval(() => {
         setColorIndex((prevColorIndex) => (prevColorIndex + 1) % colors.length);
@@ -111,7 +108,7 @@ function WasKostetEineWebsite({footer, button, headerText, headerImage, calculat
         <div className={home.overlaybox}></div>   
       </header>
 
-      <main className={styles_kosten["main-text"]}>
+      <main className={home["main-text"]}>
         <Calculation calculation_content={calculation_content} button={button}/>
       </main>
 

@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import Head from 'next/head'
 import Image from 'next/image'
-import styles from '../styles/Home.module.css' 
+import styles from '../styles/Home.module.scss' 
 import Prismic from 'prismic-javascript' 
 import { gsap } from "gsap";
 import Leistungs_Tab from '../components/leistungs_tabs/Leistungs_Tab';

@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import { gsap } from "gsap";
 import Head from 'next/head'
 import Image from 'next/image' 
-import home from '../styles/Home.module.css';  
+import home from '../styles/Home.module.scss';  
 import styles_wordpress_website_erstellen_lassen from '../styles/WordpressWebsiteErstellenLassen.module.scss'
 import Prismic from 'prismic-javascript'
 import Footer from '../components/footer/Footer' 

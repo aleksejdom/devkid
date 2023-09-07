@@ -43,8 +43,8 @@
 
 .textBox {
   padding-bottom: 6rem;
-  @media only screen and (max-width: 768px) {
-    padding-bottom: 3rem;
+  @media only screen and (max-width: 768px) { 
+    padding: 0rem 2rem 3rem;
   }
 }
 .center {

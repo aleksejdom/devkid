@@ -111,6 +111,7 @@
         left: 0%;
         width: fit-content;
         margin-bottom: 0;
+        text-align: left;
         &::after {
           content: url("/images/icon.svg");
           transform: scale(0.3);

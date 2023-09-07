@@ -1,6 +1,6 @@
 import Head from 'next/head'
 import Image from 'next/image'
-import styles from '../styles/Home.module.css'
+import styles from '../styles/Home.module.scss'
 import Prismic from 'prismic-javascript'
 import Footer from '../components/footer/Footer' 
 import Link from 'next/link';

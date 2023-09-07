@@ -221,7 +221,7 @@ a.cta-button:hover::after {
 
 @media only screen and (max-width: 768px) {
   .calculation-box { 
-    padding: 4rem 2rem; 
+    padding: 2rem 2rem; 
   }
   
   .calculator {
