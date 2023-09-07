@@ -48,10 +48,10 @@ export default function Accordion({ accordion }) {
     return renderedContent;
   }
 
-  const lineRefs = useRef([]); 
+  const lineRefs = useRef([]);
   useEffect(() => {
     let observer;
-  
+    const currentRefs = lineRefs.current;
     const handleIntersection = (entries) => {
       entries.forEach((entry, index) => {
         if (entry.isIntersecting) {
@@ -73,14 +73,14 @@ export default function Accordion({ accordion }) {
       });
     };
   
-    if (lineRefs.current.length > 0) {
+    if (currentRefs.length > 0) {
       observer = new IntersectionObserver(handleIntersection, { threshold: 0.1 });
-      lineRefs.current.forEach(ref => observer.observe(ref));
+      currentRefs.forEach(ref => observer.observe(ref));
     }
   
     return () => {
       if (observer) {
-        lineRefs.current.forEach(ref => observer.unobserve(ref));
+        currentRefs.forEach(ref => observer.unobserve(ref));
       }
     };
   }, []); 

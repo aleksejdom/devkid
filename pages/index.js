@@ -116,6 +116,7 @@ function Home({ long_text, long_text_cta, geschaeftsfelder, geschaeftsfelder_ima
   //Video
   useEffect(() => {
     const currentHeader = headerRef.current;
+   
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (videoRef.current) { // Überprüfen, ob videoRef.current existiert
@@ -145,13 +146,11 @@ function Home({ long_text, long_text_cta, geschaeftsfelder, geschaeftsfelder_ima
       }
     };
   }, []);
-
+ 
   const lineRefs = useRef([]);
-
-
   useEffect(() => {
     let observer;
-  
+    const currentRefs = lineRefs.current;
     const handleIntersection = (entries) => {
       entries.forEach((entry, index) => {
         if (entry.isIntersecting) {
@@ -173,18 +172,17 @@ function Home({ long_text, long_text_cta, geschaeftsfelder, geschaeftsfelder_ima
       });
     };
   
-    if (lineRefs.current.length > 0) {
+    if (currentRefs.length > 0) {
       observer = new IntersectionObserver(handleIntersection, { threshold: 0.1 });
-      lineRefs.current.forEach(ref => observer.observe(ref));
+      currentRefs.forEach(ref => observer.observe(ref));
     }
   
     return () => {
       if (observer) {
-        lineRefs.current.forEach(ref => observer.unobserve(ref));
+        currentRefs.forEach(ref => observer.unobserve(ref));
       }
     };
-  }, []);
-
+  }, []); 
   const addLineRef = (el) => {
     if (el && !lineRefs.current.includes(el)) {
       lineRefs.current.push(el);
