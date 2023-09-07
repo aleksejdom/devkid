@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import Image from 'next/image'; 
+import Image from 'next/image';
 
 const Responsive_image = ({image_screen, image_mobile, image_alt}) => {
   const [windowWidth, setWindowWidth] = useState(null);
@@ -25,7 +25,7 @@ const Responsive_image = ({image_screen, image_mobile, image_alt}) => {
     } else {
       setImageSrc(image_screen);
     }
-  }, [windowWidth]);
+  }, [windowWidth, image_mobile, image_screen]);  // Add image_mobile and image_screen to dependency array
 
   return (
     <div className="image-box">
@@ -42,4 +42,4 @@ const Responsive_image = ({image_screen, image_mobile, image_alt}) => {
 
 Responsive_image.displayName = 'Responsive Image';
 
-export default Responsive_image; 
+export default Responsive_image;
