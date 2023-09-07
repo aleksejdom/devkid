@@ -40,10 +40,10 @@ const Form_box = forwardRef((props, ref) => {
     );
   }
 
-  const lineRefs = useRef([]);
+  const lineFormRefs = useRef([]);
   useEffect(() => {
     let observer;
-    const currentRefs = lineRefs.current;
+    const currentFormRefs = lineFormRefs.current;
     const handleIntersection = (entries) => {
       entries.forEach((entry, index) => {
         if (entry.isIntersecting) {
@@ -65,20 +65,20 @@ const Form_box = forwardRef((props, ref) => {
       });
     };
   
-    if (currentRefs.length > 0) {
+    if (currentFormRefs.length > 0) {
       observer = new IntersectionObserver(handleIntersection, { threshold: 0.1 });
-      currentRefs.forEach(ref => observer.observe(ref));
+      currentFormRefs.forEach(ref => observer.observe(ref));
     }
   
     return () => {
       if (observer) {
-        currentRefs.forEach(ref => observer.unobserve(ref));
+        currentFormRefs.forEach(ref => observer.unobserve(ref));
       }
     };
   }, []); 
   const addLineRef = (el) => {
-    if (el && !lineRefs.current.includes(el)) {
-      lineRefs.current.push(el);
+    if (el && !lineFormRefs.current.includes(el)) {
+      lineFormRefs.current.push(el);
     }
   };  
 
