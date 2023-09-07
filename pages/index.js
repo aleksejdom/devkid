@@ -195,8 +195,8 @@ function Home({ long_text, long_text_cta, geschaeftsfelder, geschaeftsfelder_ima
     <> 
       <Head>
         <title>Website erstellen | Professionelle Homepage, Design nach Wunsch</title>
-        <meta name="description" content="Professionelle Website erstellen: ✓ schönes und ansprechendem Webdesign ✓ Mobile optimiert ✓ Günstige Preise"/>
-        <meta name="keywords" content="Website erstellen lassen, Homepage erstellen, Internetseite erstellen, Webagentur Stuttgart, Wordpress Website erstellen, Nextjs Website erstellen" />
+        <meta name="description" content="Website erstellen: ✓ schönes und ansprechendem Webdesign ✓ Mobile optimiert ✓ Günstige Preise"/>
+        <meta name="keywords" content="Website erstellen, Homepage erstellen, Internetseite erstellen" />
       </Head>
 
       <nav className={styles.navbar}> 
