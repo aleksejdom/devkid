@@ -47,6 +47,37 @@ class MyDocument extends Document {
       }
     };
 
+    const linksSchema = {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "url": "https://dev-kid.de/",
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://dev-kid.de/search?q={search_term_string}",
+        "query-input": "required name=search_term_string"
+      },
+      "speakable": {
+        "@type": "SpeakableSpecification",
+        "xpath": [
+          "/html/head/title",
+          "/html/head/meta[@name='description']/@content"
+        ]
+      },
+      "mainEntity": [{
+        "@type": "WebPage",
+        "name": "Website erstellen - Professionelle Homepage, Design nach Wunsch",
+        "url": "https://dev-kid.de"
+      },{
+        "@type": "WebPage",
+        "name": "WordPress Website erstellen lassen",
+        "url": "https://dev-kid.de/wordpress-website-erstellen-lassen"
+      },{
+        "@type": "WebPage",
+        "name": "Was kostet eine Website",
+        "url": "https://dev-kid.de/website-erstellen-lassen/was-kostet-eine-website"
+      }]
+    }
+
 
     return (
       <Html lang="de">
@@ -77,6 +108,10 @@ class MyDocument extends Document {
           <script
             type="application/ld+json"
             dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }}
+          ></script>
+          <script
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{ __html: JSON.stringify(linksSchema) }}
           ></script>
           <script
             type="application/ld+json"

@@ -152,7 +152,7 @@ function Home({ long_text, long_text_cta, geschaeftsfelder, geschaeftsfelder_ima
   return (
     <> 
       <Head>
-        <title>Website erstellen | Professionelle Homepage, modernes Design</title>
+        <title>Website erstellen | Professionelle Homepage, Design nach Wunsch</title>
         <meta name="description" content="Professionelle Website erstellen: ✓ schönes und ansprechendem Webdesign ✓ Mobile optimiert ✓ Günstige Preise"/>
         <meta name="keywords" content="Website erstellen lassen, Homepage erstellen, Internetseite erstellen, Webagentur Stuttgart, Wordpress Website erstellen, Nextjs Website erstellen" />
       </Head>
