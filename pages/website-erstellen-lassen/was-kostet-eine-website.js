@@ -3,9 +3,11 @@ import Head from 'next/head';
 import Image from 'next/image';
 import home from '../../styles/Home.module.scss'; // Pfad aktualisiert 
 import Prismic from 'prismic-javascript';
+import { gsap } from "gsap";
 import Footer from '../../components/footer/Footer'; // Pfad aktualisiert
 import Link from 'next/link'; 
 import Calculation from '../../components/calculation/Calculation';
+import Text_Box from '../../components/text_box/Text_Box';
 
 const apiEndpoint = 'https://aleksej.cdn.prismic.io/api/v2'
 
@@ -33,6 +35,51 @@ function WasKostetEineWebsite({footer, button, headerText, headerImage, calculat
       }
     }; 
 
+    const lineRefs = useRef([]);
+    useEffect(() => {
+      let observer;
+      const currentRefs = lineRefs.current;
+      const handleIntersection = (entries) => {
+        entries.forEach((entry, index) => {
+          if (entry.isIntersecting) {
+            gsap.fromTo(
+              entry.target,
+              { y: 45,
+                opacity: 0,
+              },
+              {
+                delay: index * 0.1,
+                duration: 1.6,
+                y: 0,
+                opacity: 1,
+                ease: "power3.out",
+                onComplete: () => {
+                  // Setzt die Animation zurück, wenn sie abgeschlossen ist
+                  //gsap.set(entry.target, { clearProps: "all" });
+                }
+              }
+            );
+          }
+        });
+      };
+    
+      if (currentRefs.length > 0) {
+        observer = new IntersectionObserver(handleIntersection, { threshold: 0.1 });
+        currentRefs.forEach(ref => observer.observe(ref));
+      }
+    
+      return () => {
+        if (observer) {
+          currentRefs.forEach(ref => observer.unobserve(ref));
+        }
+      };
+    }, []); 
+    const addLineRef = (el) => {
+      if (el && !lineRefs.current.includes(el)) {
+        lineRefs.current.push(el);
+      }
+    }; 
+
     return ( 
       <>
       <Head>
@@ -53,7 +100,7 @@ function WasKostetEineWebsite({footer, button, headerText, headerImage, calculat
       </nav>
 
       <header className={home.header} style={{ backgroundColor: colors[colorIndex] }} >
-        <div className={home.headlinebox}> 
+        <div className={home.headlinebox}>  
         {headerText.map((item, index) => {
           if (item.type === "paragraph") {
             const textSegments = [];
@@ -62,7 +109,7 @@ function WasKostetEineWebsite({footer, button, headerText, headerImage, calculat
             item.spans.forEach((span, spanIndex) => {
               // Füge den Text vor dem speziellen Teil hinzu
               textSegments.push(
-                <span key={spanIndex * 2}>
+                <span key={spanIndex * 2} >
                   {item.text.substring(lastEnd, span.start)}
                 </span>
               );
@@ -71,7 +118,7 @@ function WasKostetEineWebsite({footer, button, headerText, headerImage, calculat
               if (span.type === "hyperlink") {
                 // Füge den Hyperlink hinzu
                 textSegments.push(
-                  <a href={span.data.url} key={spanIndex * 2 + 1}>
+                  <a href={span.data.url} key={spanIndex * 2 + 1} >
                     {item.text.substring(span.start, span.end)}
                   </a>
                 );
@@ -88,21 +135,21 @@ function WasKostetEineWebsite({footer, button, headerText, headerImage, calculat
             });
             // Füge den Rest des Textes nach dem letzten speziellen Teil hinzu
             textSegments.push(<span key={textSegments.length}>{item.text.substring(lastEnd)}</span>);
-            return <p key={index}>{textSegments}</p>;
+            return <p key={index} ref={addLineRef}>{textSegments}</p>;
           } else if (item.type === "heading3") {
-            return <h3 key={index}>{item.text}</h3>;
+            return <h3 key={index} ref={addLineRef}>{item.text}</h3>;
           } else if (item.type === "heading2") {
-            return <h2 key={index}>{item.text}</h2>;
+            return <h2 key={index} ref={addLineRef}>{item.text}</h2>;
           } else if (item.type === "heading1") {
-            return <h1 key={index}>{item.text}</h1>;
+            return <h1 key={index} ref={addLineRef}>{item.text}</h1>;
           }
           return null;
           })}
-          <a href={`mailto:devkid.stgt@gmail.com?subject=DevKid - Erstgespräch Anfrage`} className="cta-button" title='Erstgespräch'>Jetzt Erstgespräch anfragen</a>
+          <a href={`mailto:devkid.stgt@gmail.com?subject=DevKid - Erstgespräch Anfrage`} className="cta-button" title='Erstgespräch' ref={addLineRef}>Jetzt Erstgespräch anfragen</a>
         </div>
         {headerImage ? 
           <div className={home.imagebox}>
-            <Image src={headerImage.url} alt='website erstellen lassen' width={778} height={673} title='Website erstellen lassen'/> 
+            <Image src={headerImage.url} alt='website erstellen lassen' width={778} height={673} title='Website erstellen lassen' ref={addLineRef}/> 
           </div> : null 
         }
         <div className={home.overlaybox}></div>   

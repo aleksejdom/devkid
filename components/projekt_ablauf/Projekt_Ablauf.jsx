@@ -13,11 +13,15 @@ const Projekt_Ablauf = forwardRef(({ projekt_ablauf_items, button }, ref) => {
         if (entry.isIntersecting) {
           gsap.fromTo(
             entry.target,
-            { y: 45 },
+            { 
+              y: 45,
+              opacity: 0, 
+            },
             {
               delay: index * 0.1,
-              duration: 1.0,
+              duration: 1.6,
               y: 0,
+              opacity: 1,
               ease: "power3.out",
               onComplete: () => {
                 // Setzt die Animation zurück, wenn sie abgeschlossen ist
@@ -53,7 +57,7 @@ const Projekt_Ablauf = forwardRef(({ projekt_ablauf_items, button }, ref) => {
       </h2>
       <div className={ styles['items'] }> 
         {projekt_ablauf_items.map((item, index) => (
-          <div className={ styles['item'] } key={item.title[0].text}>
+          <div className={ styles['item'] } key={item.title[0].text} ref={addLineRef}>
             <h3 className={ styles['title'] }>
               <span>{index+1}.</span>
               {item.title[0].text}
@@ -64,7 +68,7 @@ const Projekt_Ablauf = forwardRef(({ projekt_ablauf_items, button }, ref) => {
           </div>
         ))}
       </div>
-      {button ? <a href={`${button}?subject=DevKid - Website erstellen lassen`} className={ styles['cta-button'] } title="Anfrage">Jetzt Ihre eigene Website erstellen lassen</a> : null} 
+      {button ? <a href={`${button}?subject=DevKid - Website erstellen lassen`} className={ styles['cta-button'] } title="Anfrage" ref={addLineRef}>Jetzt Ihre eigene Website erstellen lassen</a> : null} 
     </div>
   );
 });

@@ -163,7 +163,7 @@ function WebsiteErstellenLassen({button, footer, referenzen, preis_content, refe
           <Projekt_Ablauf projekt_ablauf_items={projekt_ablauf_items} button={button} ref={ablaufRef}/>
           <Leistungsoverview leistungsoverview_items={leistungsoverview_items} leistungsoverview_title={leistungsoverview_title} ref={leistungsoverviewRef}/>
           <div className={styles_website_erstellen_lassen["text-box"]}>
-            <Text_Box content={introText} align={'center'} cta={'mailto:devkid.stgt@gmail.com?subject=DevKid - Website erstellen lassen'} cta_text={'Kontakt aufnehmen'}/>
+            <Text_Box content={introText} align={'center'} cta={'mailto:devkid.stgt@gmail.com?subject=DevKid - Website erstellen lassen'} cta_text={'Kontakt aufnehmen'} origin={'center'}/>
           </div> 
           <div className={styles_website_erstellen_lassen['textbox']} style={{ backgroundColor: colors[colorIndex] }} > 
             <div className={styles_website_erstellen_lassen.headlinebox}>
@@ -179,7 +179,7 @@ function WebsiteErstellenLassen({button, footer, referenzen, preis_content, refe
             <div className={home.overlaybox}></div>
           </div>
           <div className={styles_website_erstellen_lassen["kosten-overview"]} ref={kostenRef}>
-            <Text_Box content={preis_content} align={'center'} cta={'/website-erstellen-lassen/was-kostet-eine-website'} cta_text={'Preis berechnen'} black={'black'}/>
+            <Text_Box content={preis_content} align={'center'} cta={'/website-erstellen-lassen/was-kostet-eine-website'} cta_text={'Preis berechnen'} black={'black'} origin={'center'}/>
           </div> 
           <Referenzen_Box referenzen={referenzen} referenzenContent={referenzenContent} ref={referenzenRef}/> 
         </main>

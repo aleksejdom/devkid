@@ -2,7 +2,7 @@ import React, { useState, useRef, useEffect } from 'react';
 import styles from './Text_Box.module.scss';
 import { gsap } from "gsap";
 
-export default function Text_Box({ content, align, headline, cta, cta_text, black, read_more }) {
+export default function Text_Box({ origin, content, align, headline, cta, cta_text, black, read_more }) {
   const [isExpanded, setIsExpanded] = useState(false); 
 
   const boxRef = useRef(null);
@@ -16,12 +16,20 @@ export default function Text_Box({ content, align, headline, cta, cta_text, blac
         if (entry.isIntersecting) {
           gsap.fromTo(
             entry.target,
-            { y: 45 },
+            { 
+              y: 45,
+              opacity: 0, 
+              scale: `${origin ? 1 : 0.7}`,
+              transformOrigin: `${origin ? origin : 'left'} top`,
+              ease: "sine.out"
+            },
             {
               delay: index * 0.1,
-              duration: 1.0,
+              duration: 1.6,
               y: 0,
               ease: "power3.out",
+              opacity: 1,
+              scale: 1,
               onComplete: () => {
                 // Setzt die Animation zurück, wenn sie abgeschlossen ist
                 //gsap.set(entry.target, { clearProps: "all" });
@@ -58,11 +66,30 @@ export default function Text_Box({ content, align, headline, cta, cta_text, blac
     let listItems = [];
   
     if (read_more && !isExpanded) {
-      content.some((item, index) => {
-        const TagName = item.type.replace("heading", "h");
-        elements.push(<TagName key={`${item.type}-${index}`} ref={addLineRef}>{item.text}</TagName>);
-        return item.type.startsWith("paragraph");
-      });
+      for (let index = 0; index < content.length; index++) {
+        const item = content[index];
+        let TagName;
+    
+        if (item.type === "heading1") {
+          TagName = "h1";
+        } else if (item.type === "heading2") {
+          TagName = "h2";
+        } else if (item.type === "heading3") {
+          TagName = "h3";
+        } else if (item.type === "paragraph") {
+          TagName = "p";
+          elements.push(
+            <p key={`paragraph-${index}`} ref={addLineRef}>{item.text}</p>
+          );
+          break;  // Beenden Sie die Schleife, wenn Sie einen Paragraphen erreichen
+        } else {
+          continue;  // Überspringen Sie alle anderen Typen
+        }
+    
+        elements.push(
+          <TagName key={`${item.type}-${index}`} ref={addLineRef}>{item.text}</TagName>
+        );
+      }
     } else if (content) {
       content.forEach((item, index) => {
         const keyBase = `${item.type}-${index}`;
@@ -74,7 +101,7 @@ export default function Text_Box({ content, align, headline, cta, cta_text, blac
           item.spans.forEach((span, spanIndex) => {
             const key = `${keyBase}-span-${spanIndex}`;
             textSegments.push(
-              <span key={`${key}-text`}>
+              <span key={`${key}-text`} ref={addLineRef}>
                 {item.text.substring(lastEnd, span.start)}
               </span>
             );
@@ -94,37 +121,42 @@ export default function Text_Box({ content, align, headline, cta, cta_text, blac
             }
             lastEnd = span.end;
           });
-          textSegments.push(<span key={`${keyBase}-last`}>{item.text.substring(lastEnd)}</span>);
-          elements.push(<p key={keyBase}>{textSegments}</p>);
+          textSegments.push(
+            <span key={`${keyBase}-last`} >{item.text.substring(lastEnd)}</span>
+          );
+          elements.push(
+            <p key={keyBase} ref={addLineRef}>{textSegments}</p>
+          );
         } else if (["heading1", "heading2"].includes(item.type)) {
           const TagName = item.type.replace("heading", "h");
-          elements.push(
-            <span key={`${keyBase}-span`}>
-              <TagName ref={addLineRef} className={styles['line']} key={keyBase}>
-                {item.text}
-              </TagName>
-            </span>
+          elements.push( 
+            <TagName className={styles['line']} key={keyBase} ref={addLineRef}>
+              {item.text}
+            </TagName> 
           );
         } else if (["heading3"].includes(item.type)) {
           const TagName = item.type.replace("heading", "h");
           elements.push( 
-            <TagName key={keyBase}>
+            <TagName key={keyBase} ref={addLineRef}>
               {item.text}
             </TagName> 
           );
         } else if (item.type === "list-item") {
-          listItems.push(<li key={`${keyBase}-li`}>{item.text}</li>);
+          listItems.push(
+            <li key={`${keyBase}-li`}>{item.text}</li>
+          );
         }
       });
   
       if (listItems.length > 0) {
-        elements.push(<ul key={`ul-${content.length}`}>{listItems}</ul>);
+        elements.push(<ul key={`ul-${content.length}`} ref={addLineRef}>{listItems}</ul>);
       }
     }
 
     if (read_more) {
       elements.push(
         <button 
+          ref={addLineRef}
           key="btn-toggle" 
           className={isExpanded ? styles['active'] : ""} 
           onClick={handleToggleClick}>
@@ -140,7 +172,7 @@ export default function Text_Box({ content, align, headline, cta, cta_text, blac
     <div ref={boxRef} className={`${styles.textBox} ${align ? styles[align] : ''} ${headline ? styles[headline] : ''}`} >
       {renderContent()}
       { cta && !isExpanded ? 
-        <a href='mailto:devkid.stgt@gmail.com?subject=DevKid' className={black ? styles['cta-button-black'] : styles['cta-button']} title='Website'>{cta_text}</a> : ''
+        <a href='mailto:devkid.stgt@gmail.com?subject=DevKid' className={black ? styles['cta-button-black'] : styles['cta-button']} title='Website' ref={addLineRef}>{cta_text}</a> : ''
       }
     </div>
   );

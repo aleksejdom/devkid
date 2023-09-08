@@ -15,12 +15,16 @@ export default function Usp_Box({usp}) {
         if (entry.isIntersecting) {
           gsap.fromTo(
             entry.target,
-            { y: 45 },
+            { 
+              y: 45,
+              opacity: 0, 
+            },
             {
               delay: index * 0.1,
-              duration: 1.0,
+              duration: 1.6,
               y: 0,
               ease: "power3.out",
+              opacity: 1,
               onComplete: () => {
                 // Setzt die Animation zurück, wenn sie abgeschlossen ist
                 //gsap.set(entry.target, { clearProps: "all" });
@@ -54,8 +58,8 @@ export default function Usp_Box({usp}) {
       <div className={styles.items}> 
         {usp.map((item, index) => (
           <div className={styles.item} key={`usp-item-${index}`}>
-            <Image src={item.usp_image.url} alt='USP' title='USP' layout='fill' objectFit='cover' />
-            <p>{RichText.asText(item.usp_title)}</p>
+            <Image src={item.usp_image.url} alt='USP' title='USP' layout='fill' objectFit='cover' ref={addLineRef}/>
+            <p ref={addLineRef}>{RichText.asText(item.usp_title)}</p>
           </div>
         ))}
       </div>

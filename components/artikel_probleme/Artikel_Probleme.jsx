@@ -62,12 +62,16 @@ const Artikel_Probleme = forwardRef(({ artikel_probleme, artikel_probleme_headli
         if (entry.isIntersecting) {
           gsap.fromTo(
             entry.target,
-            { y: 45 },
+            { 
+              y: 45,
+              opacity: 0, 
+            },
             {
               delay: index * 0.1,
               duration: 1.0,
               y: 0,
               ease: "power3.out",
+              opacity: 1,
               onComplete: () => {
                 // Setzt die Animation zurück, wenn sie abgeschlossen ist
                 //gsap.set(entry.target, { clearProps: "all" });
@@ -109,7 +113,7 @@ const Artikel_Probleme = forwardRef(({ artikel_probleme, artikel_probleme_headli
                 const probleme_items = item.probleme_items;
                 return (
                   <React.Fragment key={index}>
-                    <h3>{headline}</h3>
+                    <h3 ref={addLineRef}>{headline}</h3>
                     <div className={styles['problem-header']} >
                       <Image 
                         src={image.url} 
@@ -117,14 +121,15 @@ const Artikel_Probleme = forwardRef(({ artikel_probleme, artikel_probleme_headli
                         title={image.alt}   
                         width={430}
                         height={242}
+                        ref={addLineRef}
                       />
                       <div className={styles['probleme-items']}>
-                        <p><strong>Probleme</strong></p>
+                        <p ref={addLineRef}><strong>Probleme</strong></p>
                         <ul>
                         {
                           probleme_items.map((item, index) => {
                             return (
-                              <li key={index}>{item.text}</li>
+                              <li key={index} ref={addLineRef}>{item.text}</li>
                             )
                           })
                         }
@@ -134,7 +139,7 @@ const Artikel_Probleme = forwardRef(({ artikel_probleme, artikel_probleme_headli
                     { 
                       paragraphs.map((para, paraIndex) => (
                         (showFullText || paraIndex === 0) && (
-                          <p key={paraIndex}>
+                          <p key={paraIndex} ref={addLineRef}>
                             {renderTextWithSpans(para)}
                           </p>
                         )
@@ -143,6 +148,7 @@ const Artikel_Probleme = forwardRef(({ artikel_probleme, artikel_probleme_headli
                     <button 
                       onClick={readMore}
                       className={showFullText ? styles['opened'] : ''}
+                      ref={addLineRef}
                     >
                       {showFullText ? 'Zuklappen' : 'Aufklappen und mehr lesen'}
                     </button>
@@ -154,7 +160,7 @@ const Artikel_Probleme = forwardRef(({ artikel_probleme, artikel_probleme_headli
           }
         </div>
         <div className={styles['more-articles']}>
-          <p>Weitere Artikel</p>
+          <p ref={addLineRef}>Weitere Artikel</p>
           <div className={styles['more-articles-wrapper']}>
           {
             artikel_probleme.map((item, index) => {
@@ -163,23 +169,23 @@ const Artikel_Probleme = forwardRef(({ artikel_probleme, artikel_probleme_headli
                 const image = item.probleme_image || '';
                 return (
                   <div className={styles['more-articles-item']} key={index}>
-                    <div className={styles['more-articles-item-image']}>
+                    <div className={styles['more-articles-item-image']} ref={addLineRef}>
                       <Image 
                         src={image.url} 
                         alt="arrow"
                         title={image.alt}   
                         width={150}
-                        height={116}
+                        height={116} 
                       />
-                      <button onClick={() => activeArticle(index)}>Lesen</button>
+                      <button onClick={() => activeArticle(index)} >Lesen</button>
                     </div>
                     <div className={styles['more-articles-probleme']}>
-                      <p>Probleme</p>
-                      <ul>
+                      <p ref={addLineRef}>Probleme</p>
+                      <ul ref={addLineRef}>
                         {
                           probleme_items.map((item, index) => {
                             return (
-                              <li key={index}>{item.text}</li>
+                              <li key={index} >{item.text}</li>
                             )
                           })
                         }

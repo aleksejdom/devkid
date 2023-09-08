@@ -14,12 +14,15 @@ const Leistungsoverview = forwardRef(({ leistungsoverview_items, leistungsovervi
         if (entry.isIntersecting) {
           gsap.fromTo(
             entry.target,
-            { y: 45 },
+            { y: 45,
+              opacity: 0,
+             },
             {
               delay: index * 0.1,
               duration: 1.0,
               y: 0,
               ease: "power3.out",
+              opacity: 1,
               onComplete: () => {
                 // Setzt die Animation zurück, wenn sie abgeschlossen ist
                 //gsap.set(entry.target, { clearProps: "all" });
@@ -50,14 +53,14 @@ const Leistungsoverview = forwardRef(({ leistungsoverview_items, leistungsovervi
   return ( 
     <div className={ styles['leistungs-overview'] } ref={ref}>
        
-        <h2 ref={addLineRef}>
-          {leistungsoverview_title[0].text}  
-        </h2> 
+      <h2 ref={addLineRef}>
+        {leistungsoverview_title[0].text}  
+      </h2> 
       
       <div className={ styles['items'] }> 
         {leistungsoverview_items.map((item, index) => (
-          <div className={ styles['item'] } key={index}> 
-            <div className={ styles['item-header'] }>
+          <div className={ styles['item'] } key={index} ref={addLineRef}> 
+            <div className={ styles['item-header'] } ref={addLineRef}>
               <LazyLoadImage 
                 src={item.icon.url} 
                 alt={item.icon.alt}

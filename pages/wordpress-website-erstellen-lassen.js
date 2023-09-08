@@ -110,12 +110,16 @@ function WordpressWebsiteErstellenLassen({footer, header_content, header_gradien
           if (entry.isIntersecting) {
             gsap.fromTo(
               entry.target,
-              { y: 45 },
+              { 
+                y: 45,
+                opacity: 0,
+               },
               {
                 delay: index * 0.1,
-                duration: 1.0,
+                duration: 1.6,
                 y: 0,
                 ease: "power3.out",
+                opacity: 1,
                 onComplete: () => {
                   // Setzt die Animation zurück, wenn sie abgeschlossen ist
                   //gsap.set(entry.target, { clearProps: "all" });
@@ -174,8 +178,8 @@ function WordpressWebsiteErstellenLassen({footer, header_content, header_gradien
 
         <main className={styles_wordpress_website_erstellen_lassen["main-text"]} ref={blockBaukastenRef}> 
            <div className={styles_wordpress_website_erstellen_lassen['textBox']} >
-              <Text_Box content={intro_content} align={'center'} headline={'big'} />
-              <div className={`${home.videobox} ${styles_wordpress_website_erstellen_lassen['center']}`} >
+              <Text_Box content={intro_content} align={'center'} headline={'big'} origin={'center'} />
+              <div className={`${home.videobox} ${styles_wordpress_website_erstellen_lassen['center']}`} ref={addLineRef}>
                 <video ref={videoRef} autoPlay muted loop playsInline>
                   <source src="./videos/block_video.m4v" type="video/mp4" />
                   <source src="./videos/block_video.webm" type="video/webm" />
@@ -186,7 +190,7 @@ function WordpressWebsiteErstellenLassen({footer, header_content, header_gradien
            <div className='container' style={{ backgroundColor: colors[colorIndex] }} ref={komponenteRef}>
               <div className={['content-box']}>
                 <Text_Box content={baukasten_content} headline={'normal'} cta={'yes'} cta_text={'Jetzt Website erstellen lassen'} /> 
-                <div className={styles_wordpress_website_erstellen_lassen['block-componente']}>
+                <div className={styles_wordpress_website_erstellen_lassen['block-componente']} ref={addLineRef}>
                   <h3>WordPress Block Komponente</h3>
                   <p>Wir entwickeln auf Ihre Bedürfnisse abgestimmte Komponente</p>
                   <ul className={styles_wordpress_website_erstellen_lassen['items']} >
@@ -240,7 +244,7 @@ function WordpressWebsiteErstellenLassen({footer, header_content, header_gradien
                           </span>
                         );
                         textSegments.push(
-                          <strong key={spanIndex * 2 + 1}>
+                          <strong key={spanIndex * 2 + 1} ref={addLineRef}>
                             {item.text.substring(span.start, span.end)}
                           </strong>
                         );
@@ -255,7 +259,7 @@ function WordpressWebsiteErstellenLassen({footer, header_content, header_gradien
                     } else if (item.type === "heading1") {
                       elements.push(<h1 key={index}>{item.text}</h1>);
                     } else if (item.type === "list-item") {
-                      listItems.push(<li key={index}>{item.text}</li>);
+                      listItems.push(<li key={index} ref={addLineRef}>{item.text}</li>);
                     } 
                     if ((item.type !== "list-item" && listItems.length > 0) || (index === weitere_leistungen.length - 1)) {
                       elements.push(<ul key={`ul-${index}`}>{listItems}</ul>);
@@ -291,7 +295,7 @@ function WordpressWebsiteErstellenLassen({footer, header_content, header_gradien
                     let lastEnd = 0;
                     item.spans.forEach((span, spanIndex) => {
                       textSegments.push(
-                        <span key={spanIndex * 2}>
+                        <span key={spanIndex * 2} >
                           {item.text.substring(lastEnd, span.start)}
                         </span>
                       );
@@ -303,19 +307,19 @@ function WordpressWebsiteErstellenLassen({footer, header_content, header_gradien
                       lastEnd = span.end;
                     });
                     textSegments.push(<span key={textSegments.length}>{item.text.substring(lastEnd)}</span>);
-                    elements.push(<p key={index}>{textSegments}</p>);
+                    elements.push(<p key={index} ref={addLineRef}>{textSegments}</p>);
                   } else if (item.type === "heading3") {
-                    elements.push(<h3 key={index}>{item.text}</h3>);
+                    elements.push(<h3 key={index} ref={addLineRef}>{item.text}</h3>);
                   } else if (item.type === "heading2") {
                     elements.push(<h2 key={index} ref={addLineRef}>{item.text}</h2>);
                   } else if (item.type === "heading1") {
-                    elements.push(<h1 key={index}>{item.text}</h1>);
+                    elements.push(<h1 key={index} ref={addLineRef}>{item.text}</h1>);
                   } else if (item.type === "list-item") {
-                    listItems.push(<li key={index}>{item.text}</li>);
+                    listItems.push(<li key={index} ref={addLineRef}>{item.text}</li>);
                   } 
                   if ((item.type !== "list-item" && listItems.length > 0) || 
                   (index === unternehmens_blog.length - 1 && listItems.length > 0)) {
-                      elements.push(<ul key={`ul-${index}`}>{listItems}</ul>);
+                      elements.push(<ul key={`ul-${index}`} >{listItems}</ul>);
                       listItems = []; // Liste zurücksetzen
                     }
                   });
@@ -327,7 +331,7 @@ function WordpressWebsiteErstellenLassen({footer, header_content, header_gradien
             <ul className={styles_wordpress_website_erstellen_lassen["large-text-list"]}>
               {
                 unternehmens_blog_items.map((item, index) => (
-                  <li key={index}>{item.text}</li>
+                  <li key={index} ref={addLineRef}>{item.text}</li>
                 ))
               }
             </ul>   
@@ -335,7 +339,7 @@ function WordpressWebsiteErstellenLassen({footer, header_content, header_gradien
            <div className='container' style={{ backgroundColor: colors[colorIndex] }} >
               <div className={['content-box']}>
                 <Text_Box content={nextjs_content} headline={'normal'} read_more={'yes'}/> 
-                <div className={styles_wordpress_website_erstellen_lassen['block-componente']}>
+                <div className={styles_wordpress_website_erstellen_lassen['block-componente']} ref={addLineRef}>
                   <h3>Was kostet das Erstellen einer WordPress Website?</h3>
                   <p>Die Websitekosten variieren je nach Anspruch und Design. Hier können Sie Ihre Kosten genau berechnen:</p>  
                   <Link 
@@ -362,24 +366,24 @@ function WordpressWebsiteErstellenLassen({footer, header_content, header_gradien
               <div className={['content-box']}>
                 <div className={styles_wordpress_website_erstellen_lassen['text-box']} >
                   <h2 ref={addLineRef}>Noch nicht überzeugt?</h2>
-                  <p>Entdecken Sie die Vorteile, die Millionen von Nutzer begeistern!</p>
+                  <p ref={addLineRef}>Entdecken Sie die Vorteile, die Millionen von Nutzer begeistern!</p>
                   <div className={styles_wordpress_website_erstellen_lassen['numbers']} >
-                    <div className="number">
+                    <div className="number" ref={addLineRef}>
                       <span>63,1%</span>
                       <p>Marktanteil Weltweit</p>
                     </div>
-                    <div className="number">
+                    <div className="number" ref={addLineRef}>
                       <span>{`>69,5 Mio.`}</span>
                       <p>WordPress Blogs</p>
                     </div>
-                    <div className="number">
+                    <div className="number" ref={addLineRef}>
                       <span>{`>100`}</span>
                       <p>In über 100 Sprachen verfügbar</p>
                     </div>
                   </div>
-                  <a href='mailto:devkid.stgt@gmail.com' className={styles_wordpress_website_erstellen_lassen['cta-button']} title='Website'>Jetzt Kontaktieren</a> 
+                  <a href='mailto:devkid.stgt@gmail.com' className={styles_wordpress_website_erstellen_lassen['cta-button']} title='Website' ref={addLineRef}>Jetzt Kontaktieren</a> 
                 </div>
-                <div className={`${styles_wordpress_website_erstellen_lassen['block-componente']} ${styles_wordpress_website_erstellen_lassen['block-numbers']}`}>
+                <div className={`${styles_wordpress_website_erstellen_lassen['block-componente']} ${styles_wordpress_website_erstellen_lassen['block-numbers']}`} ref={addLineRef}>
                   <h3>Die größten Unternehmen setzen auf WordPress</h3>
                   <p className={styles_wordpress_website_erstellen_lassen['list']}>
                     <span>Sony Music</span>

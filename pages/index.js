@@ -156,11 +156,14 @@ function Home({ long_text, long_text_cta, geschaeftsfelder, geschaeftsfelder_ima
         if (entry.isIntersecting) {
           gsap.fromTo(
             entry.target,
-            { y: 45 },
+            { y: 45,
+              opacity: 0,
+             },
             {
               delay: index * 0.1,
-              duration: 1.0,
+              duration: 1.6,
               y: 0,
+              opacity: 1,
               ease: "power3.out",
               onComplete: () => {
                 // Setzt die Animation zurück, wenn sie abgeschlossen ist
@@ -213,7 +216,7 @@ function Home({ long_text, long_text_cta, geschaeftsfelder, geschaeftsfelder_ima
       <header className={styles.header}>  
         <Text_Box content={header_content}/>   
         <Responsive_image image_screen={header_image.url} image_mobile={header_mobile_image.url} image_alt={header_image.alt}/> 
-        <p className={styles.zitat}>
+        <p className={styles.zitat} ref={addLineRef}>
           &quot;Zauberhafte Ideen<br />treffen auf Erfahrung.&quot;
         </p>
       </header>
@@ -234,8 +237,8 @@ function Home({ long_text, long_text_cta, geschaeftsfelder, geschaeftsfelder_ima
             <div className='text-image-box-content'>
               <Text_Box content={agenturen} headline={'normal'} cta={'yes'} cta_text={'Beratung anfragen'}/>  
               <div className="image-box">  
-                <Image src={agenturen_image.url} title={agenturen_image.alt} alt={agenturen_image.alt} width={1920} height={1080} /> 
-                <Image src='./images/icon.svg' alt="icon" title="devkid icon" width={120} height={68} className='icon' />
+                <Image src={agenturen_image.url} title={agenturen_image.alt} alt={agenturen_image.alt} width={1920} height={1080} ref={addLineRef}/> 
+                <Image src='./images/icon.svg' alt="icon" title="devkid icon" width={120} height={68} className='icon' ref={addLineRef}/>
               </div>
             </div> 
           </div>
@@ -252,8 +255,8 @@ function Home({ long_text, long_text_cta, geschaeftsfelder, geschaeftsfelder_ima
           <Text_Box content={wp_next_content} />
           <div className="vergleich">
             <div className="column">
-              <p>Nextjs</p>
-              <p>WordPress</p>
+              <p ref={addLineRef}>Nextjs</p>
+              <p ref={addLineRef}>WordPress</p>
             </div> 
             { 
               wp_next_list.map((itemGroup, groupIndex) => (
@@ -261,7 +264,7 @@ function Home({ long_text, long_text_cta, geschaeftsfelder, geschaeftsfelder_ima
                   { 
                     itemGroup.wp_next_item.map((item, index) => {
                       if (item.type === "list-item") {
-                        return <p key={index}>{item.text}</p>;
+                        return <p key={index} ref={addLineRef}>{item.text}</p>;
                       }
                       return null; // nichts rendern, wenn der Typ nicht "list-item" ist
                     }) 
@@ -278,8 +281,8 @@ function Home({ long_text, long_text_cta, geschaeftsfelder, geschaeftsfelder_ima
             <div className='text-image-box-content'>
               <Text_Box content={website_pflege} headline={'normal'} />  
               <div className="image-box">  
-                <Image src={website_pflege_image.url} title={website_pflege_image.alt} alt={website_pflege_image.alt} width={1920} height={1080} /> 
-                <Image src='./images/icon.svg' alt="icon" title="devkid icon" width={120} height={68} className='icon' />
+                <Image src={website_pflege_image.url} title={website_pflege_image.alt} alt={website_pflege_image.alt} width={1920} height={1080} ref={addLineRef}/> 
+                <Image src='./images/icon.svg' alt="icon" title="devkid icon" width={120} height={68} className='icon' ref={addLineRef}/>
               </div>
             </div> 
           </div>
@@ -298,7 +301,7 @@ function Home({ long_text, long_text_cta, geschaeftsfelder, geschaeftsfelder_ima
                   )
                 } 
                 if (item.type === 'paragraph') {
-                  return <p key={key}>{renderWithSpans(item.text, item.spans)}</p>;
+                  return <p key={key} ref={addLineRef}>{renderWithSpans(item.text, item.spans)}</p>;
                 } 
                 if (item.type === 'list-item') {
                   tempLi.push(<li key={key}>{item.text}</li>);
@@ -306,7 +309,7 @@ function Home({ long_text, long_text_cta, geschaeftsfelder, geschaeftsfelder_ima
 
                   if (nextType !== 'list-item' || index === geschaeftsfelder.length - 1) {
                     const ul = (
-                      <ul key={`${key}-ul`}>
+                      <ul key={`${key}-ul`} ref={addLineRef}>
                         {tempLi}
                       </ul>
                     );
@@ -335,7 +338,7 @@ function Home({ long_text, long_text_cta, geschaeftsfelder, geschaeftsfelder_ima
                     )
                   }
                   if (item.type === 'paragraph') {
-                    return <p key={index}>{item.text}</p>;
+                    return <p key={index} ref={addLineRef}>{item.text}</p>;
                   }
                   return null;
                 })}
@@ -343,10 +346,10 @@ function Home({ long_text, long_text_cta, geschaeftsfelder, geschaeftsfelder_ima
               <div className="second-column">
                 {long_text.slice(Math.ceil(long_text.length / 2)).map((item, index) => {
                   if (item.type === 'heading2') {
-                    return <h2 key={index}>{item.text}</h2>;
+                    return <h2 key={index} ref={addLineRef}>{item.text}</h2>;
                   }
                   if (item.type === 'paragraph') {
-                    return <p key={index}>{item.text}</p>;
+                    return <p key={index} ref={addLineRef}>{item.text}</p>;
                   }
                   return null;
                 })}
@@ -354,24 +357,24 @@ function Home({ long_text, long_text_cta, geschaeftsfelder, geschaeftsfelder_ima
             </div>  
             <div className="second-section">
               <div className={styles.videobox}>
-                <video ref={videoRef} autoPlay muted loop playsInline>
+                <video ref={videoRef} autoPlay muted loop playsInline >
                   <source src="./videos/clip.m4v" type="video/mp4" />
                   <source src="./videos/clip.webm" type="video/webm" />
                 </video>
-                <Image src="./images/icon.svg" alt="icon" title="devkid icon" width={120} height={68} className={styles.icon} />
+                <Image src="./images/icon.svg" alt="icon" title="devkid icon" width={120} height={68} className={styles.icon}/>
               </div> 
               {long_text_cta.map((cta, index) => {
                 if (cta.spans.length > 0 && cta.spans[0].type === 'hyperlink') {
                   const text = cta.text.substring(cta.spans[0].start, cta.spans[0].end);
                   return (
-                    <p key={index}>
+                    <p key={index} ref={addLineRef}>
                       {cta.text.substring(0, cta.spans[0].start)}
-                      <a href={cta.spans[0].url}>{text}</a>
+                      <a href={cta.spans[0].url} ref={addLineRef}>{text}</a>
                       {cta.text.substring(cta.spans[0].end)}
                     </p>
                   );
                 }
-                return <p key={index}>{cta.text}</p>;
+                return <p key={index} ref={addLineRef}>{cta.text}</p>;
               })}
             </div>
           </div>
@@ -385,7 +388,7 @@ function Home({ long_text, long_text_cta, geschaeftsfelder, geschaeftsfelder_ima
             <div className='text-image-box-content'>
               <Text_Box content={one_click_content} headline={'normal'} cta={'yes'} cta_text={'Jetzt Website erstellen lassen'}/>  
               <div className="image-box">  
-                <Image src={one_click_content_image.url} title={one_click_content_image.alt} alt={one_click_content_image.alt} width={1920} height={1080} /> 
+                <Image src={one_click_content_image.url} title={one_click_content_image.alt} alt={one_click_content_image.alt} width={1920} height={1080} ref={addLineRef}/> 
               </div>
             </div> 
           </div>

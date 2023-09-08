@@ -32,8 +32,7 @@ export default function Gradient_Box({content}) {
       <div className={styles['header-second-box']}>
         <div className={styles['round-box']} ref={roundBoxRef}>
           <div className={styles['card-content']}>
-            <Text_Box content={content} />
-            <a href="mailto:devkid.stgt@gmail.com" title='Kontakt'>Angebot Anfragen</a>
+            <Text_Box content={content} origin={'center'} cta={'mailto:devkid.stgt@gmail.com'} cta_text={'Angebot Anfragen'}/>
           </div>
         </div>
       </div>

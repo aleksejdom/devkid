@@ -1,6 +1,7 @@
-import { useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import styles from './Calculation.module.css'; 
 import Image from 'next/image';
+import { gsap } from "gsap";
 
 export default function Calculation({ calculation_content, button }) {
 
@@ -39,6 +40,51 @@ export default function Calculation({ calculation_content, button }) {
     setSpecialCondition(false); // Setzen Sie auch den speziellen Zustand zurück, falls nötig
   };
 
+  const lineRefs = useRef([]);
+  useEffect(() => {
+    let observer;
+    const currentRefs = lineRefs.current;
+    const handleIntersection = (entries) => {
+      entries.forEach((entry, index) => {
+        if (entry.isIntersecting) {
+          gsap.fromTo(
+            entry.target,
+            { y: 45,
+              opacity: 0,
+             },
+            {
+              delay: index * 0.1,
+              duration: 1.6,
+              y: 0,
+              opacity: 1,
+              ease: "power3.out",
+              onComplete: () => {
+                // Setzt die Animation zurück, wenn sie abgeschlossen ist
+                //gsap.set(entry.target, { clearProps: "all" });
+              }
+            }
+          );
+        }
+      });
+    };
+  
+    if (currentRefs.length > 0) {
+      observer = new IntersectionObserver(handleIntersection, { threshold: 0.1 });
+      currentRefs.forEach(ref => observer.observe(ref));
+    }
+  
+    return () => {
+      if (observer) {
+        currentRefs.forEach(ref => observer.unobserve(ref));
+      }
+    };
+  }, []); 
+  const addLineRef = (el) => {
+    if (el && !lineRefs.current.includes(el)) {
+      lineRefs.current.push(el);
+    }
+  }; 
+
   return ( 
     <div className={ styles['calculation-box'] }> 
       <div className={ styles['calculator-content'] }> 
@@ -65,13 +111,13 @@ export default function Calculation({ calculation_content, button }) {
               });
               // Füge den Rest des Textes nach dem letzten "strong" Teil hinzu
               textSegments.push(<span key={textSegments.length}>{item.text.substring(lastEnd)}</span>); 
-              return <p key={index}>{textSegments}</p>;
+              return <p key={index} ref={addLineRef}>{textSegments}</p>;
               } else if (item.type === "heading3") {
-                return <h3 key={index}>{item.text}</h3>;
+                return <h3 key={index} ref={addLineRef}>{item.text}</h3>;
               } else if (item.type === "heading2") {
-                return <h2 key={index}>{item.text}</h2>;
+                return <h2 key={index} ref={addLineRef}>{item.text}</h2>;
               } else if (item.type === "heading1") {
-                return <h1 key={index}>{item.text}</h1>;
+                return <h1 key={index} ref={addLineRef}>{item.text}</h1>;
               }
               return null;
             })
@@ -81,16 +127,16 @@ export default function Calculation({ calculation_content, button }) {
       <div className={ styles['calculator'] }>
          
         <div className={styles['question']} style={{ display: questionIndex === 0 ? 'block' : 'none' }}>
-          <h2><span>Frage 1/6:</span> Welche Technologie soll bei der Programmierung verwendet werden?</h2>
-          <div className={styles['answers']}>
+          <h2 ref={addLineRef}><span>Frage 1/6:</span> Welche Technologie soll bei der Programmierung verwendet werden?</h2>
+          <div className={styles['answers']} >
             <div className={styles['answer-box']} onClick={() => handleAnswerClick(2)} key="answer-1">
-              <Image src='/images/questions/nextjs.png' alt='Nextjs' title="Nextjs Technologie" width={250} height={250}/> 
+              <Image src='/images/questions/nextjs.png' alt='Nextjs' title="Nextjs Technologie" width={250} height={250} /> 
               <p>
                 Nextjs (React)<br />Website
               </p>
             </div>
             <div className={styles['answer-box']} onClick={() => handleAnswerClick(0)} key="answer-2">
-              <Image src='/images/questions/wordpress.png' alt='WordPress' title="Wordpress Website" width={250} height={250}/> 
+              <Image src='/images/questions/wordpress.png' alt='WordPress' title="Wordpress Website" width={250} height={250} /> 
               <p>
                 WordPress Website<br /> (Eigenes Theme)
               </p>
@@ -99,8 +145,8 @@ export default function Calculation({ calculation_content, button }) {
         </div>
 
         <div className={styles['question']} style={{ display: questionIndex === 1 ? 'block' : 'none' }}>
-            <h2><span>Frage 2/6:</span> Um welches Anliegen handelt es sich?</h2>
-            <div className={ styles['answers'] }>
+            <h2 ref={addLineRef}><span>Frage 2/6:</span> Um welches Anliegen handelt es sich?</h2>
+            <div className={ styles['answers'] } >
               <div className={ styles['answer-box'] } onClick={() => handleAnswerClick(5)} key='answer-1'>
                 <Image src='/images/questions/new_site.svg' alt='New Site' title="Website erstellen lassen" width={250} height={250}/> 
                 <p>
@@ -120,14 +166,14 @@ export default function Calculation({ calculation_content, button }) {
                 </p>
               </div>      
             </div>
-            <div className={ styles['info'] }>
+            <div className={ styles['info'] } >
               <button onClick={handleBackClick}>Zurück</button>
             </div>
          </div>
 
          <div className={styles['question']} style={{ display: questionIndex === 2 ? 'block' : 'none' }}> 
-            <h2><span>Frage 3/6:</span> Wieviel ist der Seitenumfang?</h2>
-            <div className={ styles['answers'] }>
+            <h2 ref={addLineRef}><span>Frage 3/6:</span> Wieviel ist der Seitenumfang?</h2>
+            <div className={ styles['answers'] } >
               <div className={ styles['answer-box'] } onClick={() => handleAnswerClick(8)} key='answer-1'>
                 <Image src='/images/questions/five.svg' alt='Question 5' title="5" width={250} height={250}/> 
                 <p>
@@ -147,14 +193,14 @@ export default function Calculation({ calculation_content, button }) {
                 </p>
               </div>      
             </div>
-            <div className={ styles['info'] }>
+            <div className={ styles['info'] } >
               <button onClick={handleBackClick}>Zurück</button>
             </div>
          </div>
 
          <div className={styles['question']} style={{ display: questionIndex === 3 ? 'block' : 'none' }}> 
-            <h2><span>Frage 4/6:</span> Wer erstellt die Texte für die Website?</h2>
-            <div className={ styles['answers'] }>
+            <h2 ref={addLineRef}><span>Frage 4/6:</span> Wer erstellt die Texte für die Website?</h2>
+            <div className={ styles['answers'] } >
               <div className={ styles['answer-box'] } onClick={() => handleAnswerClick(1)} key='answer-1'>
                 <Image src='/images/questions/devkid.svg' alt='Devkid' title='DevKid Stuttgart' width={250} height={250}/> 
                 <p>
@@ -168,14 +214,14 @@ export default function Calculation({ calculation_content, button }) {
                 </p>
               </div>      
             </div>
-            <div className={ styles['info'] }>
+            <div className={ styles['info'] } >
               <button onClick={handleBackClick}>Zurück</button>
             </div>
          </div>
 
          <div className={styles['question']} style={{ display: questionIndex === 4 ? 'block' : 'none' }}> 
-            <h2><span>Frage 5/6:</span> Wer erstellt die Bilder für die Website?</h2>
-            <div className={ styles['answers'] }>
+            <h2 ref={addLineRef}><span>Frage 5/6:</span> Wer erstellt die Bilder für die Website?</h2>
+            <div className={ styles['answers'] } >
               <div className={ styles['answer-box'] } onClick={() => handleAnswerClick(1)} key='answer-1'>
                 <Image src='/images/questions/devkid.svg' alt='Devkid' title='DevKid' width={250} height={250}/> 
                 <p>
@@ -189,14 +235,14 @@ export default function Calculation({ calculation_content, button }) {
                 </p>
               </div>      
             </div>
-            <div className={ styles['info'] }>
+            <div className={ styles['info'] } >
               <button onClick={handleBackClick}>Zurück</button>
             </div>
          </div>
 
          <div className={styles['question']} style={{ display: questionIndex === 5 ? 'block' : 'none' }}> 
-            <h2><span>Frage 6/6:</span> Ist die Suchmaschinenoptimierung (SEO) erwünscht?</h2>
-            <div className={ styles['answers'] }>
+            <h2 ref={addLineRef}><span>Frage 6/6:</span> Ist die Suchmaschinenoptimierung (SEO) erwünscht?</h2>
+            <div className={ styles['answers'] } >
               <div className={ styles['answer-box'] } onClick={() => handleAnswerClick(1)} key='answer-1'>
                 <Image src='/images/questions/seo_yes.svg' alt='SEO' title='SEO' width={250} height={250}/> 
                 <p>
@@ -210,22 +256,22 @@ export default function Calculation({ calculation_content, button }) {
                 </p>
               </div>      
             </div>
-            <div className={ styles['info'] }>
+            <div className={ styles['info'] } >
               <button onClick={handleBackClick}>Zurück</button>
             </div>
          </div>
 
-         <div className={ styles.ergebnis } style={{ display: questionIndex === 6 ? 'block' : 'none' }}> 
+         <div className={ styles.ergebnis } style={{ display: questionIndex === 6 ? 'block' : 'none' }} ref={addLineRef}> 
           <h2>Die Kosten für Ihre Anfrage würden ca. <span>{((specialCondition ? summe / 1.8 : summe) * 220).toFixed(2).replace('.', ',').replace(/\B(?=(\d{3})+(?!\d))/g, '.')}</span> Euro betragen.</h2>
           <p>Bitte bedenken Sie, dass die Kosten nach einer detaillierten Kostenschätzung von der Online-Kalkulation abweichen können.</p>
-          <div className={styles.buttons}>
+          <div className={styles.buttons} ref={addLineRef}>
             <button onClick={resetCalculation}>Nochmal berechnen</button>
             {button ? <a href={`${button}?subject=DevKid - Website erstellen lassen`} className={styles['cta-button']} title='Website erstellen lassen'>Website erstellen lassen</a> : null} 
           </div>
          </div>
 
       </div>
-      <div className={styles['more-info']}>
+      <div className={styles['more-info']} ref={addLineRef}>
         <Image src='/images/questions/headset.svg' alt='contact' title="Website Preise" width={150} height={150}/> 
         <h3>Erfahren Sie mehr über die Website Kosten in einem persönlichen Erstgespräch.</h3>
         {button ? <a href={`${button}?subject=DevKid - Website erstellen lassen`} className={'cta-button'} title='Erstgespräch'>Kostenloses Erstgespräch anfragen</a> : null} 

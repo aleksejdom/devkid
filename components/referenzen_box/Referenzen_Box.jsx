@@ -46,12 +46,16 @@ const Referenzen_Box = forwardRef(({ referenzen, referenzenContent }, ref) => {
         if (entry.isIntersecting) {
           gsap.fromTo(
             entry.target,
-            { y: 45 },
+            { 
+              y: 45,
+              opacity: 0, 
+            },
             {
               delay: index * 0.1,
-              duration: 1.0,
+              duration: 1.6,
               y: 0,
               ease: "power3.out",
+              opacity: 1,
               onComplete: () => {
                 // Setzt die Animation zurück, wenn sie abgeschlossen ist
                 //gsap.set(entry.target, { clearProps: "all" });
@@ -82,8 +86,8 @@ const Referenzen_Box = forwardRef(({ referenzen, referenzenContent }, ref) => {
   return (
     <div className={styles.referenzenBox} style={{ backgroundColor: colors[colorIndex] }} ref={ref}>
       <div className={styles.referenzenWrapper}>
-        <h3>Referenzen</h3>
-        <div className={styles.referenzenItems}>
+        <h3 ref={addLineRef}>Referenzen</h3>
+        <div className={styles.referenzenItems} ref={addLineRef}>
           <div className={styles.referenzenNavs}>
             <Image 
               src="/images/arrow.svg" 
@@ -177,13 +181,13 @@ const Referenzen_Box = forwardRef(({ referenzen, referenzenContent }, ref) => {
                     <h2 key={index} ref={addLineRef}>{text}</h2>
                   );  
               case 'paragraph':
-                return <p key={index}>{renderTextWithSpans()}</p>;
+                return <p key={index} ref={addLineRef}>{renderTextWithSpans()}</p>;
               default:
                 return null;
             }
           })
         }
-        <a href={`mailto:devkid.stgt@gmail.com?subject=DevKid - Erstgespräch Anfrage`} className={["cta-button"]} title="Website Erstellung">Kostenloses Erstgespräch anfragen</a>
+        <a href={`mailto:devkid.stgt@gmail.com?subject=DevKid - Erstgespräch Anfrage`} className={["cta-button"]} title="Website Erstellung" ref={addLineRef}>Kostenloses Erstgespräch anfragen</a>
       </div>
     </div>
   )

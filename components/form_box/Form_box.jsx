@@ -32,15 +32,21 @@ const Form_box = forwardRef((props, ref) => {
         if (entry.isIntersecting) {
           gsap.fromTo(
             entry.target,
-            { y: 45 },
+            { 
+              y: 45,
+              opacity: 0,
+              scale: 0.5,
+              transformOrigin: "left top",
+              ease: "sine.out"
+            },
             {
-              delay: index * 0.1,
-              duration: 1.0,
+              delay: index * 0.2,
+              duration: 1.6,
               y: 0,
               ease: "power3.out",
-              onComplete: () => {
-                // Setzt die Animation zurück, wenn sie abgeschlossen ist
-                //gsap.set(entry.target, { clearProps: "all" });
+              opacity: 1,
+              scale: 1,
+              onComplete: () => { 
               }
             }
           );
@@ -86,9 +92,9 @@ const Form_box = forwardRef((props, ref) => {
 
   return (
     <div className={styles["form-box"]} ref={ref}>
-      <h2>Kontakt</h2>
+      <h2 ref={addLineRef}>Kontakt</h2>
       <div className={styles["wrapper"]}>
-        <form onSubmit={onFormSubmit}>
+        <form onSubmit={onFormSubmit} >
           <label htmlFor="email">
             Email Address
           </label>
@@ -166,17 +172,17 @@ const Form_box = forwardRef((props, ref) => {
         </form>
         <div className={styles["contact"]}>
           <h3 ref={addLineRef}>Homepage mit Webdesign erstellen</h3>
-          <p>Haben Sie Fragen bezüglich der Erstellung Ihrer Website oder des Projektablaufs? Ich berate Sie gerne.</p>
+          <p ref={addLineRef}>Haben Sie Fragen bezüglich der Erstellung Ihrer Website oder des Projektablaufs? Ich berate Sie gerne.</p>
           
           <div className={styles["contact-person"]}>
-            <h4>Ansprechspartner:</h4>
-            <p>Aleksej Domovec</p>
-            <p>(+49) 1590 637 2543</p> 
+            <h4 ref={addLineRef}>Ansprechspartner:</h4>
+            <p ref={addLineRef}>Aleksej Domovec</p>
+            <p ref={addLineRef}>(+49) 1590 637 2543</p> 
           </div>
           <div className={styles["contact-kosten"]}>
-            <h4>Website Kosten</h4>
-            <p>Möchten Sie die Kosten für Ihr Projekt exakt berechnen? Kontaktieren Sie uns für ein unverbindliches Angebot oder lassen Sie sich Ihre Homepage-Kosten durch unser Tool berechnen.</p>
-            <Link href="/website-erstellen-lassen/was-kostet-eine-website" className={styles["cta-button"]}>
+            <h4 ref={addLineRef}>Website Kosten</h4>
+            <p ref={addLineRef}>Möchten Sie die Kosten für Ihr Projekt exakt berechnen? Kontaktieren Sie uns für ein unverbindliches Angebot oder lassen Sie sich Ihre Homepage-Kosten durch unser Tool berechnen.</p>
+            <Link href="/website-erstellen-lassen/was-kostet-eine-website" className={styles["cta-button"]} ref={addLineRef}>
               Homepage Kosten berechnen
             </Link>
           </div>
