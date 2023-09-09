@@ -31,8 +31,7 @@ function Home({ long_text, long_text_cta, geschaeftsfelder, geschaeftsfelder_ima
     setMenuOpen(!isMenuOpen);
   }; 
 
-  const menuClasses = `${styles.burgerMenu} ${isMenuOpen ? styles.open : ''}`;
-  const leistungsTabRef = useRef(null); 
+  const menuClasses = `${styles.burgerMenu} ${isMenuOpen ? styles.open : ''}`; 
   const footerRef = useRef(null);
   const referenzenRef = useRef(null);
   const contactRef = useRef(null);
@@ -41,11 +40,9 @@ function Home({ long_text, long_text_cta, geschaeftsfelder, geschaeftsfelder_ima
   const renderWithSpans = (text, spans) => {
     if (!spans || spans.length === 0) {
       return text;
-    }
-
+    } 
     let lastIndex = 0;
-    const elements = [];
-
+    const elements = []; 
     spans.forEach((span, index) => {
       if (span.type === 'hyperlink') {
         elements.push(text.substring(lastIndex, span.start));
@@ -56,36 +53,37 @@ function Home({ long_text, long_text_cta, geschaeftsfelder, geschaeftsfelder_ima
         );
         lastIndex = span.end;
       }
-    });
-
+    }); 
     elements.push(text.substring(lastIndex));
     return elements;
-  };
-
- 
-  const scrollToLeistungsTab = () => {
-    if (leistungsTabRef.current) {
-      leistungsTabRef.current.scrollIntoView({ behavior: 'smooth' });
-    }
-    toggleMenu();
-  };  
+  };    
   const scrollToReferenzen = () => {
     if (referenzenRef.current) {
       referenzenRef.current.scrollIntoView({ behavior: 'smooth' });
     }
-    toggleMenu();
+    if (window.matchMedia('(max-width: 768px)').matches) {
+      toggleMenu();
+    }
+    else{}
+    
   } 
   const scrollToContact = () => {
     if (contactRef.current) {
       contactRef.current.scrollIntoView({ behavior: 'smooth' });
     }
-    toggleMenu();
+    if (window.matchMedia('(max-width: 768px)').matches) {
+      toggleMenu();
+    }
+    else{}
   } 
   const scrollToFooter = () => {
     if (footerRef.current) {
       footerRef.current.scrollIntoView({ behavior: 'smooth' });
     }
-    toggleMenu();
+    if (window.matchMedia('(max-width: 768px)').matches) {
+      toggleMenu();
+    }
+    else{}
   }; 
 
   useEffect(() => {
@@ -204,7 +202,7 @@ function Home({ long_text, long_text_cta, geschaeftsfelder, geschaeftsfelder_ima
         <div className={menuClasses} onClick={toggleMenu}></div>
         <ul className={isMenuOpen ? styles.menuOpen : ''}>
           <Link href="/" title='DevKid'><Image src="/images/devkid_logo_white.svg" alt="icon" title="Devkid Logo" width={120} height={45} className={styles.logo} /></Link>
-          <li><Link href="#leistungen" onClick={scrollToLeistungsTab} title='Leistungen'>Leistungen</Link></li> 
+          <li><Link href="/leistungen" title='Leistungen'>Leistungen</Link></li> 
           <li><Link href="#Referenzen" onClick={scrollToReferenzen} title='Referenzen'>Referenzen</Link></li>  
           <li><Link href="/wordpress-website-erstellen-lassen" title='WordPress Website'>WordPress</Link></li>
           <li><Link href="#kontakt" onClick={scrollToContact} title='Kontakt'>Kontakt</Link></li>       
@@ -222,7 +220,7 @@ function Home({ long_text, long_text_cta, geschaeftsfelder, geschaeftsfelder_ima
       </header>
        
       <main className={styles.main}>
-        <Leistungs_Tab tabs={tabs} id="leistungs-tab" ref={leistungsTabRef} />
+        <Leistungs_Tab tabs={tabs} id="leistungs-tab" />
         <Contact_Box contact={contact} />
 
         { website_konvertiert && 

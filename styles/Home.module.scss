@@ -37,8 +37,12 @@
   ul {
     &.menuOpen { 
       a {
-        margin-top: 1rem;
-        margin-bottom: 2.5rem;
+        margin-top: auto;
+        margin-bottom: auto;
+        @media only screen and (max-width: 768px) {
+          margin-top: 1rem;
+          margin-bottom: 2rem;
+        }
       }
       li { 
         &:last-of-type {

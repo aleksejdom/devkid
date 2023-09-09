@@ -537,6 +537,9 @@ a.cta-button {
         display: grid;
         grid-template-columns: 35px auto;
         max-width: 100%;
+        @media only screen and (max-width: 768px) {
+          hyphens: auto;
+        }
       }
     }
     p {
