@@ -13,7 +13,7 @@ import Image from 'next/image';
 
 SwiperCore.use([Navigation]);
 
-const Referenzen_Box = forwardRef(({ referenzen, referenzenContent }, ref) => {
+const Referenzen_Box = forwardRef(({ referenzen, referenzenContent, link }, ref) => {
   const swiperRef = useRef(null); 
   const colors = ['#05473C', '#4A3170', '#7D0B32']; 
   const [colorIndex, setColorIndex] = useState(0);
@@ -187,7 +187,9 @@ const Referenzen_Box = forwardRef(({ referenzen, referenzenContent }, ref) => {
             }
           })
         }
-        <a href={`mailto:devkid.stgt@gmail.com?subject=DevKid - Erstgespräch Anfrage`} className={["cta-button"]} title="Website Erstellung" ref={addLineRef}>Kostenloses Erstgespräch anfragen</a>
+        { !link &&
+          <a href={`mailto:devkid.stgt@gmail.com?subject=DevKid - Erstgespräch Anfrage`} className={["cta-button"]} title="Website Erstellung" ref={addLineRef}>Kostenloses Erstgespräch anfragen</a>
+        }
       </div>
     </div>
   )

@@ -205,6 +205,7 @@ function Home({ long_text, long_text_cta, geschaeftsfelder, geschaeftsfelder_ima
           <li><Link href="/leistungen" title='Leistungen'>Leistungen</Link></li> 
           <li><Link href="#Referenzen" onClick={scrollToReferenzen} title='Referenzen'>Referenzen</Link></li>  
           <li><Link href="/wordpress-website-erstellen-lassen" title='WordPress Website'>WordPress</Link></li>
+          <li><Link href="/webdesign" title='Webdesign'>Webdesign</Link></li>
           <li><Link href="#kontakt" onClick={scrollToContact} title='Kontakt'>Kontakt</Link></li>       
           <li className='whatsapp'><Link href="https://wa.me/message/U7POMDGUX4DIN1" title="WhatsApp">Chat on WhatsApp</Link></li>
           <li className='aktion'><Link href="#rabatt" onClick={scrollToFooter} title="Rabatt Aktion">Sale 15% Rabatt</Link></li>

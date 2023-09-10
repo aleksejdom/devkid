@@ -69,7 +69,15 @@ class MyDocument extends Document {
         "url": "https://dev-kid.de"
       },{
         "@type": "WebPage",
-        "name": "WordPress Website erstellen lassen",
+        "name": "Leistungen",
+        "url": "https://dev-kid.de/leistungen"
+      },{
+        "@type": "WebPage",
+        "name": "Webdesign erstellen",
+        "url": "https://dev-kid.de/webdesign"
+      },{
+        "@type": "WebPage",
+        "name": "Eigene WordPress Website",
         "url": "https://dev-kid.de/wordpress-website-erstellen-lassen"
       },{
         "@type": "WebPage",
@@ -97,11 +105,11 @@ class MyDocument extends Document {
           <meta name="author" content="Aleksej Domovec" />
           <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-          <meta property="og:title" content="Website erstellen lassen - schnell, modern, aus Leidenschaft" />
+          <meta property="og:title" content="Website erstellen | Professionelle Homepage, Design nach Wunsch" />
           <meta property="og:type" content="website" />
           <meta property="og:url" content="https://dev-kid.de" />
           <meta property="og:image" content="https://dev-kid.de/images/og_header.jpg" />
-          <meta property="og:description" content="Nur einen Klick entfernt zur Ihrer Traum-Website! Lassen Sie sich von uns Ihre professionelle Website erstellen – mit schönem und ansprechendem Webdesign" />
+          <meta property="og:description" content="Website erstellen: ✓ schönes und ansprechendem Webdesign ✓ Mobile optimiert ✓ Günstige Preise" />
           <meta property="og:site_name" content="DevKid - Website Erstellung und Design aus Stuttgart" />
           <meta property="og:locale" content="de_DE" />
 
