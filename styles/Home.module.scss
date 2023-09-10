@@ -564,6 +564,9 @@
       margin-bottom: 1rem;
       margin-top: 3rem;
       width: 100%;
+      @media only screen and (max-width: 768px) {
+        grid-template-columns: 1fr;
+      }
     }
     p {
       margin: 0 0 1rem;
