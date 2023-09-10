@@ -3,7 +3,10 @@ import Head from 'next/head'
 import Image from 'next/image'
 import styles from '../styles/Home.module.scss' 
 import Prismic from 'prismic-javascript' 
-import { gsap } from "gsap";
+import { gsap } from "gsap";  
+import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
+
+
 import Leistungs_Tab from '../components/leistungs_tabs/Leistungs_Tab';
 import Contact_Box from '../components/contact_box/Contact_Box';
 import Usp_Box from '../components/usp_box/Usp_Box';
@@ -16,9 +19,10 @@ import Text_Box from '../components/text_box/Text_Box';
 import Responsive_image from '../components/responsive_image/Responsive_image';
 import Form_box from '../components/form_box/Form_box';
 
-
 // Prismic API Endpunkt
 const apiEndpoint = 'https://aleksej.cdn.prismic.io/api/v2'
+
+
 
 function Home({ long_text, long_text_cta, geschaeftsfelder, geschaeftsfelder_image_screen, geschaeftsfelder_image_mobile, website_pflege, website_pflege_image, wp_next_content, wp_next_content_second, wp_next_list, header_content, header_image, header_mobile_image, website_konventiert_mobile, website_konvertiert, website_konventiert_screen, agenturen, agenturen_image, website_gestalten, website_gestalten_screen, website_gestalten_mobile, tabs, contact, usp, referenzen, referenzenContent, footer, accordion, one_click_content, one_click_content_image, artikel_probleme, artikel_probleme_headline }) {
   const videoRef = useRef(null);
@@ -35,6 +39,31 @@ function Home({ long_text, long_text_cta, geschaeftsfelder, geschaeftsfelder_ima
   const footerRef = useRef(null);
   const referenzenRef = useRef(null);
   const contactRef = useRef(null);
+
+
+  useEffect(() => { 
+    gsap.registerPlugin(ScrollTrigger);
+
+    const paths = [...document.querySelectorAll('path.path-anim')];
+    
+    paths.forEach(el => {
+      const svgEl = el.closest('svg');
+      const pathTo = el.dataset.pathTo;
+  
+      gsap.timeline({
+        scrollTrigger: {
+          trigger: svgEl,
+          start: "top bottom",
+          end: "bottom top",
+          scrub: true,
+        },
+      })
+      .to(el, {
+        ease: 'none',
+        attr: { d: pathTo },
+      });
+    });
+  }, []);
 
   let tempLi = []; 
   const renderWithSpans = (text, spans) => {
@@ -219,8 +248,16 @@ function Home({ long_text, long_text_cta, geschaeftsfelder, geschaeftsfelder_ima
           &quot;Zauberhafte Ideen<br />treffen auf Erfahrung.&quot;
         </p>
       </header>
-       
+     {/*  <svg className={styles["separator"]} width="100%" height="100%" viewBox="0 0 100 10" preserveAspectRatio="none">
+          <path 
+            class="separator__path path-anim" 
+            d="M 0 0 C 40 10 60 10 100 0 L 0 0 Z" 
+            data-path-to="M 0 0 C 40 0 60 0 100 0 L 0 0 Z" 
+            vector-effect="non-scaling-stroke" 
+          />
+        </svg> */}
       <main className={styles.main}>
+        
         <Leistungs_Tab tabs={tabs} id="leistungs-tab" />
         <Contact_Box contact={contact} />
 
