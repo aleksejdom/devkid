@@ -48,6 +48,7 @@
         margin-right: 30px;
         cursor: pointer;
         font-size: 32px;
+        grid-template-columns: 1fr;
   
         &::before {
           display: none; 
