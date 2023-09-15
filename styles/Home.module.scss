@@ -269,13 +269,13 @@
 } 
 
 .main { 
-  padding: 6rem 6rem 0rem; 
+  padding: 0rem 6rem 0rem; 
   background: #1d1d1d;
   color: #ffffff;
   display: inline-block;
   width: 100%;
   @media only screen and (max-width: 768px) {
-    padding: 2rem 2rem 0;
+    padding: 0rem 2rem 0;
   }
 }
 
