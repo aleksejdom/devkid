@@ -91,20 +91,12 @@
     font-family: "DINPro", sans-serif;
     letter-spacing: 1px;
     max-width: 900px;
-    margin-bottom: 0px;
+    margin-bottom: 25px;
     margin-top: 0;
-
-     
-    &:last-of-type {
-      margin-bottom: 25px;
-      @media only screen and (min-width: 2550px) {
-        margin-bottom: 35px;
-      }
-    }
-
+ 
     + h3 {
-      margin-bottom: 0;
-    }
+      margin-bottom: 1.5rem;
+    } 
 
     @media only screen and (min-width: 2550px) {
       max-width: 1680px;
@@ -117,16 +109,14 @@
     }
   }
 
+ 
+
   h3 {
     font-size: 28px;
     line-height: 1.4;
     font-family: "DINPro", sans-serif;
     margin-bottom: 0rem;
-    margin-top: 0;
-
-    &:last-of-type {
-      margin-bottom: 3rem;
-    }
+    margin-top: 0; 
 
     @media only screen and (min-width: 2550px) {
       font-size: calc(28px + (21 - 14) * ((100vw - 300px) / (1920 - 300)));
