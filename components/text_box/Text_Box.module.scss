@@ -10,6 +10,7 @@
 
   p {
     margin-bottom: 1rem;
+    margin-top: 1rem;
     font-size: 26px;
     @media only screen and (min-width: 2550px) {
       font-size: calc(21px + ( 21 - 16) * ((100vw - 300px) / (3840 - 300)));
@@ -91,12 +92,8 @@
     font-family: "DINPro", sans-serif;
     letter-spacing: 1px;
     max-width: 900px;
-    margin-bottom: 25px;
-    margin-top: 0;
- 
-    + h3 {
-      margin-bottom: 1.5rem;
-    } 
+    margin-bottom: 20px;
+    margin-top: 20px;
 
     @media only screen and (min-width: 2550px) {
       max-width: 1680px;
@@ -115,7 +112,7 @@
     font-size: 28px;
     line-height: 1.4;
     font-family: "DINPro", sans-serif;
-    margin-bottom: 0rem;
+    margin-bottom: 2rem;
     margin-top: 0; 
 
     @media only screen and (min-width: 2550px) {
