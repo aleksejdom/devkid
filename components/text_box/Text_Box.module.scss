@@ -102,6 +102,10 @@
       }
     }
 
+    + h3 {
+      margin-bottom: 0;
+    }
+
     @media only screen and (min-width: 2550px) {
       max-width: 1680px;
       font-size: calc(42px + ( 42 - 16) * ((100vw - 300px) / (3840 - 300)));
