@@ -2,7 +2,7 @@ import React, { useState, useRef, useEffect } from 'react';
 import styles from './Text_Box.module.scss';
 import { gsap } from "gsap";
 
-export default function Text_Box({ origin, content, align, headline, cta, cta_text, black, read_more }) {
+export default function Text_Box({ origin, content, align, headline, cta, cta_text, black, read_more, title }) {
   const [isExpanded, setIsExpanded] = useState(false); 
 
   const boxRef = useRef(null);
@@ -87,7 +87,7 @@ export default function Text_Box({ origin, content, align, headline, cta, cta_te
         }
     
         elements.push(
-          <TagName key={`${item.type}-${index}`} ref={addLineRef}>{item.text}</TagName>
+          <TagName key={`${item.type}-${index}`} ref={addLineRef} >{item.text}</TagName>
         );
       }
     } else if (content) {
@@ -130,14 +130,14 @@ export default function Text_Box({ origin, content, align, headline, cta, cta_te
         } else if (["heading1", "heading2"].includes(item.type)) {
           const TagName = item.type.replace("heading", "h");
           elements.push( 
-            <TagName className={styles['line']} key={keyBase} ref={addLineRef}>
+            <TagName className={`${styles['line']}`} key={keyBase} ref={addLineRef}>
               {item.text}
             </TagName> 
           );
         } else if (["heading3"].includes(item.type)) {
           const TagName = item.type.replace("heading", "h");
           elements.push( 
-            <TagName key={keyBase} ref={addLineRef}>
+            <TagName key={keyBase} ref={addLineRef} >
               {item.text}
             </TagName> 
           );

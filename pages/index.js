@@ -271,7 +271,7 @@ function Home({ long_text, long_text_cta, geschaeftsfelder, geschaeftsfelder_ima
         { agenturen && 
           <div className='text-image-box' style={{ backgroundColor: colors[colorIndex] }}>
             <div className='text-image-box-content'>
-              <Text_Box content={agenturen} headline={'normal'} cta={'yes'} cta_text={'Beratung anfragen'}/>  
+              <Text_Box content={agenturen} headline={'normal'} cta={'yes'} cta_text={'Beratung anfragen'}  />  
               <div className="image-box">  
                 <Image src={agenturen_image.url} title={agenturen_image.alt} alt={agenturen_image.alt} width={1920} height={1080} ref={addLineRef}/> 
                 <Image src='./images/icon.svg' alt="icon" title="devkid icon" width={120} height={68} className='icon' ref={addLineRef}/>

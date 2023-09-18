@@ -40,7 +40,7 @@ h1 {
   font-family: 'DINPro', sans-serif;
   letter-spacing: 1px;
   max-width: 715px;
-  margin-bottom: 25px;
+  margin-bottom: 10px;
   margin-top: 0;
   line-height: 1;
 /*   word-break: break-word;
@@ -53,7 +53,7 @@ h1 {
     font-size: 60px;
   }
   @media only screen and (max-width: 768px) {
-    font-size: 36px; 
+    font-size: 28px; 
     line-height: 1.15;
     word-break: none;
     hyphens: none;
@@ -70,12 +70,13 @@ h2 {
   line-height: 1.2;
   word-break: break-word;
   hyphens: none;
+
   @media only screen and (min-width: 2550px) {
     font-size: calc(42px + ( 42 - 16) * ((100vw - 300px) / (3840 - 300)));
     max-width: 1024px;
   }
   @media only screen and (max-width: 768px) {
-    font-size: 32px; 
+    font-size: 21px; 
     hyphens: none;
   }
 }
@@ -111,7 +112,7 @@ p {
     }
     @media only screen and (max-width: 768px) {
       margin-top: 10px;
-      font-size: 21px;
+      font-size: 16px;
     }
   }
 

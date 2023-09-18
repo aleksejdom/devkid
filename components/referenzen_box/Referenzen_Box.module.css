@@ -201,4 +201,12 @@ img.referenzenButton:last-of-type {
     transform: scale(0.3) translateX(-9rem);
     height: 41px;
   }
+  .referenzenContent h3 { 
+    font-size: 28px; 
+    margin-bottom: 25px; 
+  }
+  .referenzenContent p {
+    font-size: 18px;
+    line-height: 1.4;
+  }
 }

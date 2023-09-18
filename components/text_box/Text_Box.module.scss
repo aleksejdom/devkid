@@ -11,7 +11,8 @@
   p {
     margin-bottom: 1rem;
     margin-top: 1rem;
-    font-size: 26px;
+    font-size: 21px;
+
     @media only screen and (min-width: 2550px) {
       font-size: calc(21px + ( 21 - 16) * ((100vw - 300px) / (3840 - 300)));
     }
@@ -19,21 +20,23 @@
       font-size: 16px;
     }
     span {
-      font-size: 24px;
+      font-size: 21px;
       line-height: 1.4;
       word-break: break-word;
       -webkit-hyphens: none;
       hyphens: none;
       margin: 0;
       font-family: "Avenir", sans-serif;
+
       @media only screen and (min-width: 2550px) {
         font-size: calc(24px + ( 24 - 16) * ((100vw - 300px) / (3840 - 300)));
       }
       @media only screen and (max-width: 768px) {
-        font-size: 21px;
+        font-size: 16px;
       }
     }
   }
+
   p > a {
     background-color: transparent;
     border: 1px solid #ffffff;
@@ -95,6 +98,10 @@
     margin-bottom: 20px;
     margin-top: 20px;
 
+    &.title {
+      margin-bottom: 0;
+    }
+
     @media only screen and (min-width: 2550px) {
       max-width: 1680px;
       font-size: calc(42px + ( 42 - 16) * ((100vw - 300px) / (3840 - 300)));
@@ -102,11 +109,10 @@
     @media only screen and (max-width: 768px) {
       font-size: 24px;
       hyphens: auto;
-      margin-bottom: 1rem;
+      margin-bottom: 10px;
+      margin-top: 0;
     }
-  }
-
- 
+  } 
 
   h3 {
     font-size: 28px;
@@ -114,14 +120,18 @@
     font-family: "DINPro", sans-serif;
     margin-bottom: 2rem;
     margin-top: 0; 
+    
+    &.title {
+      margin-bottom: 0;
+    }
 
     @media only screen and (min-width: 2550px) {
       font-size: calc(28px + (21 - 14) * ((100vw - 300px) / (1920 - 300)));
     }
     @media only screen and (max-width: 768px) {
       margin-bottom: 2rem;
-      margin-top: 1rem;
-      font-size: 24px;
+      margin-top: 0rem;
+      font-size: 18px;
     }
 
   }
@@ -132,6 +142,7 @@
       transform: translateY(65px); 
     }
   }
+
   @media only screen and (min-width: 2550px) {
     max-width: 1280px;
   }
@@ -326,11 +337,7 @@
    
     
   }
-
 }
-
-
-
 
 .big {
   h2, h3 {
@@ -361,11 +368,9 @@
     font-family: 'DINPro', sans-serif;
     letter-spacing: 1px;
     max-width: 540px;
-    margin-bottom: 0;
+    margin-bottom: 15px;
     margin-top: 0;
-    &:last-of-type {
-      margin-bottom: 25px;
-    }
+    
 
     @media only screen and (min-width: 2550px) {
       max-width: 1280px;
@@ -378,7 +383,7 @@
       max-width: 100%;
     }
     @media only screen and (max-width: 768px) {
-      font-size: 30px;
+      font-size: 24px;
       line-height: 1.2;
       hyphens: auto; 
     }
@@ -394,11 +399,12 @@
         margin-bottom: 2rem;
       }
     }
+
     @media only screen and (min-width: 2550px) {
       font-size: calc(28px + ( 28 - 16) * ((100vw - 300px) / (3840 - 300)));
     }
     @media only screen and (max-width: 768px) {
-      font-size: 24px;
+      font-size: 18px;
       margin-top: 0rem;
       margin-bottom: 0;
     }
@@ -423,4 +429,19 @@
       font-size: 18px; 
     }
   } 
+}
+
+.margin { 
+  h2 {
+    margin-top: 0;
+    margin-bottom: 25px;
+    @media only screen and (max-width: 768px) {
+      margin-bottom: 10px;
+    }
+  }
+  h3 {
+    @media only screen and (max-width: 768px) {
+      margin-top: 0;
+    }
+  }
 }

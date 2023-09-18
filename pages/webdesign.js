@@ -178,7 +178,7 @@ function Webdesign(
         </nav>
 
         <header className={styles.header}>  
-          <Text_Box content={header_content}/>
+          <Text_Box content={header_content} headline={'margin'}/>
           {header_image &&
             <Responsive_image image_screen={header_image.url} image_mobile={header_image_mobile.url} image_alt={header_image.alt}/> 
           }   
@@ -294,7 +294,7 @@ function Webdesign(
           }
           { firmenwebsite && 
             <div className="fullwide-image-box">
-              <Text_Box content={firmenwebsite}/>  
+              <Text_Box content={firmenwebsite} headline={'margin'}/>  
               <Responsive_image image_screen={firmenwebsite_image.url} image_mobile={firmenwebsite_image_mobile.url} image_alt={firmenwebsite_image.alt}/> 
             </div>
           }
