@@ -287,7 +287,7 @@ function Home({ long_text, long_text_cta, geschaeftsfelder, geschaeftsfelder_ima
           </div>
         }
 
-        <div className="wordpress-nextjs" >
+        {/* <div className="wordpress-nextjs" >
           <Text_Box content={wp_next_content} />
           <div className="vergleich">
             <div className="column">
@@ -310,7 +310,7 @@ function Home({ long_text, long_text_cta, geschaeftsfelder, geschaeftsfelder_ima
             }
           </div>
           <Text_Box content={wp_next_content_second} />
-        </div>
+        </div> */}
 
         { website_pflege && 
           <div className='text-image-box' style={{ backgroundColor: colors[colorIndex] }}>
@@ -361,7 +361,7 @@ function Home({ long_text, long_text_cta, geschaeftsfelder, geschaeftsfelder_ima
           </div>
         }
 
-        { long_text &&
+       {/*  { long_text &&
           <div className="column-text" style={{ backgroundColor: colors[colorIndex] }} ref={headerRef}>
             <div className="first-section">
               <div className="first-column">
@@ -414,12 +414,12 @@ function Home({ long_text, long_text_cta, geschaeftsfelder, geschaeftsfelder_ima
               })}
             </div>
           </div>
-        }
+        } */}
 
         <Form_box ref={contactRef} />
         <Usp_Box usp={usp}/> 
         <Referenzen_Box referenzen={referenzen} referenzenContent={referenzenContent} ref={referenzenRef} /> 
-        { one_click_content &&  
+        {/* { one_click_content &&  
           <div className='text-image-box'>
             <div className='text-image-box-content'>
               <Text_Box content={one_click_content} headline={'normal'} cta={'yes'} cta_text={'Jetzt Website erstellen lassen'}/>  
@@ -428,9 +428,9 @@ function Home({ long_text, long_text_cta, geschaeftsfelder, geschaeftsfelder_ima
               </div>
             </div> 
           </div>
-        }
-        <Artikel_Probleme artikel_probleme={artikel_probleme} artikel_probleme_headline={artikel_probleme_headline} />
-        <Accordion accordion={accordion} />
+        } */}
+        {/* <Artikel_Probleme artikel_probleme={artikel_probleme} artikel_probleme_headline={artikel_probleme_headline} /> */}
+        {/* <Accordion accordion={accordion} /> */}
       </main>
 
       <Footer footer={footer} id="footer" ref={footerRef} />
