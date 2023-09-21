@@ -227,7 +227,7 @@ function WordpressWebsiteErstellenLassen({footer, header_content, header_gradien
               </div>
               <div className="overlaybox"></div>
            </div>
-           <div className={styles_wordpress_website_erstellen_lassen['container']}>
+           <div className={styles_wordpress_website_erstellen_lassen['container']} >
               <div className={styles_wordpress_website_erstellen_lassen['content-box']}>
                 {weitere_leistungen ? (() => {
                   const elements = [];
@@ -271,7 +271,7 @@ function WordpressWebsiteErstellenLassen({footer, header_content, header_gradien
                 })() : null}
               </div>
            </div>
-           <div className='container' style={{ backgroundColor: colors[colorIndex] }} >
+           {/* <div className='container' style={{ backgroundColor: colors[colorIndex] }} >
               <div className={['content-box']}>
                 <Text_Box content={raus_90er_content} headline={'normal'} read_more={'yes'}/> 
                 <div className={styles_wordpress_website_erstellen_lassen['image-box']} >
@@ -282,8 +282,8 @@ function WordpressWebsiteErstellenLassen({footer, header_content, header_gradien
                 </div>
               </div>
               <div className="overlaybox"></div>
-           </div>
-           <div className={styles_wordpress_website_erstellen_lassen["large-text"]} ref={blogRef}>
+           </div> */}
+          {/*  <div className={styles_wordpress_website_erstellen_lassen["large-text"]} ref={blogRef} >
             <div className={styles_wordpress_website_erstellen_lassen["content-box"]} > 
               {unternehmens_blog ? (() => {
                 const elements = [];
@@ -335,8 +335,8 @@ function WordpressWebsiteErstellenLassen({footer, header_content, header_gradien
                 ))
               }
             </ul>   
-           </div>
-           <div className='container' style={{ backgroundColor: colors[colorIndex] }} >
+           </div> */}
+           {/* <div className='container' style={{ backgroundColor: colors[colorIndex] }} >
               <div className={['content-box']}>
                 <Text_Box content={nextjs_content} headline={'normal'} read_more={'yes'}/> 
                 <div className={styles_wordpress_website_erstellen_lassen['block-componente']} ref={addLineRef}>
@@ -352,7 +352,7 @@ function WordpressWebsiteErstellenLassen({footer, header_content, header_gradien
                 </div> 
               </div>
               <div className="overlaybox"></div>
-           </div>
+           </div> */}
            <div className='text-image-box'>
               <div className='text-image-box-content'>
                 <Text_Box content={more_time_content} headline={'normal'} />
