@@ -325,7 +325,7 @@ function Home({ long_text, long_text_cta, geschaeftsfelder, geschaeftsfelder_ima
         } */}
 
         { geschaeftsfelder && 
-          <div className="fullwide-image-box">
+          <div className="fullwide-image-box" style={{ backgroundColor: colors[colorIndex] }}>
             <div className="textBox">
               {geschaeftsfelder.map((item, index) => {
                 const key = `${item.type}-${index}`; 
@@ -357,7 +357,7 @@ function Home({ long_text, long_text_cta, geschaeftsfelder, geschaeftsfelder_ima
                 return null;
               })}
             </div>
-            <Responsive_image image_screen={geschaeftsfelder_image_screen.url} image_mobile={geschaeftsfelder_image_mobile.url} image_alt={geschaeftsfelder_image_screen.alt}/> 
+            {/* <Responsive_image image_screen={geschaeftsfelder_image_screen.url} image_mobile={geschaeftsfelder_image_mobile.url} image_alt={geschaeftsfelder_image_screen.alt}/>  */}
           </div>
         }
 
