@@ -312,7 +312,7 @@ function Home({ long_text, long_text_cta, geschaeftsfelder, geschaeftsfelder_ima
           <Text_Box content={wp_next_content_second} />
         </div> */}
 
-        { website_pflege && 
+       {/*  { website_pflege && 
           <div className='text-image-box' style={{ backgroundColor: colors[colorIndex] }}>
             <div className='text-image-box-content'>
               <Text_Box content={website_pflege} headline={'normal'} />  
@@ -322,7 +322,7 @@ function Home({ long_text, long_text_cta, geschaeftsfelder, geschaeftsfelder_ima
               </div>
             </div> 
           </div>
-        }
+        } */}
 
         { geschaeftsfelder && 
           <div className="fullwide-image-box">
