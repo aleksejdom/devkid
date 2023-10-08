@@ -51,13 +51,13 @@ img.icon {
 .details p {
   margin: 0;
   font-size: calc(16px + (16 - 14) * ((100vw - 300px) / (1920 - 300)));
-  line-height: 1.1;
+  line-height: 1.2;
   font-family: 'DINPro', sans-serif; 
 } 
 
 p.name {
-  font-size: calc(21px + (21 - 14) * ((100vw - 300px) / (1920 - 300)));
-  margin-bottom: 8px;
+  font-size: calc(18px + (18 - 14) * ((100vw - 300px) / (1920 - 300)));
+  margin-bottom: 2px;
   margin-left: 0px;
 }
 
