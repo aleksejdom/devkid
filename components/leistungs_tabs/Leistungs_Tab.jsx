@@ -32,9 +32,7 @@ const Leistungs_Tab = forwardRef(({tabs}, ref) => {
               y: 0,
               opacity: 1,
               ease: "power3.out",
-              onComplete: () => {
-                // Setzt die Animation zurück, wenn sie abgeschlossen ist
-                //gsap.set(entry.target, { clearProps: "all" });
+              onComplete: () => { 
               }
             }
           );

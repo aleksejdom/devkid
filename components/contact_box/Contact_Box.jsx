@@ -72,8 +72,7 @@ export default function Contact_Box({ contact }) {
     <div className={styles['contact-box']}>
       <div className={styles.title} ref={addLineRef}>
         {renderRichText(contact.contact_title)}
-      </div>
-      <Image src={contact.contact_image.url} alt='Aleksej Domovec' title="Webentwickler Stuttgart" width={860} height={804} className={styles.photo} ref={addLineRef}/>
+      </div> 
       <div className={styles.details}>
         <p className={styles.name} ref={addLineRef}>Aleksej Domovec</p>
         <div ref={addLineRef}>

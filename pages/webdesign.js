@@ -171,8 +171,7 @@ function Webdesign(
             <Link href="/" title='DevKid'><Image src="/images/devkid_logo_white.svg" alt="icon" title="Devkid Logo" width={120} height={45} className={styles.logo} /></Link>
             <li><Link href="/" title='Startseite'>Startseite</Link></li>  
             <li><Link href="/leistungen" title='Leistungen'>Leistungen</Link></li>  
-            <li><Link href="#kontakt" onClick={scrollToContact} title='Kontakt'>Kontakt</Link></li>       
-            <li className='whatsapp'><Link href="https://wa.me/message/U7POMDGUX4DIN1" title="WhatsApp">Chat on WhatsApp</Link></li>
+            <li><Link href="#kontakt" onClick={scrollToContact} title='Kontakt'>Kontakt</Link></li>        
             <li className='aktion'><Link href="#rabatt" onClick={scrollToFooter} title="Rabatt Aktion">Sale 15% Rabatt</Link></li>
           </ul>
         </nav>

@@ -160,10 +160,8 @@ function WordpressWebsiteErstellenLassen({footer, header_content, header_gradien
           <ul className={isMenuOpen ? home.menuOpen : ''}>
             <Link href="/" title='DevKid'><Image src="/images/devkid_logo_white.svg" alt="icon" title="Devkid Logo" width={120} height={45} className={home.logo} /></Link>
             <li><Link href="#BlockBaukasten" title='Block Baukasten' onClick={scrollToBlockBaukasten}>Block-Baukasten</Link></li> 
-            <li><Link href="#Komponente" title='Block Komponente' onClick={scrollToKomponente}>Komponente</Link></li>  
-            <li><Link href="#Blog" title='Blog' onClick={scrollToBlog}>Blog</Link></li>
-            <li><Link href="/webdesign" title='Webdesign'>Webdesign</Link></li>    
-            <li className='whatsapp'><Link href="https://wa.me/message/U7POMDGUX4DIN1" title="WhatsApp">Chat on WhatsApp</Link></li>
+            <li><Link href="#Komponente" title='Block Komponente' onClick={scrollToKomponente}>Komponente</Link></li>   
+            <li><Link href="/webdesign" title='Webdesign'>Webdesign</Link></li>     
             <li className='aktion'><Link href="#rabatt" onClick={scrollToFooter} title="Rabatt Aktion">Sale 15% Rabatt</Link></li> 
           </ul>
         </nav>
@@ -270,89 +268,7 @@ function WordpressWebsiteErstellenLassen({footer, header_content, header_gradien
                   return elements;
                 })() : null}
               </div>
-           </div>
-           {/* <div className='container' style={{ backgroundColor: colors[colorIndex] }} >
-              <div className={['content-box']}>
-                <Text_Box content={raus_90er_content} headline={'normal'} read_more={'yes'}/> 
-                <div className={styles_wordpress_website_erstellen_lassen['image-box']} >
-                  <div className={styles_wordpress_website_erstellen_lassen['image-box-wrapper']} >
-                    <Image src={raus_90er_image.url} title={raus_90er_image.alt} alt={raus_90er_image.alt} width={715} height={402} />
-                  </div>
-                  <Image src="./images/icon.svg" alt="icon" title="devkid icon" width={120} height={68} className={styles_wordpress_website_erstellen_lassen.icon} />
-                </div>
-              </div>
-              <div className="overlaybox"></div>
-           </div> */}
-          {/*  <div className={styles_wordpress_website_erstellen_lassen["large-text"]} ref={blogRef} >
-            <div className={styles_wordpress_website_erstellen_lassen["content-box"]} > 
-              {unternehmens_blog ? (() => {
-                const elements = [];
-                let listItems = [];
-
-                unternehmens_blog.forEach((item, index) => {
-                  if (item.type === "paragraph") {
-                    const textSegments = [];
-                    let lastEnd = 0;
-                    item.spans.forEach((span, spanIndex) => {
-                      textSegments.push(
-                        <span key={spanIndex * 2} >
-                          {item.text.substring(lastEnd, span.start)}
-                        </span>
-                      );
-                      textSegments.push(
-                        <strong key={spanIndex * 2 + 1}>
-                          {item.text.substring(span.start, span.end)}
-                        </strong>
-                      );
-                      lastEnd = span.end;
-                    });
-                    textSegments.push(<span key={textSegments.length}>{item.text.substring(lastEnd)}</span>);
-                    elements.push(<p key={index} ref={addLineRef}>{textSegments}</p>);
-                  } else if (item.type === "heading3") {
-                    elements.push(<h3 key={index} ref={addLineRef}>{item.text}</h3>);
-                  } else if (item.type === "heading2") {
-                    elements.push(<h2 key={index} ref={addLineRef}>{item.text}</h2>);
-                  } else if (item.type === "heading1") {
-                    elements.push(<h1 key={index} ref={addLineRef}>{item.text}</h1>);
-                  } else if (item.type === "list-item") {
-                    listItems.push(<li key={index} ref={addLineRef}>{item.text}</li>);
-                  } 
-                  if ((item.type !== "list-item" && listItems.length > 0) || 
-                  (index === unternehmens_blog.length - 1 && listItems.length > 0)) {
-                      elements.push(<ul key={`ul-${index}`} >{listItems}</ul>);
-                      listItems = []; // Liste zurücksetzen
-                    }
-                  });
-              
-                  return elements;
-                })() : null
-              } 
-            </div>
-            <ul className={styles_wordpress_website_erstellen_lassen["large-text-list"]}>
-              {
-                unternehmens_blog_items.map((item, index) => (
-                  <li key={index} ref={addLineRef}>{item.text}</li>
-                ))
-              }
-            </ul>   
-           </div> */}
-           {/* <div className='container' style={{ backgroundColor: colors[colorIndex] }} >
-              <div className={['content-box']}>
-                <Text_Box content={nextjs_content} headline={'normal'} read_more={'yes'}/> 
-                <div className={styles_wordpress_website_erstellen_lassen['block-componente']} ref={addLineRef}>
-                  <h3>Was kostet das Erstellen einer WordPress Website?</h3>
-                  <p>Die Websitekosten variieren je nach Anspruch und Design. Hier können Sie Ihre Kosten genau berechnen:</p>  
-                  <Link 
-                    href="/website-erstellen-lassen/was-kostet-eine-website" 
-                    className={styles_wordpress_website_erstellen_lassen['cta-button']} 
-                    title='Website'>
-                    Mehr erfahren
-                  </Link>
-                  <Image src="./images/icon.svg" alt="icon" title="devkid icon" width={120} height={68} className={styles_wordpress_website_erstellen_lassen.icon} />
-                </div> 
-              </div>
-              <div className="overlaybox"></div>
-           </div> */}
+           </div> 
            <div className='text-image-box'>
               <div className='text-image-box-content'>
                 <Text_Box content={more_time_content} headline={'normal'} />

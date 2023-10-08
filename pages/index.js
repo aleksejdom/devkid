@@ -21,10 +21,8 @@ import Form_box from '../components/form_box/Form_box';
 
 // Prismic API Endpunkt
 const apiEndpoint = 'https://aleksej.cdn.prismic.io/api/v2'
-
-
-
-function Home({ long_text, long_text_cta, geschaeftsfelder, geschaeftsfelder_image_screen, geschaeftsfelder_image_mobile, website_pflege, website_pflege_image, wp_next_content, wp_next_content_second, wp_next_list, header_content, header_image, header_mobile_image, website_konventiert_mobile, website_konvertiert, website_konventiert_screen, agenturen, agenturen_image, website_gestalten, website_gestalten_screen, website_gestalten_mobile, tabs, contact, usp, referenzen, referenzenContent, footer, accordion, one_click_content, one_click_content_image, artikel_probleme, artikel_probleme_headline }) {
+ 
+function Home({ geschaeftsfelder, header_content, header_image, header_mobile_image, website_konventiert_mobile, website_konvertiert, website_konventiert_screen, agenturen, agenturen_image, website_gestalten, website_gestalten_screen, website_gestalten_mobile, tabs, contact, usp, referenzen, referenzenContent, footer }) {
   const videoRef = useRef(null);
   const headerRef = useRef(null); 
   const colors = ['#05473C', '#4A3170', '#7D0B32']; 
@@ -38,8 +36,7 @@ function Home({ long_text, long_text_cta, geschaeftsfelder, geschaeftsfelder_ima
   const menuClasses = `${styles.burgerMenu} ${isMenuOpen ? styles.open : ''}`; 
   const footerRef = useRef(null);
   const referenzenRef = useRef(null);
-  const contactRef = useRef(null);
-
+  const contactRef = useRef(null); 
 
   useEffect(() => { 
     gsap.registerPlugin(ScrollTrigger);
@@ -116,23 +113,18 @@ function Home({ long_text, long_text_cta, geschaeftsfelder, geschaeftsfelder_ima
   }; 
 
   useEffect(() => {
-    const currentHeader = headerRef.current;
-
-    const handleScroll = () => {
-        // Some logic involving currentHeader
-    };
-
+    const currentHeader = headerRef.current; 
+    const handleScroll = () => { 
+    }; 
     window.addEventListener('scroll', handleScroll);
 
     return () => {
-        if (currentHeader) {
-            // Cleanup logic involving currentHeader
-            window.removeEventListener('scroll', handleScroll);
-        }
+      if (currentHeader) { 
+        window.removeEventListener('scroll', handleScroll);
+      }
     };
   }, []);
-
-  // Change the color every 4 seconds
+ 
   useEffect(() => {
       const timer = setInterval(() => {
         setColorIndex((prevColorIndex) => (prevColorIndex + 1) % colors.length);
@@ -192,9 +184,7 @@ function Home({ long_text, long_text_cta, geschaeftsfelder, geschaeftsfelder_ima
               y: 0,
               opacity: 1,
               ease: "power3.out",
-              onComplete: () => {
-                // Setzt die Animation zurück, wenn sie abgeschlossen ist
-                //gsap.set(entry.target, { clearProps: "all" });
+              onComplete: () => { 
               }
             }
           );
@@ -236,7 +226,6 @@ function Home({ long_text, long_text_cta, geschaeftsfelder, geschaeftsfelder_ima
           <li><Link href="/wordpress-website-erstellen-lassen" title='WordPress Website'>WordPress</Link></li>
           <li><Link href="/webdesign" title='Webdesign'>Webdesign</Link></li>
           <li><Link href="#kontakt" onClick={scrollToContact} title='Kontakt'>Kontakt</Link></li>       
-          <li className='whatsapp'><Link href="https://wa.me/message/U7POMDGUX4DIN1" title="WhatsApp">Chat on WhatsApp</Link></li>
           <li className='aktion'><Link href="#rabatt" onClick={scrollToFooter} title="Rabatt Aktion">Sale 15% Rabatt</Link></li>
         </ul>
       </nav>
@@ -248,14 +237,7 @@ function Home({ long_text, long_text_cta, geschaeftsfelder, geschaeftsfelder_ima
           &quot;Zauberhafte Ideen<br />treffen auf Erfahrung.&quot;
         </p>
       </header>
-     {/*  <svg className={styles["separator"]} width="100%" height="100%" viewBox="0 0 100 10" preserveAspectRatio="none">
-          <path 
-            class="separator__path path-anim" 
-            d="M 0 0 C 40 10 60 10 100 0 L 0 0 Z" 
-            data-path-to="M 0 0 C 40 0 60 0 100 0 L 0 0 Z" 
-            vector-effect="non-scaling-stroke" 
-          />
-        </svg> */}
+ 
       <main className={styles.main}>
         
         <Leistungs_Tab tabs={tabs} id="leistungs-tab" />
@@ -285,44 +267,7 @@ function Home({ long_text, long_text_cta, geschaeftsfelder, geschaeftsfelder_ima
             <Text_Box content={website_gestalten}/>  
             <Responsive_image image_screen={website_gestalten_screen.url} image_mobile={website_gestalten_mobile.url} image_alt={website_gestalten_screen.alt}/> 
           </div>
-        }
-
-        {/* <div className="wordpress-nextjs" >
-          <Text_Box content={wp_next_content} />
-          <div className="vergleich">
-            <div className="column">
-              <p ref={addLineRef}>Nextjs</p>
-              <p ref={addLineRef}>WordPress</p>
-            </div> 
-            { 
-              wp_next_list.map((itemGroup, groupIndex) => (
-                <div className="column" key={groupIndex}>
-                  { 
-                    itemGroup.wp_next_item.map((item, index) => {
-                      if (item.type === "list-item") {
-                        return <p key={index} ref={addLineRef}>{item.text}</p>;
-                      }
-                      return null; // nichts rendern, wenn der Typ nicht "list-item" ist
-                    }) 
-                  }
-                </div>
-              )) 
-            }
-          </div>
-          <Text_Box content={wp_next_content_second} />
-        </div> */}
-
-       {/*  { website_pflege && 
-          <div className='text-image-box' style={{ backgroundColor: colors[colorIndex] }}>
-            <div className='text-image-box-content'>
-              <Text_Box content={website_pflege} headline={'normal'} />  
-              <div className="image-box">  
-                <Image src={website_pflege_image.url} title={website_pflege_image.alt} alt={website_pflege_image.alt} width={1920} height={1080} ref={addLineRef}/> 
-                <Image src='./images/icon.svg' alt="icon" title="devkid icon" width={120} height={68} className='icon' ref={addLineRef}/>
-              </div>
-            </div> 
-          </div>
-        } */}
+        } 
 
         { geschaeftsfelder && 
           <div className="fullwide-image-box" style={{ backgroundColor: colors[colorIndex] }}>
@@ -356,83 +301,14 @@ function Home({ long_text, long_text_cta, geschaeftsfelder, geschaeftsfelder_ima
                 } 
                 return null;
               })}
-            </div>
-            {/* <Responsive_image image_screen={geschaeftsfelder_image_screen.url} image_mobile={geschaeftsfelder_image_mobile.url} image_alt={geschaeftsfelder_image_screen.alt}/>  */}
-          </div>
-        }
-
-       {/*  { long_text &&
-          <div className="column-text" style={{ backgroundColor: colors[colorIndex] }} ref={headerRef}>
-            <div className="first-section">
-              <div className="first-column">
-                {long_text.slice(0, Math.ceil(long_text.length / 2)).map((item, index) => {
-                  if (item.type === 'heading2') {
-                    return (
-                      <span key={`${index}-span`}>
-                        <h2 key={index} ref={addLineRef}>{item.text}</h2>
-                      </span>
-                    )
-                  }
-                  if (item.type === 'paragraph') {
-                    return <p key={index} ref={addLineRef}>{item.text}</p>;
-                  }
-                  return null;
-                })}
-              </div> 
-              <div className="second-column">
-                {long_text.slice(Math.ceil(long_text.length / 2)).map((item, index) => {
-                  if (item.type === 'heading2') {
-                    return <h2 key={index} ref={addLineRef}>{item.text}</h2>;
-                  }
-                  if (item.type === 'paragraph') {
-                    return <p key={index} ref={addLineRef}>{item.text}</p>;
-                  }
-                  return null;
-                })}
-              </div>
-            </div>  
-            <div className="second-section">
-              <div className={styles.videobox}>
-                <video ref={videoRef} autoPlay muted loop playsInline >
-                  <source src="./videos/clip.m4v" type="video/mp4" />
-                  <source src="./videos/clip.webm" type="video/webm" />
-                </video>
-                <Image src="./images/icon.svg" alt="icon" title="devkid icon" width={120} height={68} className={styles.icon}/>
-              </div> 
-              {long_text_cta.map((cta, index) => {
-                if (cta.spans.length > 0 && cta.spans[0].type === 'hyperlink') {
-                  const text = cta.text.substring(cta.spans[0].start, cta.spans[0].end);
-                  return (
-                    <p key={index} ref={addLineRef}>
-                      {cta.text.substring(0, cta.spans[0].start)}
-                      <a href={cta.spans[0].url} ref={addLineRef}>{text}</a>
-                      {cta.text.substring(cta.spans[0].end)}
-                    </p>
-                  );
-                }
-                return <p key={index} ref={addLineRef}>{cta.text}</p>;
-              })}
-            </div>
-          </div>
-        } */}
-
-        <Form_box ref={contactRef} />
-        <Usp_Box usp={usp}/> 
-        <Referenzen_Box referenzen={referenzen} referenzenContent={referenzenContent} ref={referenzenRef} /> 
-        {/* { one_click_content &&  
-          <div className='text-image-box'>
-            <div className='text-image-box-content'>
-              <Text_Box content={one_click_content} headline={'normal'} cta={'yes'} cta_text={'Jetzt Website erstellen lassen'}/>  
-              <div className="image-box">  
-                <Image src={one_click_content_image.url} title={one_click_content_image.alt} alt={one_click_content_image.alt} width={1920} height={1080} ref={addLineRef}/> 
-              </div>
             </div> 
           </div>
-        } */}
-        {/* <Artikel_Probleme artikel_probleme={artikel_probleme} artikel_probleme_headline={artikel_probleme_headline} /> */}
-        {/* <Accordion accordion={accordion} /> */}
-      </main>
-
+        }
+ 
+        <Form_box ref={contactRef} />
+        <Usp_Box usp={usp}/> 
+        <Referenzen_Box referenzen={referenzen} referenzenContent={referenzenContent} ref={referenzenRef} />  
+      </main> 
       <Footer footer={footer} id="footer" ref={footerRef} />
     </>
   )
